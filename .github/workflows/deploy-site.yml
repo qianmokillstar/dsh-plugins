@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
     paths:
+      - 'data/**'
+      - 'content/**'
+      - 'market/**'
+      - 'scripts/**'
       - 'site/**'
   # harvest 用 GITHUB_TOKEN 提交，不会触发 push 事件；用 workflow_run 在它跑完后部署。
   workflow_run:
@@ -28,6 +32,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build site from committed data
+        env:
+          MIN_SITE_ENTRIES: '50'
+        run: node scripts/build-site.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -38,16 +38,14 @@ jobs:
       - name: Write daily snapshot
         run: node scripts/snapshot.mjs
 
-      - name: Rebuild market index and site
-        run: |
-          node scripts/build-market.mjs
-          node scripts/build-site.mjs
+      - name: Rebuild market index
+        run: node scripts/build-market.mjs
 
       - name: Commit refreshed data
         run: |
           git config user.name "market-bot"
           git config user.email "market-bot@users.noreply.github.com"
-          git add data/catalog.json data/github.json data/history market site
+          git add data/catalog.json data/github.json data/history market
           if git diff --cached --quiet; then
             echo "no changes"
           else

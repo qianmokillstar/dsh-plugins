@@ -1,5 +1,5 @@
-# 依赖与构建产物之外，只保留可公开的项目文件
-node_modules/
+# 站点是构建产物：由 GitHub Actions 在部署时生成，不入库（本地照常生成）
+/site/
 
 # 第三方 README 原文与它的索引：仅用于本地核对事实，不对外分发（见 docs/COMPLIANCE.md）
 data/readmes/
