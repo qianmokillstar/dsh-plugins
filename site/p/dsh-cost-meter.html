@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>会话费用与额度统计 · DSH 插件站</title>
+<meta name="description" content="按会话与模型统计费用和 Token，内置 170+ 模型价格目录，可查多家订阅额度，并支持预算提醒与峰谷时段提示。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a></h1></div>
+<p class="subtitle">搜一个插件，立刻知道它能不能用、适合谁、有什么坑。不收钱、不卖排名。</p>
+<div class="nav"><a href="../index.html">插件目录</a><a href="../changelog.html">更新日志</a><a href="../submit.html">提交插件</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-cost-meter · 会话费用与额度统计</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge warn">风险 中</span>
+  </div>
+  <blockquote>一句话结论：DSH 里最像&quot;财务仪表盘&quot;的插件——按会话、模型、日期算钱，还能把各家订阅额度拉到一个界面里；代价是要给它联网和一部分账号凭据。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>同时用 API 和多份 Coding Plan / 订阅，想知道&quot;这个月钱花在哪&quot;的人。</li>
+<li>团队里要给 Agent 使用定预算、设上限的人。</li>
+<li>喜欢看趋势、模型排行、缓存命中率和 Token 热图的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>输入区、标题栏、每轮回复显示费用；展开可看单价、Token、输入内容和工具结果，父子代理费用分开归属。</li>
+<li>按日期 / 渠道 / 模型筛选，看趋势、模型排行、缓存命中率与 Token 热图；单个或全部会话可导出。</li>
+<li>内置 170+ 模型价格目录，可编辑单价、倍率与峰谷档位，同步 DeepSeek 官方价与 OpenRouter 目录。</li>
+<li>套餐额度聚合：Codex/ChatGPT、OpenCode Go、MiniMax、Claude、GLM、Kimi、千问、MiMo、OpenDesign 等，另有 CLIProxyAPI 多账号与自定义 HTTP 余额查询。</li>
+<li>预算提醒：按日 / 月 / 累计 / 自定义日期设预算，峰谷倒计时与切换前弹窗、系统通知。</li>
+<li>侧栏、输入区、额度横条的显示可自定义，支持中英双语、深色主题和手机端。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>凭据覆盖广</strong>：要查订阅额度，往往需要各家账号的 Cookie、API key 或 AK/SK。这是敏感信息，建议只配你真正在用的那几家，别为了&quot;看得全&quot;把所有账号都填进去。</li>
+<li><strong>联网行为多</strong>：官方价格同步、OpenRouter 目录、各家额度查询都会出网；用代理或离线环境时部分功能会失败。</li>
+<li><strong>统计口径要自己对</strong>：API 费用与 Plan 等值费用是分开统计的，峰谷倍率也能手改——数字准不准取决于你的配置，别直接拿去报销。</li>
+<li>历史记录会占本地存储，README 提到可设保留范围与管理存储，但默认策略需自己确认。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong><code>dsh-whale-widget</code></strong>：右下角余额小鲸鱼，看余额/今日消耗/峰谷，轻量得多，但没有会话级明细与导出。</li>
+<li><strong>官方 <code>dsh-token-meter</code> + <code>dsh-experimental-client-ui-stats</code></strong>：内置的 Token 计量与每轮成本表，够用但只有基础维度。</li>
+<li><strong><code>dsh-connect-workbuddy</code></strong>：专注把 WorkBuddy 余额与积分接进来，不是通用计费面板。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-cost-meter@1.9.70</code>（由 DSH 插件页/Discover 执行，本市场不代装）</li>
+<li>要求 DSH ≥ 0.2.0（<code>engines.dsh</code>：<code>&gt;=0.2.0-rc.1 &lt;0.3.0-0</code>）· 许可证 MIT</li>
+<li>周下载量 39,286（npm，2026-11-09 至 11-15）· 最近发布 2026-11-16</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-cost-meter" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/Han-1413141/dsh-cost-meter" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-16 · 结论依据该版本 README 原文</li>
+</ul>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/Han-1413141/dsh-cost-meter" target="_blank" rel="noreferrer noopener">Han-1413141/dsh-cost-meter</a></dd><dt>安装 spec</dt><dd><code>dsh-cost-meter@1.9.70</code></dd><dt>版本 / 更新</dt><dd>1.9.70 · 2026-11-16</dd><dt>Star</dt><dd>708</dd><dt>周下载</dt><dd>39,286</dd><dt>许可证</dt><dd>MIT</dd><dt>DSH 版本要求</dt><dd><code>&gt;=0.2.0-rc.1 &lt;0.3.0-0</code>（声明值，未实测）</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-cost-meter" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/Han-1413141/dsh-cost-meter" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://github.com/Han-1413141/dsh-cost-meter#readme" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div>数据：npm registry / downloads API / GitHub API，构建于 2026-11-17（DSH 0.2.2-rc.3）。</div>
+  <div>判断信息来自人工阅读 README 与实测；未实测的条目标注"未核实"，不代表安全担保。收录与排序不接受付费。</div>
+  <div>插件名称、描述、许可证等元数据版权归各作者所有；本站判断为独立评论，仅作必要事实引用。</div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>视频分镜与可引用帧 · DSH 插件站</title>
+<meta name="description" content="把视频压成一张可寻址的宫格图，带时间戳与台词，纯文本模型因此能引用某一格、再放大看某几秒。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a></h1></div>
+<p class="subtitle">搜一个插件，立刻知道它能不能用、适合谁、有什么坑。不收钱、不卖排名。</p>
+<div class="nav"><a href="../index.html">插件目录</a><a href="../changelog.html">更新日志</a><a href="../submit.html">提交插件</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-video-storyboard · 视频分镜与可引用帧</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge warn">风险 中</span>
+  </div>
+  <blockquote>一句话结论：给纯文本模型装一双&quot;能翻页的眼睛&quot;——把视频压成一张带时间戳和台词的宫格图，模型可以引用&quot;第 5 格&quot;再放大看某几秒；代价是三个外部依赖和一个 cookies 文件。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>需要让模型看视频、写分镜、总结讲解、做素材笔记的人。</li>
+<li>对 token 敏感：5 分钟片子一张图只花 222 token，比逐帧便宜一个数量级。</li>
+<li>愿意装 ffmpeg / yt-dlp、能提供 cookies.txt 的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>输入一个视频，输出一张可寻址宫格图：每格烧编号、对应时间段、挂那段时间的台词，底部还有与画面同时间轴的音频包络。</li>
+<li>模型能引用具体格子、再用 <code>video_zoom</code> 回到原始流按帧取 1080P，且不落盘。</li>
+<li>直接贴 B 站等 yt-dlp 支持的链接，两级取流：扫描用 360P 全片，放大才回原流。</li>
+<li>实测数据写得清楚：90 秒 PV 扫描 9 秒出 12 格、对齐 41 个切点；同文件第二次 3.6 秒（命中缓存）。</li>
+<li>自带 <code>node bin/doctor.mjs</code> 体检：把 ffmpeg / yt-dlp / ASR / 缓存目录挨个查一遍。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>三个外部依赖</strong>：ffmpeg、yt-dlp、ASR 缺一个就跑不顺；README 直言&quot;用户反馈里一半以上不是 bug，是没配 ASR 或装完 ffmpeg 没重启 DSH&quot;。</li>
+<li><strong>cookies.txt 是必需的</strong>：匿名最高 480P、登录才到 1080P，而且匿名时 1080P 根本不在格式列表里。这个文件等于你的账号凭据，要自己保管好，别放进版本库。</li>
+<li><strong>抓站点的合规面</strong>：yt-dlp 取流涉及平台条款，自用与再分发的边界要自己判断。</li>
+<li><strong>画面即上传</strong>：宫格图会作为图片进入对话，视频里的敏感信息同样会进模型。</li>
+<li>版本 0.7.x，作者自己写了很多排障文档，说明坑确实存在。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong>人工截帧 + <code>read_image</code></strong>：零依赖，适合只要两三帧的轻量场景。</li>
+<li>**<code>dsh-video-*</code> 系列之外暂无同定位插件**：本市场采集窗口内没有发现第二个&quot;视频宫格分镜&quot;插件。</li>
+<li><strong>先转写再读</strong>：用 ASR 出文字稿交给模型，省 token 但丢掉画面信息。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-video-storyboard@0.7.6</code>（由 DSH 插件页/Discover 执行，本市场不代装）</li>
+<li>许可证 Apache-2.0 · 周下载量 10,114（npm，2026-11-09 至 11-15）· 最近发布 2026-11-16</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-video-storyboard" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/SAOS-3624/dsh-video-storyboard" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-16 · 结论依据该版本 README 原文</li>
+</ul>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/SAOS-3624/dsh-video-storyboard" target="_blank" rel="noreferrer noopener">SAOS-3624/dsh-video-storyboard</a></dd><dt>安装 spec</dt><dd><code>dsh-video-storyboard@0.7.6</code></dd><dt>版本 / 更新</dt><dd>0.7.6 · 2026-11-16</dd><dt>Star</dt><dd>562</dd><dt>周下载</dt><dd>10,114</dd><dt>许可证</dt><dd>Apache-2.0</dd><dt>DSH 版本要求</dt><dd>未声明</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-video-storyboard" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/SAOS-3624/dsh-video-storyboard" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://github.com/SAOS-3624/dsh-video-storyboard#readme" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div>数据：npm registry / downloads API / GitHub API，构建于 2026-11-17（DSH 0.2.2-rc.3）。</div>
+  <div>判断信息来自人工阅读 README 与实测；未实测的条目标注"未核实"，不代表安全担保。收录与排序不接受付费。</div>
+  <div>插件名称、描述、许可证等元数据版权归各作者所有；本站判断为独立评论，仅作必要事实引用。</div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

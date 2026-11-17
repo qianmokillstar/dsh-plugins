@@ -1,0 +1,36 @@
+# 发布站点：推送时把 site/ 部署到 GitHub Pages。
+# 放到仓库的 .github/workflows/deploy-site.yml 后生效；需在仓库 Settings → Pages 里
+# 把 Source 设为 "GitHub Actions"。
+name: deploy-site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'market/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

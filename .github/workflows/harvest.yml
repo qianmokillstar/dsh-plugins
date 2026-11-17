@@ -1,0 +1,56 @@
+name: harvest
+
+on:
+  schedule:
+    # UTC 00:17 = 北京时间 08:17
+    - cron: '17 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: harvest
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Harvest npm registry
+        env:
+          HARVEST_PAGES: '2'
+          HARVEST_DETAILS: '140'
+        run: node scripts/harvest.mjs
+
+      - name: Harvest GitHub topic dsh-plugin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAGES: '4'
+        run: node scripts/harvest-github.mjs
+
+      - name: Write daily snapshot
+        run: node scripts/snapshot.mjs
+
+      - name: Rebuild market index and site
+        run: |
+          node scripts/build-market.mjs
+          node scripts/build-site.mjs
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "market-bot"
+          git config user.email "market-bot@users.noreply.github.com"
+          git add data/catalog.json data/github.json data/history market site
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore: daily harvest $(date -u +%F)"
+            git push
+          fi

@@ -1,0 +1,21 @@
+{
+  "name": "dsh-plugin-market-deepseek",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "E 盘上的 DSH 插件市场：真实 npm 数据采集 + 人工审核短评 + format 1 索引 + 静态站 + 本地服务",
+  "scripts": {
+    "harvest": "node scripts/harvest.mjs",
+    "readmes": "node scripts/fetch-readmes.mjs",
+    "snapshot": "node scripts/snapshot.mjs",
+    "weekly": "node scripts/weekly.mjs",
+    "build:market": "node scripts/build-market.mjs",
+    "build:site": "node scripts/build-site.mjs",
+    "build": "node scripts/build-market.mjs && node scripts/build-site.mjs",
+    "serve": "node server/serve.mjs",
+    "verify": "node scripts/validate-index.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

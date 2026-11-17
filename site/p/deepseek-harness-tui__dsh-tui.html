@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>终端界面 · DSH 插件站</title>
+<meta name="description" content="在终端里跑 DSH 会话：流式 Markdown、工具卡片、斜杠与 @ 补全、历史搜索，外加像素鲸鱼首页。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a></h1></div>
+<p class="subtitle">搜一个插件，立刻知道它能不能用、适合谁、有什么坑。不收钱、不卖排名。</p>
+<div class="nav"><a href="../index.html">插件目录</a><a href="../changelog.html">更新日志</a><a href="../submit.html">提交插件</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>@deepseek-harness-tui/dsh-tui · 终端界面</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge ok">风险 低</span>
+  </div>
+  <blockquote>一句话结论：给习惯住在终端里的人一个&quot;不离开命令行也能用 DSH&quot;的入口；它只吃公开导出、卸载不留补丁，但仍在公开测试期。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>长期在 tmux / SSH 终端里工作，不愿意为了一次对话切浏览器的人。</li>
+<li>想要纯键盘操作、<code>/</code> 与 <code>@</code> 补全、历史搜索的人。</li>
+<li>喜欢像素鲸鱼、TPS 仪表盘这类&quot;有性格&quot;的终端 UI 的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>终端内交互式 UI：流式 Markdown、工具卡片、<code>/</code> 与 <code>@</code> 补全、<code>#L12-14</code> 行范围引用、历史搜索，中英双语界面。</li>
+<li>首页启动器 + 四步首次引导向导（账号与模型 / 语言与主题 / 模型与工作区 / 快捷键），可用 <code>/setup</code> 重跑。</li>
+<li>双 Esc 时间回溯、上下文进度条、TPS 仪表、实时工作状态、流式思考展示。</li>
+<li>只消费 DSH 的公开导出，不改核心；正在从&quot;挂载插件&quot;过渡到&quot;自带入口的应用&quot;，卸载不留补丁。</li>
+<li>图片 <code>@path</code> 引用与粘贴图片共用同一套准入与缩放策略。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>公开测试期</strong>：README 自己标注 public beta，0.20.x 的接口与交互仍在变；遇到问题先看版本更新说明。</li>
+<li><strong>定位在变</strong>：从挂载插件转向独立应用的 composition root，迁移期可能同时存在两种启动方式，文档容易对不上。</li>
+<li><strong>模型/供应商耦合</strong>：启动向导会引导登录订阅或添加 API key，步骤多，选错了要在 <code>/provider</code> 里改回来。</li>
+<li>终端能力受终端本身限制：图片、色彩、按键在不同终端（Windows Terminal / tmux / SSH）表现不一致。</li>
+<li>与 Web 界面并行使用时，偏好设置各自独立，容易&quot;为什么这里是这样&quot;。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong>官方 <code>dsh</code> CLI + <code>dsh-headless</code> bundle</strong>：一次性任务或脚本化调用的官方路径，没有交互式 UI。</li>
+<li><strong><code>dsh-ops</code></strong>：偏 Windows/Linux 原生工具与 PowerShell 集成，不是 TUI。</li>
+<li><strong>浏览器 Web GUI</strong>：功能最全，只是要在终端外切窗口。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>@deepseek-harness-tui/dsh-tui@0.20.1</code>（由 DSH 插件页/Discover 执行，本市场不代装）</li>
+<li>许可证 MIT · 周下载量 19,206（npm，2026-11-09 至 11-15）· 最近发布 2026-11-14</li>
+<li>来源：<a href="https://www.npmjs.com/package/@deepseek-harness-tui/dsh-tui" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/ccch1mneyyy/dsh-TUI" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-16 · 结论依据该版本 README 原文</li>
+</ul>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/ccch1mneyyy/dsh-TUI" target="_blank" rel="noreferrer noopener">ccch1mneyyy/dsh-TUI</a></dd><dt>安装 spec</dt><dd><code>@deepseek-harness-tui/dsh-tui@0.20.1</code></dd><dt>版本 / 更新</dt><dd>0.20.1 · 2026-11-17</dd><dt>Star</dt><dd>7,814</dd><dt>周下载</dt><dd>19,206</dd><dt>许可证</dt><dd>MIT</dd><dt>DSH 版本要求</dt><dd>未声明</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/@deepseek-harness-tui/dsh-tui" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/ccch1mneyyy/dsh-TUI" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://github.com/ccch1mneyyy/dsh-TUI#readme" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div>数据：npm registry / downloads API / GitHub API，构建于 2026-11-17（DSH 0.2.2-rc.3）。</div>
+  <div>判断信息来自人工阅读 README 与实测；未实测的条目标注"未核实"，不代表安全担保。收录与排序不接受付费。</div>
+  <div>插件名称、描述、许可证等元数据版权归各作者所有；本站判断为独立评论，仅作必要事实引用。</div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

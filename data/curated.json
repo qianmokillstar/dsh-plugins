@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "reviewedAt": "2026-11-16",
+  "reviewer": "插件市场deepseek 编辑部",
+  "method": "README 原文人工阅读 + registry 元数据核对；每条回答四问：适合谁 / 解决什么 / 风险点 / 替代品。AI 仅用于整理原文，结论由人工确认。",
+  "items": [
+    {
+      "name": "dsh-agent-compare",
+      "category": "productivity",
+      "curationRank": 100,
+      "risk": "low",
+      "title": { "en": "Agent Compare", "zh": "鲸挑细选 · 同需求多方案对比" },
+      "summary": {
+        "en": "Run one request as 2-4 parallel variants in the main conversation, compare answers, files or live pages, then adopt the one you prefer.",
+        "zh": "把同一个需求交给 2–4 个版本并行做，在主对话里比较回答、文件和可运行网页，盲选或公开对比后再采纳。"
+      },
+      "labels": ["chinese-docs", "needs-network"],
+      "review": "content/reviews/dsh-agent-compare.md"
+    },
+    {
+      "name": "dsh-remote",
+      "category": "devtools",
+      "curationRank": 95,
+      "risk": "medium",
+      "title": { "en": "Remote Workspaces", "zh": "SSH 远程工作区" },
+      "summary": {
+        "en": "Turns SSH hosts into DSH workspaces: remote file tree, highlighted editing, recursive search, terminals and Git diffs, with the agent working in the remote directory.",
+        "zh": "把 SSH 主机变成 DSH 工作区：远程文件树、高亮编辑、递归搜索、终端与 Git 差异，Agent 直接在远端目录里读写、构建和测试。"
+      },
+      "labels": ["chinese-docs", "needs-network", "needs-credentials"],
+      "review": "content/reviews/dsh-remote.md"
+    },
+    {
+      "name": "dsh-cost-meter",
+      "category": "observability",
+      "curationRank": 90,
+      "risk": "medium",
+      "title": { "en": "Cost Meter", "zh": "会话费用与额度统计" },
+      "summary": {
+        "en": "Per-session, per-model cost and token accounting, with a 170+ model price catalogue, subscription-quota lookups, budgets and peak/off-peak reminders.",
+        "zh": "按会话与模型统计费用和 Token，内置 170+ 模型价格目录，可查多家订阅额度，并支持预算提醒与峰谷时段提示。"
+      },
+      "labels": ["chinese-docs", "needs-network", "needs-credentials", "external-service"],
+      "review": "content/reviews/dsh-cost-meter.md"
+    },
+    {
+      "name": "dsh-free-search",
+      "category": "search",
+      "curationRank": 85,
+      "risk": "medium",
+      "title": { "en": "Free Search", "zh": "免 Key 多引擎搜索" },
+      "summary": {
+        "en": "Registers a web-search provider with 40 switchable engines and automatic fallback, so search no longer depends on the official DeepSeek key.",
+        "zh": "注册一个可切换 40 个引擎的搜索 provider 并自动回退，让 web_search 不再依赖 DeepSeek 官方 API key。"
+      },
+      "labels": ["chinese-docs", "needs-network", "external-service", "experimental"],
+      "review": "content/reviews/dsh-free-search.md"
+    },
+    {
+      "name": "dsh-mnemon",
+      "category": "memory",
+      "curationRank": 80,
+      "risk": "medium",
+      "title": { "en": "Mnemon Context", "zh": "分层记忆与上下文编排" },
+      "summary": {
+        "en": "Layered, inspectable memory for DSH: working memory, project archives and long-term evidence, with pluggable sources, strategies and nine storage backends.",
+        "zh": "给 DSH 的分层、可见记忆：工作记忆、项目档案与长期证据分离，来源与策略可插拔，本地存储或接入 8 种第三方 Provider。"
+      },
+      "labels": ["chinese-docs", "needs-network"],
+      "review": "content/reviews/dsh-mnemon.md"
+    },
+    {
+      "name": "dsh-windows-mcp",
+      "category": "automation",
+      "curationRank": 75,
+      "risk": "high",
+      "title": { "en": "Windows Desktop Control", "zh": "Windows 桌面自动化" },
+      "summary": {
+        "en": "Bridges CursorTouch/Windows-MCP into DSH through the built-in MCP client: screenshots, UI automation, input, clipboard, processes and registry, gated by a per-session switch.",
+        "zh": "通过 DSH 自带 MCP 桥接入 Windows-MCP：截屏、UI 自动化、输入、剪贴板、进程与注册表，默认关闭且按会话授权。"
+      },
+      "labels": ["chinese-docs", "external-service", "experimental"],
+      "review": "content/reviews/dsh-windows-mcp.md"
+    },
+    {
+      "name": "@michengai/dsh-archive-manager",
+      "category": "productivity",
+      "curationRank": 70,
+      "risk": "low",
+      "title": { "en": "Archive Manager", "zh": "会话归档与检索" },
+      "summary": {
+        "en": "Archive, restore, favourite and permanently delete sessions, search archived message bodies, and clean up orphaned subagents.",
+        "zh": "归档、恢复、收藏和永久删除会话，支持正文全文检索与快速预览，并能清理孤儿子代理。"
+      },
+      "labels": ["chinese-docs"],
+      "review": "content/reviews/michengai__dsh-archive-manager.md"
+    },
+    {
+      "name": "dsh-video-storyboard",
+      "category": "media",
+      "curationRank": 65,
+      "risk": "medium",
+      "title": { "en": "Video Storyboard", "zh": "视频分镜与可引用帧" },
+      "summary": {
+        "en": "Turns a video into one addressable contact-sheet image with timestamps and ASR lines, so a text model can cite frames and zoom into a few seconds.",
+        "zh": "把视频压成一张可寻址的宫格图，带时间戳与台词，纯文本模型因此能引用某一格、再放大看某几秒。"
+      },
+      "labels": ["chinese-docs", "needs-network", "needs-credentials", "external-service", "experimental"],
+      "review": "content/reviews/dsh-video-storyboard.md"
+    },
+    {
+      "name": "dsh-dream-skin",
+      "category": "appearance",
+      "curationRank": 60,
+      "risk": "low",
+      "title": { "en": "Dream Skin", "zh": "换肤与壁纸" },
+      "summary": {
+        "en": "Eight original skins plus wallpaper, accent colour and shareable theme packs, implemented purely on the native --dsw-* token surface.",
+        "zh": "8 套原创皮肤，外加壁纸、强调色与可分享主题包，全部走原生 --dsw-* token，不注入、不改安装包。"
+      },
+      "labels": ["chinese-docs"],
+      "review": "content/reviews/dsh-dream-skin.md"
+    },
+    {
+      "name": "@deepseek-harness-tui/dsh-tui",
+      "category": "devtools",
+      "curationRank": 55,
+      "risk": "low",
+      "title": { "en": "Terminal UI", "zh": "终端界面" },
+      "summary": {
+        "en": "An interactive terminal UI for DSH sessions: streaming markdown, tool cards, slash and @ completion, history search, and a pixel-whale header.",
+        "zh": "在终端里跑 DSH 会话：流式 Markdown、工具卡片、斜杠与 @ 补全、历史搜索，外加像素鲸鱼首页。"
+      },
+      "labels": ["chinese-docs", "experimental", "needs-network"],
+      "review": "content/reviews/deepseek-harness-tui__dsh-tui.md"
+    }
+  ]
+}

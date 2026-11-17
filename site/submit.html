@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>提交插件 · DSH 插件站</title>
+<meta name="description" content="推荐一个 DSH 插件，或补上它的判断信息。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a></h1></div>
+<p class="subtitle">搜一个插件，立刻知道它能不能用、适合谁、有什么坑。不收钱、不卖排名。</p>
+<div class="nav"><a href="index.html">插件目录</a><a href="changelog.html">更新日志</a><a href="submit.html">提交插件</a></div></header>
+<div class="page">
+  <h1>提交插件</h1>
+  <p>你可以推荐自己的插件，也可以推荐觉得好用的别人的插件。我们只做一件事：<strong>核实它能不能装、装过之后有没有坑</strong>。</p>
+  <div class="notice">
+    当前版本还没有后端表单服务，提交入口走 GitHub Issue。字段填完整会被优先处理；只给一个名字的会被排到后面。
+  </div>
+  <form class="form" id="submit-form">
+    <label>插件名 / npm 包名<input name="name" placeholder="例如 dsh-remote" required></label>
+    <label>仓库地址<input name="repo" placeholder="https://github.com/owner/repo"></label>
+    <label>一句话说明<input name="summary" placeholder="它解决什么问题"></label>
+    <label>适合谁<input name="fit" placeholder="具体场景，不要写「功能强大」"></label>
+    <label>风险点（凭据 / 权限 / 成本 / 依赖）<input name="risk" placeholder="例如：需要写入 SSH 凭据"></label>
+    <label>替代品<input name="alt" placeholder="同类插件，或「什么都不装」"></label>
+    <button type="submit">生成提交内容</button>
+  </form>
+  <div id="result" style="display:none;margin-top:16px">
+    <p>下面这段可以直接贴到 DSH 社群、GitHub Issue 或发给维护者：</p>
+    <textarea id="output" rows="8" style="width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:10px;font-family:ui-monospace,Consolas,monospace;font-size:13px"></textarea>
+    <button class="copy" id="copy-output" style="margin-top:8px">复制这段</button>
+  </div>
+  <h2>提交之后会发生什么</h2>
+  <ul>
+    <li>我们会先核实：包是否存在、是否有 dsh 声明、版本与许可证</li>
+    <li>然后试装一次，记录测试的 DSH 版本与日期</li>
+    <li>通过后进入目录；判断信息不足的，会先标"未核实"上线，不阻塞收录</li>
+  </ul>
+  <script>
+    document.getElementById('submit-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var form = new FormData(event.target);
+      var lines = ['### 插件提交', ''];
+      [['name','插件名'],['repo','仓库'],['summary','一句话说明'],['fit','适合谁'],['risk','风险点'],['alt','替代品']].forEach(function (pair) {
+        var value = form.get(pair[0]);
+        if (value) lines.push('- ' + pair[1] + '：' + value);
+      });
+      lines.push('', '- 提交时间：' + new Date().toISOString().slice(0, 10));
+      var output = document.getElementById('output');
+      output.value = lines.join('\n');
+      document.getElementById('result').style.display = 'block';
+      output.focus();
+    });
+    document.getElementById('copy-output').addEventListener('click', function () {
+      var button = this;
+      navigator.clipboard.writeText(document.getElementById('output').value).then(function () {
+        button.textContent = '已复制';
+        setTimeout(function () { button.textContent = '复制这段'; }, 1500);
+      });
+    });
+  </script>
+</div>
+<footer class="site">
+  <div>数据：npm registry / downloads API / GitHub API，构建于 2026-11-17（DSH 0.2.2-rc.3）。</div>
+  <div>判断信息来自人工阅读 README 与实测；未实测的条目标注"未核实"，不代表安全担保。收录与排序不接受付费。</div>
+  <div>插件名称、描述、许可证等元数据版权归各作者所有；本站判断为独立评论，仅作必要事实引用。</div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

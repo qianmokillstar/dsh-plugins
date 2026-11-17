@@ -1,0 +1,12 @@
+# 依赖与构建产物之外，只保留可公开的项目文件
+node_modules/
+
+# 第三方 README 原文与它的索引：仅用于本地核对事实，不对外分发（见 docs/COMPLIANCE.md）
+data/readmes/
+data/readmes-index.json
+
+# 临时工具与本机残留
+.dsh-tools/
+*.log
+Thumbs.db
+desktop.ini

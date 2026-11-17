@@ -1,0 +1,48 @@
+# 每日采集：不需要你的电脑开机，由 GitHub Actions 定时跑。
+# 放到仓库的 .github/workflows/harvest.yml 后生效。
+name: harvest
+
+on:
+  schedule:
+    # UTC 00:17 = 北京时间 08:17；想换时间改这里
+    - cron: '17 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Harvest npm registry
+        env:
+          HARVEST_PAGES: '2'
+          HARVEST_DETAILS: '140'
+        run: node scripts/harvest.mjs
+
+      - name: Write daily snapshot
+        run: node scripts/snapshot.mjs
+
+      - name: Rebuild market index and site
+        run: |
+          node scripts/build-market.mjs
+          node scripts/build-site.mjs
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "market-bot"
+          git config user.email "market-bot@users.noreply.github.com"
+          git add data/catalog.json data/history market site
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore: daily harvest $(date -u +%F)"
+            git push
+          fi
