@@ -80,6 +80,14 @@ const marketIndex = await readJson(join(ROOT, 'market', 'index.json'), null)
 const trialData = await readJson(join(ROOT, 'data', 'trial-install.json'), null)
 const trialByName = new Map((trialData?.items ?? []).map((item) => [item.name, item]))
 const trialInstalled = (trialData?.items ?? []).filter((item) => item.result === 'installed')
+const launchData = await readJson(join(ROOT, 'data', 'launch-test.json'), null)
+const launchByName = new Map((launchData?.plugins ?? []).map((item) => [item.name, item]))
+const ACTIVATION_TEXT = {
+  loaded: '已加载（日志证实）',
+  'no-error': '已组合 · 未见报错',
+  pending: '待激活（缺 webServer）',
+  'not-composed': '独立 app · 未参与组合',
+}
 
 const curatedByName = new Map(curated.items.map((item) => [item.name, item]))
 const reviewFiles = new Set(await readdir(join(ROOT, 'content', 'reviews')).catch(() => []))
@@ -923,32 +931,38 @@ const scenesBody = `<div class="page" style="border:0;background:none;box-shadow
 const verificationsBody = `<div class="page">
   <h1>核验记录</h1>
   <p>每条记录写清：核验日期、DSH 版本、依据、结论。<b>能复现的才写进来</b>。</p>
-  <p class="notice">当前 ${REVIEWED.length} 条记录中，<b>${trialInstalled.length} 条已完成安装实测</b>（真装进隔离 profile，记录版本与日期）；其余为文档核验。实测只证明"能装进 DSH 插件体系"，<b>不代表运行无问题</b>。</p>
+  <p class="notice">当前 ${REVIEWED.length} 条记录中，<b>${trialInstalled.length} 条已完成安装实测</b>（真装进隔离 profile，记录版本与日期），<b>${launchByName.size} 条有启动核验结论</b>（已加载 ${[...launchByName.values()].filter((item) => item.activation === 'loaded').length} / 待激活 ${[...launchByName.values()].filter((item) => item.activation === 'pending').length} / 组合无报错 ${[...launchByName.values()].filter((item) => item.activation === 'no-error').length} / 不参与组合 ${[...launchByName.values()].filter((item) => item.activation === 'not-composed').length}）。安装成功不代表运行无问题，启动核验也不代表功能正确。</p>
   <table class="verify-table">
-    <thead><tr><th>插件</th><th>核验日期</th><th>DSH 版本</th><th>依据</th><th>结论</th><th>风险</th></tr></thead>
+    <thead><tr><th>插件</th><th>安装</th><th>启动核验</th><th>核验日期</th><th>DSH 版本</th><th>结论</th><th>风险</th></tr></thead>
     <tbody>
       ${REVIEWED.map((entry) => {
         const trial = trialByName.get(entry.name)
+        const launch = launchByName.get(entry.name)
         const evidence = trial
-          ? (trial.result === 'installed' ? '安装实测' : '安装实测（失败）')
-          : '文档核验（README + registry）'
+          ? (trial.result === 'installed' ? `已装 ${escapeHtml(trial.version ?? '')}` : '安装失败')
+          : '—'
+        const activation = launch ? (ACTIVATION_TEXT[launch.activation] ?? launch.activation) : '未验证'
         const verdict = trial
           ? (trial.result === 'installed'
-              ? `已装入隔离 profile，版本 ${escapeHtml(trial.version ?? '未知')}`
+              ? `已装入隔离 profile${launch?.note ? `；${escapeHtml(launch.note)}` : ''}`
               : `安装失败：${escapeHtml(trial.reason ?? '未知')}`)
           : (entry.verified ? '包声明存在，可安装（未实测运行）' : '仅 README 线索，未核实')
         const date = trial ? escapeHtml(trial.date) : '2026-11-16 / 17'
         return `<tr>
         <td><a href="p/${entry.slug}.html"><code>${escapeHtml(entry.name)}</code></a></td>
+        <td>${evidence}</td>
+        <td>${escapeHtml(activation)}</td>
         <td>${date}</td>
         <td>${DSH_VERSION}</td>
-        <td>${evidence}</td>
         <td>${verdict}</td>
         <td>${escapeHtml({ low: '低', medium: '中', high: '高' }[entry.risk] ?? '未评级')}</td>
       </tr>`
       }).join('')}
     </tbody>
   </table>
+  ${launchData ? `<h2>启动核验说明（${escapeHtml(launchData.date)} · DSH ${escapeHtml(launchData.dshVersion)}）</h2>
+  <p>在一个最小 profile（<code>${escapeHtml(launchData.profile)}</code>）里启动 <code>${escapeHtml(launchData.launch.command)}</code>，结果：${escapeHtml(launchData.launch.result)}。</p>
+  <ul>${(launchData.launch.notes ?? []).map((note) => `<li>${escapeHtml(note)}</li>`).join('')}</ul>` : ''}
   <h2>下一批要补的</h2>
   <ul>
     <li>运行实测：装上之后再启动一次，确认没有启动报错（当前只做安装）</li>

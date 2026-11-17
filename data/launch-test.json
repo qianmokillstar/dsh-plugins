@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "date": "2026-11-17",
+  "dshVersion": "0.2.2-rc.3",
+  "profile": "market-test（测试后已删除，释放 428.9 MB）",
+  "launch": {
+    "command": "dsh --profile=market-test web --no-open --port 51999",
+    "result": "进程启动后未监听端口；127 秒后终止",
+    "notes": [
+      "dsh-cost-meter 正常加载并按 JSONL 回填 5 天 / 20 个会话",
+      "2 个条目 pending：archive-manager 等待 webServer + workspaceRegistry，dream-skin 等待 webServer",
+      "该 profile 缺少 web 宿主 bundle（@deepseek-ai/dsh-web-app），因此 web 端口未起来",
+      "npm 上 @deepseek-ai/dsh-web-app 的 latest 为 0.0.1-rc.1 占位版本，与本机 0.2.2-rc.3 不兼容",
+      "尝试安装匹配版本 0.2.2-rc.3 时依赖树膨胀到 428.9 MB 且网络停滞，已中止"
+    ]
+  },
+  "plugins": [
+    {
+      "name": "dsh-cost-meter",
+      "activation": "loaded",
+      "note": "日志证实加载并完成历史回填"
+    },
+    {
+      "name": "@michengai/dsh-archive-manager",
+      "activation": "pending",
+      "note": "等待 webServer / workspaceRegistry"
+    },
+    {
+      "name": "dsh-dream-skin",
+      "activation": "pending",
+      "note": "等待 webServer"
+    },
+    {
+      "name": "dsh-remote",
+      "activation": "no-error",
+      "note": "已组合，启动期未见报错"
+    },
+    {
+      "name": "dsh-free-search",
+      "activation": "no-error",
+      "note": "已组合，启动期未见报错"
+    },
+    {
+      "name": "dsh-mnemon",
+      "activation": "no-error",
+      "note": "已组合，启动期未见报错"
+    },
+    {
+      "name": "dsh-windows-mcp",
+      "activation": "no-error",
+      "note": "已组合，启动期未见报错（MCP 子进程未触发）"
+    },
+    {
+      "name": "dsh-video-storyboard",
+      "activation": "no-error",
+      "note": "已组合，启动期未见报错"
+    },
+    {
+      "name": "dsh-agent-compare",
+      "activation": "no-error",
+      "note": "已组合，启动期未见报错"
+    },
+    {
+      "name": "@deepseek-harness-tui/dsh-tui",
+      "activation": "not-composed",
+      "note": "独立 app 入口，不参与 profile 组合"
+    }
+  ]
+}
