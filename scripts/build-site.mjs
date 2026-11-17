@@ -77,6 +77,9 @@ const catalog = (await readJson(join(ROOT, 'data', 'catalog.json'), { plugins: [
 const github = await readJson(join(ROOT, 'data', 'github.json'), null)
 const curated = (await readJson(join(ROOT, 'data', 'curated.json'), { items: [] })) ?? { items: [] }
 const marketIndex = await readJson(join(ROOT, 'market', 'index.json'), null)
+const trialData = await readJson(join(ROOT, 'data', 'trial-install.json'), null)
+const trialByName = new Map((trialData?.items ?? []).map((item) => [item.name, item]))
+const trialInstalled = (trialData?.items ?? []).filter((item) => item.result === 'installed')
 
 const curatedByName = new Map(curated.items.map((item) => [item.name, item]))
 const reviewFiles = new Set(await readdir(join(ROOT, 'content', 'reviews')).catch(() => []))
@@ -580,6 +583,12 @@ for (const entry of entries) {
     ['许可证', escapeHtml(entry.license ?? '未声明')],
     ['DSH 版本要求', entry.enginesDsh ? `<code>${escapeHtml(entry.enginesDsh)}</code>（声明值，未实测）` : '未声明'],
     ['核实状态', entry.verified ? `已核实：${escapeHtml(entry.verifyNote)}` : `未核实：${escapeHtml(entry.verifyNote)}`],
+    ['安装实测', (() => {
+      const trial = trialByName.get(entry.name)
+      if (!trial) return '未实测'
+      if (trial.result === 'installed') return `已装成功 ${escapeHtml(trial.version ?? '')}（${escapeHtml(trial.date)} · DSH ${escapeHtml(trial.dshVersion)}）`
+      return `安装失败（${escapeHtml(trial.date)} · DSH ${escapeHtml(trial.dshVersion)}）：${escapeHtml(trial.reason ?? '未知原因')}`
+    })()],
     ['链接', [entry.npmUrl ? `<a href="${escapeHtml(entry.npmUrl)}" target="_blank" rel="noreferrer noopener">npm</a>` : '', entry.repoUrl ? `<a href="${escapeHtml(entry.repoUrl)}" target="_blank" rel="noreferrer noopener">GitHub</a>` : '', entry.homepage ? `<a href="${escapeHtml(entry.homepage)}" target="_blank" rel="noreferrer noopener">主页</a>` : ''].filter(Boolean).join(' · ')],
   ].map(([key, value]) => `<dt>${key}</dt><dd>${value}</dd>`).join('')
 
@@ -855,6 +864,36 @@ const scenes = [
     skip: ['项目里已经有 AGENTS.md 且规则不多 —— 先写好约定文件，不够再上记忆插件'],
     watch: ['自动写入的记忆一旦写错会被反复引用，定期抽查删除', '接入第三方 Provider 意味着项目内容离开本机', '配置项很多，第一天上手容易配出自己也看不懂的组合'],
   },
+  {
+    id: 'search',
+    title: '场景四 · 联网搜索：没有官方 key 也要能搜',
+    lead: '内置 web_search 依赖 DeepSeek 官方 key；用第三方模型供应商时要么搜不了，要么照样扣官方账户的钱。',
+    steps: [
+      ['dsh-free-search', '注册多引擎搜索 provider 并自动回退；先只开默认的免费引擎，别开抓页面那 5 个。'],
+    ],
+    skip: ['已经配好官方 key、且不介意按官方计费 —— 内置能力足够，不必多装一层'],
+    watch: ['抓页面引擎（百度/360/搜狗/微信/头条）会把整段出口 IP 打标，默认关闭就别打开', '免 key 用各家接口，商用前自行确认对方条款', '免费引擎会限流改版，结果质量会波动'],
+  },
+  {
+    id: 'desktop',
+    title: '场景五 · 桌面自动化：操作没有 API 的软件',
+    lead: '内部系统、老客户端、只有界面没有接口的活，只能靠截屏 + 点按 + 输入。',
+    steps: [
+      ['dsh-windows-mcp', '通过 DSH 自带 MCP 桥接入 Windows-MCP；默认关闭，按会话点亮胶囊才生效。'],
+    ],
+    skip: ['任务只在浏览器里 —— 用浏览器类工具，权限面小得多'],
+    watch: ['注册表读写、进程启停、键鼠输入在同一套授权下，重活先拿测试机试', 'Screenshot 会把屏幕上的一切作为图片送进对话', '依赖 uvx 与上游 Windows-MCP 版本，上游变了工具清单会变'],
+  },
+  {
+    id: 'compare',
+    title: '场景六 · 多方案对比：一次拿到几个版本再挑',
+    lead: '同一个需求，想要 2–4 种实现并排看，而不是反复"再来一版"。',
+    steps: [
+      ['dsh-agent-compare', '并行跑 2–4 个版本，回答 / 文件 / 可运行网页并排比较，选定后写理由再继续主对话。'],
+    ],
+    skip: ['需求本身很明确、只需要一次输出 —— 并行 2–4 路等于 2–4 倍成本'],
+    watch: ['token 消耗成倍增加，配合费用统计插件用', '多版内容都会进会话，长会话容易吃满上下文'],
+  },
 ]
 
 const nameSet = new Set(entries.map((entry) => entry.name))
@@ -884,23 +923,35 @@ const scenesBody = `<div class="page" style="border:0;background:none;box-shadow
 const verificationsBody = `<div class="page">
   <h1>核验记录</h1>
   <p>每条记录写清：核验日期、DSH 版本、依据、结论。<b>能复现的才写进来</b>。</p>
-  <p class="notice">诚实说明：目前 ${REVIEWED.length} 条记录全部是<b>文档核验</b>（读 README / 包声明 / registry 元数据），<b>尚未做安装实测</b>。「实测」列会在真正装过之后填写，不会用推断冒充。</p>
+  <p class="notice">当前 ${REVIEWED.length} 条记录中，<b>${trialInstalled.length} 条已完成安装实测</b>（真装进隔离 profile，记录版本与日期）；其余为文档核验。实测只证明"能装进 DSH 插件体系"，<b>不代表运行无问题</b>。</p>
   <table class="verify-table">
     <thead><tr><th>插件</th><th>核验日期</th><th>DSH 版本</th><th>依据</th><th>结论</th><th>风险</th></tr></thead>
     <tbody>
-      ${REVIEWED.map((entry) => `<tr>
+      ${REVIEWED.map((entry) => {
+        const trial = trialByName.get(entry.name)
+        const evidence = trial
+          ? (trial.result === 'installed' ? '安装实测' : '安装实测（失败）')
+          : '文档核验（README + registry）'
+        const verdict = trial
+          ? (trial.result === 'installed'
+              ? `已装入隔离 profile，版本 ${escapeHtml(trial.version ?? '未知')}`
+              : `安装失败：${escapeHtml(trial.reason ?? '未知')}`)
+          : (entry.verified ? '包声明存在，可安装（未实测运行）' : '仅 README 线索，未核实')
+        const date = trial ? escapeHtml(trial.date) : '2026-11-16 / 17'
+        return `<tr>
         <td><a href="p/${entry.slug}.html"><code>${escapeHtml(entry.name)}</code></a></td>
-        <td>2026-11-16 / 17</td>
+        <td>${date}</td>
         <td>${DSH_VERSION}</td>
-        <td>文档核验（README + registry）</td>
-        <td>${entry.verified ? '包声明存在，可安装（未实测运行）' : '仅 README 线索，未核实'}</td>
+        <td>${evidence}</td>
+        <td>${verdict}</td>
         <td>${escapeHtml({ low: '低', medium: '中', high: '高' }[entry.risk] ?? '未评级')}</td>
-      </tr>`).join('')}
+      </tr>`
+      }).join('')}
     </tbody>
   </table>
   <h2>下一批要补的</h2>
   <ul>
-    <li>安装实测：在隔离的测试 profile 里真装一次，记录版本与日期</li>
+    <li>运行实测：装上之后再启动一次，确认没有启动报错（当前只做安装）</li>
     <li>失败记录同样收录（装不上的原因比"能装"更有价值）</li>
     <li>卸载 / 回滚是否干净</li>
   </ul>

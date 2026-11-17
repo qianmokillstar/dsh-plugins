@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "updatedAt": "2026-11-17T13:47:28.876Z",
+  "profile": "market-test",
+  "dshVersion": "0.2.2-rc.3",
+  "items": [
+    {
+      "name": "dsh-agent-compare",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "3.1.1",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "dsh-remote",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "1.2.0",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "dsh-cost-meter",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "1.9.70",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "dsh-free-search",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "0.9.53",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "dsh-mnemon",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "0.5.46",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "dsh-windows-mcp",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "0.2.11",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "@michengai/dsh-archive-manager",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "1.3.6",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "dsh-video-storyboard",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "0.7.6",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "dsh-dream-skin",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "11.16.0",
+      "seconds": null,
+      "reason": null,
+      "logTail": ""
+    },
+    {
+      "name": "@deepseek-harness-tui/dsh-tui",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-17",
+      "result": "installed",
+      "version": "0.20.1",
+      "seconds": 184,
+      "reason": null,
+      "logTail": ""
+    }
+  ]
+}
