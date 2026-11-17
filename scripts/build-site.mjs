@@ -353,6 +353,20 @@ article.review code, .page code { font-family: ui-monospace, SFMono-Regular, Con
 .page h2 { font-size: 17px; margin: 26px 0 8px; }
 .page p, .page li { color: var(--ink-muted); }
 .notice { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 12px 16px; border-radius: 0 8px 8px 0; color: var(--ink); margin: 16px 0; }
+.tag-unofficial { font-size: 12px; font-weight: 600; color: var(--warn); background: var(--warn-soft); border: 1px solid color-mix(in srgb, var(--warn) 40%, var(--line)); border-radius: 999px; padding: 2px 10px; margin-left: 10px; vertical-align: middle; }
+.disclaimer-strip { margin: 10px 0 0; padding: 9px 13px; background: var(--bg-raised); border: 1px solid var(--line); border-left: 3px solid var(--warn); border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--ink-muted); }
+.disclaimer-strip a { margin-left: 6px; }
+.foot-links { margin-top: 4px; }
+.scene { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); margin: 16px 0; }
+.scene h2 { margin: 0 0 6px; font-size: 18px; }
+.scene .lead { color: var(--ink-muted); margin: 0 0 14px; }
+.scene ol, .scene ul { margin: 8px 0 14px; padding-left: 22px; }
+.scene li { margin: 6px 0; }
+.scene h3 { font-size: 14px; margin: 16px 0 6px; color: var(--ink-muted); text-transform: none; }
+.verify-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+.verify-table th, .verify-table td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+.verify-table th { color: var(--ink-muted); font-weight: 600; font-size: 12px; }
+.verify-table code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; }
 .form { display: grid; gap: 12px; margin-top: 16px; }
 .form label { display: grid; gap: 6px; font-size: 13.5px; color: var(--ink-muted); }
 .form input, .form textarea { background: var(--bg); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 9px 11px; font: inherit; font-size: 14px; width: 100%; }
@@ -484,14 +498,16 @@ function shell({ title, description, body, base = '', nav = true }) {
 </head>
 <body>
 <div class="wrap">
-${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a></h1></div>
-<p class="subtitle">搜一个插件，立刻知道它能不能用、适合谁、有什么坑。不收钱、不卖排名。</p>
-<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}changelog.html">更新日志</a><a href="${base}submit.html">提交插件</a></div></header>` : ''}
+${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">搜一个插件，立刻知道它能不能用、适合谁、有什么坑。不卖排名、不接赞助。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="${base}rules.html">收录规则</a></p>
+<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}changelog.html">更新日志</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
 ${body}
 <footer class="site">
-  <div>数据：npm registry / downloads API / GitHub API，构建于 ${escapeHtml(stats.builtAt)}（DSH ${DSH_VERSION}）。</div>
-  <div>判断信息来自人工阅读 README 与实测；未实测的条目标注"未核实"，不代表安全担保。收录与排序不接受付费。</div>
-  <div>插件名称、描述、许可证等元数据版权归各作者所有；本站判断为独立评论，仅作必要事实引用。</div>
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>数据来源：npm registry / downloads API / GitHub API，构建于 ${escapeHtml(stats.builtAt)}（DSH ${DSH_VERSION}）。核验结论均标注日期，不构成安装或安全担保。</div>
+  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${base}submit.html">提交插件</a></div>
 </footer>
 </div>
 <script src="${base}assets/app.js"></script>
@@ -527,11 +543,11 @@ const clientData = entries.map((entry) => ({
 }))
 
 const homeBody = `<div class="stats">
-  <span class="stat">收录 <b>${stats.total}</b></span>
+  <span class="stat">场景施工图 <b>__SCENE_COUNT__</b></span>
+  <span class="stat">带人工判断的插件 <b>${stats.reviewed}</b></span>
+  <span class="stat">带日期核验记录 <b>__VERIFIED_COUNT__</b></span>
   <span class="stat">已核实可安装 <b>${stats.verified}</b></span>
-  <span class="stat">人工短评 <b>${stats.reviewed}</b></span>
-  <span class="stat">GitHub 检查 <b>${stats.githubChecked}</b> 个仓库</span>
-  <span class="stat">排除噪声 <b>${stats.githubRejected}</b></span>
+  <span class="stat">参考目录 <b>${stats.total}</b>（未逐条核验）</span>
 </div>
 <div class="toolbar">
   <div class="controls">
@@ -689,11 +705,229 @@ const submitBody = `<div class="page">
   </script>
 </div>`
 
+// ---------- 合规与定位页面 ----------
+const REVIEWED = entries.filter((entry) => entry.reviewBody)
+
+const rulesBody = `<div class="page">
+  <h1>收录规则与标准</h1>
+  <p class="disclaimer-strip" style="margin-bottom:18px">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。</p>
+
+  <h2>收录门槛（三选一才算"已核实"）</h2>
+  <ul>
+    <li>npm 包的 <code>package.json</code> 声明了 <code>dsh.bundle.patch</code></li>
+    <li>仓库根 <code>package.json</code> 声明了 <code>dsh</code> 字段（bundle / client / profile）</li>
+    <li>仓库自带 <code>cordis.patch.yml</code></li>
+  </ul>
+  <p>只有 README 提到安装方式、拿不到包声明的，可以收录，但必须标「未核实」，不得标「已核实可安装」。</p>
+
+  <h2>判断标准</h2>
+  <p>每条人工判断必须回答四问，缺一不发布：</p>
+  <ul>
+    <li><b>适合谁</b>：人群与具体场景，不写"所有人"</li>
+    <li><b>解决什么</b>：写能力，能量化就量化</li>
+    <li><b>风险点</b>：至少一条真会出事的（凭据 / 隐私 / 成本 / 权限 / 外部依赖）</li>
+    <li><b>替代品</b>：至少两个，包含"什么都不装"</li>
+  </ul>
+
+  <h2>排序与收费</h2>
+  <p>推荐序由人工判断给出，不接受付费、不接受指定排名。当前站点<b>没有任何赞助、推广位或付费收录</b>。若未来出现商业合作，会在对应位置显著标注「赞助/推广」。</p>
+
+  <h2>不收录</h2>
+  <ul>
+    <li>要求关闭沙箱 / 审批 / 权限模型才能用的</li>
+    <li>收集用户数据但不说明用途与存储位置的</li>
+    <li>只有壳、功能与描述不符的</li>
+    <li>冒用官方名义但无官方关系的（社区项目会单独标注）</li>
+  </ul>
+
+  <h2>命名与视觉</h2>
+  <p>站名「DSH 插件站」为描述性名称，页面固定标注「非官方 · 第三方」；站点 Logo 为本站自绘，不使用官方标识，也不与官方标识并列呈现，避免造成关联误认。</p>
+</div>`
+
+const takedownBody = `<div class="page">
+  <h1>下架与侵权投诉</h1>
+  <p class="disclaimer-strip" style="margin-bottom:18px">收到有效投诉后，本站<b>先下架、再核实</b>，不为收录数量拖延。</p>
+
+  <h2>怎么提</h2>
+  <p>在仓库提一个 Issue：<a href="https://github.com/qianmokillstar/dsh-plugins/issues/new" target="_blank" rel="noreferrer noopener">新建 Issue</a>，标题以 <code>[下架]</code> 或 <code>[侵权]</code> 开头。</p>
+
+  <h2>需要提供什么</h2>
+  <ul>
+    <li>涉及的插件名或页面地址</li>
+    <li>你的身份：作者本人 / 版权方 / 代理方</li>
+    <li>下架理由：版权、商标、事实错误、恶意插件、隐私问题等</li>
+    <li>可选的佐证：仓库链接、License 说明、截图</li>
+  </ul>
+
+  <h2>处理流程与时限</h2>
+  <ol>
+    <li>收到投诉：<b>24 小时内</b>先隐藏对应条目或修正页面</li>
+    <li>核实：与你确认事实，必要时请插件作者回应</li>
+    <li>结论：恢复（并说明修正内容）或永久下架（并在变更记录里留痕）</li>
+  </ol>
+
+  <h2>不构成下架理由的情况</h2>
+  <ul>
+    <li>只是不喜欢负面判断 —— 判断有事实错误会改，但"不好听"本身不是下架理由</li>
+    <li>要求删除"替代品"里出现的竞品</li>
+    <li>要求只保留优点、去掉风险点</li>
+  </ul>
+</div>`
+
+const disclaimerBody = `<div class="page">
+  <h1>评测免责声明</h1>
+  <p class="disclaimer-strip" style="margin-bottom:18px">本站判断为人工主观评价，<b>不构成安装担保或安全审计结论</b>。</p>
+
+  <h2>结论怎么来的</h2>
+  <ul>
+    <li>阅读插件 README 原文、npm registry 元数据、仓库声明</li>
+    <li>核对版本、许可证、发布时间、维护者、权限描述</li>
+    <li>目前<b>以文档核验为主</b>；安装实测记录单独标注为「实测」，并在核验记录页注明 DSH 版本与日期</li>
+  </ul>
+
+  <h2>结论的有效边界</h2>
+  <ul>
+    <li>只对<b>核验当日、核验时的那一个版本</b>成立，插件升级后可能失效</li>
+    <li>风险分级是读文档后的判断，<b>不是代码审计</b>，不能替代安全审查</li>
+    <li>兼容性如果只写了插件声明的 <code>engines.dsh</code>，会标注"声明值、未实测"</li>
+    <li>任何"已核实"仅指<b>可安装性</b>，不代表运行正确、不代表无后门</li>
+  </ul>
+
+  <h2>变更记录</h2>
+  <p>判断更新、纠正与下架都通过仓库提交记录留痕：<a href="https://github.com/qianmokillstar/dsh-plugins/commits/main" target="_blank" rel="noreferrer noopener">查看提交历史</a>。</p>
+</div>`
+
+const privacyBody = `<div class="page">
+  <h1>隐私与数据说明</h1>
+
+  <h2>本站收集什么</h2>
+  <ul>
+    <li><b>不收集</b>：不设账号、不写 cookie、不埋统计脚本、不引第三方 CDN 或字体</li>
+    <li><b>不收集</b>：不记录你在站内的搜索词或点击行为（搜索完全在浏览器本地完成）</li>
+    <li>站点是纯静态文件，托管在 GitHub Pages；访问日志由 GitHub 平台按<a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noreferrer noopener">其隐私政策</a>处理，本站无法读取</li>
+  </ul>
+
+  <h2>数据从哪来</h2>
+  <ul>
+    <li>npm registry 与 downloads API：包名、版本、发布时间、许可证、下载量</li>
+    <li>GitHub API：仓库 star、最近推送、仓库描述、License</li>
+    <li>插件 README 原文：只在本地阅读核对，<b>不转载、不入库</b></li>
+  </ul>
+
+  <h2>本地另存的东西</h2>
+  <p>维护者的本机保留 README 原文副本用于事实核对，已通过 <code>.gitignore</code> 排除，不会出现在公开仓库里。</p>
+
+  <h2>联系</h2>
+  <p>数据纠错、隐私相关请求：<a href="https://github.com/qianmokillstar/dsh-plugins/issues/new" target="_blank" rel="noreferrer noopener">提 Issue</a>。</p>
+</div>`
+
+const scenes = [
+  {
+    id: 'remote',
+    title: '场景一 · 远程开发：让 Agent 直接在服务器上干活',
+    lead: '代码在服务器 / 云主机上，本地只想编辑和发指令。目标是让 Agent 在远端目录里读写、构建、跑测试，而不是本地生成再手动上传。',
+    steps: [
+      ['dsh-remote', '先装它。远程文件树 + 高亮编辑 + 递归搜索 + 终端 + 只读 Git 差异，一个工作区绑一台主机。装完重启 DSH Web，设置里配 SSH 主机再建远程工作区。'],
+      ['@deepseek-harness-tui/dsh-tui', '只在"想住在终端里"时加装。它把会话搬到命令行，和 dsh-remote 不冲突，但两套界面偏好各自独立。'],
+    ],
+    skip: ['已经有 VS Code Remote 且习惯在编辑器里跑命令 —— 装了反而多一套目录树'],
+    watch: ['SSH 密码 / 私钥由插件保存并自动应答，这是最大风险面；多用户机器上不要用', 'Agent 拿到的是远端 shell 能力，先用非生产目录试', 'SSH 通断会同时影响编辑、搜索、终端'],
+  },
+  {
+    id: 'cost',
+    title: '场景二 · 成本监控：先知道钱花在哪',
+    lead: '同时用 API 和多份 Coding Plan / 订阅，想按会话、按模型、按日期看清消耗，并在超支前收到提醒。',
+    steps: [
+      ['dsh-cost-meter', '主力选择。会话级费用、模型排行、缓存命中率、套餐额度聚合、预算提醒都在里面；先只配你真正在用的那几家账号。'],
+      ['dsh-whale-widget', '只想看余额时的轻量替代：右下角挂一个小鲸鱼，不占主界面。不适合要做月度归因的人。'],
+    ],
+    skip: ['只用单一订阅、且平台自带账单页面 —— 多装一个会重复采集'],
+    watch: ['查订阅额度通常要各家 Cookie / API key / AK-SK，别为了"看得全"把所有账号都填进去', 'API 费用与 Plan 等值费用分开统计，数字准不准取决于你的配置，别直接拿去报销', '历史记录会占本地存储，确认保留范围'],
+  },
+  {
+    id: 'memory',
+    title: '场景三 · 记忆管理：让下一次会话不用重新自我介绍',
+    lead: '长期在同一个项目上和 Agent 协作，受够了每次会话都从零开始；但也不想把所有内容塞进一个记忆库。',
+    steps: [
+      ['dsh-mnemon', '结构最讲究的一个：工作记忆 / 项目档案 / 长期证据分层，按问题需要检索；默认本地存储，也能接第三方 Provider。第一周先用默认配置。'],
+      ['meow-memory / dsh-fish-memory', '工程化偏好选 meow-memory（七层 SQLite + 反思折叠）；只想记事实、要轻量选 dsh-fish-memory。'],
+    ],
+    skip: ['项目里已经有 AGENTS.md 且规则不多 —— 先写好约定文件，不够再上记忆插件'],
+    watch: ['自动写入的记忆一旦写错会被反复引用，定期抽查删除', '接入第三方 Provider 意味着项目内容离开本机', '配置项很多，第一天上手容易配出自己也看不懂的组合'],
+  },
+]
+
+const nameSet = new Set(entries.map((entry) => entry.name))
+const slugByName = new Map(entries.map((entry) => [entry.name, entry.slug]))
+
+const scenesBody = `<div class="page" style="border:0;background:none;box-shadow:none;padding:0;max-width:none">
+  <h1>场景施工图</h1>
+  <p>这里不给"全部插件"，只给<b>按场景装哪几个、按什么顺序、哪些可以跳过、有什么坑</b>。每一条都对应本站有判断的插件；还没写判断的插件不会出现在这里。</p>
+  <p class="notice">当前覆盖 ${scenes.length} 个场景，全部基于已审核插件的 README 与核验记录。顺序建议是判断，不是硬性依赖。</p>
+  ${scenes.map((scene) => `<div class="scene">
+    <h2>${escapeHtml(scene.title)}</h2>
+    <p class="lead">${escapeHtml(scene.lead)}</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol>${scene.steps.map(([name, why]) => {
+      const slug = slugByName.get(name)
+      const label = `<code>${escapeHtml(name)}</code>`
+      return `<li>${slug ? `<a href="p/${escapeHtml(slug)}.html">${label}</a>` : label} —— ${escapeHtml(why)}</li>`
+    }).join('')}</ol>
+    <h3>可以跳过</h3>
+    <ul>${scene.skip.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+    <h3>权限与冲突注意</h3>
+    <ul>${scene.watch.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+  </div>`).join('')}
+  <p>还想要别的场景？<a href="submit.html">提交需求</a>，说明你的工作流和卡点。</p>
+</div>`
+
+const verificationsBody = `<div class="page">
+  <h1>核验记录</h1>
+  <p>每条记录写清：核验日期、DSH 版本、依据、结论。<b>能复现的才写进来</b>。</p>
+  <p class="notice">诚实说明：目前 ${REVIEWED.length} 条记录全部是<b>文档核验</b>（读 README / 包声明 / registry 元数据），<b>尚未做安装实测</b>。「实测」列会在真正装过之后填写，不会用推断冒充。</p>
+  <table class="verify-table">
+    <thead><tr><th>插件</th><th>核验日期</th><th>DSH 版本</th><th>依据</th><th>结论</th><th>风险</th></tr></thead>
+    <tbody>
+      ${REVIEWED.map((entry) => `<tr>
+        <td><a href="p/${entry.slug}.html"><code>${escapeHtml(entry.name)}</code></a></td>
+        <td>2026-11-16 / 17</td>
+        <td>${DSH_VERSION}</td>
+        <td>文档核验（README + registry）</td>
+        <td>${entry.verified ? '包声明存在，可安装（未实测运行）' : '仅 README 线索，未核实'}</td>
+        <td>${escapeHtml({ low: '低', medium: '中', high: '高' }[entry.risk] ?? '未评级')}</td>
+      </tr>`).join('')}
+    </tbody>
+  </table>
+  <h2>下一批要补的</h2>
+  <ul>
+    <li>安装实测：在隔离的测试 profile 里真装一次，记录版本与日期</li>
+    <li>失败记录同样收录（装不上的原因比"能装"更有价值）</li>
+    <li>卸载 / 回滚是否干净</li>
+  </ul>
+</div>`
+
+const pageBodies = new Map([
+  ['rules.html', { title: '收录规则与标准 · DSH 插件站', description: '收录门槛、判断标准、排序与收费说明。', body: rulesBody }],
+  ['takedown.html', { title: '下架与侵权投诉 · DSH 插件站', description: '先下架再核实的投诉处理流程。', body: takedownBody }],
+  ['disclaimer.html', { title: '评测免责声明 · DSH 插件站', description: '人工主观评价的边界与有效期。', body: disclaimerBody }],
+  ['privacy.html', { title: '隐私与数据说明 · DSH 插件站', description: '本站收集什么、不收集什么、数据从哪来。', body: privacyBody }],
+  ['scenes.html', { title: '场景施工图 · DSH 插件站', description: '按场景给出装哪些、按什么顺序、哪些可以跳过。', body: scenesBody }],
+  ['verifications.html', { title: '核验记录 · DSH 插件站', description: '带日期与 DSH 版本的公开核验记录。', body: verificationsBody }],
+])
+
+// 防御：数据异常时不要发布一个残缺的站点。
+const MIN_SITE_ENTRIES = Number(process.env.MIN_SITE_ENTRIES ?? 50)
+if (entries.length < MIN_SITE_ENTRIES) {
+  console.error(`[abort] 只生成了 ${entries.length} 个条目（阈值 ${MIN_SITE_ENTRIES}），拒绝覆盖 site/。请检查 data/catalog.json 与 data/github.json。`)
+  process.exit(2)
+}
+
 // ---------- 输出 ----------
 await rm(join(SITE, 'p'), { recursive: true, force: true })
 await mkdir(join(SITE, 'assets'), { recursive: true })
 await mkdir(join(SITE, 'p'), { recursive: true })
-await writeFile(join(SITE, 'index.html'), shell({ title: 'DSH 插件站', description: '搜一个插件，立刻知道它能不能用、适合谁、有什么坑。', body: homeBody }), 'utf8')
+await writeFile(join(SITE, 'index.html'), shell({ title: 'DSH 插件站 · 非官方第三方', description: '非官方第三方 DSH 插件索引：按场景给出该装什么、有什么坑。', body: homeBody.replace('__SCENE_COUNT__', String(scenes.length)).replace('__VERIFIED_COUNT__', String(REVIEWED.length)) }), 'utf8')
+for (const [file, def] of pageBodies) await writeFile(join(SITE, file), shell(def), 'utf8')
 await writeFile(join(SITE, 'changelog.html'), shell({ title: '更新日志 · DSH 插件站', description: '最近新增、更新与核实进度。', body: changelogBody }), 'utf8')
 await writeFile(join(SITE, 'submit.html'), shell({ title: '提交插件 · DSH 插件站', description: '推荐一个 DSH 插件，或补上它的判断信息。', body: submitBody }), 'utf8')
 await writeFile(join(SITE, 'assets', 'style.css'), CSS, 'utf8')

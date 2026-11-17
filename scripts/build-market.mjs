@@ -206,6 +206,13 @@ const index = {
   }),
 }
 
+// 防御：索引条数异常偏少时拒绝覆盖，避免把空数据发布出去。
+const MIN_INDEX_PLUGINS = Number(process.env.MIN_INDEX_PLUGINS ?? 30)
+if (plugins.length < MIN_INDEX_PLUGINS) {
+  console.error(`[abort] 索引只有 ${plugins.length} 条（阈值 ${MIN_INDEX_PLUGINS}），拒绝覆盖 market/index.json。请检查 data/catalog.json。`)
+  process.exit(2)
+}
+
 await mkdir(join(ROOT, 'market'), { recursive: true })
 await writeFile(join(ROOT, 'market', 'index.json'), JSON.stringify(index, null, 2) + '\n', 'utf8')
 

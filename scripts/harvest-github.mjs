@@ -152,6 +152,11 @@ for (let page = 1; page <= PAGES; page++) {
 }
 
 const unique = [...new Map(repos.map((repo) => [repo.full_name, repo])).values()]
+// 防御：搜索接口限流时会返回 0 条，不能覆盖上一份好数据。
+if (unique.length < Number(process.env.MIN_REPOS ?? 100)) {
+  console.error(`[abort] 只取到 ${unique.length} 个仓库（阈值 ${process.env.MIN_REPOS ?? 100}），判定为限流或网络异常，保留上一份 github.json 不覆盖。`)
+  process.exit(2)
+}
 console.log(`\n检查 ${unique.length} 个仓库是否真的是 DSH 插件…`)
 
 const checked = await mapLimit(unique, CONCURRENCY, async (repo, index) => {

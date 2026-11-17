@@ -133,6 +133,13 @@ const pool = await searchPool()
 const ranked = [...pool.values()].sort((a, b) => b.weeklyDownloads - a.weeklyDownloads)
 console.log(`候选池 ${ranked.length} 个，热度前 ${DETAIL_LIMIT} 个进入详情抓取`)
 
+// 防御：搜索接口限流/断网时会得到空池。绝不能拿空结果覆盖上一份好数据。
+const MIN_POOL = Number(process.env.MIN_POOL ?? 200)
+if (ranked.length < MIN_POOL) {
+  console.error(`[abort] 候选池只有 ${ranked.length} 个（阈值 ${MIN_POOL}），判定为限流或网络异常，保留上一份 catalog.json 不覆盖。`)
+  process.exit(2)
+}
+
 const top = ranked.slice(0, DETAIL_LIMIT)
 const detailed = await mapLimit(top, CONCURRENCY, async (entry, index) => {
   try {
@@ -146,6 +153,14 @@ const detailed = await mapLimit(top, CONCURRENCY, async (entry, index) => {
 })
 
 const bundles = detailed.filter((p) => p.dshBundle)
+
+// 防御：可安装条目过少说明详情抓取大面积失败，同样不覆盖。
+const MIN_BUNDLES = Number(process.env.MIN_BUNDLES ?? 30)
+if (bundles.length < MIN_BUNDLES) {
+  console.error(`[abort] 只确认到 ${bundles.length} 个可安装 bundle（阈值 ${MIN_BUNDLES}），保留上一份 catalog.json 不覆盖。`)
+  process.exit(2)
+}
+
 const catalog = {
   schema: 1,
   harvestedAt: startedAt,
