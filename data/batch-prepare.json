@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T10:49:14.163Z",
+  "updatedAt": "2026-11-18T10:54:11.622Z",
   "profile": "market-test",
   "items": [
     {
@@ -490,6 +490,44 @@
         "version": "0.1.81",
         "seconds": 19,
         "logTail": "ded 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +5\n+++++\nProgress: resolved 67, reused 6, downloaded 0, added 3\nProgress: resolved 67, reused 6, downloaded 0, added 4\nProgress: resolved 67, reused 6, downloaded 1, added 4\nProgress: resolved 67, reused 6, downloaded 1, added 5, done\n\ndependencies:\n+ dsh-meme 0.1.81\n\nDone in 15.4s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-whale-widget",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.4.2",
+      "readmeBytes": 58601,
+      "license": "MIT",
+      "publishTime": "2026-10-11T12:27:12.426Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.4.2",
+        "seconds": 16,
+        "logTail": "d 2, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1 -27\n+---------------------------\nProgress: resolved 68, reused 2, downloaded 0, added 0\nProgress: resolved 68, reused 2, downloaded 1, added 0\nProgress: resolved 68, reused 2, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-whale-widget 0.4.2\n\nDone in 12.5s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-folia",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "4.26.0-pre.64",
+      "readmeBytes": 39453,
+      "license": "MIT",
+      "publishTime": "2026-11-16T15:12:54.989Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "4.26.0-pre.64",
+        "seconds": 20,
+        "logTail": "ved 90, reused 9, downloaded 2, added 7\nProgress: resolved 90, reused 9, downloaded 2, added 9\nProgress: resolved 90, reused 9, downloaded 3, added 9\nProgress: resolved 90, reused 9, downloaded 3, added 10\nProgress: resolved 90, reused 9, downloaded 4, added 10\nProgress: resolved 90, reused 9, downloaded 5, added 12, done\n\ndependencies:\n+ dsh-folia 4.26.0-pre.64\n\nDone in 16.5s using pnpm v11.28.5\n"
       }
     }
   ]

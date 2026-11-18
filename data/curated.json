@@ -530,6 +530,63 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-meme.md"
+    },
+    {
+      "name": "dsh-soul-md",
+      "category": "memory",
+      "curationRank": 16,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Soul / Persona",
+        "zh": "人设卡与文件记忆"
+      },
+      "summary": {
+        "en": "Switchable persona cards per session or workspace, backed by markdown memory files the agent maintains.",
+        "zh": "会话级/工作区级可切换的人设卡，记忆存成 markdown 文件由模型读写；不保证模型真的去改。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-soul-md.md"
+    },
+    {
+      "name": "dsh-pet",
+      "category": "appearance",
+      "curationRank": 14,
+      "risk": "low",
+      "privacy": "local",
+      "title": {
+        "en": "Desktop Pet",
+        "zh": "桌面宠物"
+      },
+      "summary": {
+        "en": "A pet with 100+ transparent animations that reacts to session events, with pet packs and a standalone mode.",
+        "zh": "一百多个透明动画、跟随会话事件变状态，支持宠物包与脱离浏览器的桌面独立窗。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-pet.md"
+    },
+    {
+      "name": "dsh-whale-widget",
+      "category": "observability",
+      "curationRank": 12,
+      "risk": "low",
+      "privacy": "local",
+      "title": {
+        "en": "Whale Widget",
+        "zh": "小鲸鱼记账挂件"
+      },
+      "summary": {
+        "en": "Corner widget that infers spending from balance drops, with per-turn cost bubbles and peak/off-peak pricing.",
+        "zh": "右下角常驻小鲸鱼：用余额下降反推消费，每轮结束弹消耗泡泡，含峰谷定价；不需要会话令牌。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-whale-widget.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"
