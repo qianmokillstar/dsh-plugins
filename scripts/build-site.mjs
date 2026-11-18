@@ -614,6 +614,13 @@ function shell({ title, description, body, base = '', nav = true }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(description)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="${escapeHtml(title)}">
+<meta property="og:description" content="${escapeHtml(description)}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="${escapeHtml(title)}">
+<meta name="twitter:description" content="${escapeHtml(description)}">
 <link rel="stylesheet" href="${base}assets/style.css">
 </head>
 <body>
@@ -871,6 +878,15 @@ const rulesBody = `<div class="page">
 
   <h2>排序与收费</h2>
   <p>推荐序由人工判断给出，不接受付费、不接受指定排名。当前站点<b>没有任何赞助、推广位或付费收录</b>。若未来出现商业合作，会在对应位置显著标注「赞助/推广」。</p>
+
+  <h2>引用与转载</h2>
+  <p>欢迎媒体、公众号、作者引用本站结论，但请守三条：</p>
+  <ul>
+    <li><b>带上日期与版本</b>：核验结论只对"某日某版本"成立，转述时请保留，否则会误导读者</li>
+    <li><b>不要断章取义</b>：只截"优点"、删掉风险点，等于篡改结论；请至少保留风险点或链回原文</li>
+    <li><b>注明来源</b>：写明"来自 DSH 插件站（非官方第三方）"并附页面链接</li>
+  </ul>
+  <p>整站转载请联系（<a href="${DISCUSSIONS.home}" target="_blank" rel="noreferrer noopener">讨论区</a>）；本站内容为独立评测，插件版权归各作者。</p>
 
   <h2>为什么我们不按 star 排序</h2>
   <p>因为在 DSH 生态里，star 与"能不能装"几乎不相关：</p>
