@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T10:04:52.357Z",
+  "updatedAt": "2026-11-18T10:05:59.061Z",
   "profile": "market-test",
   "items": [
     {
@@ -153,6 +153,95 @@
         "version": "0.26.60",
         "seconds": 17,
         "logTail": "olved 49, reused 0, downloaded 5, added 5\nProgress: resolved 49, reused 0, downloaded 6, added 5\nProgress: resolved 49, reused 0, downloaded 6, added 6\nProgress: resolved 49, reused 0, downloaded 7, added 7\nProgress: resolved 49, reused 0, downloaded 8, added 7\nProgress: resolved 49, reused 0, downloaded 8, added 8, done\n\ndependencies:\n+ dsh-prime-memory 0.26.60\n\nDone in 14.2s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-notify-me",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "1.21.4",
+      "readmeBytes": 77945,
+      "license": "MIT",
+      "publishTime": "2026-11-17T15:18:46.401Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "1.21.3",
+        "seconds": 7,
+        "logTail": "olved 8, reused 0, downloaded 0, added 0\nProgress: resolved 17, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1 -16\n+----------------\nProgress: resolved 50, reused 0, downloaded 0, added 0\nProgress: resolved 50, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-notify-me 1.21.3\n\nDone in 4.3s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-mobile-plugin",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.5.72",
+      "readmeBytes": 13911,
+      "license": "MIT",
+      "publishTime": "2026-11-18T06:12:21.328Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.5.65",
+        "seconds": 24,
+        "logTail": "1, downloaded 25, added 36\nProgress: resolved 97, reused 11, downloaded 26, added 37\nProgress: resolved 97, reused 11, downloaded 27, added 37\nProgress: resolved 97, reused 11, downloaded 27, added 38\nProgress: resolved 97, reused 11, downloaded 28, added 38\nProgress: resolved 97, reused 11, downloaded 28, added 39, done\n\ndependencies:\n+ dsh-mobile-plugin 0.5.65\n\nDone in 20.9s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "@suifei/dsh-ai-team",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.4.134",
+      "readmeBytes": 20446,
+      "license": "MIT",
+      "publishTime": "2026-11-18T09:02:45.314Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.4.119",
+        "seconds": 9,
+        "logTail": " 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1 -24\n+------------------------\nProgress: resolved 98, reused 0, downloaded 0, added 0\nProgress: resolved 98, reused 0, downloaded 1, added 0\nProgress: resolved 98, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ @suifei/dsh-ai-team 0.4.119\n\nDone in 5.2s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "ds-harness-remote",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.6.5",
+      "readmeBytes": 10272,
+      "license": "MIT",
+      "publishTime": "2026-11-14T17:39:16.490Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.6.5",
+        "seconds": 10,
+        "logTail": "+7 -24\n+++++++------------------------\nProgress: resolved 109, reused 2, downloaded 0, added 2\nProgress: resolved 109, reused 2, downloaded 3, added 5\nProgress: resolved 109, reused 2, downloaded 4, added 5\nProgress: resolved 109, reused 2, downloaded 4, added 6\nProgress: resolved 109, reused 2, downloaded 5, added 7, done\n\ndependencies:\n+ ds-harness-remote 0.6.5\n\nDone in 7.1s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-purge-community",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "readmeError": "registry HTTP 404",
+      "install": {
+        "ok": false,
+        "reason": "exit 1",
+        "version": null,
+        "seconds": 5,
+        "logTail": "le installing a direct dependency of C:\\Users\\HP\\.dsh\\profiles\\market-test\n\ndsh-purge-community is not in the npm registry, or you have no permission to fetch it.\n\nNo authorization header was set for the request.\nCommand failed with exit code 1: pnpm add dsh-purge-communitydsh: plugin command failed; diagnostics: C:\\Users\\HP\\.dsh\\profiles\\market-test\\.plugin-manager\\logs\\operation-Oznq4i\\pnpm.log\n"
       }
     }
   ]

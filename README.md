@@ -4,12 +4,24 @@
 [![人工核验](https://img.shields.io/badge/%E4%BA%BA%E5%B7%A5%E6%A0%B8%E9%AA%8C-10%20%E6%9D%A1-2f6fdd)](https://qianmokillstar.github.io/dsh-plugins/verifications.html)
 [![场景施工图](https://img.shields.io/badge/%E5%9C%BA%E6%99%AF%E6%96%BD%E5%B7%A5%E5%9B%BE-9%20%E4%B8%AA-1f7a4d)](https://qianmokillstar.github.io/dsh-plugins/scenes.html)
 
-> 我维护一个**非官方第三方** DSH 插件索引站：人工跑过一批插件，记录安装结果、风险点和替代品。
+> 我维护一个**非官方第三方** DSH 插件索引站，**专攻养鱼 / 角色扮演 / 陪伴向插件**：防失忆、防出戏、防隐私泄露。
+> 人工真机跑过一批插件，记录安装结果、权限风险、隐私去向和替代品。
 > **与 DeepSeek / DSH 官方无关联、无授权、无背书。**
 
 站点：<https://qianmokillstar.github.io/dsh-plugins/>
 
 不做"又一个插件目录"：dsh-market 这类站点解决"找得到"，官方市场解决"装得安全"，本站只做**"选得对"**——按场景给施工图、给带日期的核验记录、给作者没说但用户要知道的坑。
+
+## 养鱼四大金刚
+
+| 场景 | 要解决的问题 | 入口 |
+|---|---|---|
+| 长期记忆 | 聊着聊着 AI 忘了前情 | [施工图](https://qianmokillstar.github.io/dsh-plugins/scenes.html) |
+| 人设防崩 | 设定被冲淡、语气跑偏 | [施工图](https://qianmokillstar.github.io/dsh-plugins/scenes.html) |
+| 上下文瘦身 | 聊到卡顿、上下文爆掉 | [施工图](https://qianmokillstar.github.io/dsh-plugins/scenes.html) |
+| 隐私排雷 | 私密聊天被同步到云端 | [核验记录](https://qianmokillstar.github.io/dsh-plugins/verifications.html) |
+
+隐私分级：🟢 纯本地 / 🔴 需云端 / ⚪ 未确认 —— 读 README 与权限描述后的初次判断，未做抓包验证。
 
 不卖排名、不接赞助、不收费收录。
 

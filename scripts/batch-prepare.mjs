@@ -86,6 +86,11 @@ function install(name) {
 }
 
 const results = []
+let existing = []
+try {
+  existing = JSON.parse(await readFile(OUT, 'utf8').then((text) => text.replace(/^\uFEFF/, ''))).items ?? []
+} catch { /* 首次运行 */ }
+const merged = new Map(existing.map((item) => [item.name, item]))
 for (const [index, name] of names.entries()) {
   process.stdout.write(`[${index + 1}/${names.length}] ${name} … `)
   const record = { name, date: new Date().toISOString().slice(0, 10), dshVersion: '0.2.2-rc.3' }
@@ -100,8 +105,10 @@ for (const [index, name] of names.entries()) {
   Object.assign(record, { install: installed })
   console.log(installed.ok ? `装 OK ${installed.version ?? ''} (${installed.seconds}s)` : `装 FAIL ${installed.reason}`)
   results.push(record)
-  await writeFile(OUT, JSON.stringify({ schema: 1, updatedAt: new Date().toISOString(), profile: PROFILE, items: results }, null, 2) + '\n', 'utf8')
+  merged.set(name, record)
+  await writeFile(OUT, JSON.stringify({ schema: 1, updatedAt: new Date().toISOString(), profile: PROFILE, items: [...merged.values()] }, null, 2) + '\n', 'utf8')
 }
 
-const ok = results.filter((item) => item.install?.ok).length
-console.log(`\n写入 data/batch-prepare.json：装成功 ${ok} / ${results.length}`)
+const all = [...merged.values()]
+const ok = all.filter((item) => item.install?.ok).length
+console.log(`\n写入 data/batch-prepare.json：累计装成功 ${ok} / ${all.length}`)
