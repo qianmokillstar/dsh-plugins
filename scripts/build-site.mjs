@@ -1290,12 +1290,18 @@ const installBody = `<div class="page">
   <h2>五、装上了但报失败：pnpm 拦截构建脚本</h2>
   <div class="notice">现象：<code>+ 插件名 版本号</code> 明明出现了，但命令最后以 <code>ERR_PNPM_IGNORED_BUILDS</code> 失败退出，提示 <code>Ignored build scripts: protobufjs</code>。</div>
   <p>这不是装不上，而是 <b>pnpm 11 默认不允许依赖执行构建脚本</b>（安全策略）。实测三个插件（<code>@michengai/dsh-im-connect</code>、<code>@tencent-connect/dsh-qqbot</code>、<code>dsh-session-superagent</code>）都因此报了同一个错，但包其实已经落地 <code>node_modules</code>、也写进了 profile 的 <code>dependencies</code>——只是<b>没进入 <code>dsh.profile.bundles</code></b>，所以不会生效。</p>
-  <p>本站把这种状态记为「<b>半装</b>」，不算通过、也不算失败。处理办法：</p>
+  <p>本站把这种状态记为「<b>半装</b>」，不算通过、也不算失败。</p>
+  <h3>我们试过的三种办法（都失败，如实记录）</h3>
   <ol>
-    <li>在 profile 目录里执行 <code>pnpm approve-builds</code>，选择允许哪个依赖跑脚本（要自己判断这个依赖是否可信）</li>
-    <li>或在 <code>.npmrc</code> / <code>package.json</code> 里用 <code>onlyBuiltDependencies</code> 白名单指定</li>
-    <li>处理后重新 add 一次，让它进入 bundles</li>
+    <li><code>package.json</code> 里加 <code>pnpm.onlyBuiltDependencies</code> —— pnpm 11 直接警告该字段已废弃、被忽略</li>
+    <li>写进 <code>pnpm-workspace.yaml</code> 的 <code>onlyBuiltDependencies</code> —— <code>pnpm config get</code> 确实能读到 <code>["protobufjs"]</code>，但安装仍然报 <code>ERR_PNPM_IGNORED_BUILDS</code></li>
+    <li>加 <code>--config.onlyBuiltDependencies=protobufjs</code> 显式传参 —— 同样被拦</li>
   </ol>
+  <p>结论：这个门只认**交互式**的 <code>pnpm approve-builds</code>（要人逐个确认），没法用配置脚本化绕过。所以本站这三个插件只能记「半装」，不写成成功。</p>
+  <p>你要用的话，在 profile 目录里跑 <code>pnpm approve-builds</code>，看清楚是哪个依赖要跑脚本、判断可信后再放行，然后重新 add 一次。</p>
+
+  <h3>另一个坑：手改 profile 的 package.json 别带 BOM</h3>
+  <p>实测：用 PowerShell 的 <code>Set-Content -Encoding UTF8</code> 写 <code>package.json</code> 会带 BOM，DSH 读取时直接 <code>SyntaxError: Unexpected token ''</code>，整个 profile 无法安装任何插件。用编辑器保存为「UTF-8 无 BOM」即可。</p>
 
   <h2>六、怎么确认"真的装上了"</h2>
   <ol>
