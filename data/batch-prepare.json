@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T10:03:30.455Z",
+  "updatedAt": "2026-11-18T10:04:52.357Z",
   "profile": "market-test",
   "items": [
     {
@@ -58,6 +58,101 @@
         "version": "2.7.15",
         "seconds": 8,
         "logTail": "ed 29s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 4, reused 0, downloaded 0, added 0\nProgress: resolved 4, reused 0, downloaded 1, added 0\nProgress: resolved 4, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ cc-safety-net 2.7.15\n\nDone in 3s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "@michengai/dsh-skills-manager",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "1.4.11",
+      "readmeBytes": 21577,
+      "license": "Apache-2.0",
+      "publishTime": "2026-11-16T13:09:31.404Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "1.4.11",
+        "seconds": 12,
+        "logTail": "ess: resolved 3, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +2\n++\nProgress: resolved 6, reused 1, downloaded 0, added 1\nProgress: resolved 6, reused 1, downloaded 1, added 1\nProgress: resolved 6, reused 1, downloaded 1, added 2, done\n\ndependencies:\n+ @michengai/dsh-skills-manager 1.4.11\n\nDone in 9s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-connect-workbuddy",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "5.24.14",
+      "readmeBytes": 131719,
+      "license": "MIT",
+      "publishTime": "2026-11-17T14:16:54.215Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "5.24.13",
+        "seconds": 15,
+        "logTail": "s: resolved 4, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +5\n+++++\nProgress: resolved 10, reused 4, downloaded 0, added 4\nProgress: resolved 10, reused 4, downloaded 1, added 4\nProgress: resolved 10, reused 4, downloaded 1, added 5, done\n\ndependencies:\n+ dsh-connect-workbuddy 5.24.13\n\nDone in 11.4s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-plugin-wallpaper-engine",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "1.4.2",
+      "readmeBytes": 13269,
+      "license": "MIT",
+      "publishTime": "2026-11-05T18:27:19.860Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "1.4.2",
+        "seconds": 27,
+        "logTail": "ownloaded 11, added 11\nProgress: resolved 24, reused 0, downloaded 12, added 11\nProgress: resolved 24, reused 0, downloaded 12, added 12\nProgress: resolved 24, reused 0, downloaded 13, added 13\nProgress: resolved 24, reused 0, downloaded 14, added 13\nProgress: resolved 24, reused 0, downloaded 14, added 14, done\n\ndependencies:\n+ dsh-plugin-wallpaper-engine 1.4.2\n\nDone in 24.1s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "deep-view",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.1.2",
+      "readmeBytes": 2860,
+      "license": "Apache-2.0",
+      "publishTime": "2026-11-05T06:16:48.223Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.1.2",
+        "seconds": 6,
+        "logTail": "✓ Lockfile passes supply-chain policies (verified 24s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\nProgress: resolved 6, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 25, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ deep-view 0.1.2\n\nDone in 2.7s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-prime-memory",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.26.61",
+      "readmeBytes": 89171,
+      "license": "MIT",
+      "publishTime": "2026-11-17T14:22:33.889Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.26.60",
+        "seconds": 17,
+        "logTail": "olved 49, reused 0, downloaded 5, added 5\nProgress: resolved 49, reused 0, downloaded 6, added 5\nProgress: resolved 49, reused 0, downloaded 6, added 6\nProgress: resolved 49, reused 0, downloaded 7, added 7\nProgress: resolved 49, reused 0, downloaded 8, added 7\nProgress: resolved 49, reused 0, downloaded 8, added 8, done\n\ndependencies:\n+ dsh-prime-memory 0.26.60\n\nDone in 14.2s using pnpm v11.28.5\n"
       }
     }
   ]

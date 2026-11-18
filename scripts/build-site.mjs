@@ -90,6 +90,12 @@ const ACTIVATION_TEXT = {
   'not-composed': '独立 app · 未参与组合',
 }
 
+const PRIVACY_META = {
+  local: { badge: '🟢 纯本地', cls: 'ok', text: '数据留在本机或你自己的服务器' },
+  cloud: { badge: '🔴 需云端', cls: 'high', text: '会把内容发送到第三方服务' },
+  unknown: { badge: '⚪ 未确认', cls: '', text: '隐私行为未确认' },
+}
+
 /** 从四问短评里抽首条要点，用于结构化 index.json 的答案摘要。 */
 function reviewSections(markdown) {
   const sections = {}
@@ -250,6 +256,7 @@ for (const plugin of catalog.plugins) {
     category,
     labels: review?.labels ?? [],
     risk: review?.risk ?? null,
+    privacy: review?.privacy ?? 'unknown',
     curationRank: review?.curationRank ?? -1,
     reviewBody,
     reviewHeading: reviewBody ? (/^#\s+(.*)$/mu.exec(reviewBody)?.[1]?.trim() ?? plugin.name) : null,
@@ -291,6 +298,7 @@ for (const plugin of github?.plugins ?? []) {
     category,
     labels: review?.labels ?? [],
     risk: review?.risk ?? null,
+    privacy: review?.privacy ?? 'unknown',
     curationRank: review?.curationRank ?? -1,
     reviewBody: undefined,
     reviewHeading: null,
@@ -488,6 +496,8 @@ const APP_JS = `(function () {
     if (p.reviewed) badges += '<span class="badge accent">人工短评</span>';
     badges += '<span class="badge">' + p.categoryTitle + '</span>';
     if (p.risk === 'high') badges += '<span class="badge high">高风险</span>';
+    if (p.privacy === 'cloud') badges += '<span class="badge high">🔴 需云端</span>';
+    if (p.privacy === 'local') badges += '<span class="badge ok">🟢 纯本地</span>';
     var install = p.install
       ? '<div class="install"><code>' + p.install + '</code><button class="copy" data-copy="' + p.install + '">复制</button></div>'
       : '<div class="install"><code>安装方式见仓库</code></div>';
@@ -547,14 +557,14 @@ function shell({ title, description, body, base = '', nav = true }) {
 <body>
 <div class="wrap">
 ${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
-<p class="subtitle">搜一个插件，立刻知道它能不能用、适合谁、有什么坑。不卖排名、不接赞助。</p>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
 <p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="${base}rules.html">收录规则</a></p>
 <div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}changelog.html">更新日志</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
 ${body}
 <footer class="site">
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
   <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
-  <div>数据来源：npm registry / downloads API / GitHub API，构建于 ${escapeHtml(stats.builtAt)}（DSH ${DSH_VERSION}）。核验结论均标注日期，不构成安装或安全担保。</div>
+  <div>本站核验基准环境：DSH ${DSH_VERSION} · 数据生成于 ${escapeHtml(stats.builtAt)}。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
   <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${base}submit.html">提交插件</a></div>
 </footer>
 </div>
@@ -585,6 +595,7 @@ const clientData = entries.map((entry) => ({
   reviewed: Boolean(entry.reviewBody),
   hasReview: Boolean(entry.reviewBody),
   risk: entry.risk,
+  privacy: entry.privacy,
   curationRank: entry.curationRank,
   version: entry.version,
   install: entry.install,
@@ -597,6 +608,7 @@ const homeBody = `<div class="stats">
   <span class="stat">已核实可安装 <b>${stats.verified}</b></span>
   <span class="stat">参考目录 <b>${stats.total}</b>（未逐条核验）</span>
 </div>
+<p class="notice" style="margin-top:16px">养鱼四大金刚：<a href="scenes.html">长期记忆</a> · 人设防崩 · <a href="scenes.html">上下文瘦身</a> · <a href="verifications.html">隐私排雷</a>。加 🟢/🔴 标签的条目，是本站在隐私上做过判断的插件。</p>
 <div class="toolbar">
   <div class="controls">
     <input id="q" type="search" placeholder="搜插件名、功能、作者…（可多个关键词）" autocomplete="off">
@@ -646,6 +658,7 @@ for (const entry of entries) {
     <span class="badge ok">已核实</span>
     <span class="badge accent">人工短评</span>
     ${entry.risk ? `<span class="badge ${entry.risk === 'high' ? 'high' : entry.risk === 'medium' ? 'warn' : 'ok'}">风险 ${escapeHtml({ low: '低', medium: '中', high: '高' }[entry.risk] ?? entry.risk)}</span>` : ''}
+    <span class="badge ${PRIVACY_META[entry.privacy]?.cls ?? ''}">${PRIVACY_META[entry.privacy]?.badge ?? '⚪ 未确认'}</span>
   </div>
   ${renderMarkdown(entry.reviewBody)}
   <h2>事实卡</h2>
@@ -1001,7 +1014,7 @@ const verificationsBody = `<div class="page">
   <p>每条记录写清：核验日期、DSH 版本、依据、结论。<b>能复现的才写进来</b>。</p>
   <p class="notice">当前 ${REVIEWED.length} 条记录中，<b>${trialInstalled.length} 条已完成安装实测</b>（真装进隔离 profile，记录版本与日期），<b>${launchByName.size} 条有启动核验结论</b>（已加载 ${[...launchByName.values()].filter((item) => item.activation === 'loaded').length} / 待激活 ${[...launchByName.values()].filter((item) => item.activation === 'pending').length} / 组合无报错 ${[...launchByName.values()].filter((item) => item.activation === 'no-error').length} / 不参与组合 ${[...launchByName.values()].filter((item) => item.activation === 'not-composed').length}）。安装成功不代表运行无问题，启动核验也不代表功能正确。</p>
   <table class="verify-table">
-    <thead><tr><th>插件</th><th>安装</th><th>启动核验</th><th>核验日期</th><th>DSH 版本</th><th>结论</th><th>风险</th></tr></thead>
+    <thead><tr><th>插件</th><th>隐私</th><th>安装</th><th>启动核验</th><th>核验日期</th><th>DSH 版本</th><th>结论</th><th>风险</th></tr></thead>
     <tbody>
       ${REVIEWED.map((entry) => {
         const trial = trialByName.get(entry.name)
@@ -1018,6 +1031,7 @@ const verificationsBody = `<div class="page">
         const date = trial ? escapeHtml(trial.date) : '2026-11-16 / 17'
         return `<tr>
         <td><a href="p/${entry.slug}.html"><code>${escapeHtml(entry.name)}</code></a></td>
+        <td>${PRIVACY_META[entry.privacy]?.badge ?? '⚪ 未确认'}</td>
         <td>${evidence}</td>
         <td>${escapeHtml(activation)}</td>
         <td>${date}</td>
@@ -1116,6 +1130,8 @@ const verificationDoc = {
       license: entry.license,
       weeklyDownloads: entry.downloads,
       risk: entry.risk,
+      privacy: entry.privacy,
+      privacyNote: PRIVACY_META[entry.privacy]?.text ?? null,
       verificationDate: trial?.date ?? null,
       dshVersion: trial?.dshVersion ?? DSH_VERSION,
       install: { result: trial?.result ?? 'not-tested', version: trial?.version ?? null },
