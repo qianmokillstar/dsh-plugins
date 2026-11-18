@@ -59,6 +59,13 @@ const plugins = (catalog.plugins ?? [])
   }))
   .sort((left, right) => left.name.localeCompare(right.name))
 
+// 防御：坏采集会产出空快照，污染周报环比，绝不能落盘。
+const MIN_SNAPSHOT_PLUGINS = Number(process.env.MIN_SNAPSHOT_PLUGINS ?? 50)
+if (plugins.length < MIN_SNAPSHOT_PLUGINS) {
+  console.error(`[abort] 快照只有 ${plugins.length} 个插件（阈值 ${MIN_SNAPSHOT_PLUGINS}），判定为坏数据，不写入 data/history/。`)
+  process.exit(2)
+}
+
 const snapshot = {
   schema: 1,
   date,
