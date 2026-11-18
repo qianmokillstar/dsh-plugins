@@ -1,8 +1,10 @@
 # DSH 插件站（非官方 · 第三方）
 
 [![非官方第三方](https://img.shields.io/badge/%E9%9D%9E%E5%AE%98%E6%96%B9-%E7%AC%AC%E4%B8%89%E6%96%B9-f0b357)](https://qianmokillstar.github.io/dsh-plugins/rules.html)
-[![人工核验](https://img.shields.io/badge/%E4%BA%BA%E5%B7%A5%E6%A0%B8%E9%AA%8C-10%20%E6%9D%A1-2f6fdd)](https://qianmokillstar.github.io/dsh-plugins/verifications.html)
-[![场景施工图](https://img.shields.io/badge/%E5%9C%BA%E6%99%AF%E6%96%BD%E5%B7%A5%E5%9B%BE-9%20%E4%B8%AA-1f7a4d)](https://qianmokillstar.github.io/dsh-plugins/scenes.html)
+[![人工核验](https://img.shields.io/badge/%E4%BA%BA%E5%B7%A5%E6%A0%B8%E9%AA%8C-32%20%E6%9D%A1-2f6fdd)](https://qianmokillstar.github.io/dsh-plugins/verifications.html)
+[![场景施工图](https://img.shields.io/badge/%E5%9C%BA%E6%99%AF%E6%96%BD%E5%B7%A5%E5%9B%BE-15%20%E4%B8%AA-1f7a4d)](https://qianmokillstar.github.io/dsh-plugins/scenes.html)
+[![养鱼专项](https://img.shields.io/badge/%E5%85%BB%E9%B1%BC%E4%B8%93%E9%A1%B9-6%20%E4%B8%AA-7a3ef3)](https://qianmokillstar.github.io/dsh-plugins/scenes.html#rp-memory)
+[![核验方法](https://img.shields.io/badge/%E6%A0%B8%E9%AA%8C%E6%96%B9%E6%B3%95-%E5%8F%AF%E5%A4%8D%E7%8E%B0-8a8f98)](https://qianmokillstar.github.io/dsh-plugins/method.html)
 
 > 我维护一个**非官方第三方** DSH 插件索引站，**专攻养鱼 / 角色扮演 / 陪伴向插件**：防失忆、防出戏、防隐私泄露。
 > 人工真机跑过一批插件，记录安装结果、权限风险、隐私去向和替代品。

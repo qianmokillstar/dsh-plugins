@@ -598,7 +598,7 @@ ${body}
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
   <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
   <div>本站核验基准环境：DSH ${DSH_VERSION} · 数据生成于 ${escapeHtml(stats.builtAt)}。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
-  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${DISCUSSIONS.home}" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}method.html">核验方法</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${DISCUSSIONS.home}" target="_blank" rel="noreferrer noopener">讨论区</a></div>
 </footer>
 </div>
 <script src="${base}assets/app.js"></script>
@@ -1118,7 +1118,7 @@ const scenesBody = `<div class="page" style="border:0;background:none;box-shadow
 const verificationsBody = `<div class="page">
   <h1>核验记录</h1>
   <p>每条记录写清：核验日期、DSH 版本、依据、结论。<b>能复现的才写进来</b>。</p>
-  <p class="notice">当前 ${REVIEWED.length} 条记录中，<b>${trialInstalled.length} 条已完成安装实测</b>（真装进隔离 profile，记录版本与日期），<b>${launchByName.size} 条有启动核验结论</b>（已加载 ${[...launchByName.values()].filter((item) => item.activation === 'loaded').length} / 待激活 ${[...launchByName.values()].filter((item) => item.activation === 'pending').length} / 组合无报错 ${[...launchByName.values()].filter((item) => item.activation === 'no-error').length} / 不参与组合 ${[...launchByName.values()].filter((item) => item.activation === 'not-composed').length}）。安装成功不代表运行无问题，启动核验也不代表功能正确。</p>
+  <p class="notice">当前 ${REVIEWED.length} 条记录中，<b>${trialInstalled.length} 条已完成安装实测</b>（真装进隔离 profile，记录版本与日期），<b>${launchByName.size} 条有启动核验结论</b>（已加载 ${[...launchByName.values()].filter((item) => item.activation === 'loaded').length} / 待激活 ${[...launchByName.values()].filter((item) => item.activation === 'pending').length} / 组合无报错 ${[...launchByName.values()].filter((item) => item.activation === 'no-error').length} / 不参与组合 ${[...launchByName.values()].filter((item) => item.activation === 'not-composed').length}）。安装成功不代表运行无问题，启动核验也不代表功能正确。具体怎么测的见 <a href="method.html">核验方法</a>。</p>
   <table class="verify-table">
     <thead><tr><th>插件</th><th>隐私</th><th>安装</th><th>启动核验</th><th>核验日期</th><th>DSH 版本</th><th>结论</th><th>风险</th></tr></thead>
     <tbody>
@@ -1242,7 +1242,61 @@ const installBody = `<div class="page">
   </ul>
 </div>`
 
+const methodBody = `<div class="page">
+  <h1>核验方法</h1>
+  <p>这一页说明每条核验是怎么做出来的、什么算通过、什么不算——**你不需要相信我们，你可以照着复现**。</p>
+
+  <h2>四级核验，逐级加严</h2>
+  <table class="verify-table">
+    <thead><tr><th>级别</th><th>做了什么</th><th>能证明什么</th><th>不能证明什么</th></tr></thead>
+    <tbody>
+      <tr><td>① 文档核验</td><td>读 README 原文、npm registry 元数据、仓库声明</td><td>作者声称它做什么、许可证、版本、维护者</td><td>实际能不能装、能不能跑</td></tr>
+      <tr><td>② 安装实测</td><td>在<strong>隔离 profile</strong> 里真装一次，记录版本与耗时</td><td>包能解析、能装进 DSH 的插件体系</td><td>装上之后能不能用、有没有副作用</td></tr>
+      <tr><td>③ 启动核验</td><td>用最小 profile 启动一次，看是否报错、是否 pending</td><td>它能被组合、启动期不炸</td><td>功能是否正常、隐私行为</td></tr>
+      <tr><td>④ 运行实测</td><td>装完真跑一轮具体任务</td><td>这个功能在真实场景下可用</td><td><strong>本站目前尚未系统开展</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2>安装实测怎么做的</h2>
+  <pre style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto"><code># 1. 新建一个只用来测试的 profile（不碰日常 profile）
+dsh plugin --profile market-test add 插件名
+
+# 2. 确认它真的进了组合
+dsh --profile market-test --dump-config
+
+# 3. 最小启动一次，看有没有 pending / 报错
+dsh --profile market-test web --no-open --port 51999</code></pre>
+  <p>每条核验记录都写明：<strong>核验日期、DSH 版本、装到的具体版本、结果、失败原因（如果失败）</strong>。这些都在 <a href="verifications.json">verifications.json</a> 里可机器读取。</p>
+
+  <h2>什么算"通过"，什么不算</h2>
+  <ul>
+    <li>✅ 算：装成功、dump-config 里出现、启动不报错</li>
+    <li>❌ 不算：装成功就写"可用"；启动成功就写"没风险"；README 说得好就写"推荐"</li>
+    <li>⚠️ 特别注意：<strong>安装成功 ≠ 功能正确</strong>。站点上所有"已核实"只指可安装性</li>
+  </ul>
+
+  <h2>已知局限（请当成风险提示读）</h2>
+  <ul>
+    <li><strong>没有抓包验证</strong>：隐私分级（🟢/🔴）是读 README 与权限描述后的判断，不是网络层证据</li>
+    <li><strong>没有代码审计</strong>：风险分级不等于安全结论，高危插件只标注、不背书</li>
+    <li><strong>单一环境</strong>：只在本机 Windows + DSH ${DSH_VERSION} 上测，不覆盖其他平台与旧版本</li>
+    <li><strong>网络会影响结果</strong>：GitHub 源安装受网络影响，超时可能被误判成"装不上"（记录里会写耗时）</li>
+    <li><strong>只测一个版本</strong>：插件升级后结论可能失效，所以每条都标日期</li>
+  </ul>
+
+  <h2>我们踩过的坑（也是你该知道的）</h2>
+  <ul>
+    <li><strong>坏包污染</strong>：一个 tarball 截断的包写进 lockfile 后，同 profile 之后所有安装都会失败</li>
+    <li><strong>并发安装冲突</strong>：同一 profile 同时跑两个安装会互相破坏，必须串行</li>
+    <li><strong>看起来一样、其实没装</strong>：包在 node_modules 里但 dump-config 没有 = 装了没被组合</li>
+  </ul>
+  <p>处理方式写在 <a href="install.html">安装避坑指南</a> 里。</p>
+
+  <div class="notice">发现记录有误？<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener"><b>去 Discussions 纠错</b></a>，带上插件名、版本、现象。</div>
+</div>`
+
 const pageBodies = new Map([
+  ['method.html', { title: '核验方法 · DSH 插件站', description: '四级核验怎么做、什么算通过、已知局限与可复现命令。', body: methodBody }],
   ['install.html', { title: '安装避坑指南 · DSH 插件站', description: 'npm 与 GitHub 两种装法、坏包污染、版本不兼容与验证方式。', body: installBody }],
   ['weekly.html', { title: '周报 · DSH 插件站', description: '按快照对比得出的新增、掉榜、版本与许可证变化。', body: weeklyBody }],
   ['rules.html', { title: '收录规则与标准 · DSH 插件站', description: '收录门槛、判断标准、排序与收费说明。', body: rulesBody }],
