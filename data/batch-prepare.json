@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T11:50:08.110Z",
+  "updatedAt": "2026-11-18T11:54:32.245Z",
   "profile": "market-test",
   "items": [
     {
@@ -721,6 +721,68 @@
         "version": "0.36.2",
         "seconds": 79,
         "logTail": " added 326\nProgress: resolved 385, reused 84, downloaded 255, added 326\nProgress: resolved 385, reused 84, downloaded 255, added 327\nProgress: resolved 385, reused 84, downloaded 255, added 358\nProgress: resolved 385, reused 84, downloaded 256, added 358\nProgress: resolved 385, reused 84, downloaded 256, added 361, done\n\ndependencies:\n+ dsh-music-panel 0.36.2\n\nDone in 1m 14.9s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "@michengai/dsh-im-connect",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "1.0.44",
+      "readmeBytes": 51096,
+      "license": "Apache-2.0",
+      "publishTime": "2026-11-17T14:18:43.901Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": false,
+        "reason": "exit 1",
+        "version": "1.0.43",
+        "seconds": 27,
+        "logTail": "\ndependencies:\n+ @michengai/dsh-im-connect 1.0.43\n\n[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: protobufjs@7.6.6\n\nRun \"pnpm approve-builds\" to pick which dependencies should be allowed to run scripts.\nCommand failed with exit code 1: pnpm add \"@michengai/dsh-im-connect\"dsh: plugin command failed; diagnostics: C:\\Users\\HP\\.dsh\\profiles\\market-test\\.plugin-manager\\logs\\operation-bVKsFh\\pnpm.log\n"
+      }
+    },
+    {
+      "name": "@tencent-connect/dsh-qqbot",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.5.5",
+      "readmeBytes": 11735,
+      "license": "MIT",
+      "publishTime": "2026-10-30T15:59:15.778Z",
+      "maintainers": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "install": {
+        "ok": false,
+        "reason": "exit 1",
+        "version": "0.5.5",
+        "seconds": 13,
+        "logTail": "dependencies:\n+ @tencent-connect/dsh-qqbot 0.5.5\n\n[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: protobufjs@7.6.6\n\nRun \"pnpm approve-builds\" to pick which dependencies should be allowed to run scripts.\nCommand failed with exit code 1: pnpm add \"@tencent-connect/dsh-qqbot\"dsh: plugin command failed; diagnostics: C:\\Users\\HP\\.dsh\\profiles\\market-test\\.plugin-manager\\logs\\operation-mokr4c\\pnpm.log\n"
+      }
+    },
+    {
+      "name": "dsh-session-superagent",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.10.12",
+      "readmeBytes": 6269,
+      "license": "MIT",
+      "publishTime": "2026-11-09T02:33:48.031Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": false,
+        "reason": "exit 1",
+        "version": "0.10.12",
+        "seconds": 15,
+        "logTail": ", done\n\ndependencies:\n+ dsh-session-superagent 0.10.12\n\n[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: protobufjs@7.6.6\n\nRun \"pnpm approve-builds\" to pick which dependencies should be allowed to run scripts.\nCommand failed with exit code 1: pnpm add dsh-session-superagentdsh: plugin command failed; diagnostics: C:\\Users\\HP\\.dsh\\profiles\\market-test\\.plugin-manager\\logs\\operation-H4mtAY\\pnpm.log\n"
       }
     }
   ]

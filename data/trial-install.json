@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-17T13:47:28.876Z",
+  "updatedAt": "2026-11-18T11:55:42.605Z",
   "profile": "market-test",
   "dshVersion": "0.2.2-rc.3",
   "items": [
@@ -113,6 +113,51 @@
       "seconds": 184,
       "reason": null,
       "logTail": ""
+    },
+    {
+      "name": "@michengai/dsh-im-connect",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-18",
+      "result": "partial",
+      "version": "1.0.43",
+      "seconds": 41,
+      "reason": "pnpm 11 拦截依赖构建脚本（protobufjs@7.6.6），命令以失败退出；包已落地 node_modules 并写入 dependencies，但未进入 profile bundles",
+      "logTail": ""
+    },
+    {
+      "name": "@tencent-connect/dsh-qqbot",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-18",
+      "result": "partial",
+      "version": "0.5.5",
+      "seconds": 33,
+      "reason": "pnpm 11 拦截依赖构建脚本（protobufjs@7.6.6），命令以失败退出；包已落地 node_modules 并写入 dependencies，但未进入 profile bundles",
+      "logTail": ""
+    },
+    {
+      "name": "dsh-session-superagent",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-18",
+      "result": "partial",
+      "version": "0.10.12",
+      "seconds": 27,
+      "reason": "pnpm 11 拦截依赖构建脚本（protobufjs@7.6.6），命令以失败退出；包已落地 node_modules 并写入 dependencies，但未进入 profile bundles",
+      "logTail": ""
+    },
+    {
+      "name": "dsh-liketavern",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-18",
+      "result": "installed",
+      "version": "0.5.12",
+      "seconds": 156,
+      "reason": null,
+      "logTail": "",
+      "source": "github-spec"
     }
   ]
 }

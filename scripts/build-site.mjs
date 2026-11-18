@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * 生成 DSH 插件站（静态、零后端、零外部依赖）。
  *
@@ -288,6 +288,7 @@ for (const plugin of catalog.plugins) {
     labels: review?.labels ?? [],
     risk: review?.risk ?? null,
     privacy: review?.privacy ?? 'unknown',
+    rp: review?.rp ?? false,
     curationRank: review?.curationRank ?? -1,
     reviewBody,
     reviewHeading: reviewBody ? (/^#\s+(.*)$/mu.exec(reviewBody)?.[1]?.trim() ?? plugin.name) : null,
@@ -331,6 +332,7 @@ for (const plugin of github?.plugins ?? []) {
     labels: review?.labels ?? [],
     risk: review?.risk ?? null,
     privacy: review?.privacy ?? 'unknown',
+    rp: review?.rp ?? false,
     curationRank: review?.curationRank ?? -1,
     reviewBody: reviewFile ? reviewBodies.get(reviewFile) : undefined,
     reviewHeading: reviewFile && reviewBodies.get(reviewFile)
@@ -361,6 +363,7 @@ entries.length = 0
 entries.push(...deduped.values())
 if (duplicates > 0) console.log(`去重：合并 ${duplicates} 条同名条目`)
 
+
 // 去重：不同来源可能产生同一个 slug，追加序号避免互相覆盖。
 const usedSlugs = new Set()
 for (const entry of entries) {
@@ -380,6 +383,11 @@ const stats = {
   githubRejected: github?.rejectedRepos ?? 0,
   builtAt: BUILT_AT.toISOString().slice(0, 10),
 }
+
+// 去重之后再算一遍，保证首页数字与列表一致
+stats.total = entries.length
+stats.verified = entries.filter((entry) => entry.verified).length
+stats.reviewed = entries.filter((entry) => entry.reviewBody).length
 
 // ---------- 样式 ----------
 const CSS = `:root {
@@ -491,7 +499,7 @@ footer.site { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 
 // ---------- 客户端 ----------
 const APP_JS = `(function () {
   var data = window.__PLUGINS__;
-  var state = { query: '', category: '', sort: 'recommend', verifiedOnly: false };
+  var state = { query: '', category: '', sort: 'recommend', verifiedOnly: false, rpOnly: false };
   var list = document.getElementById('list');
   if (!list) return;
   var count = document.getElementById('count');
@@ -515,6 +523,7 @@ const APP_JS = `(function () {
     var words = state.query.toLowerCase().split(/[\\s,]+/).filter(Boolean);
     var items = data.filter(function (p) {
       if (state.verifiedOnly && !p.verified) return false;
+      if (state.rpOnly && !p.rp) return false;
       if (state.category && p.category !== state.category) return false;
       if (words.length && score(p, words) < 0) return false;
       return true;
@@ -545,6 +554,7 @@ const APP_JS = `(function () {
       ? '<span class="badge ok">已核实</span>'
       : '<span class="badge warn">未核实</span>';
     if (p.reviewed) badges += '<span class="badge accent">人工短评</span>';
+    if (p.rp) badges += '<span class="badge accent">养鱼</span>';
     badges += '<span class="badge">' + p.categoryTitle + '</span>';
     if (p.risk === 'high') badges += '<span class="badge high">高风险</span>';
     if (p.privacy === 'cloud') badges += '<span class="badge high">🔴 需云端</span>';
@@ -568,12 +578,13 @@ const APP_JS = `(function () {
   }
   function render() {
     var items = filtered();
-    count.textContent = '共 ' + items.length + ' 个插件' + (state.verifiedOnly ? '（仅已核实）' : '');
+    count.textContent = '共 ' + items.length + ' 个插件' + (state.verifiedOnly ? '（仅已核实）' : '') + (state.rpOnly ? '（仅养鱼相关）' : '');
     list.innerHTML = items.length ? items.map(card).join('') : '<div class="empty">没找到匹配的插件。试试换个关键词，或取消分类筛选。</div>';
   }
   document.getElementById('q').addEventListener('input', function (e) { state.query = e.target.value; render(); });
   document.getElementById('sort').addEventListener('change', function (e) { state.sort = e.target.value; render(); });
   document.getElementById('verified').addEventListener('change', function (e) { state.verifiedOnly = e.target.checked; render(); });
+  document.getElementById('rponly').addEventListener('change', function (e) { state.rpOnly = e.target.checked; render(); });
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
       state.category = state.category === chip.dataset.category ? '' : chip.dataset.category;
@@ -647,6 +658,7 @@ const clientData = entries.map((entry) => ({
   hasReview: Boolean(entry.reviewBody),
   risk: entry.risk,
   privacy: entry.privacy,
+  rp: entry.rp,
   curationRank: entry.curationRank,
   version: entry.version,
   install: entry.install,
@@ -671,6 +683,7 @@ const homeBody = `<div class="stats">
       <option value="name">按名称</option>
     </select>
     <label class="toggle"><input id="verified" type="checkbox"> 只看已核实</label>
+    <label class="toggle"><input id="rponly" type="checkbox"> 只看养鱼相关</label>
   </div>
   <div class="chips">${categoryChips}</div>
 </div>
@@ -1159,13 +1172,19 @@ const verificationsBody = `<div class="page">
         const trial = trialByName.get(entry.name)
         const launch = launchByName.get(entry.name)
         const evidence = trial
-          ? (trial.result === 'installed' ? `已装 ${escapeHtml(trial.version ?? '')}` : '安装失败')
+          ? (trial.result === 'installed'
+              ? `已装 ${escapeHtml(trial.version ?? '')}`
+              : trial.result === 'partial'
+                ? `半装 ${escapeHtml(trial.version ?? '')}`
+                : '安装失败')
           : '—'
         const activation = launch ? (ACTIVATION_TEXT[launch.activation] ?? launch.activation) : '未验证'
         const verdict = trial
           ? (trial.result === 'installed'
               ? `已装入隔离 profile${launch?.note ? `；${escapeHtml(launch.note)}` : ''}`
-              : `安装失败：${escapeHtml(trial.reason ?? '未知')}`)
+              : trial.result === 'partial'
+                ? `包已落地但未组合：${escapeHtml(trial.reason ?? '未知原因')}`
+                : `安装失败：${escapeHtml(trial.reason ?? '未知')}`)
           : (entry.verified ? '包声明存在，可安装（未实测运行）' : '仅 README 线索，未核实')
         const date = trial ? escapeHtml(trial.date) : '2026-11-16 / 17'
         return `<tr>
@@ -1268,19 +1287,29 @@ const installBody = `<div class="page">
   </table>
   <p>遇到超时不要急着判断"插件坏了"：先确认是不是网络问题（换个时间、换代理），再决定是否继续。本站把这类记为"超时未完成"，不写成"装不上"。</p>
 
-  <h2>四、怎么确认"真的装上了"</h2>
+  <h2>五、装上了但报失败：pnpm 拦截构建脚本</h2>
+  <div class="notice">现象：<code>+ 插件名 版本号</code> 明明出现了，但命令最后以 <code>ERR_PNPM_IGNORED_BUILDS</code> 失败退出，提示 <code>Ignored build scripts: protobufjs</code>。</div>
+  <p>这不是装不上，而是 <b>pnpm 11 默认不允许依赖执行构建脚本</b>（安全策略）。实测三个插件（<code>@michengai/dsh-im-connect</code>、<code>@tencent-connect/dsh-qqbot</code>、<code>dsh-session-superagent</code>）都因此报了同一个错，但包其实已经落地 <code>node_modules</code>、也写进了 profile 的 <code>dependencies</code>——只是<b>没进入 <code>dsh.profile.bundles</code></b>，所以不会生效。</p>
+  <p>本站把这种状态记为「<b>半装</b>」，不算通过、也不算失败。处理办法：</p>
+  <ol>
+    <li>在 profile 目录里执行 <code>pnpm approve-builds</code>，选择允许哪个依赖跑脚本（要自己判断这个依赖是否可信）</li>
+    <li>或在 <code>.npmrc</code> / <code>package.json</code> 里用 <code>onlyBuiltDependencies</code> 白名单指定</li>
+    <li>处理后重新 add 一次，让它进入 bundles</li>
+  </ol>
+
+  <h2>六、怎么确认"真的装上了"</h2>
   <ol>
     <li><code>dsh --profile &lt;prof&gt; --dump-config</code> 里能看到该插件的条目 = 已进入组合</li>
     <li>packages 在 <code>node_modules</code> 里但 dump-config 里没有 = 装了但没被组合（常见于独立 app 类插件）</li>
     <li>启动后侧边栏/设置里没出现入口 = 它可能依赖 <code>webServer</code> 之类的服务，在精简 profile 里会 pending</li>
   </ol>
 
-  <h2>五、测试插件请用独立 profile</h2>
+  <h2>七、测试插件请用独立 profile</h2>
   <p>别在每天用的 profile 里试装来源不明的插件。养成习惯：</p>
   <pre style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto"><code>dsh plugin --profile test-only add github:owner/repo</code></pre>
   <p>试完整个 profile 删掉即可，不影响你日常的会话与配置。</p>
 
-  <h2>六、装完先做三件事</h2>
+  <h2>八、装完先做三件事</h2>
   <ul>
     <li>看它要哪些权限/凭据（README 里的"风险提示""免责声明"章节）</li>
     <li>确认它是否会把内容发到第三方（本站每条核验都标了 🟢/🔴）</li>

@@ -22,7 +22,8 @@
         "needs-network"
       ],
       "review": "content/reviews/dsh-agent-compare.md",
-      "privacy": "local"
+      "privacy": "local",
+      "rp": false
     },
     {
       "name": "dsh-remote",
@@ -43,7 +44,8 @@
         "needs-credentials"
       ],
       "review": "content/reviews/dsh-remote.md",
-      "privacy": "local"
+      "privacy": "local",
+      "rp": false
     },
     {
       "name": "dsh-cost-meter",
@@ -65,7 +67,8 @@
         "external-service"
       ],
       "review": "content/reviews/dsh-cost-meter.md",
-      "privacy": "cloud"
+      "privacy": "cloud",
+      "rp": false
     },
     {
       "name": "dsh-free-search",
@@ -87,7 +90,8 @@
         "experimental"
       ],
       "review": "content/reviews/dsh-free-search.md",
-      "privacy": "cloud"
+      "privacy": "cloud",
+      "rp": false
     },
     {
       "name": "dsh-mnemon",
@@ -107,7 +111,8 @@
         "needs-network"
       ],
       "review": "content/reviews/dsh-mnemon.md",
-      "privacy": "local"
+      "privacy": "local",
+      "rp": true
     },
     {
       "name": "dsh-windows-mcp",
@@ -128,7 +133,8 @@
         "experimental"
       ],
       "review": "content/reviews/dsh-windows-mcp.md",
-      "privacy": "local"
+      "privacy": "local",
+      "rp": false
     },
     {
       "name": "@michengai/dsh-archive-manager",
@@ -147,7 +153,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/michengai__dsh-archive-manager.md",
-      "privacy": "local"
+      "privacy": "local",
+      "rp": true
     },
     {
       "name": "dsh-video-storyboard",
@@ -170,7 +177,8 @@
         "experimental"
       ],
       "review": "content/reviews/dsh-video-storyboard.md",
-      "privacy": "cloud"
+      "privacy": "cloud",
+      "rp": false
     },
     {
       "name": "dsh-dream-skin",
@@ -189,7 +197,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-dream-skin.md",
-      "privacy": "local"
+      "privacy": "local",
+      "rp": true
     },
     {
       "name": "@deepseek-harness-tui/dsh-tui",
@@ -210,7 +219,8 @@
         "needs-network"
       ],
       "review": "content/reviews/deepseek-harness-tui__dsh-tui.md",
-      "privacy": "local"
+      "privacy": "local",
+      "rp": false
     },
     {
       "name": "dsh-context",
@@ -229,7 +239,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-context.md"
+      "review": "content/reviews/dsh-context.md",
+      "rp": true
     },
     {
       "name": "cc-safety-net",
@@ -248,7 +259,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/cc-safety-net.md"
+      "review": "content/reviews/cc-safety-net.md",
+      "rp": true
     },
     {
       "name": "deep-view",
@@ -267,7 +279,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/deep-view.md"
+      "review": "content/reviews/deep-view.md",
+      "rp": true
     },
     {
       "name": "dsh-prime-memory",
@@ -286,7 +299,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-prime-memory.md"
+      "review": "content/reviews/dsh-prime-memory.md",
+      "rp": true
     },
     {
       "name": "dsh-live-compact",
@@ -305,7 +319,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-live-compact.md"
+      "review": "content/reviews/dsh-live-compact.md",
+      "rp": true
     },
     {
       "name": "dsh-token-diet",
@@ -324,7 +339,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-token-diet.md"
+      "review": "content/reviews/dsh-token-diet.md",
+      "rp": true
     },
     {
       "name": "dsh-mobile-plugin",
@@ -343,7 +359,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-mobile-plugin.md"
+      "review": "content/reviews/dsh-mobile-plugin.md",
+      "rp": true
     },
     {
       "name": "dsh-plugin-wallpaper-engine",
@@ -362,7 +379,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-plugin-wallpaper-engine.md"
+      "review": "content/reviews/dsh-plugin-wallpaper-engine.md",
+      "rp": true
     },
     {
       "name": "@michengai/dsh-skills-manager",
@@ -381,7 +399,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/michengai__dsh-skills-manager.md"
+      "review": "content/reviews/michengai__dsh-skills-manager.md",
+      "rp": false
     },
     {
       "name": "dsh-connect-workbuddy",
@@ -400,7 +419,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-connect-workbuddy.md"
+      "review": "content/reviews/dsh-connect-workbuddy.md",
+      "rp": false
     },
     {
       "name": "dsh-ops",
@@ -419,7 +439,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-ops.md"
+      "review": "content/reviews/dsh-ops.md",
+      "rp": false
     },
     {
       "name": "@suifei/dsh-ai-team",
@@ -438,7 +459,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/suifei__dsh-ai-team.md"
+      "review": "content/reviews/suifei__dsh-ai-team.md",
+      "rp": false
     },
     {
       "name": "dsh-notify-me",
@@ -457,7 +479,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-notify-me.md"
+      "review": "content/reviews/dsh-notify-me.md",
+      "rp": true
     },
     {
       "name": "ds-harness-remote",
@@ -474,7 +497,8 @@
         "zh": "端到端加密的远程接入，并给 Agent 一组会话/文件操作工具；授权设备等于第二把钥匙。"
       },
       "labels": [],
-      "review": "content/reviews/ds-harness-remote.md"
+      "review": "content/reviews/ds-harness-remote.md",
+      "rp": true
     },
     {
       "name": "dsh-fish-memory",
@@ -493,7 +517,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-fish-memory.md"
+      "review": "content/reviews/dsh-fish-memory.md",
+      "rp": true
     },
     {
       "name": "meow-memory",
@@ -510,7 +535,8 @@
         "zh": "soul/user/project/fact/lesson/topic/rules 七层记忆，首轮注入 + 逐条命中 + 闲置整合。"
       },
       "labels": [],
-      "review": "content/reviews/meow-memory.md"
+      "review": "content/reviews/meow-memory.md",
+      "rp": true
     },
     {
       "name": "dsh-meme",
@@ -529,7 +555,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-meme.md"
+      "review": "content/reviews/dsh-meme.md",
+      "rp": true
     },
     {
       "name": "dsh-soul-md",
@@ -548,7 +575,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-soul-md.md"
+      "review": "content/reviews/dsh-soul-md.md",
+      "rp": true
     },
     {
       "name": "dsh-pet",
@@ -567,7 +595,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-pet.md"
+      "review": "content/reviews/dsh-pet.md",
+      "rp": true
     },
     {
       "name": "dsh-whale-widget",
@@ -586,7 +615,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-whale-widget.md"
+      "review": "content/reviews/dsh-whale-widget.md",
+      "rp": false
     },
     {
       "name": "dsh-folia",
@@ -605,7 +635,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-folia.md"
+      "review": "content/reviews/dsh-folia.md",
+      "rp": true
     },
     {
       "name": "dsh-liketavern",
@@ -624,7 +655,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-liketavern.md"
+      "review": "content/reviews/dsh-liketavern.md",
+      "rp": true
     },
     {
       "name": "dsh-dafeiyu",
@@ -643,7 +675,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-dafeiyu.md"
+      "review": "content/reviews/dsh-dafeiyu.md",
+      "rp": true
     },
     {
       "name": "dsh-genui",
@@ -660,7 +693,8 @@
         "zh": "把回复变成可点的计算器/表单/图表，结果回流到对话；与 deep-view 同赛道。"
       },
       "labels": [],
-      "review": "content/reviews/dsh-genui.md"
+      "review": "content/reviews/dsh-genui.md",
+      "rp": true
     },
     {
       "name": "memory-eternal",
@@ -679,7 +713,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/memory-eternal.md"
+      "review": "content/reviews/memory-eternal.md",
+      "rp": true
     },
     {
       "name": "@openviking/dsh-memory-plugin",
@@ -696,7 +731,8 @@
         "zh": "接入 OpenViking 服务器做召回/捕获与 viking:// URI 记忆；没有服务端就等于装了没用。"
       },
       "labels": [],
-      "review": "content/reviews/openviking__dsh-memory-plugin.md"
+      "review": "content/reviews/openviking__dsh-memory-plugin.md",
+      "rp": false
     },
     {
       "name": "dsh-plugin-memory",
@@ -715,7 +751,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-plugin-memory.md"
+      "review": "content/reviews/dsh-plugin-memory.md",
+      "rp": true
     },
     {
       "name": "dsh-memory-nebula",
@@ -734,7 +771,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-memory-nebula.md"
+      "review": "content/reviews/dsh-memory-nebula.md",
+      "rp": true
     },
     {
       "name": "dsh-fish-soul",
@@ -753,7 +791,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-fish-soul.md"
+      "review": "content/reviews/dsh-fish-soul.md",
+      "rp": true
     },
     {
       "name": "dsh-config-manager",
@@ -772,7 +811,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-config-manager.md"
+      "review": "content/reviews/dsh-config-manager.md",
+      "rp": false
     },
     {
       "name": "dsh-onebot-qq",
@@ -792,7 +832,8 @@
         "chinese-docs",
         "license-review"
       ],
-      "review": "content/reviews/dsh-onebot-qq.md"
+      "review": "content/reviews/dsh-onebot-qq.md",
+      "rp": true
     },
     {
       "name": "dsh-bili-scroll",
@@ -811,7 +852,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-bili-scroll.md"
+      "review": "content/reviews/dsh-bili-scroll.md",
+      "rp": true
     },
     {
       "name": "dsh-music-panel",
@@ -831,7 +873,67 @@
         "chinese-docs",
         "license-review"
       ],
-      "review": "content/reviews/dsh-music-panel.md"
+      "review": "content/reviews/dsh-music-panel.md",
+      "rp": false
+    },
+    {
+      "name": "@michengai/dsh-im-connect",
+      "category": "collab",
+      "curationRank": -2,
+      "risk": "high",
+      "privacy": "cloud",
+      "rp": true,
+      "title": {
+        "en": "IM Connect",
+        "zh": "一家接多家 IM"
+      },
+      "summary": {
+        "en": "One plugin connects a dozen IM platforms; install hits pnpm's build-script guard, landing half-installed.",
+        "zh": "一个插件接十几家 IM；实测因 pnpm 拦截 protobufjs 构建脚本，处于“半装”状态。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/michengai__dsh-im-connect.md"
+    },
+    {
+      "name": "@tencent-connect/dsh-qqbot",
+      "category": "collab",
+      "curationRank": -3,
+      "risk": "high",
+      "privacy": "cloud",
+      "rp": true,
+      "title": {
+        "en": "Official QQ Bot",
+        "zh": "官方 QQ Bot 通道"
+      },
+      "summary": {
+        "en": "Tencent's official QQ Bot channel, requires app registration; also blocked by the pnpm build-script guard.",
+        "zh": "走腾讯官方 QQ Bot 平台，合规更好但要先建机器人；同样被 pnpm 构建脚本拦截处于半装。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/tencent-connect__dsh-qqbot.md"
+    },
+    {
+      "name": "dsh-session-superagent",
+      "category": "automation",
+      "curationRank": -4,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Session Superagent",
+        "zh": "仓库事件唤醒会话"
+      },
+      "summary": {
+        "en": "Watches a GitHub repo and wakes a session when something needs doing; credentials stay out of model context.",
+        "zh": "盯仓库、有事时唤醒会话处理，凭据不进模型上下文；实测因 pnpm 拦截处于半装。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-session-superagent.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"
