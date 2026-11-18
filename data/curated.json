@@ -934,6 +934,82 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-session-superagent.md"
+    },
+    {
+      "name": "dsh-perm-gate",
+      "category": "sandbox",
+      "curationRank": -5,
+      "risk": "medium",
+      "privacy": "local",
+      "rp": true,
+      "title": {
+        "en": "Permission Gate",
+        "zh": "权限门（fail-closed）"
+      },
+      "summary": {
+        "en": "Fail-closed permission gate with a P0-P4 decision chain: credentials, protected paths and dangerous shell are hard-denied.",
+        "zh": "确定性优先、默认拒绝的权限门：凭据/受保护路径/危险 shell 硬拒，P0 不可被任何规则或人工覆盖。"
+      },
+      "labels": [
+        "license-review"
+      ],
+      "review": "content/reviews/dsh-perm-gate.md"
+    },
+    {
+      "name": "dsh-loci",
+      "category": "memory",
+      "curationRank": -6,
+      "risk": "medium",
+      "privacy": "local",
+      "rp": true,
+      "title": {
+        "en": "Memory Palace",
+        "zh": "记忆宫殿（只放索引）"
+      },
+      "summary": {
+        "en": "Keeps only an index in the prompt and pulls details on demand; empty library injects zero bytes.",
+        "zh": "提示词里只放索引（约 1.3k token），细节靠检索按需推门；空库注入 0 字节。"
+      },
+      "labels": [],
+      "review": "content/reviews/dsh-loci.md"
+    },
+    {
+      "name": "dsh-see-now",
+      "category": "media",
+      "curationRank": -7,
+      "risk": "high",
+      "privacy": "cloud",
+      "rp": true,
+      "title": {
+        "en": "See Now",
+        "zh": "实时看见屏幕"
+      },
+      "summary": {
+        "en": "Sends only frames that actually changed, packed into one image; static screens cost almost nothing.",
+        "zh": "只传“画面变了”的帧并拼成一张图，静止屏幕几乎不出图；屏幕内容会进模型。"
+      },
+      "labels": [],
+      "review": "content/reviews/dsh-see-now.md"
+    },
+    {
+      "name": "dsh-brief-sidebar",
+      "category": "productivity",
+      "curationRank": -8,
+      "risk": "low",
+      "privacy": "local",
+      "rp": false,
+      "title": {
+        "en": "Brief Sidebar",
+        "zh": "会话简报侧栏"
+      },
+      "summary": {
+        "en": "Read-only sidebar tab showing todo progress and files written this turn; needs dsh-better-sidebar to fully work.",
+        "zh": "只读侧栏：todo 三态进度 + 本轮产物文件；依赖 dsh-better-sidebar，且版本不匹配会被静默禁用。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-brief-sidebar.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"

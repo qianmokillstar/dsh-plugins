@@ -32,7 +32,7 @@
 | 文件 | 内容 | 用途 |
 |---|---|---|
 | [`/index.json`](https://qianmokillstar.github.io/dsh-plugins/index.json) | DSH 市场索引（format 1，129 条可安装） | 可直接加入 DSH 的 `设置 → 插件 → 发现` 索引源 |
-| [`/verifications.json`](https://qianmokillstar.github.io/dsh-plugins/verifications.json) | 结构化核验记录（schema `dsh-market-verification/1`） | 每条含插件名、版本、核验日期、DSH 版本、许可证、周下载量、风险等级、四问摘要、安装/启动结果 |
+| [`/verifications.json`](https://qianmokillstar.github.io/dsh-plugins/verifications.json) | 结构化核验记录（schema `dsh-market-verification/1`） | 每条含插件名、版本、核验日期、DSH 版本、许可证、周下载量、风险等级、隐私分级、四问摘要、安装/启动结果 |
 | [`/sitemap.xml`](https://qianmokillstar.github.io/dsh-plugins/sitemap.xml) | 全站地址 | 搜索引擎收录 |
 
 核验记录只对标注的**日期 + 版本 + DSH 版本**成立；安装成功不代表运行正确，也不构成安全审计。
@@ -43,8 +43,8 @@
 |---|---|
 | 参考目录（可安装 + 已核实） | 313 |
 | 已核实（有包声明 / bundle 补丁） | 293 |
-| 人工短评（适合谁 / 解决什么 / 风险点 / 替代品） | 46 |
-| 安装实测（隔离 profile 真装） | 43 成功 / 3 半装（pnpm 拦截构建脚本） |
+| 人工短评（适合谁 / 解决什么 / 风险点 / 替代品） | 50 |
+| 安装实测（隔离 profile 真装） | 47 成功 / 3 半装（pnpm 拦截构建脚本） |
 | 启动核验（最小 profile 启动） | 1 已加载 / 2 待激活（缺 webServer）/ 6 组合无报错 / 1 不参与组合 |
 | 场景施工图 | 15（其中养鱼专项 6） |
 | 周报 | 1 期（按快照对比，可复核） |

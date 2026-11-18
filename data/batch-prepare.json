@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T11:54:32.245Z",
+  "updatedAt": "2026-11-18T12:04:30.868Z",
   "profile": "market-test",
   "items": [
     {
@@ -783,6 +783,82 @@
         "version": "0.10.12",
         "seconds": 15,
         "logTail": ", done\n\ndependencies:\n+ dsh-session-superagent 0.10.12\n\n[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: protobufjs@7.6.6\n\nRun \"pnpm approve-builds\" to pick which dependencies should be allowed to run scripts.\nCommand failed with exit code 1: pnpm add dsh-session-superagentdsh: plugin command failed; diagnostics: C:\\Users\\HP\\.dsh\\profiles\\market-test\\.plugin-manager\\logs\\operation-H4mtAY\\pnpm.log\n"
+      }
+    },
+    {
+      "name": "dsh-perm-gate",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "5.5.4",
+      "readmeBytes": 32159,
+      "license": "MIT",
+      "publishTime": "2026-11-14T17:26:25.457Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "5.5.4",
+        "seconds": 9,
+        "logTail": "le store to the virtual store.\n  Content-addressable store is at: C:\\Users\\HP\\AppData\\Local\\pnpm\\store\\v11\n  Virtual store is at:             node_modules/.pnpm\nProgress: resolved 7, reused 6, downloaded 0, added 6\nProgress: resolved 7, reused 6, downloaded 1, added 6\nProgress: resolved 7, reused 6, downloaded 1, added 7, done\n\ndependencies:\n+ dsh-perm-gate 5.5.4\n\nDone in 5.2s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-loci",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "7.2.1",
+      "readmeBytes": 6007,
+      "license": "MIT",
+      "publishTime": "2026-11-18T05:03:23.802Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "6.0.1",
+        "seconds": 10,
+        "logTail": "aded 0, added 0\nProgress: resolved 2, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 8, reused 0, downloaded 0, added 0\nProgress: resolved 8, reused 0, downloaded 1, added 0\nProgress: resolved 8, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-loci 6.0.1\n\nDone in 5.4s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-see-now",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.2.5",
+      "readmeBytes": 45371,
+      "license": "Apache-2.0",
+      "publishTime": "2026-11-18T09:41:18.788Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.2.4",
+        "seconds": 15,
+        "logTail": "ed 0, added 0\nProgress: resolved 2, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 9, reused 0, downloaded 0, added 0\nProgress: resolved 9, reused 0, downloaded 1, added 0\nProgress: resolved 9, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-see-now 0.2.4\n\nDone in 10s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-brief-sidebar",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.9.20",
+      "readmeBytes": 0,
+      "license": "MIT",
+      "publishTime": "2026-11-06T15:06:42.858Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.9.20",
+        "seconds": 10,
+        "logTail": " 0\nProgress: resolved 3, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 10, reused 0, downloaded 0, added 0\nProgress: resolved 10, reused 0, downloaded 1, added 0\nProgress: resolved 10, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-brief-sidebar 0.9.20\n\nDone in 5.4s using pnpm v11.28.5\n"
       }
     }
   ]

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * 生成 DSH 插件站（静态、零后端、零外部依赖）。
  *
@@ -1347,7 +1347,8 @@ dsh --profile market-test --dump-config
 
 # 3. 最小启动一次，看有没有 pending / 报错
 dsh --profile market-test web --no-open --port 51999</code></pre>
-  <p>每条核验记录都写明：<strong>核验日期、DSH 版本、装到的具体版本、结果、失败原因（如果失败）</strong>。这些都在 <a href="verifications.json">verifications.json</a> 里可机器读取。</p>
+  <p>每条核验记录都写明：<strong>核验日期、DSH 版本、装到的具体版本、结果、失败原因（如果失败）</strong>。这些都在 <a href="verifications.json">verifications.json</a> 里可机器读取，字段定义见 <a href="verifications.schema.json">verifications.schema.json</a>（JSON Schema 2020-12）。</p>
+  <p><code>install.result</code> 有四种取值：<code>installed</code>（装进隔离 profile 并进入组合）、<code>partial</code>（包已落地但未进入 profile bundles，例如 pnpm 拦截构建脚本）、<code>failed</code>、<code>not-tested</code>。</p>
 
   <h2>什么算"通过"，什么不算</h2>
   <ul>
@@ -1542,6 +1543,74 @@ const verificationDoc = {
 }
 await writeFile(join(SITE, 'verifications.json'), JSON.stringify(verificationDoc, null, 2) + '\n', 'utf8')
 
+// JSON Schema：让外部工具能校验/消费我们的核验数据
+const verificationSchema = {
+  $schema: 'https://json-schema.org/draft/2020-12/schema',
+  $id: `${SITE_URL}/verifications.schema.json`,
+  title: 'DSH plugin verification records',
+  type: 'object',
+  required: ['schema', 'generatedAt', 'entries'],
+  properties: {
+    schema: { const: 'dsh-market-verification/1' },
+    generatedAt: { type: 'string', format: 'date-time' },
+    site: { type: 'string', format: 'uri' },
+    disclaimer: { type: 'string' },
+    dshVersion: { type: 'string' },
+    count: { type: 'integer', minimum: 0 },
+    entries: {
+      type: 'array',
+      items: {
+        type: 'object',
+        required: ['name', 'install', 'judgment', 'links'],
+        properties: {
+          name: { type: 'string' },
+          version: { type: ['string', 'null'] },
+          title: { type: 'string' },
+          license: { type: ['string', 'null'] },
+          weeklyDownloads: { type: ['integer', 'null'] },
+          risk: { enum: ['low', 'medium', 'high', null] },
+          privacy: { enum: ['local', 'cloud', 'unknown'] },
+          privacyNote: { type: ['string', 'null'] },
+          verificationDate: { type: ['string', 'null'], format: 'date' },
+          dshVersion: { type: 'string' },
+          install: {
+            type: 'object',
+            required: ['result'],
+            properties: {
+              result: {
+                enum: ['installed', 'partial', 'failed', 'not-tested'],
+                description: 'installed=装进隔离 profile 并进入组合；partial=包已落地但未进入 profile bundles（如 pnpm 拦截构建脚本）；failed=安装失败；not-tested=未测',
+              },
+              version: { type: ['string', 'null'] },
+            },
+          },
+          activation: { enum: ['loaded', 'no-error', 'pending', 'not-composed', 'unknown'] },
+          activationNote: { type: ['string', 'null'] },
+          judgment: {
+            type: 'object',
+            properties: {
+              fit: { type: ['string', 'null'], description: '适合谁（首条要点）' },
+              solves: { type: ['string', 'null'], description: '解决什么' },
+              risk: { type: ['string', 'null'], description: '风险点' },
+              alternatives: { type: ['string', 'null'], description: '替代品' },
+            },
+          },
+          links: {
+            type: 'object',
+            properties: {
+              page: { type: 'string', format: 'uri' },
+              npm: { type: ['string', 'null'] },
+              repository: { type: ['string', 'null'] },
+              homepage: { type: ['string', 'null'] },
+            },
+          },
+        },
+      },
+    },
+  },
+}
+await writeFile(join(SITE, 'verifications.schema.json'), JSON.stringify(verificationSchema, null, 2) + '\n', 'utf8')
+
 // sitemap / robots：让搜索引擎能收录施工图与核验记录
 const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'method.html', 'risks.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
 const sitemapUrls = [
@@ -1549,6 +1618,7 @@ const sitemapUrls = [
   ...entries.map((entry) => ({ loc: `${SITE_URL}/p/${entry.slug}.html`, priority: '0.6' })),
   { loc: `${SITE_URL}/index.json`, priority: '0.7' },
   { loc: `${SITE_URL}/verifications.json`, priority: '0.7' },
+  { loc: `${SITE_URL}/verifications.schema.json`, priority: '0.5' },
 ]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
