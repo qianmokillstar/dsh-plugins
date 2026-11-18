@@ -587,13 +587,13 @@ function shell({ title, description, body, base = '', nav = true }) {
 ${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
 <p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
 <p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="${base}rules.html">收录规则</a></p>
-<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}risks.html">风险公告</a><a href="${base}changelog.html">更新日志</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
+<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}install.html">安装避坑</a><a href="${base}risks.html">风险公告</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
 ${body}
 <footer class="site">
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
   <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
   <div>本站核验基准环境：DSH ${DSH_VERSION} · 数据生成于 ${escapeHtml(stats.builtAt)}。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
-  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${base}submit.html">提交插件</a></div>
+  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${base}submit.html">提交插件</a></div>
 </footer>
 </div>
 <script src="${base}assets/app.js"></script>
@@ -1186,7 +1186,57 @@ const weeklyBody = `<div class="page" style="border:0;background:none;box-shadow
   ${weeklyFiles.length > 1 ? `<h2>往期</h2><ul>${weeklyFiles.slice(1).map((file) => `<li><code>${escapeHtml(file.replace('.md', ''))}</code></li>`).join('')}</ul>` : ''}
 </div>`
 
+const installBody = `<div class="page">
+  <h1>安装避坑指南</h1>
+  <p>这些不是推测，是本站 2026-11-17/18 在隔离 profile 里真装 30+ 个插件踩出来的。</p>
+
+  <h2>一、先分清两种安装源</h2>
+  <table class="verify-table">
+    <thead><tr><th>来源</th><th>命令</th><th>什么时候用</th></tr></thead>
+    <tbody>
+      <tr><td>npm 包</td><td><code>dsh plugin --profile &lt;prof&gt; add 包名</code></td><td>包在 npm 上且有正常发布版本</td></tr>
+      <tr><td>GitHub 仓库</td><td><code>dsh plugin --profile &lt;prof&gt; add github:owner/repo</code></td><td>npm 上找不到（返回 404）、或 npm 版本是占位包</td></tr>
+    </tbody>
+  </table>
+  <p>实测：养鱼圈里 <code>dsh-purge-community</code>、<code>dsh-purge-safe</code>、<code>dsh-liketavern</code>、<code>gal-view</code> 都<strong>不在 npm</strong>，只能用 github: 装。装之前先在 npm 搜一下包名，搜不到就走 GitHub 源。</p>
+
+  <h2>二、最坑的一种失败：坏包污染整个 profile</h2>
+  <div class="notice">
+    现象：你明明在装 A 插件，报错却指向 B（例如 <code>dsh-purge-0.0.0-stage.tgz</code> 的 tarball 截断）。而且之后<strong>同一 profile 装什么都失败</strong>。
+  </div>
+  <p>原因：损坏的包被写进了该 profile 的 lockfile，之后每次 add 都会重试它。</p>
+  <ol>
+    <li>先确认是哪个包坏了（看报错里的 tarball 文件名）</li>
+    <li>在该 profile 里移除它：<code>dsh plugin --profile &lt;prof&gt; remove 坏包名</code></li>
+    <li>还不行就删掉该 profile 的 <code>node_modules</code> 与 <code>pnpm-lock.yaml</code> 后重装</li>
+    <li>最省事：换一个干净的 profile 重来</li>
+  </ol>
+
+  <h2>三、版本不兼容：别乱用 allow-version</h2>
+  <p>安装器会拦下与当前 DSH 版本不匹配的插件（例如 <code>billion-context-dsh@0.2.27</code> 对 <code>0.2.2-rc.3</code>）。它会提示你可以用 <code>allow-version</code> 强制安装——<strong>那等于自己承担崩溃与数据丢失风险</strong>，本站不建议，除非你清楚自己在做什么。</p>
+
+  <h2>四、怎么确认"真的装上了"</h2>
+  <ol>
+    <li><code>dsh --profile &lt;prof&gt; --dump-config</code> 里能看到该插件的条目 = 已进入组合</li>
+    <li>packages 在 <code>node_modules</code> 里但 dump-config 里没有 = 装了但没被组合（常见于独立 app 类插件）</li>
+    <li>启动后侧边栏/设置里没出现入口 = 它可能依赖 <code>webServer</code> 之类的服务，在精简 profile 里会 pending</li>
+  </ol>
+
+  <h2>五、测试插件请用独立 profile</h2>
+  <p>别在每天用的 profile 里试装来源不明的插件。养成习惯：</p>
+  <pre style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto"><code>dsh plugin --profile test-only add github:owner/repo</code></pre>
+  <p>试完整个 profile 删掉即可，不影响你日常的会话与配置。</p>
+
+  <h2>六、装完先做三件事</h2>
+  <ul>
+    <li>看它要哪些权限/凭据（README 里的"风险提示""免责声明"章节）</li>
+    <li>确认它是否会把内容发到第三方（本站每条核验都标了 🟢/🔴）</li>
+    <li>试用时先跑一个不重要的会话，别直接上主号/主档案</li>
+  </ul>
+</div>`
+
 const pageBodies = new Map([
+  ['install.html', { title: '安装避坑指南 · DSH 插件站', description: 'npm 与 GitHub 两种装法、坏包污染、版本不兼容与验证方式。', body: installBody }],
   ['weekly.html', { title: '周报 · DSH 插件站', description: '按快照对比得出的新增、掉榜、版本与许可证变化。', body: weeklyBody }],
   ['rules.html', { title: '收录规则与标准 · DSH 插件站', description: '收录门槛、判断标准、排序与收费说明。', body: rulesBody }],
   ['risks.html', { title: '风险公告 · DSH 插件站', description: '装不上、装坏了、不建议直接装的 DSH 插件，附证据。', body: risksBody }],
