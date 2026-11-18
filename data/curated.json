@@ -587,6 +587,44 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-whale-widget.md"
+    },
+    {
+      "name": "dsh-folia",
+      "category": "appearance",
+      "curationRank": 11,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Folia",
+        "zh": "壁纸引擎 + 桌宠 + 开机动画"
+      },
+      "summary": {
+        "en": "A heavy atmosphere suite: WE wallpaper rendering, pet skins, boot animation, local voice and an online asset site.",
+        "zh": "氛围全家桶：WE 壁纸实时渲染、桌宠皮肤、开机动画、本地语音、在线素材站；注意 npm 包名是 dsh-folia。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-folia.md"
+    },
+    {
+      "name": "dsh-liketavern",
+      "category": "memory",
+      "curationRank": 10,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "LikeTavern",
+        "zh": "SillyTavern 兼容剧情引擎"
+      },
+      "summary": {
+        "en": "SillyTavern-compatible roleplay on DSH: ST cards, lorebooks, presets, branch-isolated story state and BM25 memory.",
+        "zh": "兼容 ST 角色卡/世界书/预设，剧情状态按分支隔离、重试不串味；装法特殊（GitHub 源）且需 Node ≥24。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-liketavern.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"
