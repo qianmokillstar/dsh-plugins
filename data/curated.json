@@ -325,6 +325,82 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-token-diet.md"
+    },
+    {
+      "name": "dsh-mobile-plugin",
+      "category": "productivity",
+      "curationRank": 38,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Mobile Access",
+        "zh": "手机接着聊"
+      },
+      "summary": {
+        "en": "Phone app connects back to the DSH on your own machine through a relay tunnel or LAN pairing.",
+        "zh": "手机 App 通过中转隧道或局域网连回你自己电脑上的 DSH；躺床上也能接着聊，但隧道会经过第三方。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-mobile-plugin.md"
+    },
+    {
+      "name": "dsh-plugin-wallpaper-engine",
+      "category": "appearance",
+      "curationRank": 36,
+      "risk": "low",
+      "privacy": "local",
+      "title": {
+        "en": "Wallpaper Engine",
+        "zh": "壁纸引擎背景"
+      },
+      "summary": {
+        "en": "Brings local Wallpaper Engine scenes, web and video wallpapers into the chat UI without registering tools or spending tokens.",
+        "zh": "把本机 Wallpaper Engine 的 Scene/Web/视频壁纸做成对话背景，不注册工具、不注入提示词，不花模型 token。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-plugin-wallpaper-engine.md"
+    },
+    {
+      "name": "@michengai/dsh-skills-manager",
+      "category": "productivity",
+      "curationRank": 34,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Skills Manager",
+        "zh": "技能统一管理"
+      },
+      "summary": {
+        "en": "One place to manage skills across 20+ agent tools, with preview, backup and rollback.",
+        "zh": "把散落在 DSH / Claude Code / Cursor 等 20+ 工具里的技能集中管理，带预览、备份与回退。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/michengai__dsh-skills-manager.md"
+    },
+    {
+      "name": "dsh-connect-workbuddy",
+      "category": "models",
+      "curationRank": 32,
+      "risk": "high",
+      "privacy": "cloud",
+      "title": {
+        "en": "Connect WorkBuddy",
+        "zh": "接入 WorkBuddy 模型"
+      },
+      "summary": {
+        "en": "Routes your locally signed-in WorkBuddy account into DSH's model picker; upstream already limits unofficial clients.",
+        "zh": "把本机登录的 WorkBuddy 账号接到 DSH 模型选择器；README 自述上游已限制非官方客户端，账号风险自担。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-connect-workbuddy.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"
