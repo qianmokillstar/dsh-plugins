@@ -401,6 +401,80 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-connect-workbuddy.md"
+    },
+    {
+      "name": "dsh-ops",
+      "category": "devtools",
+      "curationRank": 30,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Ops Toolset",
+        "zh": "省 token 工具集"
+      },
+      "summary": {
+        "en": "Replaces part of the official tool surface with terser, line-numbered output to cut token cost.",
+        "zh": "用更紧凑、带行号的返回替换部分官方工具，省 token；代价是工具面被换掉。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-ops.md"
+    },
+    {
+      "name": "@suifei/dsh-ai-team",
+      "category": "productivity",
+      "curationRank": 28,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "AI Team",
+        "zh": "文渊阁 AI 团队"
+      },
+      "summary": {
+        "en": "A role-based AI team workbench: lead, executor, reviewer, coder, designer, business.",
+        "zh": "带主理人/执行/验收/编程/设计/业务角色的三栏工作台，做的人与验收的人分开。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/suifei__dsh-ai-team.md"
+    },
+    {
+      "name": "dsh-notify-me",
+      "category": "productivity",
+      "curationRank": 26,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Notify Me",
+        "zh": "离开页面也提醒"
+      },
+      "summary": {
+        "en": "Notifications for approvals and finished replies, with optional forwarding to Discord, Bark, Feishu and webhooks.",
+        "zh": "审批/完成时弹通知、响铃、改标题；可选转发到 Discord/飞书/Bark 等，转发即内容出本机。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-notify-me.md"
+    },
+    {
+      "name": "ds-harness-remote",
+      "category": "devtools",
+      "curationRank": 24,
+      "risk": "high",
+      "privacy": "cloud",
+      "title": {
+        "en": "Harness Remote",
+        "zh": "端到端远程接入"
+      },
+      "summary": {
+        "en": "End-to-end encrypted remote access to your Harness, with agent tools for sessions and files.",
+        "zh": "端到端加密的远程接入，并给 Agent 一组会话/文件操作工具；授权设备等于第二把钥匙。"
+      },
+      "labels": [],
+      "review": "content/reviews/ds-harness-remote.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"
