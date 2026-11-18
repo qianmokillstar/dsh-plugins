@@ -697,6 +697,82 @@
       },
       "labels": [],
       "review": "content/reviews/openviking__dsh-memory-plugin.md"
+    },
+    {
+      "name": "dsh-plugin-memory",
+      "category": "memory",
+      "curationRank": 5,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Markdown Memory",
+        "zh": "markdown+git 可迁移记忆"
+      },
+      "summary": {
+        "en": "Cross-session memory stored as markdown in git, plus a SOUL.md persona injected at session start.",
+        "zh": "记忆就是 markdown + git，SOUL.md 作人格，启动时硬注入；曾有“装了无法新建会话”的版本事故（0.19.2 已修）。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-plugin-memory.md"
+    },
+    {
+      "name": "dsh-memory-nebula",
+      "category": "memory",
+      "curationRank": 4,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Memory Nebula",
+        "zh": "记忆星图（只读聚合）"
+      },
+      "summary": {
+        "en": "Read-only star map over other plugins' memory libraries, with 9 tools and single-file HTML export.",
+        "zh": "把别的插件的记忆只读聚合成关联星云，9 个工具顺链检索，可导出单文件 HTML。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-memory-nebula.md"
+    },
+    {
+      "name": "dsh-fish-soul",
+      "category": "collab",
+      "curationRank": 3,
+      "risk": "high",
+      "privacy": "cloud",
+      "title": {
+        "en": "Fish Soul",
+        "zh": "跨平台单角色人格"
+      },
+      "summary": {
+        "en": "One persona across QQ, Bilibili and Douyin with per-person memory, routines and proactive messages.",
+        "zh": "同一个“她”跨 QQ/B站/抖音，按人记忆、作息、主动开口；账号风险与隐私面最大。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-fish-soul.md"
+    },
+    {
+      "name": "dsh-config-manager",
+      "category": "devtools",
+      "curationRank": 2,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Config Manager",
+        "zh": "配置备份与迁移"
+      },
+      "summary": {
+        "en": "Backs up and migrates the whole DSH config; can export API keys when encrypted — handle with care.",
+        "zh": "把整套 DSH 配置打成可移植备份，可加密导出密钥——这是它最大价值也是最大风险。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-config-manager.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"

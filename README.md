@@ -1,4 +1,4 @@
-# DSH 插件站（非官方 · 第三方）
+﻿# DSH 插件站（非官方 · 第三方）
 
 [![非官方第三方](https://img.shields.io/badge/%E9%9D%9E%E5%AE%98%E6%96%B9-%E7%AC%AC%E4%B8%89%E6%96%B9-f0b357)](https://qianmokillstar.github.io/dsh-plugins/rules.html)
 [![人工核验](https://img.shields.io/badge/%E4%BA%BA%E5%B7%A5%E6%A0%B8%E9%AA%8C-32%20%E6%9D%A1-2f6fdd)](https://qianmokillstar.github.io/dsh-plugins/verifications.html)
@@ -43,8 +43,8 @@
 |---|---|
 | 参考目录（可安装 + 已核实） | 313 |
 | 已核实（有包声明 / bundle 补丁） | 293 |
-| 人工短评（适合谁 / 解决什么 / 风险点 / 替代品） | 32 |
-| 安装实测（隔离 profile 真装） | 32 / 32 |
+| 人工短评（适合谁 / 解决什么 / 风险点 / 替代品） | 40 |
+| 安装实测（隔离 profile 真装） | 40 / 40 |
 | 启动核验（最小 profile 启动） | 1 已加载 / 2 待激活（缺 webServer）/ 6 组合无报错 / 1 不参与组合 |
 | 场景施工图 | 15（其中养鱼专项 6） |
 | 周报 | 1 期（按快照对比，可复核） |

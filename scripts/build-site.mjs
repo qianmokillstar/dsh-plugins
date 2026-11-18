@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * 生成 DSH 插件站（静态、零后端、零外部依赖）。
  *
@@ -111,6 +111,7 @@ const RISK_FLAG_TEXT = {
   jailbreak: '破甲/越狱类',
   unverified: '未核实',
   incompatible: '版本不兼容',
+  'clone-timeout': '克隆超时未完成',
 }
 const launchByName = new Map((launchData?.plugins ?? []).map((item) => [item.name, item]))
 const ACTIVATION_TEXT = {
@@ -943,6 +944,8 @@ const scenes = [
       ['dsh-fish-memory', '想要"会淡忘"就选它：带时间戳、按命中注入，久远设定会越记越淡——适合长线剧情而不是精密设定。'],
       ['meow-memory', '要"人格与偏好分开存"就选它：七层 SQLite 记忆，soul/user 分层，代价是配置门槛最高。'],
       ['memory-eternal', '要"多台机器共享"就选它：本地 SQLite + 可选云同步，热切换不刷新；云同步即内容上云。'],
+      ['dsh-plugin-memory', '要"记忆能进 git、能搬走"就选它：markdown + SOUL.md，启动时硬注入。'],
+      ['dsh-memory-nebula', '装了几个记忆插件之后，用它看清楚各自记了什么：只读聚合、顺链检索。'],
     ],
     skip: ['设定不多、只聊几轮 —— 直接在 AGENTS.md 里手写人设与世界观，零安装、完全可控'],
     watch: ['自动写入的记忆写错会被反复引用，越用越偏：必须定期抽查删改', '蒸馏与召回通常要调模型，等于对话内容会经过模型服务', '两个都装会重复注入，上下文更早爆'],
@@ -967,6 +970,7 @@ const scenes = [
       ['dsh-soul-md', '要"可控"就选它：把角色写成可切换的人设卡（会话级/工作区级），记忆存成 markdown 你自己能打开改。注意它不保证模型真的去更新人设。'],
       ['dsh-prime-memory', '要"自动"就选它：用 L3 画像层自动蒸馏"这个人是谁"，但内容不可精确手改。'],
       ['dsh-liketavern', '要"专业养鱼"就选它：兼容 ST 角色卡与世界书，剧情状态按分支隔离、重试不串味；装法特殊（github: 源）且需 Node ≥24。'],
+      ['dsh-fish-soul', '要"她活在 QQ/B站/抖音"就选它：跨平台单角色人格 + 按人记忆；账号风险与隐私面最大，先想清楚再装。'],
     ],
     skip: ['只做单次短对话 —— 开场把设定贴进上下文就够'],
     watch: ['两个都装会重复注入人设，上下文更早爆', '人设文件被插件覆盖是最常见的崩法，改之前先备份', '记忆与人设冲突时通常是记忆赢——需要定期校准'],
@@ -1233,6 +1237,19 @@ const installBody = `<div class="page">
 
   <h2>三、版本不兼容：别乱用 allow-version</h2>
   <p>安装器会拦下与当前 DSH 版本不匹配的插件（例如 <code>billion-context-dsh@0.2.27</code> 对 <code>0.2.2-rc.3</code>）。它会提示你可以用 <code>allow-version</code> 强制安装——<strong>那等于自己承担崩溃与数据丢失风险</strong>，本站不建议，除非你清楚自己在做什么。</p>
+
+  <h2>四、GitHub 源装大仓库会超时（实测数据）</h2>
+  <p>用 <code>github:owner/repo</code> 安装时，DSH 会先克隆仓库，速度取决于网络与仓库体积：</p>
+  <table class="verify-table">
+    <thead><tr><th>插件</th><th>结果</th><th>耗时</th></tr></thead>
+    <tbody>
+      <tr><td><code>dsh-liketavern</code></td><td>成功 0.5.12</td><td>156 秒</td></tr>
+      <tr><td><code>dsh-purge</code>（mmparko）</td><td>成功 1.1.71</td><td>72.8 秒</td></tr>
+      <tr><td><code>dsh-tavern</code>（flizzywine）</td><td><b>超时未完成</b></td><td>&gt; 30 分钟</td></tr>
+      <tr><td><code>gal-view</code></td><td><b>超时未完成</b></td><td>&gt; 15 分钟</td></tr>
+    </tbody>
+  </table>
+  <p>遇到超时不要急着判断"插件坏了"：先确认是不是网络问题（换个时间、换代理），再决定是否继续。本站把这类记为"超时未完成"，不写成"装不上"。</p>
 
   <h2>四、怎么确认"真的装上了"</h2>
   <ol>
