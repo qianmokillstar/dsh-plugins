@@ -475,6 +475,61 @@
       },
       "labels": [],
       "review": "content/reviews/ds-harness-remote.md"
+    },
+    {
+      "name": "dsh-fish-memory",
+      "category": "memory",
+      "curationRank": 22,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Fish Memory",
+        "zh": "会淡忘的长期记忆"
+      },
+      "summary": {
+        "en": "Timestamped memories that fade over time and only enter context when a query actually hits.",
+        "zh": "每条记忆带时间、会淡忘，只有当前这句话检索命中才注入上下文。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-fish-memory.md"
+    },
+    {
+      "name": "meow-memory",
+      "category": "memory",
+      "curationRank": 20,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Meow Memory",
+        "zh": "七层 SQLite 记忆"
+      },
+      "summary": {
+        "en": "Seven-layer SQLite memory with first-turn injection, keyword hits and idle-time consolidation.",
+        "zh": "soul/user/project/fact/lesson/topic/rules 七层记忆，首轮注入 + 逐条命中 + 闲置整合。"
+      },
+      "labels": [],
+      "review": "content/reviews/meow-memory.md"
+    },
+    {
+      "name": "dsh-meme",
+      "category": "media",
+      "curationRank": 18,
+      "risk": "low",
+      "privacy": "local",
+      "title": {
+        "en": "Meme Stickers",
+        "zh": "表情包"
+      },
+      "summary": {
+        "en": "One-click stickers plus an AI that picks a meme for the mood; library can be self-built or installed from a market.",
+        "zh": "输入框一键发图、AI 按气氛接梗；图库可自建或从市场装，但会占用上下文。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-meme.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"

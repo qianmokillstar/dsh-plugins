@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T10:30:06.751Z",
+  "updatedAt": "2026-11-18T10:49:14.163Z",
   "profile": "market-test",
   "items": [
     {
@@ -333,11 +333,11 @@
         null
       ],
       "install": {
-        "ok": false,
-        "reason": "exit 1",
-        "version": null,
-        "seconds": 79,
-        "logTail": "CT). Will retry in 1 minute. 1 retries left.\n[ERR_PNPM_TARBALL_EXTRACT] Failed to add tarball from \"https://registry.npmjs.org/dsh-purge/-/dsh-purge-0.0.0-stage.tgz\" to store: Unexpected end of TAR archive at offset 2560\nCommand failed with exit code 1: pnpm add dsh-soul-mddsh: plugin command failed; diagnostics: C:\\Users\\HP\\.dsh\\profiles\\market-test\\.plugin-manager\\logs\\operation-prOFpc\\pnpm.log\n"
+        "ok": true,
+        "reason": null,
+        "version": "0.12.5",
+        "seconds": 5,
+        "logTail": "✓ Lockfile passes supply-chain policies (verified 8s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +6\n++++++\nProgress: resolved 35, reused 8, downloaded 0, added 6, done\n\ndependencies:\n+ dsh-soul-md 0.12.5\n\nDone in 1.5s using pnpm v11.28.5\n"
       }
     },
     {
@@ -414,6 +414,82 @@
         "version": "1.1.12",
         "seconds": 5,
         "logTail": "✓ Lockfile passes supply-chain policies (verified 7s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 5, reused 2, downloaded 0, added 0\nProgress: resolved 5, reused 2, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-live-compact 1.1.12\n\nDone in 2.3s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-pet",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.4.9",
+      "readmeBytes": 289,
+      "license": "MIT",
+      "publishTime": "2026-11-14T12:31:15.561Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.4.9",
+        "seconds": 69,
+        "logTail": " reused 10, downloaded 15, added 21\nProgress: resolved 29, reused 10, downloaded 15, added 22\nProgress: resolved 29, reused 10, downloaded 15, added 23\nProgress: resolved 29, reused 10, downloaded 16, added 23\nProgress: resolved 29, reused 10, downloaded 16, added 24\nProgress: resolved 29, reused 10, downloaded 16, added 24, done\n\ndependencies:\n+ dsh-pet 0.4.9\n\nDone in 1m 5.1s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-fish-memory",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "1.6.3",
+      "readmeBytes": 12622,
+      "license": "SEE LICENSE IN LICENSE",
+      "publishTime": "2026-11-17T08:48:52.546Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "1.6.3",
+        "seconds": 9,
+        "logTail": "ed 0\nProgress: resolved 20, reused 2, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 30, reused 2, downloaded 0, added 0\nProgress: resolved 30, reused 2, downloaded 1, added 0\nProgress: resolved 30, reused 2, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-fish-memory 1.6.3\n\nDone in 5.6s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "meow-memory",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.33.1",
+      "readmeBytes": 13445,
+      "license": "MIT",
+      "publishTime": "2026-11-17T17:01:37.124Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.33.0",
+        "seconds": 8,
+        "logTail": ", added 0\nProgress: resolved 21, reused 2, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 31, reused 2, downloaded 0, added 0\nProgress: resolved 31, reused 2, downloaded 1, added 0\nProgress: resolved 31, reused 2, downloaded 1, added 1, done\n\ndependencies:\n+ meow-memory 0.33.0\n\nDone in 5s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-meme",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.1.85",
+      "readmeBytes": 10441,
+      "license": "MIT",
+      "publishTime": "2026-11-18T04:57:25.244Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.1.81",
+        "seconds": 19,
+        "logTail": "ded 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +5\n+++++\nProgress: resolved 67, reused 6, downloaded 0, added 3\nProgress: resolved 67, reused 6, downloaded 0, added 4\nProgress: resolved 67, reused 6, downloaded 1, added 4\nProgress: resolved 67, reused 6, downloaded 1, added 5, done\n\ndependencies:\n+ dsh-meme 0.1.81\n\nDone in 15.4s using pnpm v11.28.5\n"
       }
     }
   ]

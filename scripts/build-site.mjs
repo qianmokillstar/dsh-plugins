@@ -636,7 +636,7 @@ const homeBody = `<div class="stats">
   <span class="stat">已核实可安装 <b>${stats.verified}</b></span>
   <span class="stat">参考目录 <b>${stats.total}</b>（未逐条核验）</span>
 </div>
-<p class="notice" style="margin-top:16px">养鱼四大金刚：<a href="scenes.html">长期记忆</a> · 人设防崩 · <a href="scenes.html">上下文瘦身</a> · <a href="verifications.html">隐私排雷</a>。加 🟢/🔴 标签的条目，是本站在隐私上做过判断的插件。</p>
+<p class="notice" style="margin-top:16px">养鱼五大专项：<a href="scenes.html#rp-memory">①长期记忆</a> · <a href="scenes.html#rp-slim">②上下文瘦身</a> · <a href="scenes.html#rp-persona">③人设防崩</a> · <a href="scenes.html#rp-privacy">④隐私排雷</a> · <a href="scenes.html#rp-away">⑤离开电脑</a>。加 🟢/🔴 标签的条目，是本站在隐私上做过判断的插件。</p>
 <div class="toolbar">
   <div class="controls">
     <input id="q" type="search" placeholder="搜插件名、功能、作者…（可多个关键词）" autocomplete="off">
@@ -925,6 +925,8 @@ const scenes = [
     steps: [
       ['dsh-prime-memory', '想要全自动就先试它：对话自动压成 L0→L3 四层，每次调用前召回注入。装完先跑三天，进记忆库抽查写进去的东西对不对。'],
       ['dsh-mnemon', '想要"看得见"就选它：工作记忆 / 项目档案 / 长期证据分层，每轮回复下有回合记忆栏，点进去能改。'],
+      ['dsh-fish-memory', '想要"会淡忘"就选它：带时间戳、按命中注入，久远设定会越记越淡——适合长线剧情而不是精密设定。'],
+      ['meow-memory', '要"人格与偏好分开存"就选它：七层 SQLite 记忆，soul/user 分层，代价是配置门槛最高。'],
     ],
     skip: ['设定不多、只聊几轮 —— 直接在 AGENTS.md 里手写人设与世界观，零安装、完全可控'],
     watch: ['自动写入的记忆写错会被反复引用，越用越偏：必须定期抽查删改', '蒸馏与召回通常要调模型，等于对话内容会经过模型服务', '两个都装会重复注入，上下文更早爆'],
@@ -972,6 +974,18 @@ const scenes = [
     ],
     skip: ['只是短时间离开 —— 浏览器标签开着就行，不用装'],
     watch: ['手机插件默认走中转隧道，内容会经过第三方；高隐私用局域网直连', '通知转发到 Discord/飞书 等渠道时，标题与摘要会出本机', '两边都装要注意重复打扰'],
+  },
+  {
+    id: 'rp-vibe',
+    title: '养鱼⑥氛围与表达：让对话不像"客服回复"',
+    lead: '同一段剧情，纯文字和"有表情、有卡片、有场景感"的体验差很远。这一层不改剧情，只改呈现。',
+    steps: [
+      ['dsh-meme', '加表情：输入框一键发图，AI 按气氛接梗；代价是图片吃上下文。'],
+      ['deep-view', '加结构：需要"选 A 还是 B""填个参数"时，用可点卡片代替一大段文字。'],
+      ['dsh-plugin-wallpaper-engine', '加场景：把壁纸引擎的 Scene/Web/视频做成对话背景，不花 token，但吃性能。'],
+    ],
+    skip: ['只想要文字沉浸 —— 装饰层会分散注意力，也用不上'],
+    watch: ['三类都增加上下文或性能开销，长会话要权衡', '表情包与壁纸素材的版权要自己确认', '装饰装多了排查问题会更难：出 bug 先关装饰层'],
   },
   {
     id: 'remote',
@@ -1075,7 +1089,7 @@ const scenesBody = `<div class="page" style="border:0;background:none;box-shadow
   <h1>场景施工图</h1>
   <p>这里不给"全部插件"，只给<b>按场景装哪几个、按什么顺序、哪些可以跳过、有什么坑</b>。每一条都对应本站有判断的插件；还没写判断的插件不会出现在这里。</p>
   <p class="notice">当前覆盖 ${scenes.length} 个场景，全部基于已审核插件的 README 与核验记录。顺序建议是判断，不是硬性依赖。</p>
-  ${scenes.map((scene) => `<div class="scene">
+  ${scenes.map((scene) => `<div class="scene" id="${escapeHtml(scene.id)}">
     <h2>${escapeHtml(scene.title)}</h2>
     <p class="lead">${escapeHtml(scene.lead)}</p>
     <h3>装什么、按什么顺序</h3>
