@@ -1377,6 +1377,25 @@ dsh --profile market-test web --no-open --port 51999</code></pre>
   <div class="notice">发现记录有误？<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener"><b>去 Discussions 纠错</b></a>，带上插件名、版本、现象。</div>
 </div>`
 
+const rpGroups = [
+  { title: '① 长期记忆', names: ['dsh-mnemon', 'dsh-prime-memory', 'dsh-fish-memory', 'meow-memory', 'memory-eternal', 'dsh-plugin-memory', 'dsh-memory-nebula', 'dsh-loci'] },
+  { title: '② 上下文瘦身', names: ['dsh-live-compact', 'dsh-context', 'dsh-token-diet'] },
+  { title: '③ 人设防崩', names: ['dsh-soul-md', 'dsh-liketavern', 'dsh-fish-soul'] },
+  { title: '④ 隐私与权限', names: ['cc-safety-net', 'dsh-perm-gate', 'dsh-windows-mcp', 'dsh-see-now'] },
+  { title: '⑤ 离开电脑', names: ['dsh-mobile-plugin', 'ds-harness-remote', 'dsh-notify-me', 'dsh-onebot-qq', 'dsh-bili-scroll'] },
+  { title: '⑥ 氛围与表达', names: ['dsh-pet', 'dsh-dafeiyu', 'dsh-meme', 'deep-view', 'dsh-genui', 'dsh-plugin-wallpaper-engine', 'dsh-folia', 'dsh-dream-skin', 'dsh-music-panel'] },
+]
+
+const rpList = rpGroups.map((group) => {
+  const items = group.names
+    .map((name) => entries.find((entry) => entry.name === name))
+    .filter(Boolean)
+  return `<section>
+    <h2>${escapeHtml(group.title)} · ${items.length} 个</h2>
+    <ul>${items.map((entry) => `<li><a href="p/${escapeHtml(entry.slug)}.html"><code>${escapeHtml(entry.name)}</code></a> — ${escapeHtml(entry.summary.slice(0, 70))}${entry.summary.length > 70 ? '…' : ''} <sub>${PRIVACY_META[entry.privacy]?.badge ?? ''}</sub></li>`).join('')}</ul>
+  </section>`
+}).join('')
+
 const rpBody = `<div class="page" style="border:0;background:none;box-shadow:none;padding:0;max-width:none">
   <h1>养鱼选型速查</h1>
   <p>如果你只想知道"养鱼该装哪几个"，看这一页。每一格都对应站内已经核验过的插件，点进去能看到完整的四问判断与核验日期。</p>
@@ -1439,8 +1458,12 @@ const rpBody = `<div class="page" style="border:0;background:none;box-shadow:non
     <li><b>先看隐私灯</b>：🔴 插件会把内容发出去，私密剧情要有心理准备</li>
   </ul>
 
+  <h2>养鱼相关插件全清单（按六件事分组）</h2>
+  <div class="changelog">${rpList}</div>
+
   <div class="notice">想看每个判断的证据？<a href="verifications.html">核验记录</a>里每条都有日期、版本、安装实测结果。发现问题 <a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener">去纠错</a>。</div>
 </div>`
+
 
 const pageBodies = new Map([
   ['rp.html', { title: '养鱼选型速查 · DSH 插件站', description: '一页看完：记忆、压缩、人设、隐私、手机、氛围该装什么。', body: rpBody }],
