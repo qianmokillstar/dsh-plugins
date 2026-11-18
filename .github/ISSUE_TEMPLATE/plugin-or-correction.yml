@@ -1,0 +1,52 @@
+name: 插件提交 / 核验纠错
+description: 推荐一个插件，或指出某条核验记录的错误
+title: "[提交] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本站是**非官方第三方** DSH 插件索引站，只收录人工核验过的插件。提交前请先看[收录规则](https://qianmokillstar.github.io/dsh-plugins/rules.html)与[核验方法](https://qianmokillstar.github.io/dsh-plugins/method.html)。
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 这是什么
+      options:
+        - 推荐一个新插件
+        - 某条核验记录有误
+        - 插件版本变了，结论失效
+        - 下架请求（作者本人）
+    validations:
+      required: true
+  - type: input
+    id: plugin
+    attributes:
+      label: 插件名 / npm 包名
+      placeholder: 例如 dsh-remote
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 涉及的版本
+      placeholder: 例如 1.2.0
+  - type: input
+    id: dsh
+    attributes:
+      label: 你的 DSH 版本
+      placeholder: 例如 0.2.2-rc.3
+  - type: textarea
+    id: detail
+    attributes:
+      label: 具体现象 / 理由
+      description: 装不上、装上没入口、行为不符、判断过时，或推荐理由（解决什么问题、适合谁）
+      placeholder: 尽量写可复现的步骤
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我知道本站是非官方第三方站点，收录不等于官方推荐
+          required: true

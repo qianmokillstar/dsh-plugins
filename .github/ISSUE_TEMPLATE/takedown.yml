@@ -1,0 +1,50 @@
+name: 下架与侵权投诉
+description: 作者或版权方要求下架 / 修正
+title: "[下架] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **收到有效投诉后，本站先下架、再核实**，不为收录数量拖延。处理时限：24 小时内先隐藏或修正，再与你确认事实。
+  - type: dropdown
+    id: identity
+    attributes:
+      label: 你的身份
+      options:
+        - 插件作者本人
+        - 版权方 / 代理方
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: 涉及的插件或页面
+      placeholder: 插件名 / 页面链接
+    validations:
+      required: true
+  - type: dropdown
+    id: reason
+    attributes:
+      label: 理由
+      options:
+        - 不希望被收录
+        - 版权 / 商标
+        - 记录与事实不符
+        - 隐私问题
+        - 插件已停止维护 / 存在风险
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 说明与佐证
+      description: 仓库链接、License、截图、正确的事实描述等
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: 确认
+      options:
+        - label: 我理解下架不会删除已公开的历史版本，但会停止展示并记录变更
+          required: true

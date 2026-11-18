@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 核验纠错（讨论区）
+    url: https://github.com/qianmokillstar/dsh-plugins/discussions/2
+    about: 哪个判断不准、哪个插件装不上，先在这里说
+  - name: 施工图建议（讨论区）
+    url: https://github.com/qianmokillstar/dsh-plugins/discussions/3
+    about: 想要哪个使用场景的装机顺序与避坑
+  - name: 收录规则与判断标准
+    url: https://qianmokillstar.github.io/dsh-plugins/rules.html
+    about: 什么会被收录、什么不会
+  - name: 核验方法
+    url: https://qianmokillstar.github.io/dsh-plugins/method.html
+    about: 每条核验怎么做的、什么算通过
