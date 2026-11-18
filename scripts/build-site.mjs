@@ -714,6 +714,12 @@ for (const entry of entries) {
     ['链接', [entry.npmUrl ? `<a href="${escapeHtml(entry.npmUrl)}" target="_blank" rel="noreferrer noopener">npm</a>` : '', entry.repoUrl ? `<a href="${escapeHtml(entry.repoUrl)}" target="_blank" rel="noreferrer noopener">GitHub</a>` : '', entry.homepage ? `<a href="${escapeHtml(entry.homepage)}" target="_blank" rel="noreferrer noopener">主页</a>` : ''].filter(Boolean).join(' · ')],
   ].map(([key, value]) => `<dt>${key}</dt><dd>${value}</dd>`).join('')
 
+  // 同类推荐：同分类下有判断的其它插件（内链 + 阅读延续）
+  const siblings = entries
+    .filter((other) => other.reviewBody && other.category === entry.category && other.name !== entry.name)
+    .sort((left, right) => (right.curationRank ?? -1) - (left.curationRank ?? -1))
+    .slice(0, 4)
+
   const body = entry.reviewBody
     ? `<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
 <article class="review">
@@ -725,6 +731,7 @@ for (const entry of entries) {
     <span class="badge ${PRIVACY_META[entry.privacy]?.cls ?? ''}">${PRIVACY_META[entry.privacy]?.badge ?? '⚪ 未确认'}</span>
   </div>
   ${renderMarkdown(entry.reviewBody)}
+  ${siblings.length ? `<h2>同类插件（同分类已核验）</h2><ul>${siblings.map((other) => `<li><a href="${other.slug}.html"><code>${escapeHtml(other.name)}</code></a> — ${escapeHtml(other.title)}</li>`).join('')}</ul>` : ''}
   <h2>事实卡</h2>
   <dl class="facts">${facts}</dl>
 </article>`
