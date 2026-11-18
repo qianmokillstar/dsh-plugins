@@ -625,6 +625,78 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-liketavern.md"
+    },
+    {
+      "name": "dsh-dafeiyu",
+      "category": "appearance",
+      "curationRank": 9,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Big Fish Companion",
+        "zh": "大肥鱼桌面伴侣"
+      },
+      "summary": {
+        "en": "A native always-on-top companion window that shows agent state and balance, started and stopped with DSH.",
+        "zh": "原生置顶小窗，随 DSH 启停，显示任务状态与余额；依赖 Python/PySide6，环境不对装不起来。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-dafeiyu.md"
+    },
+    {
+      "name": "dsh-genui",
+      "category": "productivity",
+      "curationRank": 8,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "GenUI",
+        "zh": "生成式界面"
+      },
+      "summary": {
+        "en": "Turns replies into clickable interfaces: calculators, forms and charts whose results flow back into chat.",
+        "zh": "把回复变成可点的计算器/表单/图表，结果回流到对话；与 deep-view 同赛道。"
+      },
+      "labels": [],
+      "review": "content/reviews/dsh-genui.md"
+    },
+    {
+      "name": "memory-eternal",
+      "category": "memory",
+      "curationRank": 7,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Memory Eternal",
+        "zh": "本地+云端第二大脑"
+      },
+      "summary": {
+        "en": "Local-first SQLite memory with optional cloud sync, hot vault switching and resumable uploads.",
+        "zh": "本机 SQLite 记忆 + 可选云同步，支持热切换与断点续传；云同步即内容上云。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/memory-eternal.md"
+    },
+    {
+      "name": "@openviking/dsh-memory-plugin",
+      "category": "memory",
+      "curationRank": 6,
+      "risk": "high",
+      "privacy": "cloud",
+      "title": {
+        "en": "OpenViking Memory",
+        "zh": "OpenViking 记忆接入"
+      },
+      "summary": {
+        "en": "Connects DSH to an OpenViking server for recall, capture and viking:// URI memory.",
+        "zh": "接入 OpenViking 服务器做召回/捕获与 viking:// URI 记忆；没有服务端就等于装了没用。"
+      },
+      "labels": [],
+      "review": "content/reviews/openviking__dsh-memory-plugin.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"
