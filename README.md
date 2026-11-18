@@ -1,13 +1,27 @@
 # DSH 插件站（非官方 · 第三方）
 
-> **本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。**
-> 插件版权归各自作者所有，收录不代表官方推荐。
+[![非官方第三方](https://img.shields.io/badge/%E9%9D%9E%E5%AE%98%E6%96%B9-%E7%AC%AC%E4%B8%89%E6%96%B9-f0b357)](https://qianmokillstar.github.io/dsh-plugins/rules.html)
+[![人工核验](https://img.shields.io/badge/%E4%BA%BA%E5%B7%A5%E6%A0%B8%E9%AA%8C-10%20%E6%9D%A1-2f6fdd)](https://qianmokillstar.github.io/dsh-plugins/verifications.html)
+[![场景施工图](https://img.shields.io/badge/%E5%9C%BA%E6%99%AF%E6%96%BD%E5%B7%A5%E5%9B%BE-9%20%E4%B8%AA-1f7a4d)](https://qianmokillstar.github.io/dsh-plugins/scenes.html)
 
-一个**能快速判断"该装哪个"**的 DeepSeek Harness 插件站：搜一个插件，能立刻看到它能不能装、适合谁、有什么坑、有没有替代。
+> 我维护一个**非官方第三方** DSH 插件索引站：人工跑过一批插件，记录安装结果、风险点和替代品。
+> **与 DeepSeek / DSH 官方无关联、无授权、无背书。**
+
+站点：<https://qianmokillstar.github.io/dsh-plugins/>
 
 不做"又一个插件目录"：dsh-market 这类站点解决"找得到"，官方市场解决"装得安全"，本站只做**"选得对"**——按场景给施工图、给带日期的核验记录、给作者没说但用户要知道的坑。
 
 不卖排名、不接赞助、不收费收录。
+
+## 给外部工具的接口
+
+| 文件 | 内容 | 用途 |
+|---|---|---|
+| [`/index.json`](https://qianmokillstar.github.io/dsh-plugins/index.json) | DSH 市场索引（format 1，129 条可安装） | 可直接加入 DSH 的 `设置 → 插件 → 发现` 索引源 |
+| [`/verifications.json`](https://qianmokillstar.github.io/dsh-plugins/verifications.json) | 结构化核验记录（schema `dsh-market-verification/1`） | 每条含插件名、版本、核验日期、DSH 版本、许可证、周下载量、风险等级、四问摘要、安装/启动结果 |
+| [`/sitemap.xml`](https://qianmokillstar.github.io/dsh-plugins/sitemap.xml) | 全站地址 | 搜索引擎收录 |
+
+核验记录只对标注的**日期 + 版本 + DSH 版本**成立；安装成功不代表运行正确，也不构成安全审计。
 
 ## 现状
 

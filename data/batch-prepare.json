@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "updatedAt": "2026-11-18T10:03:30.455Z",
+  "profile": "market-test",
+  "items": [
+    {
+      "name": "dsh-context",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.85.1",
+      "readmeBytes": 24440,
+      "license": "Apache-2.0",
+      "publishTime": "2026-11-15T18:48:33.990Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.85.1",
+        "seconds": 9,
+        "logTail": "ble store to the virtual store.\n  Content-addressable store is at: C:\\Users\\HP\\AppData\\Local\\pnpm\\store\\v11\n  Virtual store is at:             node_modules/.pnpm\nProgress: resolved 2, reused 0, downloaded 1, added 1\nProgress: resolved 2, reused 0, downloaded 2, added 1\nProgress: resolved 2, reused 0, downloaded 2, added 2, done\n\ndependencies:\n+ dsh-context 0.85.1\n\nDone in 6.1s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-ops",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.5.5",
+      "readmeBytes": 15229,
+      "license": "MIT",
+      "publishTime": "2026-11-14T11:56:18.686Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.5.5",
+        "seconds": 27,
+        "logTail": "aded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 3, reused 0, downloaded 0, added 0\nProgress: resolved 3, reused 0, downloaded 1, added 0\nProgress: resolved 3, reused 0, downloaded 1, added 1\nProgress: resolved 3, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-ops 0.5.5\n\nDone in 24.7s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "cc-safety-net",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "2.7.15",
+      "readmeBytes": 10280,
+      "license": "MIT",
+      "publishTime": "2026-11-17T07:46:56.197Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "2.7.15",
+        "seconds": 8,
+        "logTail": "ed 29s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 4, reused 0, downloaded 0, added 0\nProgress: resolved 4, reused 0, downloaded 1, added 0\nProgress: resolved 4, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ cc-safety-net 2.7.15\n\nDone in 3s using pnpm v11.28.5\n"
+      }
+    }
+  ]
+}

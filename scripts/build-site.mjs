@@ -23,6 +23,7 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const SITE = join(ROOT, 'site')
 const BUILT_AT = new Date()
 const DSH_VERSION = '0.2.2-rc.3'
+const SITE_URL = 'https://qianmokillstar.github.io/dsh-plugins'
 
 const CATEGORY_TITLES = {
   productivity: '效率与工作流',
@@ -87,6 +88,42 @@ const ACTIVATION_TEXT = {
   'no-error': '已组合 · 未见报错',
   pending: '待激活（缺 webServer）',
   'not-composed': '独立 app · 未参与组合',
+}
+
+/** 从四问短评里抽首条要点，用于结构化 index.json 的答案摘要。 */
+function reviewSections(markdown) {
+  const sections = {}
+  let current = ''
+  for (const line of markdown.split('\n')) {
+    const heading = /^##\s+(.*)$/u.exec(line)
+    if (heading) {
+      current = heading[1].trim()
+      sections[current] = ''
+      continue
+    }
+    if (current) sections[current] += `${line}\n`
+  }
+  return sections
+}
+
+function firstBullet(text) {
+  const match = /^[-*]\s+(.+)$/mu.exec(text ?? '')
+  if (!match) return null
+  return match[1].replace(/\*\*/gu, '').replace(/\s+/gu, ' ').trim()
+}
+
+function judgmentOf(markdown) {
+  const sections = reviewSections(markdown ?? '')
+  const pick = (keyword) => {
+    const key = Object.keys(sections).find((name) => name.includes(keyword))
+    return key ? firstBullet(sections[key]) : null
+  }
+  return {
+    fit: pick('适合谁'),
+    solves: pick('解决什么'),
+    risk: pick('风险点'),
+    alternatives: pick('替代品'),
+  }
 }
 
 const curatedByName = new Map(curated.items.map((item) => [item.name, item]))
@@ -576,6 +613,7 @@ const homeBody = `<div class="stats">
 </div>
 <p class="count" id="count"></p>
 <div class="grid" id="list"></div>
+__JSONLD__
 <script>window.__PLUGINS__ = ${JSON.stringify(clientData).replace(/</gu, '\\u003c')};</script>
 <script src="assets/app.js"></script>`
 
@@ -902,6 +940,36 @@ const scenes = [
     skip: ['需求本身很明确、只需要一次输出 —— 并行 2–4 路等于 2–4 倍成本'],
     watch: ['token 消耗成倍增加，配合费用统计插件用', '多版内容都会进会话，长会话容易吃满上下文'],
   },
+  {
+    id: 'archive',
+    title: '场景七 · 会话整理：列表越来越长之后',
+    lead: '会话上百条以后，侧栏翻不到想要的那一轮；暂时不做的项目舍不得删，又不想天天看到。',
+    steps: [
+      ['@michengai/dsh-archive-manager', '归档 / 恢复 / 收藏 + 正文全文检索，还能按闲置天数批量归档并撤回。'],
+    ],
+    skip: ['会话不到 50 条、且不介意侧栏长 —— 内置列表够用'],
+    watch: ['"永久删除"是真的永久，先拿不重要的会话试一次', '批量归档会动很多会话，操作前看预览列表', '会读取消息正文建索引'],
+  },
+  {
+    id: 'media',
+    title: '场景八 · 让模型"看"视频：分镜与可引用帧',
+    lead: '纯文本模型看不了视频；逐帧喂图又贵得离谱。要的是能引用某一格、还能再放大看几秒。',
+    steps: [
+      ['dsh-video-storyboard', '把视频压成一张带时间戳与台词的宫格图，模型可引用"第 5 格"，再按需放大。'],
+    ],
+    skip: ['只要两三帧 —— 手动截帧 + 图片工具更省事'],
+    watch: ['要自备 ffmpeg、yt-dlp 与 cookies.txt（等于账号凭据）', '宫格图会把画面内容送进对话', '抓站点涉及平台条款，自用与再分发边界自己判断'],
+  },
+  {
+    id: 'appearance',
+    title: '场景九 · 视觉定制：把界面换成愿意天天看的',
+    lead: '长时间盯界面，配色与留白直接影响状态；团队展示还需要一点统一气质。',
+    steps: [
+      ['dsh-dream-skin', '8 套预设皮肤 + 壁纸 + 强调色，纯 token 实现，不注入、不改安装包，一键还原。'],
+    ],
+    skip: ['内置深浅色够用 —— 换肤只是审美，不是功能'],
+    watch: ['README 提到维护坐标从 GitHub 迁到 gitcode、暂停"已验证"背书，源码托管状态需自行确认', '壁纸支持外部 URL，用不可信地址有隐私风险', '迭代很快，版本号已到 11.x'],
+  },
 ]
 
 const nameSet = new Set(entries.map((entry) => entry.name))
@@ -991,7 +1059,37 @@ if (entries.length < MIN_SITE_ENTRIES) {
 await rm(join(SITE, 'p'), { recursive: true, force: true })
 await mkdir(join(SITE, 'assets'), { recursive: true })
 await mkdir(join(SITE, 'p'), { recursive: true })
-await writeFile(join(SITE, 'index.html'), shell({ title: 'DSH 插件站 · 非官方第三方', description: '非官方第三方 DSH 插件索引：按场景给出该装什么、有什么坑。', body: homeBody.replace('__SCENE_COUNT__', String(scenes.length)).replace('__VERIFIED_COUNT__', String(REVIEWED.length)) }), 'utf8')
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'DSH 插件站（非官方·第三方）',
+  url: `${SITE_URL}/`,
+  description: '非官方第三方 DeepSeek Harness 插件索引与人工核验记录：按场景给出该装什么、有什么坑。',
+  inLanguage: 'zh-CN',
+  isAccessibleForFree: true,
+  publisher: { '@type': 'Person', name: 'qianmokillstar' },
+}, {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: '已人工核验的 DSH 插件',
+  numberOfItems: REVIEWED.length,
+  itemListElement: REVIEWED.map((entry, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: `${SITE_URL}/p/${entry.slug}.html`,
+    name: entry.title,
+    description: entry.summary.slice(0, 160),
+  })),
+}].map((doc) => `<script type="application/ld+json">${JSON.stringify(doc).replace(/</gu, '\\u003c')}</script>`).join('\n')
+
+await writeFile(join(SITE, 'index.html'), shell({
+  title: 'DSH 插件站 · 非官方第三方',
+  description: '非官方第三方 DSH 插件索引：按场景给出该装什么、有什么坑。',
+  body: homeBody
+    .replace('__SCENE_COUNT__', String(scenes.length))
+    .replace('__VERIFIED_COUNT__', String(REVIEWED.length))
+    .replace('__JSONLD__', jsonLd),
+}), 'utf8')
 for (const [file, def] of pageBodies) await writeFile(join(SITE, file), shell(def), 'utf8')
 await writeFile(join(SITE, 'changelog.html'), shell({ title: '更新日志 · DSH 插件站', description: '最近新增、更新与核实进度。', body: changelogBody }), 'utf8')
 await writeFile(join(SITE, 'submit.html'), shell({ title: '提交插件 · DSH 插件站', description: '推荐一个 DSH 插件，或补上它的判断信息。', body: submitBody }), 'utf8')
@@ -999,6 +1097,57 @@ await writeFile(join(SITE, 'assets', 'style.css'), CSS, 'utf8')
 await writeFile(join(SITE, 'assets', 'app.js'), APP_JS, 'utf8')
 for (const [slug, html] of detailPages) await writeFile(join(SITE, 'p', `${slug}.html`), html, 'utf8')
 if (marketIndex) await writeFile(join(SITE, 'index.json'), JSON.stringify(marketIndex, null, 2) + '\n', 'utf8')
+
+// 结构化核验记录：给外部工具读的"质量层"（非官方第三方，带日期与版本）
+const verificationDoc = {
+  schema: 'dsh-market-verification/1',
+  generatedAt: BUILT_AT.toISOString(),
+  site: `${SITE_URL}/`,
+  disclaimer: '非官方第三方站点，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。安装成功不代表运行正确，核验结论只对标注日期与版本成立。',
+  dshVersion: DSH_VERSION,
+  count: REVIEWED.length,
+  entries: REVIEWED.map((entry) => {
+    const trial = trialByName.get(entry.name)
+    const launch = launchByName.get(entry.name)
+    return {
+      name: entry.name,
+      version: entry.version,
+      title: entry.title,
+      license: entry.license,
+      weeklyDownloads: entry.downloads,
+      risk: entry.risk,
+      verificationDate: trial?.date ?? null,
+      dshVersion: trial?.dshVersion ?? DSH_VERSION,
+      install: { result: trial?.result ?? 'not-tested', version: trial?.version ?? null },
+      activation: launch?.activation ?? 'unknown',
+      activationNote: launch?.note ?? null,
+      judgment: judgmentOf(entry.reviewBody),
+      links: {
+        page: `${SITE_URL}/p/${entry.slug}.html`,
+        npm: entry.npmUrl,
+        repository: entry.repoUrl,
+        homepage: entry.homepage,
+      },
+    }
+  }),
+}
+await writeFile(join(SITE, 'verifications.json'), JSON.stringify(verificationDoc, null, 2) + '\n', 'utf8')
+
+// sitemap / robots：让搜索引擎能收录施工图与核验记录
+const staticPages = ['', 'scenes.html', 'verifications.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
+const sitemapUrls = [
+  ...staticPages.map((page) => ({ loc: `${SITE_URL}/${page}`, priority: page === '' ? '1.0' : '0.8' })),
+  ...entries.map((entry) => ({ loc: `${SITE_URL}/p/${entry.slug}.html`, priority: '0.6' })),
+  { loc: `${SITE_URL}/index.json`, priority: '0.7' },
+  { loc: `${SITE_URL}/verifications.json`, priority: '0.7' },
+]
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls.map((item) => `  <url><loc>${item.loc}</loc><lastmod>${stats.builtAt}</lastmod><priority>${item.priority}</priority></url>`).join('\n')}
+</urlset>
+`
+await writeFile(join(SITE, 'sitemap.xml'), sitemap, 'utf8')
+await writeFile(join(SITE, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`, 'utf8')
 
 console.log('站点生成完成 site/')
 console.log(`  收录 ${stats.total}（已核实 ${stats.verified}，人工短评 ${stats.reviewed}）`)
