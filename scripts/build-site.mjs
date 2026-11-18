@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * 生成 DSH 插件站（静态、零后端、零外部依赖）。
  *
@@ -587,7 +587,7 @@ function shell({ title, description, body, base = '', nav = true }) {
 ${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
 <p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
 <p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="${base}rules.html">收录规则</a></p>
-<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}risks.html">风险公告</a><a href="${base}changelog.html">更新日志</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
+<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}risks.html">风险公告</a><a href="${base}changelog.html">更新日志</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
 ${body}
 <footer class="site">
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
@@ -1172,7 +1172,22 @@ const risksBody = `<div class="page">
   <p>处理方式：换一个干净的 profile，或删除该 profile 的 <code>node_modules</code> 与 lockfile 后重装。本站后续会在每条核验记录里标注是否遇到这类连带失败。</p>
 </div>`
 
+const weeklyDir = join(ROOT, 'content', 'weekly')
+const weeklyFiles = (await readdir(weeklyDir).catch(() => [])).filter((file) => file.endsWith('.md')).sort().reverse()
+const weeklyBodies = new Map()
+for (const file of weeklyFiles) weeklyBodies.set(file, await readFile(join(weeklyDir, file), 'utf8'))
+const latestWeekly = weeklyFiles[0]
+
+const weeklyBody = `<div class="page" style="border:0;background:none;box-shadow:none;padding:0;max-width:none">
+  <h1>周报</h1>
+  <p>每隔一两天对比一次 npm 快照，把"这周涨了什么、掉了什么、哪些插件改了版本或换了许可证"列出来。<b>数据可复核</b>：每期都注明了对比的两份快照日期。</p>
+  <p class="notice">周报看的是<b>变化</b>，不是推荐。新上榜 ≠ 值得装，仍然要过 <a href="rules.html">收录规则</a> 与 <a href="verifications.html">核验记录</a>。</p>
+  ${latestWeekly ? `<article class="review" style="max-width:none">${renderMarkdown(weeklyBodies.get(latestWeekly))}</article>` : '<p>还没有周报：需要至少两份不同日期的快照。</p>'}
+  ${weeklyFiles.length > 1 ? `<h2>往期</h2><ul>${weeklyFiles.slice(1).map((file) => `<li><code>${escapeHtml(file.replace('.md', ''))}</code></li>`).join('')}</ul>` : ''}
+</div>`
+
 const pageBodies = new Map([
+  ['weekly.html', { title: '周报 · DSH 插件站', description: '按快照对比得出的新增、掉榜、版本与许可证变化。', body: weeklyBody }],
   ['rules.html', { title: '收录规则与标准 · DSH 插件站', description: '收录门槛、判断标准、排序与收费说明。', body: rulesBody }],
   ['risks.html', { title: '风险公告 · DSH 插件站', description: '装不上、装坏了、不建议直接装的 DSH 插件，附证据。', body: risksBody }],
   ['takedown.html', { title: '下架与侵权投诉 · DSH 插件站', description: '先下架再核实的投诉处理流程。', body: takedownBody }],
