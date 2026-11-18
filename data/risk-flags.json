@@ -1,0 +1,65 @@
+{
+  "schema": "dsh-market-risk/1",
+  "updatedAt": "2026-11-18",
+  "basis": "依据：README 原文、npm registry 元数据、以及 2026-11-18 在隔离 profile 的真实安装结果（DSH 0.2.2-rc.3）。",
+  "items": [
+    {
+      "name": "dsh-purge",
+      "repo": "https://github.com/mmparko/dsh-purge",
+      "flags": [
+        "broken-npm",
+        "github-only",
+        "paused",
+        "mirror",
+        "jailbreak"
+      ],
+      "summary": "npm 上的 dsh-purge 是 0.0.0-stage 占位包，tarball 截断，装不上；且它会写进 profile 的 lockfile，导致之后所有安装都在重试这个坏包。",
+      "evidence": "pnpm 报 Unexpected end of TAR archive at offset 2560；随后 dsh-soul-md / dsh-fish-soul 均因同一 tarball 失败。改用 github:mmparko/dsh-purge 可装成功 1.1.71（72.8s）。",
+      "note": "README 自述为网络安全红队/破甲（jailbreak）工具，并写明“暂停更新、暂不收 issue/PR”。当前仓库是上游镜像，上游即将删库。"
+    },
+    {
+      "name": "dsh-purge-community",
+      "repo": "https://github.com/kingcharleslzy-ai/dsh-purge",
+      "flags": [
+        "github-only",
+        "jailbreak"
+      ],
+      "summary": "不在 npm，只能用 github:kingcharleslzy-ai/dsh-purge 安装（实测成功 1.7.20，126s）。",
+      "evidence": "pnpm 报 not in the npm registry；GitHub 源安装成功。",
+      "note": "同为破甲类工具，使用涉及模型服务条款与账号风险，本站不做推荐。"
+    },
+    {
+      "name": "dsh-purge-safe",
+      "repo": "https://github.com/CallMeGuLab/dsh-purge-safe",
+      "flags": [
+        "github-only",
+        "unverified"
+      ],
+      "summary": "不在 npm，README 未取到，安装与用途均未核实。",
+      "evidence": "pnpm 报 not in the npm registry。",
+      "note": "未核验条目，不建议直接装。"
+    },
+    {
+      "name": "dsh-liketavern",
+      "repo": "https://github.com/Amakurai/dsh-liketavern",
+      "flags": [
+        "github-only",
+        "unverified"
+      ],
+      "summary": "不在 npm，需 GitHub 源安装；本轮安装结果待补。",
+      "evidence": "pnpm 报 not in the npm registry。",
+      "note": "酒馆类前端，需搭配对应后端/模型配置。"
+    },
+    {
+      "name": "gal-view",
+      "repo": "https://github.com/Ayase34/gal-view",
+      "flags": [
+        "github-only",
+        "unverified"
+      ],
+      "summary": "不在 npm，需 GitHub 源安装。",
+      "evidence": "pnpm 报 not in the npm registry。",
+      "note": "Galgame 风格界面类插件。"
+    }
+  ]
+}

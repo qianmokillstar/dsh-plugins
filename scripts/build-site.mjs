@@ -82,6 +82,15 @@ const trialData = await readJson(join(ROOT, 'data', 'trial-install.json'), null)
 const trialByName = new Map((trialData?.items ?? []).map((item) => [item.name, item]))
 const trialInstalled = (trialData?.items ?? []).filter((item) => item.result === 'installed')
 const launchData = await readJson(join(ROOT, 'data', 'launch-test.json'), null)
+const riskData = await readJson(join(ROOT, 'data', 'risk-flags.json'), null)
+const RISK_FLAG_TEXT = {
+  'broken-npm': 'npm 包损坏',
+  'github-only': '仅 GitHub 可装',
+  paused: '已暂停维护',
+  mirror: '镜像仓库',
+  jailbreak: '破甲/越狱类',
+  unverified: '未核实',
+}
 const launchByName = new Map((launchData?.plugins ?? []).map((item) => [item.name, item]))
 const ACTIVATION_TEXT = {
   loaded: '已加载（日志证实）',
@@ -559,13 +568,13 @@ function shell({ title, description, body, base = '', nav = true }) {
 ${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
 <p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
 <p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="${base}rules.html">收录规则</a></p>
-<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}changelog.html">更新日志</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
+<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}risks.html">风险公告</a><a href="${base}changelog.html">更新日志</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
 ${body}
 <footer class="site">
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
   <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
   <div>本站核验基准环境：DSH ${DSH_VERSION} · 数据生成于 ${escapeHtml(stats.builtAt)}。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
-  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${base}submit.html">提交插件</a></div>
+  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${base}submit.html">提交插件</a></div>
 </footer>
 </div>
 <script src="${base}assets/app.js"></script>
@@ -1053,8 +1062,28 @@ const verificationsBody = `<div class="page">
   </ul>
 </div>`
 
+const risksBody = `<div class="page">
+  <h1>风险公告</h1>
+  <p>这里列的是<b>装不上、装坏了、或者不建议直接装</b>的插件。负面信息同样要留痕——对读者比"又多一个能装的"更有用。</p>
+  <p class="notice">依据：${escapeHtml(riskData?.basis ?? 'README 原文、npm registry 元数据与真机安装结果')}。发现新问题欢迎 <a href="https://github.com/qianmokillstar/dsh-plugins/issues/new" target="_blank" rel="noreferrer noopener">提 Issue</a>。</p>
+  <div class="changelog">
+    ${(riskData?.items ?? []).map((item) => `<section>
+      <h2><code>${escapeHtml(item.name)}</code></h2>
+      <p style="margin:6px 0">${item.flags.map((flag) => `<span class="badge ${flag === 'broken-npm' || flag === 'jailbreak' ? 'high' : 'warn'}">${escapeHtml(RISK_FLAG_TEXT[flag] ?? flag)}</span>`).join(' ')}</p>
+      <p>${escapeHtml(item.summary)}</p>
+      <p style="font-size:13px"><b>证据：</b>${escapeHtml(item.evidence)}</p>
+      ${item.note ? `<p style="font-size:13px"><b>注意：</b>${escapeHtml(item.note)}</p>` : ''}
+      ${item.repo ? `<p style="font-size:13px"><a href="${escapeHtml(item.repo)}" target="_blank" rel="noreferrer noopener">仓库</a></p>` : ''}
+    </section>`).join('')}
+  </div>
+  <h2>类问题：坏包会污染整个 profile</h2>
+  <p>实测发现，一个 tarball 损坏的包（如 npm 上的 <code>dsh-purge@0.0.0-stage</code>）被写进 profile 的 lockfile 后，<b>之后同一 profile 里的所有安装都会重试这个坏包而失败</b>。表现为：明明装的是别的插件，报错却指向那个坏包。</p>
+  <p>处理方式：换一个干净的 profile，或删除该 profile 的 <code>node_modules</code> 与 lockfile 后重装。本站后续会在每条核验记录里标注是否遇到这类连带失败。</p>
+</div>`
+
 const pageBodies = new Map([
   ['rules.html', { title: '收录规则与标准 · DSH 插件站', description: '收录门槛、判断标准、排序与收费说明。', body: rulesBody }],
+  ['risks.html', { title: '风险公告 · DSH 插件站', description: '装不上、装坏了、不建议直接装的 DSH 插件，附证据。', body: risksBody }],
   ['takedown.html', { title: '下架与侵权投诉 · DSH 插件站', description: '先下架再核实的投诉处理流程。', body: takedownBody }],
   ['disclaimer.html', { title: '评测免责声明 · DSH 插件站', description: '人工主观评价的边界与有效期。', body: disclaimerBody }],
   ['privacy.html', { title: '隐私与数据说明 · DSH 插件站', description: '本站收集什么、不收集什么、数据从哪来。', body: privacyBody }],
