@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T12:04:30.868Z",
+  "updatedAt": "2026-11-18T12:14:45.860Z",
   "profile": "market-test",
   "items": [
     {
@@ -859,6 +859,82 @@
         "version": "0.9.20",
         "seconds": 10,
         "logTail": " 0\nProgress: resolved 3, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 10, reused 0, downloaded 0, added 0\nProgress: resolved 10, reused 0, downloaded 1, added 0\nProgress: resolved 10, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-brief-sidebar 0.9.20\n\nDone in 5.4s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-icon-library",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.20.0",
+      "readmeBytes": 4956,
+      "license": "MIT",
+      "publishTime": "2026-11-17T11:27:33.631Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.20.0",
+        "seconds": 9,
+        "logTail": "ded 0\nProgress: resolved 4, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 11, reused 0, downloaded 0, added 0\nProgress: resolved 11, reused 0, downloaded 1, added 0\nProgress: resolved 11, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-icon-library 0.20.0\n\nDone in 5s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-ppt",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.25.0",
+      "readmeBytes": 11159,
+      "license": "MIT",
+      "publishTime": "2026-11-18T08:10:21.995Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.20.8",
+        "seconds": 15,
+        "logTail": ", downloaded 4, added 8\n[WARN] Tarball download average speed 46 KiB/s (size 97 KiB) is below 50 KiB/s: https://registry.npmjs.org/jsep/-/jsep-1.4.0.tgz (GET)\nProgress: resolved 23, reused 4, downloaded 6, added 10\nProgress: resolved 23, reused 4, downloaded 7, added 10\nProgress: resolved 23, reused 4, downloaded 8, added 12, done\n\ndependencies:\n+ dsh-ppt 0.20.8\n\nDone in 11.5s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-session-guard",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "4.2.12",
+      "readmeBytes": 55787,
+      "license": "MIT",
+      "publishTime": "2026-11-17T23:55:22.557Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "4.2.10",
+        "seconds": 7,
+        "logTail": "ed 0\nProgress: resolved 6, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 24, reused 0, downloaded 0, added 0\nProgress: resolved 24, reused 0, downloaded 1, added 0\nProgress: resolved 24, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-session-guard 4.2.10\n\nDone in 4s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-pdf-mineru",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.2.3",
+      "readmeBytes": 0,
+      "license": "MIT",
+      "publishTime": "2026-11-05T10:38:21.182Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.2.3",
+        "seconds": 134,
+        "logTail": "esolved 40, reused 0, downloaded 0, added 0\nProgress: resolved 40, reused 0, downloaded 4, added 4\nProgress: resolved 40, reused 0, downloaded 5, added 4\nProgress: resolved 40, reused 0, downloaded 5, added 5\nProgress: resolved 40, reused 0, downloaded 6, added 5\nProgress: resolved 40, reused 0, downloaded 6, added 6, done\n\ndependencies:\n+ dsh-pdf-mineru 0.2.3\n\nDone in 2m 7.9s using pnpm v11.28.5\n"
       }
     }
   ]

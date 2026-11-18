@@ -1379,7 +1379,7 @@ dsh --profile market-test web --no-open --port 51999</code></pre>
 
 const rpGroups = [
   { title: '① 长期记忆', names: ['dsh-mnemon', 'dsh-prime-memory', 'dsh-fish-memory', 'meow-memory', 'memory-eternal', 'dsh-plugin-memory', 'dsh-memory-nebula', 'dsh-loci'] },
-  { title: '② 上下文瘦身', names: ['dsh-live-compact', 'dsh-context', 'dsh-token-diet'] },
+  { title: '② 上下文瘦身与限额', names: ['dsh-live-compact', 'dsh-context', 'dsh-token-diet', 'dsh-session-guard'] },
   { title: '③ 人设防崩', names: ['dsh-soul-md', 'dsh-liketavern', 'dsh-fish-soul'] },
   { title: '④ 隐私与权限', names: ['cc-safety-net', 'dsh-perm-gate', 'dsh-windows-mcp', 'dsh-see-now'] },
   { title: '⑤ 离开电脑', names: ['dsh-mobile-plugin', 'ds-harness-remote', 'dsh-notify-me', 'dsh-onebot-qq', 'dsh-bili-scroll'] },
