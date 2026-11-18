@@ -621,7 +621,7 @@ function shell({ title, description, body, base = '', nav = true }) {
 ${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
 <p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
 <p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="${base}rules.html">收录规则</a></p>
-<div class="nav"><a href="${base}rp.html"><b>养鱼速查</b></a><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}install.html">安装避坑</a><a href="${base}risks.html">风险公告</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
+<div class="nav"><a href="${base}rp.html"><b>养鱼速查</b></a><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}install.html">安装避坑</a><a href="${base}risks.html">风险公告</a><a href="${base}failures.html">失败档案</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
 ${body}
 <footer class="site">
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
@@ -1465,7 +1465,47 @@ const rpBody = `<div class="page" style="border:0;background:none;box-shadow:non
 </div>`
 
 
+const partialEntries = [...trialByName.values()].filter((item) => item.result === 'partial')
+const failuresBody = `<div class="page">
+  <h1>失败档案</h1>
+  <p>成功的条目在<a href="verifications.html">核验记录</a>里；这一页专门放<b>没成功或不建议装</b>的：装不上、装上了不生效、克隆超时、版本不兼容、以及不该推荐的类型。</p>
+  <p class="notice">负面结论同样要带证据。每条都写了现象、原因与处理方式；<b>没有证据的失败不写进来</b>。</p>
+
+  <h2>一、装上了但不生效（半装）· ${partialEntries.length} 条</h2>
+  <p>包在 <code>node_modules</code>、写进了 <code>dependencies</code>，但没进 <code>dsh.profile.bundles</code>，所以不会启动。本站记录为 <code>partial</code>。</p>
+  <table class="verify-table">
+    <thead><tr><th>插件</th><th>版本</th><th>原因</th></tr></thead>
+    <tbody>
+      ${partialEntries.map((item) => `<tr><td><code>${escapeHtml(item.name)}</code></td><td>${escapeHtml(item.version ?? '—')}</td><td>${escapeHtml(item.reason ?? '未记录')}</td></tr>`).join('')}
+    </tbody>
+  </table>
+  <p>处理：在 profile 目录跑 <code>pnpm approve-builds</code>，判断依赖是否可信后放行，再重新 add。详见<a href="install.html">安装避坑</a>第五节。</p>
+
+  <h2>二、装不上 / 不建议直接装 · ${(riskData?.items ?? []).length} 条</h2>
+  <div class="changelog">
+    ${(riskData?.items ?? []).map((item) => `<section>
+      <h2><code>${escapeHtml(item.name)}</code></h2>
+      <p style="margin:6px 0">${item.flags.map((flag) => `<span class="badge ${flag === 'broken-npm' || flag === 'jailbreak' ? 'high' : 'warn'}">${escapeHtml(RISK_FLAG_TEXT[flag] ?? flag)}</span>`).join(' ')}</p>
+      <p>${escapeHtml(item.summary)}</p>
+      <p style="font-size:13px"><b>证据：</b>${escapeHtml(item.evidence)}</p>
+      ${item.note ? `<p style="font-size:13px"><b>注意：</b>${escapeHtml(item.note)}</p>` : ''}
+    </section>`).join('')}
+  </div>
+
+  <h2>三、从这些失败里总结的规律</h2>
+  <ol>
+    <li><b>先看它在不在 npm</b>：返回 404 就只能 <code>github:</code> 装，而 GitHub 源受克隆速度影响，大仓库会超时</li>
+    <li><b>坏包会连坐</b>：一个 tarball 截断的包装进 lockfile 后，同 profile 之后装什么都失败，报错却指向那个坏包</li>
+    <li><b>pnpm 11 拦构建脚本</b>：这不是装不上，是"半装"；配置白名单三种写法我们都试过、都无效，只能交互式放行</li>
+    <li><b>静默跳过最难查</b>：有的插件在版本不满足时直接被内核跳过且不报错（如 <code>dsh-bili-scroll</code> 的 README 自述），表现为"装了跟没装一样"</li>
+    <li><b>别用手写脚本改 profile 的 package.json</b>：带 BOM 会让 DSH 解析失败，整个 profile 装不了任何插件</li>
+  </ol>
+
+  <div class="notice">你遇到的失败不在这页？<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener">发到讨论区</a>，带上插件名、DSH 版本和完整报错——能复现的我们会复现后写进来。</div>
+</div>`
+
 const pageBodies = new Map([
+  ['failures.html', { title: '失败档案 · DSH 插件站', description: '装不上、装了不生效、超时、不兼容的插件与证据。', body: failuresBody }],
   ['rp.html', { title: '养鱼选型速查 · DSH 插件站', description: '一页看完：记忆、压缩、人设、隐私、手机、氛围该装什么。', body: rpBody }],
   ['method.html', { title: '核验方法 · DSH 插件站', description: '四级核验怎么做、什么算通过、已知局限与可复现命令。', body: methodBody }],
   ['install.html', { title: '安装避坑指南 · DSH 插件站', description: 'npm 与 GitHub 两种装法、坏包污染、版本不兼容与验证方式。', body: installBody }],
@@ -1635,7 +1675,7 @@ const verificationSchema = {
 await writeFile(join(SITE, 'verifications.schema.json'), JSON.stringify(verificationSchema, null, 2) + '\n', 'utf8')
 
 // sitemap / robots：让搜索引擎能收录施工图与核验记录
-const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'method.html', 'risks.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
+const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'method.html', 'risks.html', 'failures.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
 const sitemapUrls = [
   ...staticPages.map((page) => ({ loc: `${SITE_URL}/${page}`, priority: page === '' ? '1.0' : '0.8' })),
   ...entries.map((entry) => ({ loc: `${SITE_URL}/p/${entry.slug}.html`, priority: '0.6' })),
