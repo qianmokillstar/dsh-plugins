@@ -593,7 +593,7 @@ function shell({ title, description, body, base = '', nav = true }) {
 ${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
 <p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
 <p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="${base}rules.html">收录规则</a></p>
-<div class="nav"><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}install.html">安装避坑</a><a href="${base}risks.html">风险公告</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
+<div class="nav"><a href="${base}rp.html"><b>养鱼速查</b></a><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}install.html">安装避坑</a><a href="${base}risks.html">风险公告</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
 ${body}
 <footer class="site">
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
@@ -1324,7 +1324,73 @@ dsh --profile market-test web --no-open --port 51999</code></pre>
   <div class="notice">发现记录有误？<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener"><b>去 Discussions 纠错</b></a>，带上插件名、版本、现象。</div>
 </div>`
 
+const rpBody = `<div class="page" style="border:0;background:none;box-shadow:none;padding:0;max-width:none">
+  <h1>养鱼选型速查</h1>
+  <p>如果你只想知道"养鱼该装哪几个"，看这一页。每一格都对应站内已经核验过的插件，点进去能看到完整的四问判断与核验日期。</p>
+  <p class="notice"><b>最省事的起步组合</b>：<a href="p/dsh-mnemon.html"><code>dsh-mnemon</code></a>（记忆）+ <a href="p/${slugByName.get('dsh-live-compact')}.html"><code>dsh-live-compact</code></a>（压缩）+ <a href="p/cc-safety-net.html"><code>cc-safety-net</code></a>（拦截）。三个都不改宿主结构，装完重启即可。</p>
+
+  <table class="verify-table">
+    <thead><tr><th>你要解决什么</th><th>首选</th><th>备选 / 什么时候换</th><th>别装</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>聊久了失忆</td>
+        <td><a href="p/dsh-mnemon.html"><code>dsh-mnemon</code></a><br><sub>看得见每轮记忆，能改</sub></td>
+        <td><a href="p/dsh-prime-memory.html"><code>dsh-prime-memory</code></a>（要全自动）<br><a href="p/dsh-fish-memory.html"><code>dsh-fish-memory</code></a>（会淡忘）</td>
+        <td>同时装三个以上记忆插件，重复注入</td>
+      </tr>
+      <tr>
+        <td>上下文爆掉 / 变卡</td>
+        <td><a href="p/${slugByName.get('dsh-live-compact')}.html"><code>dsh-live-compact</code></a><br><sub>本机压缩、先备份</sub></td>
+        <td><a href="p/dsh-context.html"><code>dsh-context</code></a>（先看清再动手）<br><a href="p/dsh-token-diet.html"><code>dsh-token-diet</code></a>（预算兜底）</td>
+        <td>把 <code>billion-context-dsh</code> 强行装（版本不兼容）</td>
+      </tr>
+      <tr>
+        <td>人设越聊越像客服</td>
+        <td><a href="p/dsh-soul-md.html"><code>dsh-soul-md</code></a><br><sub>人设卡可切换、可手改</sub></td>
+        <td><a href="p/${slugByName.get('dsh-liketavern')}.html"><code>dsh-liketavern</code></a>（专业养鱼，ST 兼容）<br><a href="p/dsh-plugin-memory.html"><code>dsh-plugin-memory</code></a>（markdown+git）</td>
+        <td>人设插件堆三个，互相覆盖</td>
+      </tr>
+      <tr>
+        <td>怕私聊内容泄露</td>
+        <td><a href="p/cc-safety-net.html"><code>cc-safety-net</code></a><br><sub>拦危险命令与密钥访问</sub></td>
+        <td>只用 🟢 纯本地插件、全部本地模型</td>
+        <td>🔴 类插件不看清就装（<a href="verifications.html">核验表</a>里有标记）</td>
+      </tr>
+      <tr>
+        <td>想躺床上接着聊</td>
+        <td><a href="p/dsh-mobile-plugin.html"><code>dsh-mobile-plugin</code></a><br><sub>手机连回自己电脑</sub></td>
+        <td><a href="p/ds-harness-remote.html"><code>ds-harness-remote</code></a>（要 Agent 远程跑任务）</td>
+        <td>用公网隧道还传私密剧情</td>
+      </tr>
+      <tr>
+        <td>界面太"AI 味"</td>
+        <td><a href="p/dsh-pet.html"><code>dsh-pet</code></a> 或 <a href="p/dsh-meme.html"><code>dsh-meme</code></a><br><sub>桌宠 / 表情包</sub></td>
+        <td><a href="p/deep-view.html"><code>deep-view</code></a>、<a href="p/dsh-genui.html"><code>dsh-genui</code></a>（要可点卡片）</td>
+        <td>装饰层全上，排查问题找不到源头</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>30 天试用建议</h2>
+  <ol>
+    <li><b>第 1 周</b>：只装记忆那一个（mnemon 或 prime-memory），跑满一周，进记忆库抽查写进去得对不对</li>
+    <li><b>第 2 周</b>：加 <code>dsh-live-compact</code>，观察压缩后回忆是否变差；顺手用 <code>dsh-context</code> 看上下文组成</li>
+    <li><b>第 3 周</b>：人设固化——用 <code>dsh-soul-md</code> 写人设卡，或用 liketavern 的专业流程</li>
+    <li><b>第 4 周</b>：才考虑装饰与手机端；此时你已经知道自己真正在意什么</li>
+  </ol>
+
+  <h2>三条纪律</h2>
+  <ul>
+    <li><b>一次只加一个插件</b>，观察两天再加下一个——否则出问题分不清是谁</li>
+    <li><b>改动前备份</b>：人设文件、记忆目录、配置都先复制一份</li>
+    <li><b>先看隐私灯</b>：🔴 插件会把内容发出去，私密剧情要有心理准备</li>
+  </ul>
+
+  <div class="notice">想看每个判断的证据？<a href="verifications.html">核验记录</a>里每条都有日期、版本、安装实测结果。发现问题 <a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener">去纠错</a>。</div>
+</div>`
+
 const pageBodies = new Map([
+  ['rp.html', { title: '养鱼选型速查 · DSH 插件站', description: '一页看完：记忆、压缩、人设、隐私、手机、氛围该装什么。', body: rpBody }],
   ['method.html', { title: '核验方法 · DSH 插件站', description: '四级核验怎么做、什么算通过、已知局限与可复现命令。', body: methodBody }],
   ['install.html', { title: '安装避坑指南 · DSH 插件站', description: 'npm 与 GitHub 两种装法、坏包污染、版本不兼容与验证方式。', body: installBody }],
   ['weekly.html', { title: '周报 · DSH 插件站', description: '按快照对比得出的新增、掉榜、版本与许可证变化。', body: weeklyBody }],
@@ -1425,7 +1491,7 @@ const verificationDoc = {
 await writeFile(join(SITE, 'verifications.json'), JSON.stringify(verificationDoc, null, 2) + '\n', 'utf8')
 
 // sitemap / robots：让搜索引擎能收录施工图与核验记录
-const staticPages = ['', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'method.html', 'risks.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
+const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'method.html', 'risks.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
 const sitemapUrls = [
   ...staticPages.map((page) => ({ loc: `${SITE_URL}/${page}`, priority: page === '' ? '1.0' : '0.8' })),
   ...entries.map((entry) => ({ loc: `${SITE_URL}/p/${entry.slug}.html`, priority: '0.6' })),
