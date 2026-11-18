@@ -1088,6 +1088,26 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-pdf-mineru.md"
+    },
+    {
+      "name": "dsh-tts-bridge",
+      "category": "media",
+      "curationRank": -13,
+      "risk": "medium",
+      "privacy": "cloud",
+      "rp": true,
+      "title": {
+        "en": "TTS Bridge",
+        "zh": "朗读桥"
+      },
+      "summary": {
+        "en": "Speaks replies through your own DeepSeek account's read-aloud feature via a browser extension; needs the page open.",
+        "zh": "把会话句子送去 DeepSeek 网页端用你账号自带朗读出声；要装浏览器扩展且页面必须开着。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-tts-bridge.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"

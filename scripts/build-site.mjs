@@ -1383,7 +1383,7 @@ const rpGroups = [
   { title: '③ 人设防崩', names: ['dsh-soul-md', 'dsh-liketavern', 'dsh-fish-soul'] },
   { title: '④ 隐私与权限', names: ['cc-safety-net', 'dsh-perm-gate', 'dsh-windows-mcp', 'dsh-see-now'] },
   { title: '⑤ 离开电脑', names: ['dsh-mobile-plugin', 'ds-harness-remote', 'dsh-notify-me', 'dsh-onebot-qq', 'dsh-bili-scroll'] },
-  { title: '⑥ 氛围与表达', names: ['dsh-pet', 'dsh-dafeiyu', 'dsh-meme', 'deep-view', 'dsh-genui', 'dsh-plugin-wallpaper-engine', 'dsh-folia', 'dsh-dream-skin', 'dsh-music-panel'] },
+  { title: '⑥ 氛围与表达', names: ['dsh-pet', 'dsh-dafeiyu', 'dsh-meme', 'deep-view', 'dsh-genui', 'dsh-plugin-wallpaper-engine', 'dsh-folia', 'dsh-dream-skin', 'dsh-music-panel', 'dsh-tts-bridge'] },
 ]
 
 const rpList = rpGroups.map((group) => {
