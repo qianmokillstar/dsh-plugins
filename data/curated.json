@@ -211,6 +211,82 @@
       ],
       "review": "content/reviews/deepseek-harness-tui__dsh-tui.md",
       "privacy": "local"
+    },
+    {
+      "name": "dsh-context",
+      "category": "observability",
+      "curationRank": 50,
+      "risk": "low",
+      "privacy": "local",
+      "title": {
+        "en": "Context Insight",
+        "zh": "上下文洞察面板"
+      },
+      "summary": {
+        "en": "Read-only dashboards for what your context is carrying: token/cost trends, context composition, per-agent fleet cards.",
+        "zh": "只读的上下文仪表盘：Token/成本趋势、上下文组成、每个子 Agent 一张卡片；它告诉你装了什么，不负责瘦身。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-context.md"
+    },
+    {
+      "name": "cc-safety-net",
+      "category": "sandbox",
+      "curationRank": 48,
+      "risk": "low",
+      "privacy": "local",
+      "title": {
+        "en": "Safety Net",
+        "zh": "危险命令拦截"
+      },
+      "summary": {
+        "en": "Blocks destructive commands and secret-file access before the tool runs; explicitly not a sandbox.",
+        "zh": "在工具执行前拦住删库、改权限、读 .env/SSH 私钥这类操作；它自己明说不是沙箱，别当安全边界。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/cc-safety-net.md"
+    },
+    {
+      "name": "deep-view",
+      "category": "productivity",
+      "curationRank": 46,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Deep View",
+        "zh": "对话内交互视图"
+      },
+      "summary": {
+        "en": "Renders charts, tables, sliders and forms as interactive cards inside the conversation.",
+        "zh": "把图表、表格、滑块、表单画成会话里的可点卡片；纯展示秒回，带输入的要等你回答。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/deep-view.md"
+    },
+    {
+      "name": "dsh-prime-memory",
+      "category": "memory",
+      "curationRank": 44,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Prime Memory",
+        "zh": "分层蒸馏记忆"
+      },
+      "summary": {
+        "en": "L0-L3 distillation pipeline that turns conversations into layered memories and recalls them before each model step.",
+        "zh": "把对话压成 L0 捕获→L1 原子记忆→L2 场景→L3 画像四层，并在每次模型调用前自动召回注入。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-prime-memory.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"

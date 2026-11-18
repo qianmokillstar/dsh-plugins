@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T10:11:36.247Z",
+  "updatedAt": "2026-11-18T10:30:06.751Z",
   "profile": "market-test",
   "items": [
     {
@@ -357,6 +357,63 @@
         "version": null,
         "seconds": 76,
         "logTail": "ved 195, reused 84, downloaded 1, added 85\n[ERR_PNPM_TARBALL_EXTRACT] Failed to add tarball from \"https://registry.npmjs.org/dsh-purge/-/dsh-purge-0.0.0-stage.tgz\" to store: Unexpected end of TAR archive at offset 2560\nCommand failed with exit code 1: pnpm add dsh-fish-souldsh: plugin command failed; diagnostics: C:\\Users\\HP\\.dsh\\profiles\\market-test\\.plugin-manager\\logs\\operation-pIon67\\pnpm.log\n"
+      }
+    },
+    {
+      "name": "dsh-token-diet",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.1.0",
+      "readmeBytes": 0,
+      "license": "MIT",
+      "publishTime": "2026-10-24T05:36:09.426Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.1.0",
+        "seconds": 5,
+        "logTail": "✓ Lockfile passes supply-chain policies (verified 14m ago)\nProgress: resolved 0, reused 1, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 4, reused 2, downloaded 0, added 0\nProgress: resolved 4, reused 2, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-token-diet 0.1.0\n\nDone in 2.1s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "billion-context-dsh",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.2.27",
+      "readmeBytes": 39242,
+      "license": "MIT",
+      "publishTime": "2026-10-08T10:09:53.204Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": false,
+        "reason": "exit 1",
+        "version": null,
+        "seconds": 2,
+        "logTail": "r the plugin manager, then retry the installation or restart dsh. Exact-version exemption: not active.\ndsh: nothing was installed.\ndsh: to accept the risk, run: dsh plugin --profile market-test allow-version billion-context-dsh@0.2.27 --dsh-version 0.2.2-rc.3 --accept-risk\ndsh: plugin command failed; diagnostics: C:\\Users\\HP\\.dsh\\profiles\\market-test\\.plugin-manager\\logs\\operation-k6rrcM\\pnpm.log\n"
+      }
+    },
+    {
+      "name": "dsh-live-compact",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "1.1.12",
+      "readmeBytes": 25883,
+      "license": "MIT",
+      "publishTime": "2026-11-16T22:25:04.970Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "1.1.12",
+        "seconds": 5,
+        "logTail": "✓ Lockfile passes supply-chain policies (verified 7s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 5, reused 2, downloaded 0, added 0\nProgress: resolved 5, reused 2, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-live-compact 1.1.12\n\nDone in 2.3s using pnpm v11.28.5\n"
       }
     }
   ]
