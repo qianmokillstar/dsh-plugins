@@ -773,6 +773,65 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-config-manager.md"
+    },
+    {
+      "name": "dsh-onebot-qq",
+      "category": "collab",
+      "curationRank": 1,
+      "risk": "high",
+      "privacy": "cloud",
+      "title": {
+        "en": "OneBot QQ",
+        "zh": "QQ 通道（OneBot 11）"
+      },
+      "summary": {
+        "en": "Pure-TypeScript OneBot 11 channel that turns DSH into a QQ bot; it is a channel, not a persona.",
+        "zh": "零 Python 的 OneBot 11 通道，让 QQ 消息进 Agent；它是通道不是人格，群聊里乱说话要自己配好设定。"
+      },
+      "labels": [
+        "chinese-docs",
+        "license-review"
+      ],
+      "review": "content/reviews/dsh-onebot-qq.md"
+    },
+    {
+      "name": "dsh-bili-scroll",
+      "category": "automation",
+      "curationRank": 0,
+      "risk": "high",
+      "privacy": "cloud",
+      "title": {
+        "en": "Bilibili Scroller",
+        "zh": "每天刷一轮 B 站"
+      },
+      "summary": {
+        "en": "Scrolls Bilibili daily, reads subtitles, writes a report and optionally comments with an @ to you.",
+        "zh": "每天搜 B 站、读字幕原文写报告，可选自动评论 @ 你；带本地转写要 1 GB，版本不满足时会被静默跳过。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-bili-scroll.md"
+    },
+    {
+      "name": "dsh-music-panel",
+      "category": "media",
+      "curationRank": -1,
+      "risk": "medium",
+      "privacy": "cloud",
+      "title": {
+        "en": "Music Panel",
+        "zh": "内嵌音乐播放器"
+      },
+      "summary": {
+        "en": "Local library plus NetEase/QQ/Kugou sources and Navidrome, embedded in DSH; AGPL-3.0 licensed.",
+        "zh": "本地曲库 + 多在线源 + 自建 Navidrome 的内嵌播放器；许可证是 AGPL-3.0，商用需确认义务。"
+      },
+      "labels": [
+        "chinese-docs",
+        "license-review"
+      ],
+      "review": "content/reviews/dsh-music-panel.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"

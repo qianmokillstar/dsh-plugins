@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * 生成 DSH 插件站（静态、零后端、零外部依赖）。
  *
@@ -343,6 +343,23 @@ for (const plugin of github?.plugins ?? []) {
 const reviewed = entries.filter((entry) => entry.reviewBody)
 const verified = entries.filter((entry) => entry.verified)
 const withStars = entries.filter((entry) => Number.isFinite(entry.stars))
+
+// 去重：同一个包名可能同时来自 npm 与多个 GitHub 仓库（镜像/同名），只保留最可信的一条。
+const deduped = new Map()
+for (const entry of entries) {
+  const current = deduped.get(entry.name)
+  if (!current) { deduped.set(entry.name, entry); continue }
+  const score = (item) =>
+    (item.reviewBody ? 1000 : 0) +
+    (item.source === 'npm' ? 100 : 0) +
+    (item.downloads ?? 0) / 1000 +
+    (item.stars ?? 0) / 1000
+  if (score(entry) > score(current)) deduped.set(entry.name, entry)
+}
+const duplicates = entries.length - deduped.size
+entries.length = 0
+entries.push(...deduped.values())
+if (duplicates > 0) console.log(`去重：合并 ${duplicates} 条同名条目`)
 
 // 去重：不同来源可能产生同一个 slug，追加序号避免互相覆盖。
 const usedSlugs = new Set()

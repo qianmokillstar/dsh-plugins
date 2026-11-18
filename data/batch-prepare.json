@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T11:39:30.600Z",
+  "updatedAt": "2026-11-18T11:50:08.110Z",
   "profile": "market-test",
   "items": [
     {
@@ -664,6 +664,63 @@
         "version": "0.10.0",
         "seconds": 31,
         "logTail": "lved 13, reused 1, downloaded 0, added 1\nProgress: resolved 13, reused 1, downloaded 1, added 1\nProgress: resolved 13, reused 1, downloaded 1, added 2\nProgress: resolved 13, reused 1, downloaded 2, added 2\nProgress: resolved 13, reused 1, downloaded 2, added 3\nProgress: resolved 13, reused 1, downloaded 2, added 3, done\n\ndependencies:\n+ dsh-config-manager 0.10.0\n\nDone in 27.3s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-onebot-qq",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.10.0",
+      "readmeBytes": 57066,
+      "license": "BSD-3-Clause",
+      "publishTime": "2026-11-10T00:14:51.589Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.10.0",
+        "seconds": 102,
+        "logTail": "eused 15, downloaded 3, added 17\nProgress: resolved 44, reused 15, downloaded 3, added 18\nProgress: resolved 44, reused 15, downloaded 4, added 18\nProgress: resolved 44, reused 15, downloaded 5, added 20\nProgress: resolved 44, reused 15, downloaded 6, added 20\nProgress: resolved 44, reused 15, downloaded 6, added 21, done\n\ndependencies:\n+ dsh-onebot-qq 0.10.0\n\nDone in 1m 37.2s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-bili-scroll",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "2.5.2",
+      "readmeBytes": 15234,
+      "license": "MIT",
+      "publishTime": "2026-11-12T16:20:23.366Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "2.5.2",
+        "seconds": 8,
+        "logTail": ": resolved 9, reused 0, downloaded 0, added 0\nProgress: resolved 10, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1 -10\n+----------\nProgress: resolved 45, reused 0, downloaded 0, added 0\nProgress: resolved 45, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-bili-scroll 2.5.2\n\nDone in 5.5s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-music-panel",
+      "date": "2026-11-18",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.37.2",
+      "readmeBytes": 27172,
+      "license": "AGPL-3.0-only",
+      "publishTime": "2026-11-17T17:43:54.821Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.36.2",
+        "seconds": 79,
+        "logTail": " added 326\nProgress: resolved 385, reused 84, downloaded 255, added 326\nProgress: resolved 385, reused 84, downloaded 255, added 327\nProgress: resolved 385, reused 84, downloaded 255, added 358\nProgress: resolved 385, reused 84, downloaded 256, added 358\nProgress: resolved 385, reused 84, downloaded 256, added 361, done\n\ndependencies:\n+ dsh-music-panel 0.36.2\n\nDone in 1m 14.9s using pnpm v11.28.5\n"
       }
     }
   ]
