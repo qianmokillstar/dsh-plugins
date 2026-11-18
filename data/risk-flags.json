@@ -60,6 +60,16 @@
       "summary": "不在 npm，需 GitHub 源安装。",
       "evidence": "pnpm 报 not in the npm registry。",
       "note": "Galgame 风格界面类插件。"
+    },
+    {
+      "name": "billion-context-dsh",
+      "repo": "https://github.com/Tyan66666/billion-context-dsh",
+      "flags": [
+        "incompatible"
+      ],
+      "summary": "版本与本机 DSH 不兼容，安装器直接拒绝：billion-context-dsh@0.2.27 要求的 DSH 版本与 0.2.2-rc.3 不符。",
+      "evidence": "dsh plugin add 报 incompatible with dsh 0.2.2-rc.3，并提示需显式版本豁免才能强装。",
+      "note": "可以加 allow-version 豁免强装，但那等于自己承担崩溃与数据丢失风险，本站不建议。"
     }
   ]
 }

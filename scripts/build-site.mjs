@@ -80,7 +80,22 @@ const curated = (await readJson(join(ROOT, 'data', 'curated.json'), { items: [] 
 const marketIndex = await readJson(join(ROOT, 'market', 'index.json'), null)
 const trialData = await readJson(join(ROOT, 'data', 'trial-install.json'), null)
 const trialByName = new Map((trialData?.items ?? []).map((item) => [item.name, item]))
-const trialInstalled = (trialData?.items ?? []).filter((item) => item.result === 'installed')
+// 批次安装结果（batch-prepare）也计入实测：否则新核验条目会丢日期
+const batchData = await readJson(join(ROOT, 'data', 'batch-prepare.json'), null)
+for (const item of batchData?.items ?? []) {
+  if (trialByName.has(item.name)) continue
+  if (!item.install?.ok) continue
+  trialByName.set(item.name, {
+    name: item.name,
+    date: item.date,
+    dshVersion: item.dshVersion ?? DSH_VERSION,
+    result: 'installed',
+    version: item.install.version ?? item.latest ?? null,
+    seconds: item.install.seconds ?? null,
+    source: 'batch-prepare',
+  })
+}
+const trialInstalled = [...trialByName.values()].filter((item) => item.result === 'installed')
 const launchData = await readJson(join(ROOT, 'data', 'launch-test.json'), null)
 const riskData = await readJson(join(ROOT, 'data', 'risk-flags.json'), null)
 const RISK_FLAG_TEXT = {
@@ -90,6 +105,7 @@ const RISK_FLAG_TEXT = {
   mirror: '镜像仓库',
   jailbreak: '破甲/越狱类',
   unverified: '未核实',
+  incompatible: '版本不兼容',
 }
 const launchByName = new Map((launchData?.plugins ?? []).map((item) => [item.name, item]))
 const ACTIVATION_TEXT = {
@@ -277,6 +293,7 @@ for (const plugin of github?.plugins ?? []) {
   const repoKey = plugin.fullName.toLowerCase()
   if (seenRepos.has(repoKey)) continue
   const review = plugin.dsh?.name ? curatedByName.get(plugin.dsh.name) : undefined
+  const reviewFile = review?.review ? review.review.split('/').at(-1) : undefined
   const category = review?.category ?? inferCategory([
     plugin.name,
     plugin.description,
@@ -309,8 +326,10 @@ for (const plugin of github?.plugins ?? []) {
     risk: review?.risk ?? null,
     privacy: review?.privacy ?? 'unknown',
     curationRank: review?.curationRank ?? -1,
-    reviewBody: undefined,
-    reviewHeading: null,
+    reviewBody: reviewFile ? reviewBodies.get(reviewFile) : undefined,
+    reviewHeading: reviewFile && reviewBodies.get(reviewFile)
+      ? (/^#\s+(.*)$/mu.exec(reviewBodies.get(reviewFile))?.[1]?.trim() ?? plugin.name)
+      : null,
     source: 'github',
   })
 }
@@ -899,6 +918,50 @@ const privacyBody = `<div class="page">
 </div>`
 
 const scenes = [
+  {
+    id: 'rp-memory',
+    title: '养鱼①长期记忆：聊到第 50 轮还记得设定',
+    lead: '角色扮演最大的劝退点是失忆：聊久了模型忘了人物关系、世界观、你定过的规矩。先解决"记得住"，再谈"聊得深"。',
+    steps: [
+      ['dsh-prime-memory', '想要全自动就先试它：对话自动压成 L0→L3 四层，每次调用前召回注入。装完先跑三天，进记忆库抽查写进去的东西对不对。'],
+      ['dsh-mnemon', '想要"看得见"就选它：工作记忆 / 项目档案 / 长期证据分层，每轮回复下有回合记忆栏，点进去能改。'],
+    ],
+    skip: ['设定不多、只聊几轮 —— 直接在 AGENTS.md 里手写人设与世界观，零安装、完全可控'],
+    watch: ['自动写入的记忆写错会被反复引用，越用越偏：必须定期抽查删改', '蒸馏与召回通常要调模型，等于对话内容会经过模型服务', '两个都装会重复注入，上下文更早爆'],
+  },
+  {
+    id: 'rp-slim',
+    title: '养鱼②上下文瘦身：聊到卡顿怎么救',
+    lead: '长对话会把工具输出、日志、命令结果越积越多，最后要么卡、要么贵、要么开始忘事。顺序很重要：先看清楚，再压缩，最后设上限。',
+    steps: [
+      ['dsh-context', '第一步只装它，看上下文里到底装了什么、哪一类占得最多。它只读不改，先诊断再动手。'],
+      ['dsh-live-compact', '第二步压：本机把长工具输出就地收短，压缩前备份原文、备份失败就放弃；默认到 2 万 token 才动手。'],
+      ['dsh-token-diet', '第三步兜底：给会话设 Token 预算，到 100% 在下一步请求前停下，避免一晚烧穿。'],
+    ],
+    skip: ['短会话、或习惯"一到上限就新开会话"的人 —— 新开 + AGENTS.md 比任何压缩都干净'],
+    watch: ['压缩不是无损：被压掉的中间细节虽然有备份，但不会再进上下文', '备份会占磁盘，长会话要定期清理', '预算到顶是真停任务，长任务可能卡在半路'],
+  },
+  {
+    id: 'rp-persona',
+    title: '养鱼③人设防崩：别让角色越聊越像客服',
+    lead: '人设崩通常不是模型变笨，而是设定没有稳定载体：被新消息冲淡、被记忆覆盖、被压缩带走。',
+    steps: [
+      ['dsh-prime-memory', '用它的 L3 画像层固化"这个人是谁"：语气、禁忌、关系设定写成画像，比每轮重复提示更稳。'],
+    ],
+    skip: ['只做单次短对话 —— 开场把设定贴进上下文就够'],
+    watch: ['目前本站还没有"人设管理类"插件通过核验：酒馆类（dsh-profile-tavern 等）多数不在 npm、装法特殊，正在补测', '人设文件被插件覆盖是最常见的崩法，改之前先备份', '记忆与人设冲突时，通常是记忆赢——需要定期校准'],
+  },
+  {
+    id: 'rp-privacy',
+    title: '养鱼④隐私排雷：私密聊天别流出去',
+    lead: '角色扮演的内容往往是最私密的。装插件前先问一句：它会把我说的东西发到哪里去？',
+    steps: [
+      ['dsh-context', '先用它看清上下文里都有什么，再决定哪些插件值得信任（它本身只读本地）。'],
+      ['cc-safety-net', '加一道拦截：阻止 Agent 读 .env / SSH 私钥、执行破坏性命令。注意它不是沙箱。'],
+    ],
+    skip: ['全部用本地模型 + 只装 🟢 插件 —— 风险最低，代价是模型能力'],
+    watch: ['🔴 需云端的插件：内容会离开本机（本站已在每条核验里标出）', '桌面自动化类（如 dsh-windows-mcp）会把截图当图片送进对话，屏幕上的一切都在画面里', '视频类插件需要 cookies.txt 这类账号凭据，等于把登录态交出去', '隐私分级是读 README 后的判断，没有抓包验证，别当审计结论'],
+  },
   {
     id: 'remote',
     title: '场景一 · 远程开发：让 Agent 直接在服务器上干活',

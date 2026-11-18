@@ -287,6 +287,44 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-prime-memory.md"
+    },
+    {
+      "name": "dsh-live-compact",
+      "category": "memory",
+      "curationRank": 42,
+      "risk": "medium",
+      "privacy": "local",
+      "title": {
+        "en": "Live Compact",
+        "zh": "边做边压"
+      },
+      "summary": {
+        "en": "Shrinks long tool output in place, locally, with a backup taken before every rewrite.",
+        "zh": "把长工具输出就地压短，本机完成、压缩前先备份；默认上下文到 2 万 token 才动手。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-live-compact.md"
+    },
+    {
+      "name": "dsh-token-diet",
+      "category": "observability",
+      "curationRank": 40,
+      "risk": "low",
+      "privacy": "local",
+      "title": {
+        "en": "Token Diet",
+        "zh": "Token 账本与预算"
+      },
+      "summary": {
+        "en": "Per-session token budget with a hard stop before the next request, plus a usage ledger across vendors and models.",
+        "zh": "给每个会话设 Token 预算红线，到 100% 在下一步请求前直接停下；同时按供应商/模型/工作区统计用量。"
+      },
+      "labels": [
+        "chinese-docs"
+      ],
+      "review": "content/reviews/dsh-token-diet.md"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"
