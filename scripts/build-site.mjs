@@ -24,6 +24,11 @@ const SITE = join(ROOT, 'site')
 const BUILT_AT = new Date()
 const DSH_VERSION = '0.2.2-rc.3'
 const SITE_URL = 'https://qianmokillstar.github.io/dsh-plugins'
+const DISCUSSIONS = {
+  home: 'https://github.com/qianmokillstar/dsh-plugins/discussions',
+  correction: 'https://github.com/qianmokillstar/dsh-plugins/discussions/2',
+  sceneIdeas: 'https://github.com/qianmokillstar/dsh-plugins/discussions/3',
+}
 
 const CATEGORY_TITLES = {
   productivity: '效率与工作流',
@@ -593,7 +598,7 @@ ${body}
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
   <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
   <div>本站核验基准环境：DSH ${DSH_VERSION} · 数据生成于 ${escapeHtml(stats.builtAt)}。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
-  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${base}submit.html">提交插件</a></div>
+  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${DISCUSSIONS.home}" target="_blank" rel="noreferrer noopener">讨论区</a></div>
 </footer>
 </div>
 <script src="${base}assets/app.js"></script>
@@ -776,6 +781,7 @@ const submitBody = `<div class="page">
     <li>然后试装一次，记录测试的 DSH 版本与日期</li>
     <li>通过后进入目录；判断信息不足的，会先标"未核实"上线，不阻塞收录</li>
   </ul>
+  <div class="notice">想直接公开讨论？<a href="${DISCUSSIONS.sceneIdeas}" target="_blank" rel="noreferrer noopener"><b>提施工图建议</b></a> · <a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener"><b>报核验错误</b></a></div>
   <script>
     document.getElementById('submit-form').addEventListener('submit', function (event) {
       event.preventDefault();
@@ -1151,6 +1157,7 @@ const verificationsBody = `<div class="page">
     <li>失败记录同样收录（装不上的原因比"能装"更有价值）</li>
     <li>卸载 / 回滚是否干净</li>
   </ul>
+  <div class="notice">发现哪条判断不准、哪个插件装不上？<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener"><b>去 Discussions 纠错</b></a>（带上插件名、版本、DSH 版本、现象）。作者认为记录有误也可以直接说——先改记录再讨论。</div>
 </div>`
 
 const risksBody = `<div class="page">
