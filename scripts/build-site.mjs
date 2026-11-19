@@ -630,7 +630,7 @@ function shell({ title, description, body, base = '', nav = true }) {
 ${nav ? `<header class="top"><div class="brand">${LOGO}<h1 class="title"><a href="${base}index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
 <p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
 <p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="${base}rules.html">收录规则</a></p>
-<div class="nav"><a href="${base}rp.html"><b>养鱼速查</b></a><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}install.html">安装避坑</a><a href="${base}risks.html">风险公告</a><a href="${base}failures.html">失败档案</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
+<div class="nav"><a href="${base}rp.html"><b>养鱼速查</b></a><a href="${base}index.html">插件目录</a><a href="${base}scenes.html">场景施工图</a><a href="${base}verifications.html">核验记录</a><a href="${base}weekly.html">周报</a><a href="${base}install.html">安装避坑</a><a href="${base}fix.html">装不上?</a><a href="${base}risks.html">风险公告</a><a href="${base}failures.html">失败档案</a><a href="${base}submit.html">提交插件</a><a href="${base}rules.html">规则与声明</a></div></header>` : ''}
 ${body}
 <footer class="site">
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
@@ -1521,7 +1521,7 @@ const failuresBody = `<div class="page">
       ${partialEntries.map((item) => `<tr><td><code>${escapeHtml(item.name)}</code></td><td>${escapeHtml(item.version ?? '—')}</td><td>${escapeHtml(item.reason ?? '未记录')}</td></tr>`).join('')}
     </tbody>
   </table>
-  <p>处理：在 profile 目录跑 <code>pnpm approve-builds</code>，判断依赖是否可信后放行，再重新 add。详见<a href="install.html">安装避坑</a>第五节。</p>
+  <p>处理：在 profile 目录跑 <code>pnpm approve-builds</code>，判断依赖是否可信后放行，再重新 add。详见<a href="install.html">安装避坑</a>第五节，或按症状用<a href="fix.html">报错诊断器</a>。</p>
 
   <h2>二、装不上 / 不建议直接装 · ${(riskData?.items ?? []).length} 条</h2>
   <div class="changelog">
@@ -1546,7 +1546,163 @@ const failuresBody = `<div class="page">
   <div class="notice">你遇到的失败不在这页？<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener">发到讨论区</a>，带上插件名、DSH 版本和完整报错——能复现的我们会复现后写进来。</div>
 </div>`
 
+// 报错诊断器：把实测过的失败现象做成可搜索的对照表（纯前端，无后端）
+const FIX_CASES = [
+  {
+    id: 'broken-tarball',
+    symptom: '装 A 插件，报错却指向 B（例如 dsh-purge-0.0.0-stage.tgz），之后装什么都失败',
+    keywords: ['tarball', 'Unexpected end of TAR', '0.0.0-stage', '坏包', 'lockfile', '装什么都失败', 'ERR_PNPM_TARBALL_EXTRACT'],
+    cause: '某个损坏的占位包被写进该 profile 的 lockfile，之后每次 add 都会重试它；真正要装的那个其实没轮到。',
+    fix: [
+      '先看报错里的 tarball 文件名，确认是哪个包坏了',
+      '在该 profile 里移除它：dsh plugin --profile <prof> remove <坏包名>',
+      '仍不行就删掉该 profile 的 node_modules 与 pnpm-lock.yaml 后重装',
+      '最省事：换一个干净 profile 重来',
+    ],
+    evidence: '本站实测：npm 上 dsh-purge@0.0.0-stage 是截断的 tarball，装了它之后 dsh-soul-md、dsh-fish-soul 全部因同一个坏包失败。',
+  },
+  {
+    id: 'ignored-builds',
+    symptom: '看到 + 插件名 版本号，但最后 ERR_PNPM_IGNORED_BUILDS，插件不生效',
+    keywords: ['IGNORED_BUILDS', 'Ignored build scripts', 'protobufjs', 'pnpm', 'approve-builds', '半装'],
+    cause: 'pnpm 11 默认不允许依赖执行构建脚本（安全策略）。包已经落地并写进 dependencies，但没进 dsh.profile.bundles，所以不会启动。本站记为「半装」。',
+    fix: [
+      '在 profile 目录执行 pnpm approve-builds，逐个确认哪个依赖要跑脚本、判断可信后放行',
+      '然后重新 add 一次，让它进入 bundles',
+      '注意：package.json 的 pnpm 字段、pnpm-workspace.yaml 的 onlyBuiltDependencies、--config 传参，这三种配置写法我们实测都绕不过去',
+    ],
+    evidence: '本站实测：@michengai/dsh-im-connect、@tencent-connect/dsh-qqbot、dsh-session-superagent 三个都卡在这里。',
+  },
+  {
+    id: 'not-on-npm',
+    symptom: '安装报 "not in the npm registry"，或者 404',
+    keywords: ['404', 'not in the npm registry', 'no permission to fetch', '不在 npm', 'github:', '装不上'],
+    cause: '这个包根本不在 npm 上，只发布在 GitHub 仓库。',
+    fix: [
+      '改用 GitHub 源：dsh plugin --profile <prof> add github:owner/repo',
+      '仓库地址去插件 README 的「安装」一节找，不要猜',
+      '克隆慢的时候会超时，见下一条',
+    ],
+    evidence: '本站实测：dsh-purge-community、dsh-purge-safe、dsh-liketavern、gal-view 都不在 npm。',
+  },
+  {
+    id: 'clone-timeout',
+    symptom: '用 github: 源安装，卡很久没有输出，最后超时',
+    keywords: ['超时', 'timeout', '卡住', '没反应', '克隆慢', 'Recv failure'],
+    cause: 'DSH 会先克隆仓库，速度受网络与仓库体积影响。大仓库或网络差时会超时。',
+    fix: [
+      '换个时间重试，或先确认网络能正常访问 github.com',
+      '先确认作者有没有发布预编译包或 npm 版本',
+      '重新执行一次（已下载的部分通常会被复用）',
+    ],
+    evidence: '本站实测：dsh-liketavern 156 秒成功；dsh-tavern 超过 30 分钟超时；gal-view 两次都超过 15 分钟。',
+  },
+  {
+    id: 'incompatible',
+    symptom: '安装器报 incompatible with dsh，拒绝安装',
+    keywords: ['incompatible', 'engines', 'allow-version', '版本不兼容', '与本机 DSH 不匹配'],
+    cause: '插件的 engines.dsh 与当前 DSH 版本不匹配，安装器主动拦截。',
+    fix: [
+      '优先升级/降级插件版本，找一条匹配你 DSH 的版本线',
+      '不要轻易用 allow-version 强装——那等于自己承担崩溃与数据丢失',
+      '确认你装的是正确版本线的 dist-tag（有的插件按 DSH 主线分开发布）',
+    ],
+    evidence: '本站实测：billion-context-dsh@0.2.27 对 DSH 0.2.2-rc.3 被拒。',
+  },
+  {
+    id: 'silent-skip',
+    symptom: '装完了，但界面里没有任何变化，也没有报错',
+    keywords: ['装了没反应', '没入口', '静默', '不生效', '看不到', '没有变化'],
+    cause: '常见三种：① 版本不满足，内核静默跳过该插件；② 包没进 profile bundles；③ 它依赖 webServer 之类的服务，在精简 profile 里 pending。',
+    fix: [
+      '跑 dsh --profile <prof> --dump-config，看这个插件有没有出现在组合里',
+      '在组合里但启动后 pending → 缺宿主服务（换到带 Web 的 profile）',
+      '不在组合里 → 重新 add，或检查是否处于「半装」',
+      '个别插件（如 dsh-bili-scroll）README 明确说版本不满足会被静默跳过，先核对版本',
+    ],
+    evidence: '本站启动核验实测：archive-manager 与 dream-skin 在最小 profile 里 pending，等待 webServer。',
+  },
+  {
+    id: 'bom-profile',
+    symptom: '突然什么插件都装不了，报 SyntaxError: Unexpected token',
+    keywords: ['BOM', 'SyntaxError', 'Unexpected token', 'JSON', 'profile 坏了', 'readProfileManifest'],
+    cause: '手改过 profile 的 package.json，保存时带了 UTF-8 BOM，DSH 的 JSON 解析不接受 BOM。',
+    fix: [
+      '用编辑器把该文件另存为「UTF-8 无 BOM」',
+      '或用命令行去掉 BOM（node 一行即可）',
+      '改之前先备份该文件',
+    ],
+    evidence: '本站实测：PowerShell 的 Set-Content -Encoding UTF8 会写 BOM，导致整个 profile 无法安装任何插件。',
+  },
+  {
+    id: 'npm-or-github-conflict',
+    symptom: '同一个插件装了两遍，行为异常或看到两个入口',
+    keywords: ['两个', '重复', 'npm 和 github', '并存', '冲突'],
+    cause: '同一个包分别用 npm 名与 github: 源装过，两者并存冲突。',
+    fix: [
+      '先 remove 其中一种装法，再重新装你需要的那个',
+      '统一只用一种来源（推荐 npm 已发布版）',
+    ],
+    evidence: '本站实测：dsh-whale-widget 的 README 明确警告两种装法不要混用。',
+  },
+]
+
+const fixBody = `<div class="page" style="border:0;background:none;box-shadow:none;padding:0;max-width:none">
+  <h1>装不上？先在这里查</h1>
+  <p>下面每一条都是本站<b>真装出问题后</b>记录下来的：症状 → 原因 → 修法 → 证据。输入你看到的关键词即可过滤。</p>
+  <div class="toolbar" style="position:static;border:1px solid var(--line);border-radius:12px;padding:12px;margin:16px 0">
+    <div class="controls">
+      <input id="fixq" type="search" placeholder="输入报错关键词，例如：IGNORED_BUILDS / tarball / 404 / 装了没反应" autocomplete="off">
+    </div>
+    <div class="chips" id="fixchips">
+      ${FIX_CASES.map((item) => `<button class="chip" data-query="${escapeHtml(item.symptom)}">${escapeHtml(item.symptom.slice(0, 18))}…</button>`).join('')}
+    </div>
+  </div>
+  <p class="count" id="fixcount"></p>
+  <div class="changelog" id="fixlist">
+    ${FIX_CASES.map((item) => `<section class="fixcase" data-keywords="${escapeHtml([item.symptom, ...item.keywords, item.cause].join(' ').toLowerCase())}">
+      <h2>${escapeHtml(item.symptom)}</h2>
+      <p style="margin:8px 0"><b>原因：</b>${escapeHtml(item.cause)}</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol>${item.fix.map((step) => `<li>${escapeHtml(step)}</li>`).join('')}</ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>${escapeHtml(item.evidence)}</p>
+    </section>`).join('')}
+  </div>
+  <div class="notice">查不到？<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener">把你的报错发到讨论区</a>（带上插件名、DSH 版本、完整报错）。能复现的我们会复现后补进这张表。</div>
+  <p style="font-size:13px;color:var(--ink-muted)">相关：<a href="install.html">安装避坑指南</a> · <a href="failures.html">失败档案</a> · <a href="method.html">核验方法</a></p>
+</div>
+
+<script>
+(function () {
+  var q = document.getElementById('fixq');
+  var list = document.getElementById('fixlist');
+  var count = document.getElementById('fixcount');
+  if (!q || !list) return;
+  var cases = Array.prototype.slice.call(list.querySelectorAll('.fixcase'));
+  function apply() {
+    var words = q.value.toLowerCase().split(/[\\s,]+/).filter(Boolean);
+    var shown = 0;
+    cases.forEach(function (el) {
+      var hay = el.getAttribute('data-keywords') + ' ' + el.textContent.toLowerCase();
+      var hit = words.every(function (word) { return hay.indexOf(word) >= 0; });
+      el.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    });
+    count.textContent = '匹配 ' + shown + ' / ' + cases.length + ' 条';
+  }
+  q.addEventListener('input', apply);
+  Array.prototype.slice.call(document.querySelectorAll('#fixchips .chip')).forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      q.value = chip.getAttribute('data-query') || '';
+      apply();
+    });
+  });
+  apply();
+})();
+</script>`
+
 const pageBodies = new Map([
+  ['fix.html', { title: '装不上？先在这里查 · DSH 插件站', description: '按症状查 DSH 插件安装失败的原因与修法，每条都有实测证据。', body: fixBody }],
   ['failures.html', { title: '失败档案 · DSH 插件站', description: '装不上、装了不生效、超时、不兼容的插件与证据。', body: failuresBody }],
   ['rp.html', { title: '养鱼选型速查 · DSH 插件站', description: '一页看完：记忆、压缩、人设、隐私、手机、氛围该装什么。', body: rpBody }],
   ['method.html', { title: '核验方法 · DSH 插件站', description: '四级核验怎么做、什么算通过、已知局限与可复现命令。', body: methodBody }],
@@ -1723,7 +1879,7 @@ const verificationSchema = {
 await writeFile(join(SITE, 'verifications.schema.json'), JSON.stringify(verificationSchema, null, 2) + '\n', 'utf8')
 
 // sitemap / robots：让搜索引擎能收录施工图与核验记录
-const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'method.html', 'risks.html', 'failures.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
+const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'fix.html', 'method.html', 'risks.html', 'failures.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
 const sitemapUrls = [
   ...staticPages.map((page) => ({ loc: `${SITE_URL}/${page}`, priority: page === '' ? '1.0' : '0.8' })),
   ...entries.map((entry) => ({ loc: `${SITE_URL}/p/${entry.slug}.html`, priority: '0.6' })),
