@@ -27,3 +27,12 @@
 - 版本、发布时间、许可证、下载量、维护者必须来自 npm registry 或 downloads API；功能描述必须来自 README 原文。
 - 禁止编造字段、下载量、审核结论；无法核实的写"未核实"。
 - 风险评估是读 README 后的判断，不写成安全审计结论。
+
+## 发布与同步（重要）
+
+本机访问 `github.com`（git 传输）经常被重置，但 `api.github.com` 稳定。所以：
+
+- **发布走 API**：`scripts/push-via-api.mjs`（提交 + 推送），它会与远端产生提交，本地 git 不会自动跟随
+- **同步取远端**：`scripts/sync-from-remote.mjs`（下载 tarball 覆盖本地），出现分叉时用它，不要 `git pull`
+- **会话开始时先同步**：确认本地文件与远端一致，再做修改，否则会改到旧版本上
+- 本地 git 仅作缓存；**远端才是唯一事实源**
