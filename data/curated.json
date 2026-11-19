@@ -23,7 +23,8 @@
       ],
       "review": "content/reviews/dsh-agent-compare.md",
       "privacy": "local",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "3.1.1"
     },
     {
       "name": "dsh-remote",
@@ -45,7 +46,8 @@
       ],
       "review": "content/reviews/dsh-remote.md",
       "privacy": "local",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "1.2.0"
     },
     {
       "name": "dsh-cost-meter",
@@ -68,7 +70,8 @@
       ],
       "review": "content/reviews/dsh-cost-meter.md",
       "privacy": "cloud",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "1.9.70"
     },
     {
       "name": "dsh-free-search",
@@ -91,7 +94,8 @@
       ],
       "review": "content/reviews/dsh-free-search.md",
       "privacy": "cloud",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.9.53"
     },
     {
       "name": "dsh-mnemon",
@@ -112,7 +116,8 @@
       ],
       "review": "content/reviews/dsh-mnemon.md",
       "privacy": "local",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.5.46"
     },
     {
       "name": "dsh-windows-mcp",
@@ -134,7 +139,8 @@
       ],
       "review": "content/reviews/dsh-windows-mcp.md",
       "privacy": "local",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.2.11"
     },
     {
       "name": "@michengai/dsh-archive-manager",
@@ -154,7 +160,8 @@
       ],
       "review": "content/reviews/michengai__dsh-archive-manager.md",
       "privacy": "local",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "1.3.6"
     },
     {
       "name": "dsh-video-storyboard",
@@ -178,7 +185,8 @@
       ],
       "review": "content/reviews/dsh-video-storyboard.md",
       "privacy": "cloud",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.7.6"
     },
     {
       "name": "dsh-dream-skin",
@@ -198,7 +206,8 @@
       ],
       "review": "content/reviews/dsh-dream-skin.md",
       "privacy": "local",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "11.16.0"
     },
     {
       "name": "@deepseek-harness-tui/dsh-tui",
@@ -220,7 +229,8 @@
       ],
       "review": "content/reviews/deepseek-harness-tui__dsh-tui.md",
       "privacy": "local",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.20.1"
     },
     {
       "name": "dsh-context",
@@ -240,7 +250,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-context.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.85.1"
     },
     {
       "name": "cc-safety-net",
@@ -260,7 +271,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/cc-safety-net.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "2.7.15"
     },
     {
       "name": "deep-view",
@@ -280,7 +292,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/deep-view.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.1.2"
     },
     {
       "name": "dsh-prime-memory",
@@ -300,7 +313,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-prime-memory.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.26.60"
     },
     {
       "name": "dsh-live-compact",
@@ -320,7 +334,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-live-compact.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "1.1.12"
     },
     {
       "name": "dsh-token-diet",
@@ -340,7 +355,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-token-diet.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.1.0"
     },
     {
       "name": "dsh-mobile-plugin",
@@ -360,7 +376,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-mobile-plugin.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.5.65"
     },
     {
       "name": "dsh-plugin-wallpaper-engine",
@@ -380,7 +397,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-plugin-wallpaper-engine.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "1.4.2"
     },
     {
       "name": "@michengai/dsh-skills-manager",
@@ -400,7 +418,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/michengai__dsh-skills-manager.md",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "1.4.11"
     },
     {
       "name": "dsh-connect-workbuddy",
@@ -420,7 +439,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-connect-workbuddy.md",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "5.24.13"
     },
     {
       "name": "dsh-ops",
@@ -440,7 +460,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-ops.md",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.5.5"
     },
     {
       "name": "@suifei/dsh-ai-team",
@@ -460,7 +481,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/suifei__dsh-ai-team.md",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.4.119"
     },
     {
       "name": "dsh-notify-me",
@@ -480,7 +502,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-notify-me.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "1.21.3"
     },
     {
       "name": "ds-harness-remote",
@@ -498,7 +521,8 @@
       },
       "labels": [],
       "review": "content/reviews/ds-harness-remote.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.6.5"
     },
     {
       "name": "dsh-fish-memory",
@@ -518,7 +542,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-fish-memory.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "1.6.3"
     },
     {
       "name": "meow-memory",
@@ -536,7 +561,8 @@
       },
       "labels": [],
       "review": "content/reviews/meow-memory.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.33.0"
     },
     {
       "name": "dsh-meme",
@@ -556,7 +582,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-meme.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.1.81"
     },
     {
       "name": "dsh-soul-md",
@@ -576,7 +603,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-soul-md.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.12.5"
     },
     {
       "name": "dsh-pet",
@@ -596,7 +624,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-pet.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.4.9"
     },
     {
       "name": "dsh-whale-widget",
@@ -616,7 +645,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-whale-widget.md",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.4.2"
     },
     {
       "name": "dsh-folia",
@@ -636,7 +666,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-folia.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "4.26.0-pre.64"
     },
     {
       "name": "dsh-liketavern",
@@ -656,7 +687,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-liketavern.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.5.12"
     },
     {
       "name": "dsh-dafeiyu",
@@ -676,7 +708,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-dafeiyu.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.1.23"
     },
     {
       "name": "dsh-genui",
@@ -694,7 +727,8 @@
       },
       "labels": [],
       "review": "content/reviews/dsh-genui.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.3.3"
     },
     {
       "name": "memory-eternal",
@@ -714,7 +748,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/memory-eternal.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.49.11"
     },
     {
       "name": "@openviking/dsh-memory-plugin",
@@ -732,7 +767,8 @@
       },
       "labels": [],
       "review": "content/reviews/openviking__dsh-memory-plugin.md",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.5.38"
     },
     {
       "name": "dsh-plugin-memory",
@@ -752,7 +788,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-plugin-memory.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.20.0"
     },
     {
       "name": "dsh-memory-nebula",
@@ -772,7 +809,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-memory-nebula.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "1.11.68"
     },
     {
       "name": "dsh-fish-soul",
@@ -792,7 +830,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-fish-soul.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.18.6"
     },
     {
       "name": "dsh-config-manager",
@@ -812,7 +851,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-config-manager.md",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.10.0"
     },
     {
       "name": "dsh-onebot-qq",
@@ -833,7 +873,8 @@
         "license-review"
       ],
       "review": "content/reviews/dsh-onebot-qq.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "0.10.0"
     },
     {
       "name": "dsh-bili-scroll",
@@ -853,7 +894,8 @@
         "chinese-docs"
       ],
       "review": "content/reviews/dsh-bili-scroll.md",
-      "rp": true
+      "rp": true,
+      "reviewedVersion": "2.5.2"
     },
     {
       "name": "dsh-music-panel",
@@ -874,7 +916,8 @@
         "license-review"
       ],
       "review": "content/reviews/dsh-music-panel.md",
-      "rp": false
+      "rp": false,
+      "reviewedVersion": "0.36.2"
     },
     {
       "name": "@michengai/dsh-im-connect",
@@ -894,7 +937,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/michengai__dsh-im-connect.md"
+      "review": "content/reviews/michengai__dsh-im-connect.md",
+      "reviewedVersion": "1.0.43"
     },
     {
       "name": "@tencent-connect/dsh-qqbot",
@@ -914,7 +958,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/tencent-connect__dsh-qqbot.md"
+      "review": "content/reviews/tencent-connect__dsh-qqbot.md",
+      "reviewedVersion": "0.5.5"
     },
     {
       "name": "dsh-session-superagent",
@@ -933,7 +978,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-session-superagent.md"
+      "review": "content/reviews/dsh-session-superagent.md",
+      "reviewedVersion": "0.10.12"
     },
     {
       "name": "dsh-perm-gate",
@@ -953,7 +999,8 @@
       "labels": [
         "license-review"
       ],
-      "review": "content/reviews/dsh-perm-gate.md"
+      "review": "content/reviews/dsh-perm-gate.md",
+      "reviewedVersion": "5.5.4"
     },
     {
       "name": "dsh-loci",
@@ -971,7 +1018,8 @@
         "zh": "提示词里只放索引（约 1.3k token），细节靠检索按需推门；空库注入 0 字节。"
       },
       "labels": [],
-      "review": "content/reviews/dsh-loci.md"
+      "review": "content/reviews/dsh-loci.md",
+      "reviewedVersion": "6.0.1"
     },
     {
       "name": "dsh-see-now",
@@ -989,7 +1037,8 @@
         "zh": "只传“画面变了”的帧并拼成一张图，静止屏幕几乎不出图；屏幕内容会进模型。"
       },
       "labels": [],
-      "review": "content/reviews/dsh-see-now.md"
+      "review": "content/reviews/dsh-see-now.md",
+      "reviewedVersion": "0.2.4"
     },
     {
       "name": "dsh-brief-sidebar",
@@ -1009,7 +1058,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-brief-sidebar.md"
+      "review": "content/reviews/dsh-brief-sidebar.md",
+      "reviewedVersion": "0.9.20"
     },
     {
       "name": "dsh-icon-library",
@@ -1029,7 +1079,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-icon-library.md"
+      "review": "content/reviews/dsh-icon-library.md",
+      "reviewedVersion": "0.20.0"
     },
     {
       "name": "dsh-ppt",
@@ -1049,7 +1100,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-ppt.md"
+      "review": "content/reviews/dsh-ppt.md",
+      "reviewedVersion": "0.20.8"
     },
     {
       "name": "dsh-session-guard",
@@ -1067,7 +1119,8 @@
         "zh": "高峰自动暂停、周末放行、按会话冻结并可后台重试；本质是省钱限流，急用时会觉得“AI 卡了”。"
       },
       "labels": [],
-      "review": "content/reviews/dsh-session-guard.md"
+      "review": "content/reviews/dsh-session-guard.md",
+      "reviewedVersion": "4.2.10"
     },
     {
       "name": "dsh-pdf-mineru",
@@ -1087,7 +1140,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-pdf-mineru.md"
+      "review": "content/reviews/dsh-pdf-mineru.md",
+      "reviewedVersion": "0.2.3"
     },
     {
       "name": "dsh-tts-bridge",
@@ -1107,7 +1161,8 @@
       "labels": [
         "chinese-docs"
       ],
-      "review": "content/reviews/dsh-tts-bridge.md"
+      "review": "content/reviews/dsh-tts-bridge.md",
+      "reviewedVersion": "1.3.4"
     }
   ],
   "privacyNote": "隐私分级是读 README 与权限描述后的初次判断，未做抓包验证：local=数据留在本机或你自己的服务器；cloud=会把内容发送到第三方服务；unknown=未确认。"

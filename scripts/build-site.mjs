@@ -289,6 +289,7 @@ for (const plugin of catalog.plugins) {
     risk: review?.risk ?? null,
     privacy: review?.privacy ?? 'unknown',
     rp: review?.rp ?? false,
+    reviewedVersion: review?.reviewedVersion ?? null,
     curationRank: review?.curationRank ?? -1,
     reviewBody,
     reviewHeading: reviewBody ? (/^#\s+(.*)$/mu.exec(reviewBody)?.[1]?.trim() ?? plugin.name) : null,
@@ -554,6 +555,7 @@ const APP_JS = `(function () {
       ? '<span class="badge ok">已核实</span>'
       : '<span class="badge warn">未核实</span>';
     if (p.reviewed) badges += '<span class="badge accent">人工短评</span>';
+    if (p.stale) badges += '<span class="badge warn">已更新 v' + p.version + '</span>';
     if (p.rp) badges += '<span class="badge accent">养鱼</span>';
     badges += '<span class="badge">' + p.categoryTitle + '</span>';
     if (p.risk === 'high') badges += '<span class="badge high">高风险</span>';
@@ -668,6 +670,8 @@ const clientData = entries.map((entry) => ({
   rp: entry.rp,
   curationRank: entry.curationRank,
   version: entry.version,
+  reviewedVersion: entry.reviewedVersion,
+  stale: Boolean(entry.reviewedVersion && entry.version && entry.reviewedVersion !== entry.version),
   install: entry.install,
 }))
 
@@ -707,6 +711,11 @@ for (const entry of entries) {
     ['包名 / 仓库', entry.repoUrl ? `<a href="${escapeHtml(entry.repoUrl)}" target="_blank" rel="noreferrer noopener">${escapeHtml(entry.repoUrl.replace('https://github.com/', ''))}</a>` : escapeHtml(entry.name)],
     ['安装 spec', entry.install ? `<code>${escapeHtml(entry.install)}</code>` : '见仓库 README'],
     ['版本 / 更新', `${escapeHtml(entry.version ?? '未声明')} · ${entry.updatedAt ? escapeHtml(String(entry.updatedAt).slice(0, 10)) : '未知'}`],
+    ['核验版本', entry.reviewedVersion
+      ? (entry.version && entry.reviewedVersion !== entry.version
+          ? `${escapeHtml(entry.reviewedVersion)}（<b>当前已是 ${escapeHtml(entry.version)}，结论可能已过时</b>）`
+          : escapeHtml(entry.reviewedVersion) + '（与当前一致）')
+      : '未记录（结论基于审核日的版本）'],
     ['Star', entry.stars === null ? '未获取' : Number(entry.stars).toLocaleString()],
     ['周下载', entry.downloads === null ? '未获取' : Number(entry.downloads).toLocaleString()],
     ['许可证', escapeHtml(entry.license ?? '未声明')],
@@ -1189,7 +1198,7 @@ const verificationsBody = `<div class="page">
   <p>每条记录写清：核验日期、DSH 版本、依据、结论。<b>能复现的才写进来</b>。</p>
   <p class="notice">当前 ${REVIEWED.length} 条记录中，<b>${trialInstalled.length} 条已完成安装实测</b>（真装进隔离 profile，记录版本与日期），<b>${launchByName.size} 条有启动核验结论</b>（已加载 ${[...launchByName.values()].filter((item) => item.activation === 'loaded').length} / 待激活 ${[...launchByName.values()].filter((item) => item.activation === 'pending').length} / 组合无报错 ${[...launchByName.values()].filter((item) => item.activation === 'no-error').length} / 不参与组合 ${[...launchByName.values()].filter((item) => item.activation === 'not-composed').length}）。安装成功不代表运行无问题，启动核验也不代表功能正确。具体怎么测的见 <a href="method.html">核验方法</a>。</p>
   <table class="verify-table">
-    <thead><tr><th>插件</th><th>隐私</th><th>安装</th><th>启动核验</th><th>核验日期</th><th>DSH 版本</th><th>结论</th><th>风险</th></tr></thead>
+    <thead><tr><th>插件</th><th>隐私</th><th>版本状态</th><th>安装</th><th>启动核验</th><th>核验日期</th><th>DSH 版本</th><th>结论</th><th>风险</th></tr></thead>
     <tbody>
       ${REVIEWED.map((entry) => {
         const trial = trialByName.get(entry.name)
@@ -1213,6 +1222,7 @@ const verificationsBody = `<div class="page">
         return `<tr>
         <td><a href="p/${entry.slug}.html"><code>${escapeHtml(entry.name)}</code></a></td>
         <td>${PRIVACY_META[entry.privacy]?.badge ?? '⚪ 未确认'}</td>
+        <td>${entry.reviewedVersion === null ? '未记录' : (entry.version && entry.reviewedVersion !== entry.version ? `已更新至 ${escapeHtml(entry.version)}` : '最新')}</td>
         <td>${evidence}</td>
         <td>${escapeHtml(activation)}</td>
         <td>${date}</td>
@@ -1372,6 +1382,15 @@ dsh --profile market-test --dump-config
 dsh --profile market-test web --no-open --port 51999</code></pre>
   <p>每条核验记录都写明：<strong>核验日期、DSH 版本、装到的具体版本、结果、失败原因（如果失败）</strong>。这些都在 <a href="verifications.json">verifications.json</a> 里可机器读取，字段定义见 <a href="verifications.schema.json">verifications.schema.json</a>（JSON Schema 2020-12）。</p>
   <p><code>install.result</code> 有四种取值：<code>installed</code>（装进隔离 profile 并进入组合）、<code>partial</code>（包已落地但未进入 profile bundles，例如 pnpm 拦截构建脚本）、<code>failed</code>、<code>not-tested</code>。</p>
+
+  <h2>版本会过期，所以我们标出来</h2>
+  <p>插件更新很快：2026-11-19 的一次采集里就有 <b>48 个插件发了新版本</b>。所以每条核验记录两件事：<b>核验当时的版本</b>与<b>当前最新版本</b>。</p>
+  <ul>
+    <li>卡片出现「已更新 vX.XX」= 判断基于旧版本，可能已不适用</li>
+    <li>核验表有「版本状态」列：最新 / 已更新至 x / 未记录</li>
+    <li>机器可读字段：<code>reviewedVersion</code>、<code>currentVersion</code>、<code>stale</code></li>
+  </ul>
+  <p>看到「已更新」怎么办：按<a href="install.html">安装避坑</a>自己装一次，或到<a href="${DISCUSSIONS.correction}">讨论区</a>说一声，我们会重新核验。</p>
 
   <h2>什么算"通过"，什么不算</h2>
   <ul>
@@ -1613,6 +1632,9 @@ const verificationDoc = {
       privacy: entry.privacy,
       privacyNote: PRIVACY_META[entry.privacy]?.text ?? null,
       verificationDate: trial?.date ?? null,
+      reviewedVersion: entry.reviewedVersion,
+      currentVersion: entry.version,
+      stale: Boolean(entry.reviewedVersion && entry.version && entry.reviewedVersion !== entry.version),
       dshVersion: trial?.dshVersion ?? DSH_VERSION,
       install: { result: trial?.result ?? 'not-tested', version: trial?.version ?? null },
       activation: launch?.activation ?? 'unknown',
@@ -1658,6 +1680,9 @@ const verificationSchema = {
           privacy: { enum: ['local', 'cloud', 'unknown'] },
           privacyNote: { type: ['string', 'null'] },
           verificationDate: { type: ['string', 'null'], format: 'date' },
+          reviewedVersion: { type: ['string', 'null'] },
+          currentVersion: { type: ['string', 'null'] },
+          stale: { type: 'boolean' },
           dshVersion: { type: 'string' },
           install: {
             type: 'object',
