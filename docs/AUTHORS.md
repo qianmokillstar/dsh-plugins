@@ -49,7 +49,9 @@ ERR_PNPM_IGNORED_BUILDS（Ignored build scripts: protobufjs）失败退出。
 记录在这里：<对应页面链接>（含版本、DSH 版本、实测结果）
 
 如果记录有误请指出；不想被收录也可以直接说，我们下架。
-另外如果你愿意，可以在仓库 README 里引用一行核验链接——我们不做背书交换，只是把可复核的记录放在一起。
+另外如果你愿意，可以把核验徽章贴进 README（一行 markdown，自动显示可安装性与版本状态）：
+https://qianmokillstar.github.io/dsh-plugins/badges.html
+徽章不代表背书，只表示「这个版本装得起来」；版本更新后徽章会自动变成提示色，不会一直是绿的。
 ```
 
 ## 三条纪律

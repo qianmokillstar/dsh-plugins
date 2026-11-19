@@ -636,7 +636,7 @@ ${body}
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
   <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
   <div>本站核验基准环境：DSH ${DSH_VERSION} · 数据生成于 ${escapeHtml(stats.builtAt)}。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
-  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}method.html">核验方法</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${DISCUSSIONS.home}" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}method.html">核验方法</a> · <a href="${base}badges.html">核验徽章</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${DISCUSSIONS.home}" target="_blank" rel="noreferrer noopener">讨论区</a></div>
 </footer>
 </div>
 <script src="${base}assets/app.js"></script>
@@ -748,6 +748,10 @@ for (const entry of entries) {
   </div>
   ${renderMarkdown(entry.reviewBody)}
   ${siblings.length ? `<h2>同类插件（同分类已核验）</h2><ul>${siblings.map((other) => `<li><a href="${other.slug}.html"><code>${escapeHtml(other.name)}</code></a> — ${escapeHtml(other.title)}</li>`).join('')}</ul>` : ''}
+  ${entry.reviewBody ? `<h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](${SITE_URL}/badges/${entry.slug}.svg)](${SITE_URL}/p/${entry.slug}.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>` : ''}
   <h2>事实卡</h2>
   <dl class="facts">${facts}</dl>
 </article>`
@@ -1701,7 +1705,94 @@ const fixBody = `<div class="page" style="border:0;background:none;box-shadow:no
 })();
 </script>`
 
+// ============ 核验徽章（可被作者嵌进 README）============
+const badgeStatus = (entry) => {
+  const trial = trialByName.get(entry.name)
+  const reviewed = entry.reviewedVersion
+  const current = entry.version
+  if (trial?.result === 'partial') return { text: `半装 ${trial.version ?? ''}`.trim(), color: '#b45309' }
+  if (trial?.result === 'failed') return { text: '安装失败', color: '#b91c1c' }
+  if (!reviewed) return { text: '已核验', color: '#2563eb' }
+  if (current && reviewed !== current) return { text: `${reviewed} → ${current}`, color: '#b45309' }
+  return { text: `${reviewed} 可装`, color: '#15803d' }
+}
+
+const svgBadge = (label, message, color) => {
+  const charWidth = 6.6
+  const labelWidth = Math.round(label.length * charWidth + 12)
+  const messageWidth = Math.round(message.length * charWidth + 12)
+  const total = labelWidth + messageWidth
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${total}" height="20" role="img" aria-label="${escapeHtml(label)}: ${escapeHtml(message)}">
+  <title>${escapeHtml(label)}: ${escapeHtml(message)}</title>
+  <linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
+  <rect width="${total}" height="20" rx="3" fill="#555"/>
+  <rect x="${labelWidth}" width="${messageWidth}" height="20" rx="3" fill="${color}"/>
+  <rect width="${total}" height="20" rx="3" fill="url(#s)"/>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">
+    <text x="${labelWidth / 2}" y="14">${escapeHtml(label)}</text>
+    <text x="${labelWidth + messageWidth / 2}" y="14">${escapeHtml(message)}</text>
+  </g>
+</svg>
+`
+}
+
+await mkdir(join(SITE, 'badges'), { recursive: true })
+
+const badgeEntries = entries.filter((entry) => entry.reviewBody)
+for (const entry of badgeEntries) {
+  const status = badgeStatus(entry)
+  await writeFile(join(SITE, 'badges', `${entry.slug}.svg`), svgBadge('DSH 核验', status.text, status.color), 'utf8')
+}
+
+const badgeRows = badgeEntries
+  .sort((left, right) => (right.curationRank ?? -1) - (left.curationRank ?? -1))
+  .map((entry) => {
+    const status = badgeStatus(entry)
+    const image = `${SITE_URL}/badges/${entry.slug}.svg`
+    const target = `${SITE_URL}/p/${entry.slug}.html`
+    const snippet = `[![DSH 核验](${image})](${target})`
+    return `<tr>
+      <td><a href="p/${entry.slug}.html"><code>${escapeHtml(entry.name)}</code></a></td>
+      <td><span class="badge" style="background:${status.color};color:#fff">${escapeHtml(status.text)}</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">${escapeHtml(snippet)}</code></td>
+    </tr>`
+  })
+  .join('')
+
+const badgesBody = `<div class="page">
+  <h1>核验徽章（给插件作者用）</h1>
+  <p>如果你是这个插件的作者，可以把下面这一行贴进 README，它会显示本站的核验结论并链回完整记录。</p>
+  <p class="notice">徽章只是<b>可安装性</b>与<b>版本状态</b>，不是背书。本站是非官方第三方站点，与 DeepSeek / DSH 官方无关联；如果你不希望被收录，<a href="takedown.html">告诉我们</a>，<b>先下架再核实</b>。</p>
+
+  <h2>怎么用</h2>
+  <ol>
+    <li>在下面的表格里找到你的插件</li>
+    <li>复制「Markdown」那一列的代码</li>
+    <li>粘进 README 顶部，提交即可</li>
+  </ol>
+  <p>效果：<img src="${badgeEntries[0] ? `${SITE_URL}/badges/${badgeEntries[0].slug}.svg` : ''}" alt="示例徽章" style="vertical-align:middle"></p>
+
+  <h2>三种状态的含义</h2>
+  <table class="verify-table">
+    <thead><tr><th>徽章</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge" style="background:#15803d;color:#fff">x.y.z 可装</span></td><td>该版本在隔离 profile 里装成功并进入组合</td></tr>
+      <tr><td><span class="badge" style="background:#b45309;color:#fff">a.b.c → d.e.f</span></td><td>核验的是旧版本，作者已发新版；结论可能过时</td></tr>
+      <tr><td><span class="badge" style="background:#b45309;color:#fff">半装 x.y.z</span></td><td>包落地但没进 bundles（常见原因：pnpm 拦截构建脚本）</td></tr>
+    </tbody>
+  </table>
+  <p>如果你更新了版本、希望我们重新核验，<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener">在讨论区说一声</a>即可，不需要付费。</p>
+
+  <h2>全部徽章（${badgeEntries.length} 个）</h2>
+  <table class="verify-table">
+    <thead><tr><th>插件</th><th>状态</th><th>Markdown</th></tr></thead>
+    <tbody>${badgeRows}</tbody>
+  </table>
+  <p style="font-size:13px;color:var(--ink-muted)">也可以直接引用 SVG（自己控制样式）：<code>${SITE_URL}/badges/&lt;slug&gt;.svg</code></p>
+</div>`
+
 const pageBodies = new Map([
+  ['badges.html', { title: '核验徽章 · DSH 插件站', description: '给插件作者的可嵌入核验徽章，一行 markdown 显示可安装性与版本状态。', body: badgesBody }],
   ['fix.html', { title: '装不上？先在这里查 · DSH 插件站', description: '按症状查 DSH 插件安装失败的原因与修法，每条都有实测证据。', body: fixBody }],
   ['failures.html', { title: '失败档案 · DSH 插件站', description: '装不上、装了不生效、超时、不兼容的插件与证据。', body: failuresBody }],
   ['rp.html', { title: '养鱼选型速查 · DSH 插件站', description: '一页看完：记忆、压缩、人设、隐私、手机、氛围该装什么。', body: rpBody }],
@@ -1879,7 +1970,7 @@ const verificationSchema = {
 await writeFile(join(SITE, 'verifications.schema.json'), JSON.stringify(verificationSchema, null, 2) + '\n', 'utf8')
 
 // sitemap / robots：让搜索引擎能收录施工图与核验记录
-const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'fix.html', 'method.html', 'risks.html', 'failures.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
+const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'fix.html', 'badges.html', 'method.html', 'risks.html', 'failures.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
 const sitemapUrls = [
   ...staticPages.map((page) => ({ loc: `${SITE_URL}/${page}`, priority: page === '' ? '1.0' : '0.8' })),
   ...entries.map((entry) => ({ loc: `${SITE_URL}/p/${entry.slug}.html`, priority: '0.6' })),
