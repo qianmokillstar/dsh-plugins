@@ -636,7 +636,7 @@ ${body}
   <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
   <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
   <div>本站核验基准环境：DSH ${DSH_VERSION} · 数据生成于 ${escapeHtml(stats.builtAt)}。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
-  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}method.html">核验方法</a> · <a href="${base}badges.html">核验徽章</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${DISCUSSIONS.home}" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+  <div class="foot-links"><a href="${base}rules.html">收录规则</a> · <a href="${base}method.html">核验方法</a> · <a href="${base}badges.html">核验徽章</a> · <a href="${base}data.html">数据接口</a> · <a href="${base}install.html">安装避坑</a> · <a href="${base}risks.html">风险公告</a> · <a href="${base}changelog.html">更新日志</a> · <a href="${base}takedown.html">下架与投诉</a> · <a href="${base}disclaimer.html">评测免责</a> · <a href="${base}privacy.html">隐私与数据</a> · <a href="${DISCUSSIONS.home}" target="_blank" rel="noreferrer noopener">讨论区</a></div>
 </footer>
 </div>
 <script src="${base}assets/app.js"></script>
@@ -1791,7 +1791,66 @@ const badgesBody = `<div class="page">
   <p style="font-size:13px;color:var(--ink-muted)">也可以直接引用 SVG（自己控制样式）：<code>${SITE_URL}/badges/&lt;slug&gt;.svg</code></p>
 </div>`
 
+const dataBody = `<div class="page">
+  <h1>数据接口</h1>
+  <p>本站的核验结果与目录都是公开数据，<b>不需要申请、没有 API key、没有频率限制</b>（静态文件，走 GitHub Pages CDN）。</p>
+  <p class="notice">唯一的要求：转载或再利用时保留来源与<b>核验日期 + 版本</b>，否则结论会随插件更新而失真。</p>
+
+  <h2>1. 目录索引（能直接挂进 DSH）</h2>
+  <p><code>${SITE_URL}/index.json</code> —— DSH 市场索引 <code>format 1</code>，可以被 DSH 当成一个插件源直接添加。</p>
+  <p>DSH 的市场索引配置写在 profile 的 <code>cordis.patch.yml</code> 里（没有 <code>dsh plugin market add</code> 这种命令，<code>dsh plugin</code> 只转发给 pnpm）。在文件里加一段：</p>
+  <pre><code>- id: plugin-market
+  name: "@deepseek-ai/dsh-plugin-market"
+  config:
+    indexes:
+      - ${SITE_URL}/index.json</code></pre>
+  <p>保存后重启 DSH，插件市场面板里就能看到本站的条目（本站只放公开 npm 元数据与自写判断，格式为 <code>format 1</code>）。</p>
+
+  <h2>2. 核验记录（带信誉字段）</h2>
+  <p><code>${SITE_URL}/verifications.json</code> · schema：<a href="verifications.schema.json"><code>verifications.schema.json</code></a></p>
+  <pre><code>{
+  "schema": "dsh-market-verification/1",
+  "count": ${REVIEWED.length},
+  "entries": [{
+    "name": "dsh-mnemon",
+    "reviewedVersion": "0.5.46",
+    "currentVersion": "0.5.48",
+    "stale": true,
+    "privacy": "local",
+    "risk": "medium",
+    "verificationDate": "2026-11-18",
+    "install": { "result": "installed", "version": "0.5.46" },
+    "judgment": { "fit": "...", "solves": "...", "risk": "...", "alternatives": "..." }
+  }]
+}</code></pre>
+  <p>关键枚举：<code>install.result</code> = <code>installed</code> / <code>partial</code>（包落地但没进 bundles）/ <code>failed</code> / <code>not-tested</code>；<code>privacy</code> = <code>local</code> / <code>cloud</code> / <code>unknown</code>。</p>
+  <p><b>请务必读 <code>stale</code></b>：为 <code>true</code> 表示作者已发新版本，本条结论可能过时。</p>
+
+  <h2>3. 核验徽章（SVG，任何人可引用）</h2>
+  <p><code>${SITE_URL}/badges/&lt;插件slug&gt;.svg</code></p>
+  <pre><code>[![DSH 核验](${SITE_URL}/badges/dsh-mnemon.svg)](${SITE_URL}/p/dsh-mnemon.html)</code></pre>
+  <p>三种状态：<b>绿色</b>=该版本装成功；<b>琥珀</b>=有新版本或半装；<b>红</b>=安装失败。<a href="badges.html">全部徽章与复制按钮</a></p>
+
+  <h2>4. 用这些数据做什么</h2>
+  <ul>
+    <li><b>插件作者</b>：把徽章贴进 README，读者一眼看到"装得起来"</li>
+    <li><b>目录类项目</b>：直接把 <code>verifications.json</code> 的 <code>risk</code> / <code>privacy</code> / <code>stale</code> 合进你的列表，比 star 更有信息量</li>
+    <li><b>工具作者</b>：做一个"装前体检"脚本，读 <code>stale</code> 与 <code>install.result</code> 决定要不要提醒用户</li>
+    <li><b>写作者</b>：引用时带上 <code>verificationDate</code> 与 <code>reviewedVersion</code>，这是本站结论唯一有效的边界</li>
+  </ul>
+
+  <h2>5. 本站不提供的</h2>
+  <ul>
+    <li>不提供插件代码分发（只指回 npm / 作者仓库）</li>
+    <li>不提供"安全认证"或"官方背书"——<b>非官方第三方站点，与 DeepSeek / DSH 官方无关联</b></li>
+    <li>不提供实时更新承诺：目录每日 08:17 自动采集一次，核验结论则按人工进度</li>
+  </ul>
+
+  <div class="notice">发现数据错误？<a href="${DISCUSSIONS.correction}" target="_blank" rel="noreferrer noopener">去讨论区纠正</a>；作者要求下架见<a href="takedown.html">下架与投诉</a>。</div>
+</div>`
+
 const pageBodies = new Map([
+  ['data.html', { title: '数据接口 · DSH 插件站', description: '目录索引、核验记录 schema、核验徽章：公开可用，无需申请。', body: dataBody }],
   ['badges.html', { title: '核验徽章 · DSH 插件站', description: '给插件作者的可嵌入核验徽章，一行 markdown 显示可安装性与版本状态。', body: badgesBody }],
   ['fix.html', { title: '装不上？先在这里查 · DSH 插件站', description: '按症状查 DSH 插件安装失败的原因与修法，每条都有实测证据。', body: fixBody }],
   ['failures.html', { title: '失败档案 · DSH 插件站', description: '装不上、装了不生效、超时、不兼容的插件与证据。', body: failuresBody }],
@@ -1970,7 +2029,7 @@ const verificationSchema = {
 await writeFile(join(SITE, 'verifications.schema.json'), JSON.stringify(verificationSchema, null, 2) + '\n', 'utf8')
 
 // sitemap / robots：让搜索引擎能收录施工图与核验记录
-const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'fix.html', 'badges.html', 'method.html', 'risks.html', 'failures.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
+const staticPages = ['', 'rp.html', 'scenes.html', 'verifications.html', 'weekly.html', 'install.html', 'fix.html', 'badges.html', 'data.html', 'method.html', 'risks.html', 'failures.html', 'changelog.html', 'rules.html', 'takedown.html', 'disclaimer.html', 'privacy.html', 'submit.html']
 const sitemapUrls = [
   ...staticPages.map((page) => ({ loc: `${SITE_URL}/${page}`, priority: page === '' ? '1.0' : '0.8' })),
   ...entries.map((entry) => ({ loc: `${SITE_URL}/p/${entry.slug}.html`, priority: '0.6' })),
