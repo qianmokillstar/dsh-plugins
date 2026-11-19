@@ -1,0 +1,1273 @@
+{
+  "schema": 1,
+  "date": "2026-11-19",
+  "harvestedAt": "2026-11-19T01:23:28.105Z",
+  "source": "npm registry search + registry documents + downloads API",
+  "totals": {
+    "plugins": 140,
+    "bundles": 130,
+    "pool": 1048
+  },
+  "plugins": [
+    {
+      "name": "@a9i5k4/dsh-auto-memory",
+      "version": "3.3.17",
+      "license": "BSD-3-Clause",
+      "weeklyDownloads": 7177,
+      "publishTime": "2026-10-23T01:54:42.016Z",
+      "maintainer": "a9i5k4",
+      "bundle": true
+    },
+    {
+      "name": "@ai-workbench/remote-agent",
+      "version": "0.8.31",
+      "license": null,
+      "weeklyDownloads": 6874,
+      "publishTime": "2026-11-07T10:15:10.126Z",
+      "maintainer": "snstotz",
+      "bundle": true
+    },
+    {
+      "name": "@aident-ai/cli",
+      "version": "0.3.1",
+      "license": "MIT",
+      "weeklyDownloads": 27371,
+      "publishTime": "2026-10-06T22:00:02.337Z",
+      "maintainer": "aident-ai-66",
+      "bundle": true
+    },
+    {
+      "name": "@argszero/cordis-plugin-thinking-loop-guard",
+      "version": "0.3.1",
+      "license": "MIT",
+      "weeklyDownloads": 11446,
+      "publishTime": "2026-10-14T13:45:33.776Z",
+      "maintainer": "argszero",
+      "bundle": true
+    },
+    {
+      "name": "@changfenhuang/dsh-genui",
+      "version": "0.16.0",
+      "license": "MIT",
+      "weeklyDownloads": 10549,
+      "publishTime": "2026-11-09T08:22:12.289Z",
+      "maintainer": "changfenhuang",
+      "bundle": true
+    },
+    {
+      "name": "@deepseek-harness-tui/dsh-tui",
+      "version": "0.20.1",
+      "license": "MIT",
+      "weeklyDownloads": 19022,
+      "publishTime": "2026-11-14T14:18:21.939Z",
+      "maintainer": "ccchimneyyy",
+      "bundle": true
+    },
+    {
+      "name": "@dsh-market/core",
+      "version": "0.4.18",
+      "license": "MIT",
+      "weeklyDownloads": 10471,
+      "publishTime": "2026-11-16T19:39:43.293Z",
+      "maintainer": "2bingling",
+      "bundle": false
+    },
+    {
+      "name": "@dsh-market/plugin",
+      "version": "0.4.22",
+      "license": "MIT",
+      "weeklyDownloads": 11920,
+      "publishTime": "2026-11-16T19:36:46.675Z",
+      "maintainer": "2bingling",
+      "bundle": true
+    },
+    {
+      "name": "@ebony-vinyl/dsh-our-free-model",
+      "version": "2.8.5",
+      "license": "MIT",
+      "weeklyDownloads": 21436,
+      "publishTime": "2026-11-15T03:48:48.151Z",
+      "maintainer": "ebony-vinyl",
+      "bundle": true
+    },
+    {
+      "name": "@furongjun1999/dsh-memory",
+      "version": "0.11.1",
+      "license": "MIT",
+      "weeklyDownloads": 8476,
+      "publishTime": "2026-11-18T16:19:20.384Z",
+      "maintainer": "furongjun1999",
+      "bundle": true
+    },
+    {
+      "name": "@genkaku/dsh-runtime",
+      "version": "0.1.35",
+      "license": "AGPL-3.0-or-later",
+      "weeklyDownloads": 7521,
+      "publishTime": "2026-11-13T07:02:56.610Z",
+      "maintainer": "genkaku",
+      "bundle": false
+    },
+    {
+      "name": "@genkaku/dsh-user-plugin",
+      "version": "0.1.38",
+      "license": "AGPL-3.0-or-later",
+      "weeklyDownloads": 7280,
+      "publishTime": "2026-11-13T07:03:05.930Z",
+      "maintainer": "genkaku",
+      "bundle": true
+    },
+    {
+      "name": "@genkaku/dsh-worker-plugin",
+      "version": "0.1.42",
+      "license": "AGPL-3.0-or-later",
+      "weeklyDownloads": 7979,
+      "publishTime": "2026-11-13T07:04:23.099Z",
+      "maintainer": "genkaku",
+      "bundle": true
+    },
+    {
+      "name": "@henri-ralmeida/prumo",
+      "version": "2.11.12",
+      "license": "MIT",
+      "weeklyDownloads": 8036,
+      "publishTime": "2026-11-05T14:04:54.352Z",
+      "maintainer": "henri-ralmeida",
+      "bundle": false
+    },
+    {
+      "name": "@javierfrancoleal/accountability-auditor",
+      "version": "1.1.173",
+      "license": "MIT",
+      "weeklyDownloads": 15997,
+      "publishTime": "2026-11-14T21:23:11.326Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/audit",
+      "version": "1.0.159",
+      "license": "MIT",
+      "weeklyDownloads": 15917,
+      "publishTime": "2026-11-14T21:23:44.424Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/autonomy-grader",
+      "version": "1.1.173",
+      "license": "MIT",
+      "weeklyDownloads": 15419,
+      "publishTime": "2026-11-14T21:23:15.947Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/cifra",
+      "version": "1.0.53",
+      "license": "MIT",
+      "weeklyDownloads": 8584,
+      "publishTime": "2026-11-14T21:23:24.236Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/compas",
+      "version": "1.0.101",
+      "license": "MIT",
+      "weeklyDownloads": 17826,
+      "publishTime": "2026-11-12T21:22:48.477Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/conductor",
+      "version": "1.0.158",
+      "license": "MIT",
+      "weeklyDownloads": 19249,
+      "publishTime": "2026-11-12T21:22:50.934Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/decision-router",
+      "version": "1.0.52",
+      "license": "MIT",
+      "weeklyDownloads": 7331,
+      "publishTime": "2026-11-12T21:25:57.614Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/deepseek-prices",
+      "version": "1.0.137",
+      "license": "MIT",
+      "weeklyDownloads": 19824,
+      "publishTime": "2026-11-12T21:22:57.081Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/docfactory",
+      "version": "1.0.129",
+      "license": "MIT",
+      "weeklyDownloads": 23217,
+      "publishTime": "2026-11-12T21:22:08.729Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/dsh-supervisor",
+      "version": "1.0.183",
+      "license": "MIT",
+      "weeklyDownloads": 16253,
+      "publishTime": "2026-11-14T21:25:09.030Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": false
+    },
+    {
+      "name": "@javierfrancoleal/forensics",
+      "version": "1.0.158",
+      "license": "MIT",
+      "weeklyDownloads": 19577,
+      "publishTime": "2026-11-12T21:22:33.575Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/plugin-authoring",
+      "version": "1.0.132",
+      "license": "MIT",
+      "weeklyDownloads": 19195,
+      "publishTime": "2026-11-12T21:25:09.223Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@javierfrancoleal/workflow-master",
+      "version": "1.2.172",
+      "license": "MIT",
+      "weeklyDownloads": 19104,
+      "publishTime": "2026-11-12T21:23:10.167Z",
+      "maintainer": "javierfrancoleal",
+      "bundle": true
+    },
+    {
+      "name": "@leiyi-works/dsh-cloud-sync",
+      "version": "0.6.39",
+      "license": "MIT",
+      "weeklyDownloads": 10094,
+      "publishTime": "2026-11-19T01:12:13.215Z",
+      "maintainer": "leiyi-works",
+      "bundle": true
+    },
+    {
+      "name": "@lincyaw/dsh",
+      "version": "0.2.0-rc.116",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 7146,
+      "publishTime": "2026-11-17T12:37:20.936Z",
+      "maintainer": "lincyaw",
+      "bundle": true
+    },
+    {
+      "name": "@lincyaw/studio",
+      "version": "0.2.0-rc.116",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 6971,
+      "publishTime": "2026-11-17T12:37:22.829Z",
+      "maintainer": "lincyaw",
+      "bundle": false
+    },
+    {
+      "name": "@liustack/modsearch",
+      "version": "5.10.14",
+      "license": "MIT",
+      "weeklyDownloads": 22018,
+      "publishTime": "2026-11-15T14:26:56.916Z",
+      "maintainer": "liustack",
+      "bundle": true
+    },
+    {
+      "name": "@marsken/dsh-studio",
+      "version": "0.3.2",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 8854,
+      "publishTime": "2026-11-18T13:48:26.496Z",
+      "maintainer": "marsken",
+      "bundle": true
+    },
+    {
+      "name": "@michengai/dsh-agency-agents",
+      "version": "1.2.34",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 12160,
+      "publishTime": "2026-11-14T13:05:47.898Z",
+      "maintainer": "michengai",
+      "bundle": true
+    },
+    {
+      "name": "@michengai/dsh-archive-manager",
+      "version": "1.3.7",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 29696,
+      "publishTime": "2026-11-18T03:43:43.752Z",
+      "maintainer": "michengai",
+      "bundle": true
+    },
+    {
+      "name": "@michengai/dsh-codex-ui",
+      "version": "2.2.7",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 17955,
+      "publishTime": "2026-11-17T09:59:57.775Z",
+      "maintainer": "michengai",
+      "bundle": true
+    },
+    {
+      "name": "@michengai/dsh-im-connect",
+      "version": "1.0.45",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 9763,
+      "publishTime": "2026-11-18T15:23:20.592Z",
+      "maintainer": "michengai",
+      "bundle": true
+    },
+    {
+      "name": "@michengai/dsh-pua",
+      "version": "1.0.12",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 6854,
+      "publishTime": "2026-11-14T05:35:44.951Z",
+      "maintainer": "michengai",
+      "bundle": true
+    },
+    {
+      "name": "@michengai/dsh-skills-manager",
+      "version": "1.4.12",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 35008,
+      "publishTime": "2026-11-18T10:30:38.333Z",
+      "maintainer": "michengai",
+      "bundle": true
+    },
+    {
+      "name": "@nanmicoder/dsh-agent-teams",
+      "version": "0.1.31",
+      "license": "MIT",
+      "weeklyDownloads": 14963,
+      "publishTime": "2026-11-18T17:49:41.108Z",
+      "maintainer": "relakkes",
+      "bundle": true
+    },
+    {
+      "name": "@openviking/dsh-memory-plugin",
+      "version": "0.5.38",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 11064,
+      "publishTime": "2026-11-16T09:41:39.763Z",
+      "maintainer": "linqiang123",
+      "bundle": true
+    },
+    {
+      "name": "@stofone/dsh-agent-roster",
+      "version": "1.35.0",
+      "license": "MIT",
+      "weeklyDownloads": 8487,
+      "publishTime": "2026-11-17T10:19:26.357Z",
+      "maintainer": "stofone",
+      "bundle": true
+    },
+    {
+      "name": "@suifei/dsh-ai-team",
+      "version": "0.4.136",
+      "license": "MIT",
+      "weeklyDownloads": 29577,
+      "publishTime": "2026-11-18T16:56:58.054Z",
+      "maintainer": "suifei",
+      "bundle": true
+    },
+    {
+      "name": "@tencent-connect/dsh-qqbot",
+      "version": "0.5.5",
+      "license": "MIT",
+      "weeklyDownloads": 9675,
+      "publishTime": "2026-10-30T15:59:15.778Z",
+      "maintainer": "uv-w",
+      "bundle": true
+    },
+    {
+      "name": "@try-works/dsh-tool-mode",
+      "version": "0.5.95",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 8919,
+      "publishTime": "2026-11-18T12:33:05.966Z",
+      "maintainer": "try-working",
+      "bundle": true
+    },
+    {
+      "name": "@tt-a1i/archify-dsh",
+      "version": "1.1.0",
+      "license": "MIT",
+      "weeklyDownloads": 13021,
+      "publishTime": "2026-11-08T16:28:47.614Z",
+      "maintainer": "tt-a1i",
+      "bundle": true
+    },
+    {
+      "name": "@wxg-prc-cpg/browser-skill-dsh-plugin",
+      "version": "0.5.0",
+      "license": "MIT",
+      "weeklyDownloads": 18475,
+      "publishTime": "2026-11-12T16:10:55.267Z",
+      "maintainer": "wxg-prc-cpg",
+      "bundle": true
+    },
+    {
+      "name": "@xmanrui/dsh-im",
+      "version": "5.10.0",
+      "license": "MIT",
+      "weeklyDownloads": 24005,
+      "publishTime": "2026-11-03T16:53:33.154Z",
+      "maintainer": "xmanrui",
+      "bundle": true
+    },
+    {
+      "name": "@yujp_vc/ppt-assistant",
+      "version": "2.0.37",
+      "license": "MIT",
+      "weeklyDownloads": 9657,
+      "publishTime": "2026-11-18T10:49:40.467Z",
+      "maintainer": "yujp_vc",
+      "bundle": true
+    },
+    {
+      "name": "@zaofan/dsh-qqbot",
+      "version": "1.13.17",
+      "license": "AFL-3.0",
+      "weeklyDownloads": 9429,
+      "publishTime": "2026-11-18T12:23:30.066Z",
+      "maintainer": "zaofan",
+      "bundle": true
+    },
+    {
+      "name": "@zhe_xuan/dsh-paper-desk",
+      "version": "0.3.49",
+      "license": "MIT",
+      "weeklyDownloads": 8284,
+      "publishTime": "2026-11-12T02:36:31.630Z",
+      "maintainer": "zhe_xuan",
+      "bundle": true
+    },
+    {
+      "name": "@zilliz/memsearch-dsh",
+      "version": "0.1.9",
+      "license": "MIT",
+      "weeklyDownloads": 11528,
+      "publishTime": "2026-11-10T04:09:57.475Z",
+      "maintainer": "shanghaikid",
+      "bundle": true
+    },
+    {
+      "name": "cc-safety-net",
+      "version": "2.7.15",
+      "license": "MIT",
+      "weeklyDownloads": 45484,
+      "publishTime": "2026-11-17T07:46:56.197Z",
+      "maintainer": "kenryu",
+      "bundle": true
+    },
+    {
+      "name": "codeburn",
+      "version": "0.9.28",
+      "license": "MIT",
+      "weeklyDownloads": 8896,
+      "publishTime": "2026-11-08T01:37:38.548Z",
+      "maintainer": "agentseal",
+      "bundle": false
+    },
+    {
+      "name": "deep-view",
+      "version": "0.1.2",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 30804,
+      "publishTime": "2026-11-05T06:16:48.223Z",
+      "maintainer": "feizuu",
+      "bundle": true
+    },
+    {
+      "name": "ds-bot",
+      "version": "0.3.8",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 20488,
+      "publishTime": "2026-11-16T15:47:26.978Z",
+      "maintainer": "feizuu",
+      "bundle": true
+    },
+    {
+      "name": "ds-harness-remote",
+      "version": "0.6.5",
+      "license": "MIT",
+      "weeklyDownloads": 30928,
+      "publishTime": "2026-11-14T17:39:16.490Z",
+      "maintainer": "liguobao",
+      "bundle": true
+    },
+    {
+      "name": "dsh-a2a-groups",
+      "version": "0.1.72",
+      "license": "MIT",
+      "weeklyDownloads": 13036,
+      "publishTime": "2026-11-11T01:32:52.418Z",
+      "maintainer": "evlon",
+      "bundle": true
+    },
+    {
+      "name": "dsh-agent-compare",
+      "version": "3.1.1",
+      "license": "MIT",
+      "weeklyDownloads": 151168,
+      "publishTime": "2026-11-16T07:02:54.755Z",
+      "maintainer": "qgauss",
+      "bundle": true
+    },
+    {
+      "name": "dsh-aiyayi",
+      "version": "1.12.0",
+      "license": "MIT",
+      "weeklyDownloads": 8997,
+      "publishTime": "2026-11-17T13:38:46.524Z",
+      "maintainer": "bayihy",
+      "bundle": true
+    },
+    {
+      "name": "dsh-bili-scroll",
+      "version": "2.5.2",
+      "license": "MIT",
+      "weeklyDownloads": 9873,
+      "publishTime": "2026-11-12T16:20:23.366Z",
+      "maintainer": "cloverzz",
+      "bundle": true
+    },
+    {
+      "name": "dsh-boot-suite",
+      "version": "2.16.13",
+      "license": "MIT",
+      "weeklyDownloads": 11474,
+      "publishTime": "2026-11-11T16:50:05.882Z",
+      "maintainer": "leerolling",
+      "bundle": true
+    },
+    {
+      "name": "dsh-bottom-info-bar",
+      "version": "1.26.0",
+      "license": "MIT",
+      "weeklyDownloads": 19066,
+      "publishTime": "2026-11-15T05:03:45.518Z",
+      "maintainer": "songoao25",
+      "bundle": true
+    },
+    {
+      "name": "dsh-brief-sidebar",
+      "version": "0.9.20",
+      "license": "MIT",
+      "weeklyDownloads": 9862,
+      "publishTime": "2026-11-06T15:06:42.858Z",
+      "maintainer": "drscrewdriver",
+      "bundle": true
+    },
+    {
+      "name": "dsh-builtin-browser",
+      "version": "0.5.8",
+      "license": "MIT",
+      "weeklyDownloads": 9711,
+      "publishTime": "2026-11-07T08:15:32.097Z",
+      "maintainer": "shanyuhui",
+      "bundle": true
+    },
+    {
+      "name": "dsh-claude-design",
+      "version": "2.16.0",
+      "license": "SEE LICENSE IN LICENSE",
+      "weeklyDownloads": 7724,
+      "publishTime": "2026-11-13T08:11:25.370Z",
+      "maintainer": "jimliu",
+      "bundle": true
+    },
+    {
+      "name": "dsh-claude-slides",
+      "version": "2.16.0",
+      "license": "SEE LICENSE IN LICENSE",
+      "weeklyDownloads": 7188,
+      "publishTime": "2026-11-13T08:10:37.953Z",
+      "maintainer": "jimliu",
+      "bundle": true
+    },
+    {
+      "name": "dsh-claude-style",
+      "version": "0.21.5",
+      "license": "MIT",
+      "weeklyDownloads": 13672,
+      "publishTime": "2026-11-17T20:29:13.508Z",
+      "maintainer": "nwflower",
+      "bundle": true
+    },
+    {
+      "name": "dsh-codex-subscription",
+      "version": "3.2.24",
+      "license": "MIT",
+      "weeklyDownloads": 11132,
+      "publishTime": "2026-11-18T10:10:51.547Z",
+      "maintainer": "wsl043",
+      "bundle": true
+    },
+    {
+      "name": "dsh-computer-use-win",
+      "version": "0.6.1",
+      "license": "MIT",
+      "weeklyDownloads": 10762,
+      "publishTime": "2026-11-18T16:17:22.263Z",
+      "maintainer": "yutao_li",
+      "bundle": true
+    },
+    {
+      "name": "dsh-config-manager",
+      "version": "0.10.0",
+      "license": "MIT",
+      "weeklyDownloads": 8276,
+      "publishTime": "2026-11-15T19:30:48.278Z",
+      "maintainer": "yzbtdmz1",
+      "bundle": true
+    },
+    {
+      "name": "dsh-connect-workbuddy",
+      "version": "5.24.17",
+      "license": "MIT",
+      "weeklyDownloads": 37638,
+      "publishTime": "2026-11-18T18:48:46.886Z",
+      "maintainer": "dmh2002",
+      "bundle": true
+    },
+    {
+      "name": "dsh-context",
+      "version": "0.86.0",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 118312,
+      "publishTime": "2026-11-18T17:20:18.825Z",
+      "maintainer": "bowenliang123",
+      "bundle": true
+    },
+    {
+      "name": "dsh-cost-meter",
+      "version": "1.9.73",
+      "license": "MIT",
+      "weeklyDownloads": 38785,
+      "publishTime": "2026-11-18T05:31:53.692Z",
+      "maintainer": "smallsun",
+      "bundle": true
+    },
+    {
+      "name": "dsh-dafeiyu",
+      "version": "0.1.23",
+      "license": "SEE LICENSE IN ASSET_LICENSE.md",
+      "weeklyDownloads": 9033,
+      "publishTime": "2026-10-29T07:28:23.108Z",
+      "maintainer": "peanut_gao",
+      "bundle": true
+    },
+    {
+      "name": "dsh-desktop-kit",
+      "version": "2.23.26",
+      "license": "MIT",
+      "weeklyDownloads": 8777,
+      "publishTime": "2026-11-13T14:16:42.696Z",
+      "maintainer": "visitorsec",
+      "bundle": true
+    },
+    {
+      "name": "dsh-drawai",
+      "version": "0.4.8",
+      "license": "MIT",
+      "weeklyDownloads": 7198,
+      "publishTime": "2026-11-18T06:43:28.432Z",
+      "maintainer": "fourzkw",
+      "bundle": true
+    },
+    {
+      "name": "dsh-dream-skin",
+      "version": "11.16.0",
+      "license": "MIT",
+      "weeklyDownloads": 8598,
+      "publishTime": "2026-11-16T02:26:07.790Z",
+      "maintainer": "lllaaa",
+      "bundle": true
+    },
+    {
+      "name": "dsh-fish-memory",
+      "version": "1.6.3",
+      "license": "SEE LICENSE IN LICENSE",
+      "weeklyDownloads": 8998,
+      "publishTime": "2026-11-17T08:48:52.546Z",
+      "maintainer": "dsydd",
+      "bundle": true
+    },
+    {
+      "name": "dsh-fish-soul",
+      "version": "0.18.10",
+      "license": "MIT",
+      "weeklyDownloads": 12673,
+      "publishTime": "2026-11-18T16:26:22.454Z",
+      "maintainer": "wantw",
+      "bundle": true
+    },
+    {
+      "name": "dsh-folia",
+      "version": "4.26.0-pre.64",
+      "license": "MIT",
+      "weeklyDownloads": 11270,
+      "publishTime": "2026-11-16T15:12:54.989Z",
+      "maintainer": "dle-art",
+      "bundle": true
+    },
+    {
+      "name": "dsh-free-search",
+      "version": "0.9.70",
+      "license": "MIT",
+      "weeklyDownloads": 45993,
+      "publishTime": "2026-11-18T13:53:33.066Z",
+      "maintainer": "dddmuc",
+      "bundle": true
+    },
+    {
+      "name": "dsh-genui",
+      "version": "0.3.3",
+      "license": "MIT",
+      "weeklyDownloads": 12323,
+      "publishTime": "2026-11-06T06:29:02.830Z",
+      "maintainer": "lhs.c",
+      "bundle": true
+    },
+    {
+      "name": "dsh-go-token-usage",
+      "version": "0.3.1",
+      "license": "MIT",
+      "weeklyDownloads": 7012,
+      "publishTime": "2026-11-18T14:26:55.954Z",
+      "maintainer": "qianooshi",
+      "bundle": true
+    },
+    {
+      "name": "dsh-gufa-code",
+      "version": "1.3.213",
+      "license": "MIT",
+      "weeklyDownloads": 9962,
+      "publishTime": "2026-11-18T09:14:12.204Z",
+      "maintainer": "chenjbguo",
+      "bundle": true
+    },
+    {
+      "name": "dsh-guizang-design",
+      "version": "0.1.4",
+      "license": "AGPL-3.0-only",
+      "weeklyDownloads": 7615,
+      "publishTime": "2026-11-05T08:06:41.964Z",
+      "maintainer": "op7418",
+      "bundle": true
+    },
+    {
+      "name": "dsh-icon-library",
+      "version": "0.20.0",
+      "license": "MIT",
+      "weeklyDownloads": 6973,
+      "publishTime": "2026-11-17T11:27:33.631Z",
+      "maintainer": "0xfei",
+      "bundle": true
+    },
+    {
+      "name": "dsh-image-gen",
+      "version": "0.11.4",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 23169,
+      "publishTime": "2026-11-18T10:10:49.962Z",
+      "maintainer": "shanliuling",
+      "bundle": true
+    },
+    {
+      "name": "dsh-loci",
+      "version": "7.2.1",
+      "license": "MIT",
+      "weeklyDownloads": 14361,
+      "publishTime": "2026-11-18T05:03:23.802Z",
+      "maintainer": "icylonicera",
+      "bundle": true
+    },
+    {
+      "name": "dsh-m",
+      "version": "0.12.22",
+      "license": "MIT",
+      "weeklyDownloads": 10755,
+      "publishTime": "2026-11-18T14:28:38.455Z",
+      "maintainer": "iasiv5",
+      "bundle": true
+    },
+    {
+      "name": "dsh-mcp-connector",
+      "version": "0.2.113",
+      "license": "MIT",
+      "weeklyDownloads": 12960,
+      "publishTime": "2026-11-18T13:00:50.469Z",
+      "maintainer": "duhu2000",
+      "bundle": true
+    },
+    {
+      "name": "dsh-mcp-registry",
+      "version": "0.3.19",
+      "license": "MIT",
+      "weeklyDownloads": 7564,
+      "publishTime": "2026-11-14T10:53:23.466Z",
+      "maintainer": "drscrewdriver",
+      "bundle": true
+    },
+    {
+      "name": "dsh-media-desk",
+      "version": "2.7.2",
+      "license": "MIT",
+      "weeklyDownloads": 7961,
+      "publishTime": "2026-11-15T17:12:12.533Z",
+      "maintainer": "fkingary",
+      "bundle": true
+    },
+    {
+      "name": "dsh-meme",
+      "version": "0.1.85",
+      "license": "MIT",
+      "weeklyDownloads": 12130,
+      "publishTime": "2026-11-18T04:57:25.244Z",
+      "maintainer": "yyh001",
+      "bundle": true
+    },
+    {
+      "name": "dsh-memory-nebula",
+      "version": "1.11.75",
+      "license": "MIT",
+      "weeklyDownloads": 10204,
+      "publishTime": "2026-11-18T14:33:56.425Z",
+      "maintainer": "wdl114514",
+      "bundle": true
+    },
+    {
+      "name": "dsh-mnemon",
+      "version": "0.5.48",
+      "license": "MIT",
+      "weeklyDownloads": 40662,
+      "publishTime": "2026-11-17T20:48:39.149Z",
+      "maintainer": "grivn",
+      "bundle": true
+    },
+    {
+      "name": "dsh-mobile",
+      "version": "0.8.13",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 8958,
+      "publishTime": "2026-11-18T14:47:25.914Z",
+      "maintainer": "saya-ch",
+      "bundle": true
+    },
+    {
+      "name": "dsh-mobile-plugin",
+      "version": "0.5.76",
+      "license": "MIT",
+      "weeklyDownloads": 78062,
+      "publishTime": "2026-11-18T22:16:34.298Z",
+      "maintainer": "wnluo",
+      "bundle": true
+    },
+    {
+      "name": "dsh-multipane",
+      "version": "1.0.53",
+      "license": "MIT",
+      "weeklyDownloads": 8526,
+      "publishTime": "2026-11-12T03:27:12.101Z",
+      "maintainer": "weiaisuyansjd",
+      "bundle": true
+    },
+    {
+      "name": "dsh-multiview",
+      "version": "0.1.101",
+      "license": "MIT",
+      "weeklyDownloads": 15893,
+      "publishTime": "2026-11-16T04:03:42.812Z",
+      "maintainer": "icylonicera",
+      "bundle": true
+    },
+    {
+      "name": "dsh-music-panel",
+      "version": "0.37.2",
+      "license": "AGPL-3.0-only",
+      "weeklyDownloads": 9141,
+      "publishTime": "2026-11-17T17:43:54.821Z",
+      "maintainer": "aliboder",
+      "bundle": true
+    },
+    {
+      "name": "dsh-notify-me",
+      "version": "1.21.4",
+      "license": "MIT",
+      "weeklyDownloads": 8101,
+      "publishTime": "2026-11-17T15:18:46.401Z",
+      "maintainer": "chromoany",
+      "bundle": true
+    },
+    {
+      "name": "dsh-onebot-qq",
+      "version": "0.10.0",
+      "license": "BSD-3-Clause",
+      "weeklyDownloads": 11470,
+      "publishTime": "2026-11-10T00:14:51.589Z",
+      "maintainer": "mario841859784",
+      "bundle": true
+    },
+    {
+      "name": "dsh-ops",
+      "version": "0.5.5",
+      "license": "MIT",
+      "weeklyDownloads": 66501,
+      "publishTime": "2026-11-14T11:56:18.686Z",
+      "maintainer": "autofx",
+      "bundle": true
+    },
+    {
+      "name": "dsh-patch-edit-plus",
+      "version": "0.4.11",
+      "license": "MIT",
+      "weeklyDownloads": 7369,
+      "publishTime": "2026-11-18T17:19:11.582Z",
+      "maintainer": "drscrewdriver",
+      "bundle": true
+    },
+    {
+      "name": "dsh-pdf-mineru",
+      "version": "0.2.3",
+      "license": "MIT",
+      "weeklyDownloads": 8177,
+      "publishTime": "2026-11-05T10:38:21.182Z",
+      "maintainer": "yurzi_luo",
+      "bundle": true
+    },
+    {
+      "name": "dsh-perm-gate",
+      "version": "5.5.4",
+      "license": "MIT",
+      "weeklyDownloads": 17234,
+      "publishTime": "2026-11-14T17:26:25.457Z",
+      "maintainer": "drscrewdriver",
+      "bundle": true
+    },
+    {
+      "name": "dsh-pet",
+      "version": "0.4.9",
+      "license": "MIT",
+      "weeklyDownloads": 86416,
+      "publishTime": "2026-11-14T12:31:15.561Z",
+      "maintainer": "pc2005-cloud",
+      "bundle": true
+    },
+    {
+      "name": "dsh-plugin",
+      "version": "2.4.0",
+      "license": "MIT",
+      "weeklyDownloads": 10571,
+      "publishTime": "2026-11-17T14:12:51.156Z",
+      "maintainer": "dshplugin",
+      "bundle": true
+    },
+    {
+      "name": "dsh-plugin-catalog",
+      "version": "2026.1118.23310",
+      "license": "CC0-1.0",
+      "weeklyDownloads": 105928,
+      "publishTime": "2026-11-18T05:28:38.100Z",
+      "maintainer": "fkysly",
+      "bundle": false
+    },
+    {
+      "name": "dsh-plugin-image-workbench",
+      "version": "1.1.56",
+      "license": "MIT",
+      "weeklyDownloads": 7616,
+      "publishTime": "2026-11-18T04:43:55.611Z",
+      "maintainer": "guohwa",
+      "bundle": true
+    },
+    {
+      "name": "dsh-plugin-memory",
+      "version": "0.20.0",
+      "license": "MIT",
+      "weeklyDownloads": 10337,
+      "publishTime": "2026-11-16T10:38:43.273Z",
+      "maintainer": "crazy_tong",
+      "bundle": true
+    },
+    {
+      "name": "dsh-plugin-update",
+      "version": "0.18.39",
+      "license": "MIT",
+      "weeklyDownloads": 8056,
+      "publishTime": "2026-10-23T16:55:48.267Z",
+      "maintainer": "feather_wch",
+      "bundle": false
+    },
+    {
+      "name": "dsh-plugin-updates",
+      "version": "2026.1118.23310",
+      "license": "CC0-1.0",
+      "weeklyDownloads": 13723,
+      "publishTime": "2026-11-18T05:28:50.115Z",
+      "maintainer": "fkysly",
+      "bundle": false
+    },
+    {
+      "name": "dsh-plugin-wallpaper-engine",
+      "version": "1.4.3",
+      "license": "MIT",
+      "weeklyDownloads": 23634,
+      "publishTime": "2026-11-18T16:56:30.702Z",
+      "maintainer": "chensyovo",
+      "bundle": true
+    },
+    {
+      "name": "dsh-plugin-wallpaper-engine-pet-link",
+      "version": "1.4.3",
+      "license": "MIT",
+      "weeklyDownloads": 23021,
+      "publishTime": "2026-11-18T16:53:55.870Z",
+      "maintainer": "chensyovo",
+      "bundle": true
+    },
+    {
+      "name": "dsh-pocket",
+      "version": "2.13.1",
+      "license": "GPL-2.0",
+      "weeklyDownloads": 6971,
+      "publishTime": "2026-11-15T04:12:00.337Z",
+      "maintainer": "leachzhou",
+      "bundle": true
+    },
+    {
+      "name": "dsh-podwave",
+      "version": "0.11.45",
+      "license": "MIT",
+      "weeklyDownloads": 8545,
+      "publishTime": "2026-11-18T08:16:05.984Z",
+      "maintainer": "watchcatsqaq",
+      "bundle": true
+    },
+    {
+      "name": "dsh-ppt",
+      "version": "0.25.0",
+      "license": "MIT",
+      "weeklyDownloads": 7735,
+      "publishTime": "2026-11-18T08:10:21.995Z",
+      "maintainer": "stardustlc",
+      "bundle": true
+    },
+    {
+      "name": "dsh-prime-memory",
+      "version": "0.26.65",
+      "license": "MIT",
+      "weeklyDownloads": 36918,
+      "publishTime": "2026-11-18T15:12:00.874Z",
+      "maintainer": "drscrewdriver",
+      "bundle": true
+    },
+    {
+      "name": "dsh-remote",
+      "version": "1.2.1",
+      "license": "MIT",
+      "weeklyDownloads": 79726,
+      "publishTime": "2026-11-18T08:31:09.567Z",
+      "maintainer": "flymysql",
+      "bundle": true
+    },
+    {
+      "name": "dsh-rewind-plugin",
+      "version": "0.22.2",
+      "license": "MIT",
+      "weeklyDownloads": 20161,
+      "publishTime": "2026-11-14T11:33:18.244Z",
+      "maintainer": "sirilee",
+      "bundle": true
+    },
+    {
+      "name": "dsh-see-now",
+      "version": "0.2.5",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 7802,
+      "publishTime": "2026-11-18T09:41:18.788Z",
+      "maintainer": "saos_3624",
+      "bundle": true
+    },
+    {
+      "name": "dsh-session-guard",
+      "version": "4.2.12",
+      "license": "MIT",
+      "weeklyDownloads": 11998,
+      "publishTime": "2026-11-17T23:55:22.557Z",
+      "maintainer": "drscrewdriver",
+      "bundle": true
+    },
+    {
+      "name": "dsh-session-superagent",
+      "version": "0.10.12",
+      "license": "MIT",
+      "weeklyDownloads": 13700,
+      "publishTime": "2026-11-09T02:33:48.031Z",
+      "maintainer": "mycf711",
+      "bundle": true
+    },
+    {
+      "name": "dsh-skill-mcp-market",
+      "version": "0.5.100",
+      "license": "MIT",
+      "weeklyDownloads": 15241,
+      "publishTime": "2026-11-18T15:24:58.097Z",
+      "maintainer": "kuailexiaozixin",
+      "bundle": true
+    },
+    {
+      "name": "dsh-soul-md",
+      "version": "0.12.5",
+      "license": "MIT",
+      "weeklyDownloads": 8396,
+      "publishTime": "2026-11-15T11:28:32.750Z",
+      "maintainer": "scorp1o117",
+      "bundle": true
+    },
+    {
+      "name": "dsh-token-diet",
+      "version": "0.1.0",
+      "license": "MIT",
+      "weeklyDownloads": 8776,
+      "publishTime": "2026-10-24T05:36:09.426Z",
+      "maintainer": "ybh618",
+      "bundle": true
+    },
+    {
+      "name": "dsh-trust-check",
+      "version": "0.2.6",
+      "license": "MIT",
+      "weeklyDownloads": 9281,
+      "publishTime": "2026-11-09T06:49:44.838Z",
+      "maintainer": "regulus14",
+      "bundle": true
+    },
+    {
+      "name": "dsh-univer-office",
+      "version": "0.5.0",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 10814,
+      "publishTime": "2026-11-18T07:18:03.135Z",
+      "maintainer": "jikkai",
+      "bundle": true
+    },
+    {
+      "name": "dsh-video-storyboard",
+      "version": "0.7.6",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 9525,
+      "publishTime": "2026-11-16T12:03:49.269Z",
+      "maintainer": "saos_3624",
+      "bundle": true
+    },
+    {
+      "name": "dsh-vision-router",
+      "version": "3.4.0",
+      "license": "MIT",
+      "weeklyDownloads": 19621,
+      "publishTime": "2026-11-17T03:20:37.342Z",
+      "maintainer": "ysr182",
+      "bundle": true
+    },
+    {
+      "name": "dsh-whale-widget",
+      "version": "0.4.2",
+      "license": "MIT",
+      "weeklyDownloads": 44680,
+      "publishTime": "2026-10-11T12:27:12.426Z",
+      "maintainer": "meteornox",
+      "bundle": true
+    },
+    {
+      "name": "dsh-windows-mcp",
+      "version": "0.2.11",
+      "license": "MIT",
+      "weeklyDownloads": 73641,
+      "publishTime": "2026-11-15T11:27:50.968Z",
+      "maintainer": "hellonpm1212",
+      "bundle": true
+    },
+    {
+      "name": "dshmarket",
+      "version": "1.73.21",
+      "license": "MIT",
+      "weeklyDownloads": 263566,
+      "publishTime": "2026-11-18T14:04:23.044Z",
+      "maintainer": "fkysly",
+      "bundle": true
+    },
+    {
+      "name": "memory-eternal",
+      "version": "0.49.11",
+      "license": "MIT",
+      "weeklyDownloads": 6988,
+      "publishTime": "2026-11-16T14:20:38.373Z",
+      "maintainer": "eternalnight",
+      "bundle": true
+    },
+    {
+      "name": "monitor-bi-dsh",
+      "version": "1.3.4",
+      "license": "MIT",
+      "weeklyDownloads": 10970,
+      "publishTime": "2026-11-12T01:30:43.206Z",
+      "maintainer": "sicutest",
+      "bundle": true
+    },
+    {
+      "name": "monitor-transfer-dsh",
+      "version": "2.4.0",
+      "license": "MIT",
+      "weeklyDownloads": 12195,
+      "publishTime": "2026-11-12T01:00:46.309Z",
+      "maintainer": "sicutest",
+      "bundle": true
+    },
+    {
+      "name": "qfish",
+      "version": "0.3.36",
+      "license": "MIT",
+      "weeklyDownloads": 6760,
+      "publishTime": "2026-11-17T16:13:02.499Z",
+      "maintainer": "harasaki",
+      "bundle": true
+    },
+    {
+      "name": "reasonix-token-hud-dshgo",
+      "version": "1.0.0-android",
+      "license": "MIT",
+      "weeklyDownloads": 7229,
+      "publishTime": "2026-11-08T05:40:51.777Z",
+      "maintainer": "xilu_stargazer",
+      "bundle": true
+    },
+    {
+      "name": "signoff-cli",
+      "version": "4.8.0",
+      "license": "MIT",
+      "weeklyDownloads": 6895,
+      "publishTime": "2026-11-12T15:13:15.990Z",
+      "maintainer": "jack.camps",
+      "bundle": false
+    }
+  ]
+}
