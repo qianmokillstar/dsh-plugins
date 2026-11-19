@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "harvestedAt": "2026-11-19T01:23:28.105Z",
+  "harvestedAt": "2026-11-19T05:07:21.373Z",
   "source": "npm registry search + registry documents + downloads API",
   "queries": [
     "keywords:dsh-plugin",
@@ -10,7 +10,7 @@
   ],
   "searchPagesPerQuery": 2,
   "totals": {
-    "pool": 1048,
+    "pool": 1050,
     "detailed": 140,
     "bundles": 130
   },
@@ -1087,7 +1087,7 @@
     },
     {
       "name": "dsh-cost-meter",
-      "version": "1.9.73",
+      "version": "1.9.74",
       "description": "DeepSeek Harness 会话费用统计插件:本会话成本、当日费用、历史记录与官方价格同步,支持多厂商多模型价格计费(内置 170+ 模型 ID 价格目录与自动匹配)、主流 Coding Plan 订阅额度查询与显示(16 家,含 WorkBuddy 官方积分、OpenDesign 工作区查询、含小米 MiMo Token Plan 控制台 Cookie 查询、SCNet Token Plan 本地 Credits 计量与火山方舟 Volcano Ark Coding Plan AK/SK 签名查询",
       "keywords": [
         "deepseek",
@@ -1105,7 +1105,7 @@
         "en",
         "language"
       ],
-      "date": "2026-11-18T05:31:53.692Z",
+      "date": "2026-11-19T04:33:35.271Z",
       "license": "MIT",
       "homepage": "https://github.com/Han-1413141/dsh-cost-meter#readme",
       "repository": "git+https://github.com/Han-1413141/dsh-cost-meter.git",
@@ -1116,13 +1116,12 @@
       "weeklyDownloads": 38785,
       "monthlyDownloads": 162931,
       "dependents": 0,
-      "updated": "2026-11-18T19:17:30.683Z",
+      "updated": "2026-11-19T04:34:06.683Z",
       "distTags": {
-        "latest": "1.9.73"
+        "latest": "1.9.74"
       },
-      "versionCount": 203,
+      "versionCount": 204,
       "allVersions": [
-        "1.9.33",
         "1.9.34",
         "1.9.35",
         "1.9.36",
@@ -1161,9 +1160,10 @@
         "1.9.70",
         "1.9.71",
         "1.9.72",
-        "1.9.73"
+        "1.9.73",
+        "1.9.74"
       ],
-      "publishTime": "2026-11-18T05:31:53.692Z",
+      "publishTime": "2026-11-19T04:33:35.271Z",
       "created": "2026-08-18T12:38:09.872Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -1559,7 +1559,7 @@
     },
     {
       "name": "@michengai/dsh-archive-manager",
-      "version": "1.3.7",
+      "version": "1.4.0",
       "description": "归档、恢复、收藏和永久删除会话，并诊断损坏的会话日志。 · Archive, restore, favorite, and permanently delete sessions, and diagnose damaged session logs.",
       "keywords": [
         "deepseek",
@@ -1576,7 +1576,7 @@
         "nodejs",
         "esm"
       ],
-      "date": "2026-11-18T03:43:43.752Z",
+      "date": "2026-11-19T03:53:08.083Z",
       "license": "Apache-2.0",
       "homepage": "https://github.com/MichengAI/dsh-archive-manager#readme",
       "repository": "git+https://github.com/MichengAI/dsh-archive-manager.git",
@@ -1587,13 +1587,12 @@
       "weeklyDownloads": 29696,
       "monthlyDownloads": 123884,
       "dependents": "2",
-      "updated": "2026-11-18T11:10:44.213Z",
+      "updated": "2026-11-19T03:53:39.749Z",
       "distTags": {
-        "latest": "1.3.7"
+        "latest": "1.4.0"
       },
-      "versionCount": 101,
+      "versionCount": 102,
       "allVersions": [
-        "1.0.17",
         "1.0.18",
         "1.0.19",
         "1.0.20",
@@ -1632,13 +1631,14 @@
         "1.3.3",
         "1.3.5",
         "1.3.6",
-        "1.3.7"
+        "1.3.7",
+        "1.4.0"
       ],
-      "publishTime": "2026-11-18T03:43:43.752Z",
+      "publishTime": "2026-11-19T03:53:08.083Z",
       "created": "2026-08-16T05:08:17.762Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
-      "dshEngines": ">=0.2.0-rc.1 <0.3.0-0",
+      "dshEngines": ">=0.2.2-rc.1 <0.3.0-0",
       "dshClient": true,
       "repoUrl": "git+https://github.com/MichengAI/dsh-archive-manager.git",
       "repoDir": null,
@@ -1647,7 +1647,7 @@
     },
     {
       "name": "@suifei/dsh-ai-team",
-      "version": "0.4.136",
+      "version": "0.4.137",
       "description": "文渊阁 (Wenyuan Pavilion) — AI Team mode for DeepSeek Harness: concurrent projects, owned tasks, threads, inbox and an append-only team ledger",
       "keywords": [
         "deepseek-harness",
@@ -1659,7 +1659,7 @@
         "task-ledger",
         "wenyuan"
       ],
-      "date": "2026-11-18T16:56:58.054Z",
+      "date": "2026-11-19T04:37:26.581Z",
       "license": "MIT",
       "homepage": "https://github.com/suifei/dsh-ai-team#readme",
       "repository": "git+https://github.com/suifei/dsh-ai-team.git",
@@ -1670,13 +1670,12 @@
       "weeklyDownloads": 29577,
       "monthlyDownloads": 38632,
       "dependents": 0,
-      "updated": "2026-11-18T16:57:29.622Z",
+      "updated": "2026-11-19T04:37:57.960Z",
       "distTags": {
-        "latest": "0.4.136"
+        "latest": "0.4.137"
       },
-      "versionCount": 200,
+      "versionCount": 201,
       "allVersions": [
-        "0.4.92",
         "0.4.93",
         "0.4.94",
         "0.4.95",
@@ -1715,9 +1714,10 @@
         "0.4.133",
         "0.4.134",
         "0.4.135",
-        "0.4.136"
+        "0.4.136",
+        "0.4.137"
       ],
-      "publishTime": "2026-11-18T16:56:58.054Z",
+      "publishTime": "2026-11-19T04:37:26.581Z",
       "created": "2026-11-09T13:39:43.758Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -3051,7 +3051,7 @@
     },
     {
       "name": "@deepseek-harness-tui/dsh-tui",
-      "version": "0.20.1",
+      "version": "0.20.2",
       "description": "Interactive terminal interface for DeepSeek Harness agents, sessions and tools.",
       "keywords": [
         "dsh",
@@ -3067,7 +3067,7 @@
         "agent",
         "coding-agent"
       ],
-      "date": "2026-11-14T14:18:21.939Z",
+      "date": "2026-11-19T04:32:13.561Z",
       "license": "MIT",
       "homepage": "https://github.com/ccch1mneyyy/dsh-TUI#readme",
       "repository": "git+https://github.com/ccch1mneyyy/dsh-TUI.git",
@@ -3083,13 +3083,12 @@
       "weeklyDownloads": 19022,
       "monthlyDownloads": 81008,
       "dependents": "1",
-      "updated": "2026-11-18T19:12:41.600Z",
+      "updated": "2026-11-19T04:32:45.024Z",
       "distTags": {
-        "latest": "0.20.1"
+        "latest": "0.20.2"
       },
-      "versionCount": 46,
+      "versionCount": 47,
       "allVersions": [
-        "0.7.0",
         "0.7.1",
         "0.7.2",
         "0.7.3",
@@ -3128,9 +3127,10 @@
         "0.18.0",
         "0.19.0",
         "0.20.0",
-        "0.20.1"
+        "0.20.1",
+        "0.20.2"
       ],
-      "publishTime": "2026-11-14T14:18:21.939Z",
+      "publishTime": "2026-11-19T04:32:13.561Z",
       "created": "2026-08-14T21:17:35.460Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -3195,7 +3195,7 @@
     },
     {
       "name": "@michengai/dsh-codex-ui",
-      "version": "2.2.7",
+      "version": "2.3.0",
       "description": "DSH Codex UI — 为 DeepSeek Harness 提供极速历史召回、全屏设置皮肤、原生物理毛玻璃换肤、模块化侧栏与桌面原生窗口菜单 · Input enhancement, settings skin, native glass theme, modular sidebar, and desktop titlebar menu for DSH",
       "keywords": [
         "dsh",
@@ -3208,7 +3208,7 @@
         "sidebar",
         "settings"
       ],
-      "date": "2026-11-17T09:59:57.775Z",
+      "date": "2026-11-19T04:47:38.942Z",
       "license": "Apache-2.0",
       "homepage": "https://github.com/MichengAI/dsh-codex-ui#readme",
       "repository": "git+https://github.com/MichengAI/dsh-codex-ui.git",
@@ -3219,13 +3219,12 @@
       "weeklyDownloads": 17955,
       "monthlyDownloads": 90463,
       "dependents": "1",
-      "updated": "2026-11-18T11:09:44.862Z",
+      "updated": "2026-11-19T04:48:10.394Z",
       "distTags": {
-        "latest": "2.2.7"
+        "latest": "2.3.0"
       },
-      "versionCount": 143,
+      "versionCount": 144,
       "allVersions": [
-        "1.1.40",
         "1.1.42",
         "1.1.43",
         "1.1.44",
@@ -3264,13 +3263,14 @@
         "2.2.4",
         "2.2.5",
         "2.2.6",
-        "2.2.7"
+        "2.2.7",
+        "2.3.0"
       ],
-      "publishTime": "2026-11-17T09:59:57.775Z",
+      "publishTime": "2026-11-19T04:47:38.942Z",
       "created": "2026-08-16T09:34:07.373Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
-      "dshEngines": ">=0.2.0-rc.1 <0.3.0-0",
+      "dshEngines": ">=0.2.2-rc.1 <0.3.0-0",
       "dshClient": true,
       "repoUrl": "git+https://github.com/MichengAI/dsh-codex-ui.git",
       "repoDir": null,
@@ -3867,7 +3867,7 @@
     },
     {
       "name": "dsh-skill-mcp-market",
-      "version": "0.5.100",
+      "version": "0.5.101",
       "description": "DSH 技能市场与 MCP 连接器市场：浏览实时技能源，一键安装 SKILL.md 技能与 MCP 连接器，装完即刻可用、无需重启。SKILL & MCP marketplace for DeepSeek Harness — browse live sources, install skills and MCP connectors, effective immediately.",
       "keywords": [
         "dsh",
@@ -3883,7 +3883,7 @@
         "browse.sh",
         "clawhub"
       ],
-      "date": "2026-11-18T15:24:58.097Z",
+      "date": "2026-11-19T04:48:00.056Z",
       "license": "MIT",
       "homepage": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market#readme",
       "repository": "git+https://github.com/kuailexiaozixin/dsh-skill-mcp-market.git",
@@ -3894,13 +3894,12 @@
       "weeklyDownloads": 15241,
       "monthlyDownloads": 16226,
       "dependents": 0,
-      "updated": "2026-11-18T15:25:29.742Z",
+      "updated": "2026-11-19T04:48:31.268Z",
       "distTags": {
-        "latest": "0.5.100"
+        "latest": "0.5.101"
       },
-      "versionCount": 102,
+      "versionCount": 103,
       "allVersions": [
-        "0.5.60",
         "0.5.61",
         "0.5.62",
         "0.5.63",
@@ -3939,9 +3938,10 @@
         "0.5.97",
         "0.5.98",
         "0.5.99",
-        "0.5.100"
+        "0.5.100",
+        "0.5.101"
       ],
-      "publishTime": "2026-11-18T15:24:58.097Z",
+      "publishTime": "2026-11-19T04:48:00.056Z",
       "created": "2026-11-10T09:59:06.840Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -4497,7 +4497,7 @@
     },
     {
       "name": "dsh-mcp-connector",
-      "version": "0.2.113",
+      "version": "0.2.114",
       "description": "MCP Connector for DeepSeek Harness: a data marketplace connecting enterprise, financial, legal, patent and research data. Manage authorization, search tools and troubleshoot MCP connections. Supports OAuth, API keys and HTTP/stdio.",
       "keywords": [
         "deepseek-harness",
@@ -4553,7 +4553,7 @@
         "data-sources",
         "open-data"
       ],
-      "date": "2026-11-18T13:00:50.469Z",
+      "date": "2026-11-19T03:17:11.912Z",
       "license": "MIT",
       "homepage": "https://github.com/duhu2000/dsh-mcp-connector#readme",
       "repository": "git+https://github.com/duhu2000/dsh-mcp-connector.git",
@@ -4566,14 +4566,13 @@
       "weeklyDownloads": 12960,
       "monthlyDownloads": 44848,
       "dependents": 0,
-      "updated": "2026-11-18T13:01:54.966Z",
+      "updated": "2026-11-19T03:17:43.593Z",
       "distTags": {
         "next": "0.2.50-rc.1",
-        "latest": "0.2.113"
+        "latest": "0.2.114"
       },
-      "versionCount": 116,
+      "versionCount": 117,
       "allVersions": [
-        "0.2.74",
         "0.2.75",
         "0.2.76",
         "0.2.77",
@@ -4612,9 +4611,10 @@
         "0.2.110",
         "0.2.111",
         "0.2.112",
-        "0.2.113"
+        "0.2.113",
+        "0.2.114"
       ],
-      "publishTime": "2026-11-18T13:00:50.469Z",
+      "publishTime": "2026-11-19T03:17:11.912Z",
       "created": "2026-08-20T15:21:11.830Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -4627,8 +4627,8 @@
     },
     {
       "name": "dsh-fish-soul",
-      "version": "0.18.10",
-      "description": "鱼 · 人格、按人记忆（可纠正、有印象、能导入旧聊天记录）、日程自走与主动开口，直连 SnowLuma 收发 QQ（群里会自己插话），B站 / 抖音小号私信与自己刷视频；按功能选模型并统计用量花费，能听会说 QQ 语音、收藏表情包、学群里的梗，可选上网查；心情影响说话、去 AI 味、每个群的设定、按聊天选模型、每晚写日记、每周记忆存档与可选周记（DSH 插件，单角色 feiyu ，v0.18.10）",
+      "version": "0.18.11",
+      "description": "鱼 · 人格、按人记忆（可纠正、有印象、能导入旧聊天记录）、日程自走与主动开口，直连 SnowLuma 收发 QQ（群里会自己插话），B站 / 抖音小号私信与自己刷视频；按功能选模型并统计用量花费，能听会说 QQ 语音、收藏表情包、学群里的梗，可选上网查；心情影响说话、去 AI 味、每个群的设定、按聊天选模型、每晚写日记、每周记忆存档与可选周记（DSH 插件，单角色 feiyu ，v0.18.11）",
       "keywords": [
         "dsh-plugin",
         "dsh",
@@ -4640,7 +4640,7 @@
         "douyin",
         "snowluma"
       ],
-      "date": "2026-11-18T16:26:22.454Z",
+      "date": "2026-11-19T02:52:11.821Z",
       "license": "MIT",
       "homepage": "https://github.com/Britneycode/dsh-fish-soul#readme",
       "repository": "git+https://github.com/Britneycode/dsh-fish-soul.git",
@@ -4651,13 +4651,12 @@
       "weeklyDownloads": 12673,
       "monthlyDownloads": 29221,
       "dependents": 0,
-      "updated": "2026-11-18T16:26:54.121Z",
+      "updated": "2026-11-19T02:52:43.117Z",
       "distTags": {
-        "latest": "0.18.10"
+        "latest": "0.18.11"
       },
-      "versionCount": 95,
+      "versionCount": 96,
       "allVersions": [
-        "0.15.35",
         "0.15.36",
         "0.15.37",
         "0.15.38",
@@ -4696,9 +4695,10 @@
         "0.18.7",
         "0.18.8",
         "0.18.9",
-        "0.18.10"
+        "0.18.10",
+        "0.18.11"
       ],
-      "publishTime": "2026-11-18T16:26:22.454Z",
+      "publishTime": "2026-11-19T02:52:11.821Z",
       "created": "2026-11-01T11:40:03.857Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -4742,12 +4742,12 @@
       "weeklyDownloads": 12323,
       "monthlyDownloads": 122898,
       "dependents": 0,
-      "updated": "2026-11-18T11:02:59.440Z",
+      "updated": "2026-11-19T03:33:02.604Z",
       "distTags": {
-        "latest": "0.3.3",
-        "alpha": "0.3.3-alpha.0"
+        "alpha": "0.3.4-alpha.0",
+        "latest": "0.3.3"
       },
-      "versionCount": 10,
+      "versionCount": 11,
       "allVersions": [
         "0.1.0",
         "0.1.1",
@@ -4758,7 +4758,8 @@
         "0.3.1",
         "0.3.2",
         "0.3.3-alpha.0",
-        "0.3.3"
+        "0.3.3",
+        "0.3.4-alpha.0"
       ],
       "publishTime": "2026-11-06T06:29:02.830Z",
       "created": "2026-09-01T03:10:24.447Z",
@@ -5704,86 +5705,6 @@
       "registryUrl": "https://registry.npmjs.org"
     },
     {
-      "name": "monitor-bi-dsh",
-      "version": "1.3.4",
-      "description": "Monitor BI 报表工作室:左侧导航栏独立入口,点进去就是 Harness 原生对话,但该房间只做 Monitor BI 报表(上下文干净、不与日常对话混杂)。自带零安装 CLI 工具链、操作手册、模板、数据字典;首次使用自动询问连接信息。A clean, sidebar-entry BI-only room for DeepSeek Harness with bundled tools, manual, templates and dictionary.",
-      "keywords": [
-        "dsh",
-        "deepseek-harness",
-        "dsh-plugin",
-        "monitor",
-        "bi",
-        "dashboard",
-        "report"
-      ],
-      "date": "2026-11-12T01:30:43.206Z",
-      "license": "MIT",
-      "npm": "https://www.npmjs.com/package/monitor-bi-dsh",
-      "maintainers": [
-        "sicutest"
-      ],
-      "weeklyDownloads": 10970,
-      "monthlyDownloads": 10970,
-      "dependents": 0,
-      "updated": "2026-11-12T01:31:37.631Z",
-      "distTags": {
-        "latest": "1.3.4"
-      },
-      "versionCount": 62,
-      "allVersions": [
-        "0.6.7",
-        "0.6.8",
-        "0.6.9",
-        "0.7.0",
-        "0.7.1",
-        "0.7.2",
-        "0.7.3",
-        "0.8.0",
-        "1.0.0",
-        "1.0.1",
-        "1.0.2",
-        "1.1.2",
-        "1.1.3",
-        "1.1.0",
-        "1.1.4",
-        "1.1.1",
-        "1.2.0",
-        "1.2.1",
-        "1.2.2",
-        "1.2.3",
-        "1.2.4",
-        "1.2.5",
-        "1.2.6",
-        "1.2.7",
-        "1.2.8",
-        "1.2.9",
-        "1.2.10",
-        "1.2.11",
-        "1.2.12",
-        "1.2.13",
-        "1.2.14",
-        "1.2.15",
-        "1.2.16",
-        "1.2.17",
-        "1.2.18",
-        "1.3.0",
-        "1.3.1",
-        "1.3.2",
-        "1.3.3",
-        "1.3.4"
-      ],
-      "publishTime": "2026-11-12T01:30:43.206Z",
-      "created": "2026-11-04T16:44:53.198Z",
-      "dshBundle": true,
-      "dshBundlePatch": "./cordis.patch.yml",
-      "dshEngines": null,
-      "dshClient": true,
-      "repoUrl": null,
-      "repoDir": null,
-      "installsFromRegistry": true,
-      "registryUrl": "https://registry.npmjs.org"
-    },
-    {
       "name": "dsh-univer-office",
       "version": "0.5.0",
       "description": "DSH × Univer integration with a bundled collaboration Gateway and Viewer: inline previews, live floating Worktree windows, and session-end review actions in DeepSeek Harness.",
@@ -5923,7 +5844,7 @@
     },
     {
       "name": "dsh-m",
-      "version": "0.12.22",
+      "version": "0.12.23",
       "description": "可自定义收录清单的 DSH 插件市场：收录、安装、卸载、升级一站完成，附 agent 工具与 dshm CLI。",
       "keywords": [
         "dsh",
@@ -5932,7 +5853,7 @@
         "marketplace",
         "registry"
       ],
-      "date": "2026-11-18T14:28:38.455Z",
+      "date": "2026-11-19T04:16:56.126Z",
       "license": "MIT",
       "homepage": "https://github.com/iasiv5/dsh-m#readme",
       "repository": "git+https://github.com/iasiv5/dsh-m.git",
@@ -5943,13 +5864,12 @@
       "weeklyDownloads": 10755,
       "monthlyDownloads": 50555,
       "dependents": 0,
-      "updated": "2026-11-18T14:29:09.944Z",
+      "updated": "2026-11-19T04:17:27.704Z",
       "distTags": {
-        "latest": "0.12.22"
+        "latest": "0.12.23"
       },
-      "versionCount": 180,
+      "versionCount": 181,
       "allVersions": [
-        "0.10.25",
         "0.11.0",
         "0.11.1",
         "0.11.2",
@@ -5988,9 +5908,10 @@
         "0.12.19",
         "0.12.20",
         "0.12.21",
-        "0.12.22"
+        "0.12.22",
+        "0.12.23"
       ],
-      "publishTime": "2026-11-18T14:28:38.455Z",
+      "publishTime": "2026-11-19T04:16:56.126Z",
       "created": "2026-09-03T05:56:48.776Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -6400,8 +6321,8 @@
     },
     {
       "name": "@leiyi-works/dsh-cloud-sync",
-      "version": "0.6.39",
-      "description": "云端同步 0.6.39：首轮自动同步改为「文件安静 5 秒即启动，最多 20 秒」，不再死等 20 秒；日志记录实际触发秒数。",
+      "version": "0.8.2",
+      "description": "云端同步 0.8.2：当前 profile 识别增加 host-ready.json 与 DSH_PROFILE_DIR 兜底——手机/外壳不再把 desktop 当成自己的 profile 而误改。",
       "keywords": [
         "dsh-plugin",
         "deepseek-harness",
@@ -6410,7 +6331,7 @@
         "backup",
         "ssh"
       ],
-      "date": "2026-11-19T01:12:13.215Z",
+      "date": "2026-11-19T04:08:27.132Z",
       "license": "MIT",
       "npm": "https://www.npmjs.com/package/@leiyi-works/dsh-cloud-sync",
       "maintainers": [
@@ -6419,21 +6340,12 @@
       "weeklyDownloads": 10094,
       "monthlyDownloads": 10094,
       "dependents": 0,
-      "updated": "2026-11-19T01:12:44.608Z",
+      "updated": "2026-11-19T04:08:58.308Z",
       "distTags": {
-        "latest": "0.6.39"
+        "latest": "0.8.2"
       },
-      "versionCount": 99,
+      "versionCount": 108,
       "allVersions": [
-        "0.6.0",
-        "0.6.1",
-        "0.6.2",
-        "0.6.3",
-        "0.6.4",
-        "0.6.5",
-        "0.6.6",
-        "0.6.7",
-        "0.6.8",
         "0.6.9",
         "0.6.10",
         "0.6.11",
@@ -6464,9 +6376,18 @@
         "0.6.36",
         "0.6.37",
         "0.6.38",
-        "0.6.39"
+        "0.6.39",
+        "0.7.0",
+        "0.7.1",
+        "0.7.2",
+        "0.7.3",
+        "0.7.4",
+        "0.7.5",
+        "0.8.0",
+        "0.8.1",
+        "0.8.2"
       ],
-      "publishTime": "2026-11-19T01:12:13.215Z",
+      "publishTime": "2026-11-19T04:08:27.132Z",
       "created": "2026-11-14T10:24:26.587Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -6712,7 +6633,7 @@
     },
     {
       "name": "@michengai/dsh-im-connect",
-      "version": "1.0.45",
+      "version": "1.0.46",
       "description": "DSH IM Connect — 将主流即时通讯平台接入本机 DeepSeek Harness · Connect major messaging platforms to local DeepSeek Harness agents",
       "keywords": [
         "dsh",
@@ -6740,11 +6661,10 @@
       "dependents": "1",
       "updated": "2026-11-18T15:23:52.043Z",
       "distTags": {
-        "latest": "1.0.45"
+        "latest": "1.0.46"
       },
-      "versionCount": 116,
+      "versionCount": 117,
       "allVersions": [
-        "1.0.4",
         "1.0.5",
         "1.0.6",
         "1.0.7",
@@ -6783,13 +6703,14 @@
         "1.0.42",
         "1.0.43",
         "1.0.44",
-        "1.0.45"
+        "1.0.45",
+        "1.0.46"
       ],
-      "publishTime": "2026-11-18T15:23:20.592Z",
+      "publishTime": "2026-11-19T05:04:54.894Z",
       "created": "2026-08-16T18:57:23.738Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
-      "dshEngines": ">=0.2.0-rc.1 <0.3.0-0",
+      "dshEngines": ">=0.2.2-rc.1 <0.3.0-0",
       "dshClient": true,
       "repoUrl": "git+https://github.com/MichengAI/dsh-im-connect.git",
       "repoDir": null,
@@ -6936,7 +6857,7 @@
     },
     {
       "name": "@yujp_vc/ppt-assistant",
-      "version": "2.0.37",
+      "version": "2.0.38",
       "description": "PPT 助手 agent preset for DeepSeek Harness: a visual-director workflow with eight style recipes, plan-first editable decks, GPT imagery/vision QC, showcase layouts, and a verified scoped-edit ledger.",
       "keywords": [
         "dsh-plugin",
@@ -6944,7 +6865,7 @@
         "powerpoint",
         "pptx"
       ],
-      "date": "2026-11-18T10:49:40.467Z",
+      "date": "2026-11-19T04:41:13.227Z",
       "license": "MIT",
       "homepage": "https://github.com/YujpVc/ppt-assistant#readme",
       "repository": "git+https://github.com/YujpVc/ppt-assistant.git",
@@ -6955,13 +6876,12 @@
       "weeklyDownloads": 9657,
       "monthlyDownloads": 11049,
       "dependents": 0,
-      "updated": "2026-11-18T11:05:13.582Z",
+      "updated": "2026-11-19T04:41:44.529Z",
       "distTags": {
-        "latest": "2.0.37"
+        "latest": "2.0.38"
       },
-      "versionCount": 62,
+      "versionCount": 63,
       "allVersions": [
-        "1.9.8",
         "1.9.9",
         "2.0.0",
         "2.0.1",
@@ -7000,9 +6920,10 @@
         "2.0.34",
         "2.0.35",
         "2.0.36",
-        "2.0.37"
+        "2.0.37",
+        "2.0.38"
       ],
-      "publishTime": "2026-11-18T10:49:40.467Z",
+      "publishTime": "2026-11-19T04:41:13.227Z",
       "created": "2026-11-10T07:01:23.243Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -7468,86 +7389,6 @@
       "registryUrl": "https://registry.npmjs.org"
     },
     {
-      "name": "dsh-aiyayi",
-      "version": "1.12.0",
-      "description": "阿依娅伊：一个有独立人格和长期记忆的对话伙伴，动手的活交给她的子智能体。",
-      "keywords": [
-        "dsh",
-        "agent",
-        "preset",
-        "ai-companion",
-        "deepseek-harness"
-      ],
-      "date": "2026-11-17T13:38:46.524Z",
-      "license": "MIT",
-      "homepage": "https://github.com/bayihy/dsh-aiyayi#readme",
-      "repository": "git+https://github.com/bayihy/dsh-aiyayi.git",
-      "npm": "https://www.npmjs.com/package/dsh-aiyayi",
-      "maintainers": [
-        "bayihy"
-      ],
-      "weeklyDownloads": 8997,
-      "monthlyDownloads": 13104,
-      "dependents": 0,
-      "updated": "2026-11-17T13:39:17.586Z",
-      "distTags": {
-        "latest": "1.12.0"
-      },
-      "versionCount": 69,
-      "allVersions": [
-        "1.5.23",
-        "1.5.24",
-        "1.5.25",
-        "1.5.26",
-        "1.5.27",
-        "1.5.28",
-        "1.5.29",
-        "1.5.30",
-        "1.5.31",
-        "1.5.32",
-        "1.5.33",
-        "1.5.34",
-        "1.5.35",
-        "1.5.36",
-        "1.5.37",
-        "1.5.38",
-        "1.5.39",
-        "1.5.40",
-        "1.5.41",
-        "1.5.42",
-        "1.5.43",
-        "1.5.44",
-        "1.5.45",
-        "1.6.0",
-        "1.6.1",
-        "1.6.2",
-        "1.6.3",
-        "1.6.4",
-        "1.7.0",
-        "1.7.1",
-        "1.7.2",
-        "1.7.3",
-        "1.7.4",
-        "1.7.5",
-        "1.8.0",
-        "1.8.1",
-        "1.9.0",
-        "1.10.0",
-        "1.11.0",
-        "1.12.0"
-      ],
-      "publishTime": "2026-11-17T13:38:46.524Z",
-      "created": "2026-11-03T08:37:50.695Z",
-      "dshBundle": true,
-      "dshBundlePatch": "./cordis.patch.yml",
-      "dshEngines": null,
-      "dshClient": false,
-      "repoUrl": "git+https://github.com/bayihy/dsh-aiyayi.git",
-      "repoDir": null,
-      "installsFromRegistry": true,
-      "registryUrl": "https://registry.npmjs.org"
-    },
-    {
       "name": "dsh-mobile",
       "version": "0.8.13",
       "description": "DeepSeek Harness 移动端适配与安全访问插件，支持局域网、远程连接、Android App 和手机浏览器。",
@@ -7634,6 +7475,86 @@
       "dshEngines": null,
       "dshClient": true,
       "repoUrl": "git+https://github.com/saya-ch/dsh-mobile.git",
+      "repoDir": null,
+      "installsFromRegistry": true,
+      "registryUrl": "https://registry.npmjs.org"
+    },
+    {
+      "name": "dsh-aiyayi",
+      "version": "1.13.0",
+      "description": "阿依娅伊：一个有独立人格和长期记忆的对话伙伴，动手的活交给她的子智能体。",
+      "keywords": [
+        "dsh",
+        "agent",
+        "preset",
+        "ai-companion",
+        "deepseek-harness"
+      ],
+      "date": "2026-11-19T02:36:48.530Z",
+      "license": "MIT",
+      "homepage": "https://github.com/bayihy/dsh-aiyayi#readme",
+      "repository": "git+https://github.com/bayihy/dsh-aiyayi.git",
+      "npm": "https://www.npmjs.com/package/dsh-aiyayi",
+      "maintainers": [
+        "bayihy"
+      ],
+      "weeklyDownloads": 8935,
+      "monthlyDownloads": 13786,
+      "dependents": 0,
+      "updated": "2026-11-19T02:37:19.645Z",
+      "distTags": {
+        "latest": "1.13.0"
+      },
+      "versionCount": 70,
+      "allVersions": [
+        "1.5.24",
+        "1.5.25",
+        "1.5.26",
+        "1.5.27",
+        "1.5.28",
+        "1.5.29",
+        "1.5.30",
+        "1.5.31",
+        "1.5.32",
+        "1.5.33",
+        "1.5.34",
+        "1.5.35",
+        "1.5.36",
+        "1.5.37",
+        "1.5.38",
+        "1.5.39",
+        "1.5.40",
+        "1.5.41",
+        "1.5.42",
+        "1.5.43",
+        "1.5.44",
+        "1.5.45",
+        "1.6.0",
+        "1.6.1",
+        "1.6.2",
+        "1.6.3",
+        "1.6.4",
+        "1.7.0",
+        "1.7.1",
+        "1.7.2",
+        "1.7.3",
+        "1.7.4",
+        "1.7.5",
+        "1.8.0",
+        "1.8.1",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0",
+        "1.13.0"
+      ],
+      "publishTime": "2026-11-19T02:36:48.530Z",
+      "created": "2026-11-03T08:37:50.695Z",
+      "dshBundle": true,
+      "dshBundlePatch": "./cordis.patch.yml",
+      "dshEngines": null,
+      "dshClient": false,
+      "repoUrl": "git+https://github.com/bayihy/dsh-aiyayi.git",
       "repoDir": null,
       "installsFromRegistry": true,
       "registryUrl": "https://registry.npmjs.org"
@@ -7812,7 +7733,7 @@
     },
     {
       "name": "@marsken/dsh-studio",
-      "version": "0.3.2",
+      "version": "0.3.8",
       "description": "DSH Studio: role-based multi-agent workspace (product / architect / developer / QA) with a live work board, GitLab + Feishu connection settings, all configurable from the web GUI.",
       "keywords": [
         "dsh",
@@ -7823,7 +7744,7 @@
         "requirements",
         "regression"
       ],
-      "date": "2026-11-18T13:48:26.496Z",
+      "date": "2026-11-19T05:06:07.893Z",
       "license": "Apache-2.0",
       "homepage": "https://github.com/marsken88/dsh-studio#readme",
       "repository": "git+https://github.com/marsken88/dsh-studio.git",
@@ -7834,19 +7755,13 @@
       "weeklyDownloads": 8854,
       "monthlyDownloads": 8854,
       "dependents": 0,
-      "updated": "2026-11-18T13:48:58.098Z",
+      "updated": "2026-11-19T05:06:39.119Z",
       "distTags": {
         "next": "0.2.2-rc.3",
-        "latest": "0.3.2"
+        "latest": "0.3.8"
       },
-      "versionCount": 64,
+      "versionCount": 70,
       "allVersions": [
-        "0.1.23",
-        "0.1.24",
-        "0.1.25",
-        "0.1.26",
-        "0.1.27",
-        "0.1.28",
         "0.1.29",
         "0.1.30",
         "0.1.31",
@@ -7880,9 +7795,15 @@
         "0.2.8",
         "0.3.0",
         "0.3.1",
-        "0.3.2"
+        "0.3.2",
+        "0.3.3",
+        "0.3.4",
+        "0.3.5",
+        "0.3.6",
+        "0.3.7",
+        "0.3.8"
       ],
-      "publishTime": "2026-11-18T13:48:26.496Z",
+      "publishTime": "2026-11-19T05:06:07.893Z",
       "created": "2026-11-13T14:53:16.966Z",
       "dshBundle": true,
       "dshBundlePatch": "./cordis.patch.yml",
@@ -9182,15 +9103,13 @@
       "weeklyDownloads": 7979,
       "monthlyDownloads": 9681,
       "dependents": 0,
-      "updated": "2026-11-18T16:15:42.875Z",
+      "updated": "2026-11-19T04:03:32.226Z",
       "distTags": {
         "latest": "0.1.42",
-        "next": "0.3.0-rc.2"
+        "next": "0.3.0-rc.4"
       },
-      "versionCount": 58,
+      "versionCount": 60,
       "allVersions": [
-        "0.1.18",
-        "0.1.19",
         "0.1.20",
         "0.1.21",
         "0.1.22",
@@ -9228,7 +9147,9 @@
         "0.2.0-rc.14",
         "0.2.0-rc.15",
         "0.2.0-rc.16",
-        "0.3.0-rc.2"
+        "0.3.0-rc.2",
+        "0.3.0-rc.3",
+        "0.3.0-rc.4"
       ],
       "publishTime": "2026-11-13T07:04:23.099Z",
       "created": "2026-11-09T15:34:37.476Z",
@@ -9748,15 +9669,13 @@
       "weeklyDownloads": 7521,
       "monthlyDownloads": 9409,
       "dependents": "2",
-      "updated": "2026-11-18T16:17:01.210Z",
+      "updated": "2026-11-19T04:04:33.990Z",
       "distTags": {
         "latest": "0.1.35",
-        "next": "0.3.0-rc.2"
+        "next": "0.3.0-rc.4"
       },
-      "versionCount": 51,
+      "versionCount": 53,
       "allVersions": [
-        "0.1.11",
-        "0.1.12",
         "0.1.13",
         "0.1.14",
         "0.1.15",
@@ -9794,7 +9713,9 @@
         "0.2.0-rc.14",
         "0.2.0-rc.15",
         "0.2.0-rc.16",
-        "0.3.0-rc.2"
+        "0.3.0-rc.2",
+        "0.3.0-rc.3",
+        "0.3.0-rc.4"
       ],
       "publishTime": "2026-11-13T07:02:56.610Z",
       "created": "2026-11-09T15:34:21.518Z",
@@ -9991,15 +9912,13 @@
       "weeklyDownloads": 7280,
       "monthlyDownloads": 8961,
       "dependents": 0,
-      "updated": "2026-11-18T16:16:51.456Z",
+      "updated": "2026-11-19T04:04:51.489Z",
       "distTags": {
         "latest": "0.1.38",
-        "next": "0.3.0-rc.2"
+        "next": "0.3.0-rc.4"
       },
-      "versionCount": 54,
+      "versionCount": 56,
       "allVersions": [
-        "0.1.14",
-        "0.1.15",
         "0.1.16",
         "0.1.17",
         "0.1.18",
@@ -10037,7 +9956,9 @@
         "0.2.0-rc.14",
         "0.2.0-rc.15",
         "0.2.0-rc.16",
-        "0.3.0-rc.2"
+        "0.3.0-rc.2",
+        "0.3.0-rc.3",
+        "0.3.0-rc.4"
       ],
       "publishTime": "2026-11-13T07:03:05.930Z",
       "created": "2026-11-09T15:34:42.746Z",
@@ -10985,81 +10906,6 @@
       "registryUrl": "https://registry.npmjs.org"
     },
     {
-      "name": "@michengai/dsh-pua",
-      "version": "1.0.12",
-      "description": "DSH PUA — 为 DeepSeek Harness 提供 PUA 任务推进、角色风味、验收循环和运行状态卡片 · PUA task persistence, personas, verification loops, and live status cards for DeepSeek Harness",
-      "keywords": [
-        "dsh",
-        "deepseek-harness",
-        "pua",
-        "persona",
-        "verification",
-        "task",
-        "status-card"
-      ],
-      "date": "2026-11-14T05:35:44.951Z",
-      "license": "Apache-2.0",
-      "homepage": "https://github.com/MichengAI/dsh-pua#readme",
-      "repository": "git+https://github.com/MichengAI/dsh-pua.git",
-      "npm": "https://www.npmjs.com/package/@michengai/dsh-pua",
-      "maintainers": [
-        "michengai"
-      ],
-      "weeklyDownloads": 6854,
-      "monthlyDownloads": 27992,
-      "dependents": 0,
-      "updated": "2026-11-14T05:36:16.411Z",
-      "distTags": {
-        "latest": "1.0.12"
-      },
-      "versionCount": 33,
-      "allVersions": [
-        "0.3.8",
-        "0.3.9",
-        "0.3.10",
-        "0.3.11",
-        "0.3.12",
-        "0.3.13",
-        "0.3.14",
-        "0.3.15",
-        "0.3.16",
-        "0.3.17",
-        "0.3.18",
-        "0.3.19",
-        "0.3.20",
-        "0.3.21",
-        "0.3.22",
-        "0.3.23",
-        "0.3.24",
-        "0.3.25",
-        "0.3.26",
-        "0.3.27",
-        "0.3.28",
-        "1.0.0",
-        "1.0.1",
-        "1.0.2",
-        "1.0.3",
-        "1.0.4",
-        "1.0.5",
-        "1.0.6",
-        "1.0.7",
-        "1.0.8",
-        "1.0.10",
-        "1.0.11",
-        "1.0.12"
-      ],
-      "publishTime": "2026-11-14T05:35:44.951Z",
-      "created": "2026-09-12T16:54:37.311Z",
-      "dshBundle": true,
-      "dshBundlePatch": "./cordis.patch.yml",
-      "dshEngines": ">=0.2.0-rc.1 <0.3.0-0",
-      "dshClient": true,
-      "repoUrl": "git+https://github.com/MichengAI/dsh-pua.git",
-      "repoDir": null,
-      "installsFromRegistry": true,
-      "registryUrl": "https://registry.npmjs.org"
-    },
-    {
       "name": "qfish",
       "version": "0.3.36",
       "description": "QQ bot plugin for DeepSeek Harness via OneBot v11 / NapCat: persona, per-user memory, image and video understanding, group tools, and a built-in web console.",
@@ -11137,6 +10983,205 @@
       "dshEngines": "^0.2.1-rc.2",
       "dshClient": true,
       "repoUrl": "git+https://github.com/hyun20202023-ui/dsh-qfish.git",
+      "repoDir": null,
+      "installsFromRegistry": true,
+      "registryUrl": "https://registry.npmjs.org"
+    },
+    {
+      "name": "dsh-inner-browser-use",
+      "version": "0.47.101",
+      "description": "An agent-owned Chromium sidecar mirrored into the DeepSeek Harness right column: the agent drives it, the person watches and can take the mouse, and logins survive restarts.",
+      "keywords": [
+        "deepseek-harness",
+        "dsh",
+        "dsh-plugin",
+        "browser-use",
+        "computer-use",
+        "chrome",
+        "cdp",
+        "screencast",
+        "deepseek"
+      ],
+      "date": "2026-11-16T15:07:01.958Z",
+      "license": "MIT",
+      "homepage": "https://github.com/regrevia/dsh-inner-browser-use#readme",
+      "repository": "git+https://github.com/regrevia/dsh-inner-browser-use.git",
+      "npm": "https://www.npmjs.com/package/dsh-inner-browser-use",
+      "maintainers": [
+        "regrevia"
+      ],
+      "weeklyDownloads": 6697,
+      "monthlyDownloads": 26555,
+      "dependents": 0,
+      "updated": "2026-11-16T15:07:33.330Z",
+      "distTags": {
+        "alpha": "0.47.87",
+        "latest": "0.47.101"
+      },
+      "versionCount": 124,
+      "allVersions": [
+        "0.47.62",
+        "0.47.63",
+        "0.47.64",
+        "0.47.65",
+        "0.47.66",
+        "0.47.67",
+        "0.47.68",
+        "0.47.69",
+        "0.47.70",
+        "0.47.71",
+        "0.47.72",
+        "0.47.73",
+        "0.47.74",
+        "0.47.75",
+        "0.47.76",
+        "0.47.77",
+        "0.47.78",
+        "0.47.79",
+        "0.47.80",
+        "0.47.81",
+        "0.47.82",
+        "0.47.83",
+        "0.47.84",
+        "0.47.85",
+        "0.47.86",
+        "0.47.87",
+        "0.47.88",
+        "0.47.89",
+        "0.47.90",
+        "0.47.91",
+        "0.47.92",
+        "0.47.93",
+        "0.47.94",
+        "0.47.95",
+        "0.47.96",
+        "0.47.97",
+        "0.47.98",
+        "0.47.99",
+        "0.47.100",
+        "0.47.101"
+      ],
+      "publishTime": "2026-11-16T15:07:01.958Z",
+      "created": "2026-10-26T10:41:21.640Z",
+      "dshBundle": true,
+      "dshBundlePatch": "./cordis.patch.yml",
+      "dshEngines": ">=0.2.0",
+      "dshClient": true,
+      "repoUrl": "git+https://github.com/regrevia/dsh-inner-browser-use.git",
+      "repoDir": null,
+      "installsFromRegistry": true,
+      "registryUrl": "https://registry.npmjs.org"
+    },
+    {
+      "name": "dsh-plugin-health",
+      "version": "3.3.0",
+      "description": "Diagnoses DSH plugin installation, compatibility and observed loading problems. Offers repair previews, trusted-plugin startup trials, reversible version exemptions, recovery tools, AI briefs and official format-1 market indexes. Does not detect or contai",
+      "keywords": [
+        "dsh",
+        "dsh-plugin",
+        "deepseek",
+        "deepseek-harness",
+        "plugin-manager",
+        "plugin-management",
+        "plugin-doctor",
+        "plugin-health",
+        "plugin-check",
+        "plugin-checker",
+        "plugin-inspector",
+        "plugin-scan",
+        "plugin-conflict",
+        "conflict-detection",
+        "conflict-checker",
+        "incompatible-plugins",
+        "dependency-check",
+        "diagnostics",
+        "troubleshooting",
+        "doctor",
+        "repair",
+        "fix-plugins",
+        "broken-plugin",
+        "plugin-market",
+        "format-1",
+        "compatibility",
+        "compatibility-matrix",
+        "upgrade-check",
+        "version-check",
+        "github-action",
+        "semver",
+        "windows",
+        "wsl",
+        "插件管理",
+        "插件检查",
+        "插件冲突",
+        "插件诊断",
+        "插件不兼容"
+      ],
+      "date": "2026-11-19T04:17:37.230Z",
+      "license": "MIT",
+      "homepage": "https://easonmws.github.io/dsh-plugin-health/",
+      "repository": "git+https://github.com/EasonMWS/dsh-plugin-health.git",
+      "npm": "https://www.npmjs.com/package/dsh-plugin-health",
+      "maintainers": [
+        "easonmws"
+      ],
+      "weeklyDownloads": 6576,
+      "monthlyDownloads": 22292,
+      "dependents": 0,
+      "updated": "2026-11-19T04:18:08.550Z",
+      "distTags": {
+        "beta": "4.0.0-beta.3",
+        "latest": "3.3.0"
+      },
+      "versionCount": 72,
+      "allVersions": [
+        "1.0.3",
+        "1.1.0",
+        "1.2.0",
+        "1.2.1",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.6.1",
+        "1.6.2",
+        "1.7.0",
+        "2.0.0",
+        "2.1.0",
+        "2.1.1",
+        "2.1.2",
+        "2.1.3",
+        "2.1.4",
+        "2.1.5",
+        "2.1.6",
+        "2.2.0",
+        "2.2.1",
+        "3.0.0-beta.7",
+        "3.0.0",
+        "3.0.1",
+        "3.0.2",
+        "3.0.3",
+        "3.0.4",
+        "3.0.5",
+        "3.0.6",
+        "3.0.7",
+        "4.0.0-beta.1",
+        "4.0.0-beta.2",
+        "3.0.8",
+        "3.1.0",
+        "4.0.0-beta.3",
+        "3.1.1",
+        "3.2.0",
+        "3.2.1",
+        "3.2.2",
+        "3.3.0"
+      ],
+      "publishTime": "2026-11-19T04:17:37.230Z",
+      "created": "2026-10-17T14:15:37.237Z",
+      "dshBundle": true,
+      "dshBundlePatch": "./cordis.patch.yml",
+      "dshEngines": ">=0.2.0-rc.0 <0.3.0-0",
+      "dshClient": true,
+      "repoUrl": "git+https://github.com/EasonMWS/dsh-plugin-health.git",
       "repoDir": null,
       "installsFromRegistry": true,
       "registryUrl": "https://registry.npmjs.org"

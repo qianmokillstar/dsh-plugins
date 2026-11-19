@@ -283,8 +283,8 @@
       },
       "versions": [
         {
-          "version": "1.9.73",
-          "publishTimestamp": 1794979913,
+          "version": "1.9.74",
+          "publishTimestamp": 1795062815,
           "source": {
             "type": "npm"
           },
@@ -497,13 +497,13 @@
       },
       "versions": [
         {
-          "version": "1.3.7",
-          "publishTimestamp": 1794973423,
+          "version": "1.4.0",
+          "publishTimestamp": 1795060388,
           "source": {
             "type": "npm"
           },
           "engines": {
-            "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+            "dsh": ">=0.2.2-rc.1 <0.3.0-0"
           }
         }
       ],
@@ -655,8 +655,8 @@
       },
       "versions": [
         {
-          "version": "0.20.1",
-          "publishTimestamp": 1794665901,
+          "version": "0.20.2",
+          "publishTimestamp": 1795062733,
           "source": {
             "type": "npm"
           }
@@ -1175,8 +1175,8 @@
       },
       "versions": [
         {
-          "version": "0.4.136",
-          "publishTimestamp": 1795021018,
+          "version": "0.4.137",
+          "publishTimestamp": 1795063046,
           "source": {
             "type": "npm"
           }
@@ -1883,8 +1883,8 @@
       },
       "versions": [
         {
-          "version": "0.18.10",
-          "publishTimestamp": 1795019182,
+          "version": "0.18.11",
+          "publishTimestamp": 1795056731,
           "source": {
             "type": "npm"
           }
@@ -2781,13 +2781,13 @@
       },
       "versions": [
         {
-          "version": "2.2.7",
-          "publishTimestamp": 1794909597,
+          "version": "2.3.0",
+          "publishTimestamp": 1795063658,
           "source": {
             "type": "npm"
           },
           "engines": {
-            "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+            "dsh": ">=0.2.2-rc.1 <0.3.0-0"
           }
         }
       ],
@@ -3031,8 +3031,8 @@
       },
       "versions": [
         {
-          "version": "0.5.100",
-          "publishTimestamp": 1795015498,
+          "version": "0.5.101",
+          "publishTimestamp": 1795063680,
           "source": {
             "type": "npm"
           }
@@ -3234,8 +3234,8 @@
       },
       "versions": [
         {
-          "version": "0.2.113",
-          "publishTimestamp": 1795006850,
+          "version": "0.2.114",
+          "publishTimestamp": 1795058231,
           "source": {
             "type": "npm"
           }
@@ -3525,40 +3525,6 @@
       }
     },
     {
-      "name": "monitor-bi-dsh",
-      "metadata": {
-        "category": "memory",
-        "keywords": [
-          "dsh",
-          "deepseek-harness",
-          "dsh-plugin",
-          "monitor",
-          "bi",
-          "dashboard",
-          "report"
-        ],
-        "labels": [
-          "catalog-only",
-          "auto-category"
-        ],
-        "sortKeys": {
-          "weeklyDownloads": 10970
-        }
-      },
-      "versions": [
-        {
-          "version": "1.3.4",
-          "publishTimestamp": 1794447043,
-          "source": {
-            "type": "npm"
-          }
-        }
-      ],
-      "title": "Monitor bi dsh",
-      "description": "Monitor BI 报表工作室:左侧导航栏独立入口,点进去就是 Harness 原生对话,但该房间只做 Monitor BI 报表(上下文干净、不与日常对话混杂)。自带零安装 CLI 工具链、操作手册、模板、数据字典;首次使用自动询问连接信息。A clean, sidebar-entry BI-only room for DeepSeek Harness with bundled tools, manual, templates and dictionary.",
-      "author": "sicutest"
-    },
-    {
       "name": "dsh-univer-office",
       "metadata": {
         "category": "media",
@@ -3656,8 +3622,8 @@
       },
       "versions": [
         {
-          "version": "0.12.22",
-          "publishTimestamp": 1795012118,
+          "version": "0.12.23",
+          "publishTimestamp": 1795061816,
           "source": {
             "type": "npm"
           }
@@ -3775,15 +3741,15 @@
       },
       "versions": [
         {
-          "version": "0.6.39",
-          "publishTimestamp": 1795050733,
+          "version": "0.8.2",
+          "publishTimestamp": 1795061307,
           "source": {
             "type": "npm"
           }
         }
       ],
       "title": "Cloud sync",
-      "description": "云端同步 0.6.39：首轮自动同步改为「文件安静 5 秒即启动，最多 20 秒」，不再死等 20 秒；日志记录实际触发秒数。",
+      "description": "云端同步 0.8.2：当前 profile 识别增加 host-ready.json 与 DSH_PROFILE_DIR 兜底——手机/外壳不再把 desktop 当成自己的 profile 而误改。",
       "author": "leiyi-works"
     },
     {
@@ -3888,8 +3854,8 @@
       },
       "versions": [
         {
-          "version": "2.0.37",
-          "publishTimestamp": 1794998980,
+          "version": "2.0.38",
+          "publishTimestamp": 1795063273,
           "source": {
             "type": "npm"
           }
@@ -4036,42 +4002,6 @@
       }
     },
     {
-      "name": "dsh-aiyayi",
-      "metadata": {
-        "category": "memory",
-        "keywords": [
-          "dsh",
-          "agent",
-          "preset",
-          "ai-companion",
-          "deepseek-harness"
-        ],
-        "labels": [
-          "catalog-only",
-          "auto-category"
-        ],
-        "sortKeys": {
-          "weeklyDownloads": 8997
-        }
-      },
-      "versions": [
-        {
-          "version": "1.12.0",
-          "publishTimestamp": 1794922726,
-          "source": {
-            "type": "npm"
-          }
-        }
-      ],
-      "title": "Aiyayi",
-      "description": "阿依娅伊：一个有独立人格和长期记忆的对话伙伴，动手的活交给她的子智能体。",
-      "author": "bayihy",
-      "homepage": "https://github.com/bayihy/dsh-aiyayi#readme",
-      "repository": {
-        "url": "https://github.com/bayihy/dsh-aiyayi.git"
-      }
-    },
-    {
       "name": "dsh-mobile",
       "metadata": {
         "category": "devtools",
@@ -4112,6 +4042,42 @@
       "homepage": "https://github.com/saya-ch/dsh-mobile#readme",
       "repository": {
         "url": "https://github.com/saya-ch/dsh-mobile.git"
+      }
+    },
+    {
+      "name": "dsh-aiyayi",
+      "metadata": {
+        "category": "memory",
+        "keywords": [
+          "dsh",
+          "agent",
+          "preset",
+          "ai-companion",
+          "deepseek-harness"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 8935
+        }
+      },
+      "versions": [
+        {
+          "version": "1.13.0",
+          "publishTimestamp": 1795055808,
+          "source": {
+            "type": "npm"
+          }
+        }
+      ],
+      "title": "Aiyayi",
+      "description": "阿依娅伊：一个有独立人格和长期记忆的对话伙伴，动手的活交给她的子智能体。",
+      "author": "bayihy",
+      "homepage": "https://github.com/bayihy/dsh-aiyayi#readme",
+      "repository": {
+        "url": "https://github.com/bayihy/dsh-aiyayi.git"
       }
     },
     {
@@ -4175,8 +4141,8 @@
       },
       "versions": [
         {
-          "version": "0.3.2",
-          "publishTimestamp": 1795009706,
+          "version": "0.3.8",
+          "publishTimestamp": 1795064767,
           "source": {
             "type": "npm"
           },
@@ -5143,45 +5109,6 @@
       "author": "snstotz"
     },
     {
-      "name": "@michengai/dsh-pua",
-      "metadata": {
-        "keywords": [
-          "dsh",
-          "deepseek-harness",
-          "pua",
-          "persona",
-          "verification",
-          "task",
-          "status-card"
-        ],
-        "labels": [
-          "catalog-only"
-        ],
-        "sortKeys": {
-          "weeklyDownloads": 6854
-        }
-      },
-      "versions": [
-        {
-          "version": "1.0.12",
-          "publishTimestamp": 1794634544,
-          "source": {
-            "type": "npm"
-          },
-          "engines": {
-            "dsh": ">=0.2.0-rc.1 <0.3.0-0"
-          }
-        }
-      ],
-      "title": "Pua",
-      "description": "DSH PUA — 为 DeepSeek Harness 提供 PUA 任务推进、角色风味、验收循环和运行状态卡片 · PUA task persistence, personas, verification loops, and live status cards for DeepSeek Harness",
-      "author": "michengai",
-      "homepage": "https://github.com/MichengAI/dsh-pua#readme",
-      "repository": {
-        "url": "https://github.com/MichengAI/dsh-pua.git"
-      }
-    },
-    {
       "name": "qfish",
       "metadata": {
         "category": "memory",
@@ -5223,6 +5150,95 @@
       }
     },
     {
+      "name": "dsh-inner-browser-use",
+      "metadata": {
+        "category": "devtools",
+        "keywords": [
+          "deepseek-harness",
+          "dsh",
+          "dsh-plugin",
+          "browser-use",
+          "computer-use",
+          "chrome",
+          "cdp",
+          "screencast",
+          "deepseek"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 6697
+        }
+      },
+      "versions": [
+        {
+          "version": "0.47.101",
+          "publishTimestamp": 1794841621,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ],
+      "title": "Inner browser use",
+      "description": "An agent-owned Chromium sidecar mirrored into the DeepSeek Harness right column: the agent drives it, the person watches and can take the mouse, and logins survive restarts.",
+      "author": "regrevia",
+      "homepage": "https://github.com/regrevia/dsh-inner-browser-use#readme",
+      "repository": {
+        "url": "https://github.com/regrevia/dsh-inner-browser-use.git"
+      }
+    },
+    {
+      "name": "dsh-plugin-health",
+      "metadata": {
+        "category": "devtools",
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek",
+          "deepseek-harness",
+          "plugin-manager",
+          "plugin-management",
+          "plugin-doctor",
+          "plugin-health",
+          "plugin-check",
+          "plugin-checker",
+          "plugin-inspector",
+          "plugin-scan"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 6576
+        }
+      },
+      "versions": [
+        {
+          "version": "3.3.0",
+          "publishTimestamp": 1795061857,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.0-rc.0 <0.3.0-0"
+          }
+        }
+      ],
+      "title": "Plugin health",
+      "description": "Diagnoses DSH plugin installation, compatibility and observed loading problems. Offers repair previews, trusted-plugin startup trials, reversible version exemptions, recovery tools, AI briefs and official format-1 market indexes. Does not detect or contai",
+      "author": "easonmws",
+      "homepage": "https://easonmws.github.io/dsh-plugin-health/",
+      "repository": {
+        "url": "https://github.com/EasonMWS/dsh-plugin-health.git"
+      }
+    },
+    {
       "name": "@michengai/dsh-im-connect",
       "metadata": {
         "category": "collab",
@@ -5250,13 +5266,13 @@
       },
       "versions": [
         {
-          "version": "1.0.45",
-          "publishTimestamp": 1795015400,
+          "version": "1.0.46",
+          "publishTimestamp": 1795064694,
           "source": {
             "type": "npm"
           },
           "engines": {
-            "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+            "dsh": ">=0.2.2-rc.1 <0.3.0-0"
           }
         }
       ],

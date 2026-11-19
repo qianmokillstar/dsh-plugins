@@ -22,7 +22,8 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # 排队而不是取消：取消进行中的 Pages 部署容易留下锁，导致下一次 deploy-pages 失败
+  cancel-in-progress: false
 
 jobs:
   deploy:
