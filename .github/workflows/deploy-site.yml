@@ -15,34 +15,37 @@ on:
     types: [completed]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
+# 排队而不是取消：取消进行中的部署容易留下锁
 concurrency:
   group: pages
-  # 排队而不是取消：取消进行中的 Pages 部署容易留下锁，导致下一次 deploy-pages 失败
   cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
       - name: Build site from committed data
-        env:
-          MIN_SITE_ENTRIES: '50'
         run: node scripts/build-site.mjs
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish site/ to gh-pages branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd site
+          git init -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "deploy: ${GITHUB_SHA}"
+          # 分支式部署：不走 Actions 产物，避开 "Fetching artifact metadata failed"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+      - name: Summary
+        run: |
+          echo "已推送到 gh-pages：$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          echo "提交 ${GITHUB_SHA}"
