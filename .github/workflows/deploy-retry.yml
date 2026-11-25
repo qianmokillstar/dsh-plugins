@@ -1,8 +1,15 @@
 name: deploy-retry
 
-# GitHub 侧偶发故障会让 deploy-pages 取不到产物：
-#   "No artifacts named github-pages were found for this workflow run"
-# 这个工作流在 deploy-site 失败时自动重跑一次，避免站点连续几天不更新。
+# GitHub 侧偶发故障会让 deploy-pages 拿不到产物：
+#   "Fetching artifact metadata failed. Is githubstatus.com reporting issues..."
+# 这时自动补救一次。
+#
+# 注意：不能用 `gh run rerun`。重跑会在同一个 run 内再次上传 github-pages 产物，
+# 变成 "Multiple artifacts named github-pages were unexpectedly found"，反而必然失败。
+# 正确做法是**新开一次运行**（新的 run id = 独立的产物命名空间）。
+#
+# 防死循环：只对 push / workflow_run 触发的失败补一次；
+# 由本工作流 dispatch 出来的运行（event=workflow_dispatch）失败后不再补。
 
 on:
   workflow_run:
@@ -17,13 +24,13 @@ jobs:
   retry:
     if: |
       github.event.workflow_run.conclusion == 'failure' &&
-      github.event.workflow_run.run_attempt == 1
+      github.event.workflow_run.event != 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - name: Re-run the failed deploy once
+      - name: Dispatch a fresh deploy run
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RUN_ID: ${{ github.event.workflow_run.id }}
+          FAILED_RUN: ${{ github.event.workflow_run.id }}
         run: |
-          echo "deploy-site 失败（attempt 1），自动重跑：run $RUN_ID"
-          gh run rerun "$RUN_ID" --failed --repo "${{ github.repository }}"
+          echo "deploy-site 失败（run $FAILED_RUN，event=${{ github.event.workflow_run.event }}），新开一次运行"
+          gh workflow run deploy-site.yml --repo "${{ github.repository }}" --ref main
