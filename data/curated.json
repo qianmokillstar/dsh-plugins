@@ -117,7 +117,7 @@
       "review": "content/reviews/dsh-mnemon.md",
       "privacy": "local",
       "rp": true,
-      "reviewedVersion": "0.5.46"
+      "reviewedVersion": "0.5.54"
     },
     {
       "name": "dsh-windows-mcp",
@@ -272,7 +272,7 @@
       ],
       "review": "content/reviews/cc-safety-net.md",
       "rp": true,
-      "reviewedVersion": "2.7.15"
+      "reviewedVersion": "2.8.3"
     },
     {
       "name": "deep-view",
@@ -377,7 +377,7 @@
       ],
       "review": "content/reviews/dsh-mobile-plugin.md",
       "rp": true,
-      "reviewedVersion": "0.5.65"
+      "reviewedVersion": "0.5.112"
     },
     {
       "name": "dsh-plugin-wallpaper-engine",

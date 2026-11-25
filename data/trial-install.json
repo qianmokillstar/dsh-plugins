@@ -52,12 +52,13 @@
       "name": "dsh-mnemon",
       "profile": "market-test",
       "dshVersion": "0.2.2-rc.3",
-      "date": "2026-11-17",
+      "date": "2026-11-25",
       "result": "installed",
-      "version": "0.5.46",
-      "seconds": null,
+      "version": "0.5.54",
+      "seconds": 0,
       "reason": null,
-      "logTail": ""
+      "logTail": "",
+      "recheck": true
     },
     {
       "name": "dsh-windows-mcp",
@@ -170,6 +171,66 @@
       "reason": null,
       "logTail": "",
       "source": "github-spec"
+    },
+    {
+      "name": "cc-safety-net",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-25",
+      "result": "installed",
+      "version": "2.8.3",
+      "seconds": 0,
+      "reason": null,
+      "logTail": "",
+      "recheck": true
+    },
+    {
+      "name": "dsh-live-compact",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-25",
+      "result": "installed",
+      "version": "1.1.12",
+      "seconds": 0,
+      "reason": null,
+      "logTail": "",
+      "recheck": true
+    },
+    {
+      "name": "dsh-mobile-plugin",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-25",
+      "result": "installed",
+      "version": "0.5.112",
+      "seconds": 0,
+      "reason": null,
+      "logTail": "",
+      "recheck": true
+    },
+    {
+      "name": "dsh-soul-md",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-25",
+      "result": "installed",
+      "version": "0.12.5",
+      "seconds": 0,
+      "reason": null,
+      "logTail": "",
+      "recheck": true
+    },
+    {
+      "name": "dsh-pet",
+      "profile": "market-test",
+      "dshVersion": "0.2.2-rc.3",
+      "date": "2026-11-25",
+      "result": "installed",
+      "version": "0.4.9",
+      "seconds": 0,
+      "reason": null,
+      "logTail": "",
+      "recheck": true
     }
   ]
 }

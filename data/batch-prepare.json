@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-11-18T12:14:45.860Z",
+  "updatedAt": "2026-11-25T12:57:22.696Z",
   "profile": "market-test",
   "items": [
     {
@@ -43,21 +43,21 @@
     },
     {
       "name": "cc-safety-net",
-      "date": "2026-11-18",
+      "date": "2026-11-25",
       "dshVersion": "0.2.2-rc.3",
-      "latest": "2.7.15",
+      "latest": "2.8.3",
       "readmeBytes": 10280,
       "license": "MIT",
-      "publishTime": "2026-11-17T07:46:56.197Z",
+      "publishTime": "2026-11-23T17:13:19.395Z",
       "maintainers": [
         null
       ],
       "install": {
         "ok": true,
         "reason": null,
-        "version": "2.7.15",
-        "seconds": 8,
-        "logTail": "ed 29s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 4, reused 0, downloaded 0, added 0\nProgress: resolved 4, reused 0, downloaded 1, added 0\nProgress: resolved 4, reused 0, downloaded 1, added 1, done\n\ndependencies:\n+ cc-safety-net 2.7.15\n\nDone in 3s using pnpm v11.28.5\n"
+        "version": "2.8.3",
+        "seconds": 10,
+        "logTail": "s: resolved 13, reused 1, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1 -10\n+----------\nProgress: resolved 64, reused 1, downloaded 0, added 0\nProgress: resolved 64, reused 1, downloaded 1, added 0\nProgress: resolved 64, reused 1, downloaded 1, added 1, done\n\ndependencies:\n+ cc-safety-net 2.8.3\n\nDone in 7.4s using pnpm v11.28.5\n"
       }
     },
     {
@@ -176,21 +176,21 @@
     },
     {
       "name": "dsh-mobile-plugin",
-      "date": "2026-11-18",
+      "date": "2026-11-25",
       "dshVersion": "0.2.2-rc.3",
-      "latest": "0.5.72",
-      "readmeBytes": 13911,
+      "latest": "0.5.118",
+      "readmeBytes": 14363,
       "license": "MIT",
-      "publishTime": "2026-11-18T06:12:21.328Z",
+      "publishTime": "2026-11-25T10:22:53.515Z",
       "maintainers": [
         null
       ],
       "install": {
         "ok": true,
         "reason": null,
-        "version": "0.5.65",
-        "seconds": 24,
-        "logTail": "1, downloaded 25, added 36\nProgress: resolved 97, reused 11, downloaded 26, added 37\nProgress: resolved 97, reused 11, downloaded 27, added 37\nProgress: resolved 97, reused 11, downloaded 27, added 38\nProgress: resolved 97, reused 11, downloaded 28, added 38\nProgress: resolved 97, reused 11, downloaded 28, added 39, done\n\ndependencies:\n+ dsh-mobile-plugin 0.5.65\n\nDone in 20.9s using pnpm v11.28.5\n"
+        "version": "0.5.112",
+        "seconds": 28,
+        "logTail": "6, downloaded 1, added 35\nProgress: resolved 132, reused 36, downloaded 1, added 36\nProgress: resolved 132, reused 36, downloaded 2, added 36\nProgress: resolved 132, reused 36, downloaded 2, added 37\nProgress: resolved 132, reused 36, downloaded 3, added 37\nProgress: resolved 132, reused 36, downloaded 3, added 38, done\n\ndependencies:\n+ dsh-mobile-plugin 0.5.112\n\nDone in 23.4s using pnpm v11.28.5\n"
       }
     },
     {
@@ -323,7 +323,7 @@
     },
     {
       "name": "dsh-soul-md",
-      "date": "2026-11-18",
+      "date": "2026-11-25",
       "dshVersion": "0.2.2-rc.3",
       "latest": "0.12.5",
       "readmeBytes": 141,
@@ -336,8 +336,8 @@
         "ok": true,
         "reason": null,
         "version": "0.12.5",
-        "seconds": 5,
-        "logTail": "✓ Lockfile passes supply-chain policies (verified 8s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +6\n++++++\nProgress: resolved 35, reused 8, downloaded 0, added 6, done\n\ndependencies:\n+ dsh-soul-md 0.12.5\n\nDone in 1.5s using pnpm v11.28.5\n"
+        "seconds": 6,
+        "logTail": "ess: resolved 1, reused 0, downloaded 0, added 0\nProgress: resolved 11, reused 1, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nProgress: resolved 63, reused 1, downloaded 0, added 0\nPackages: +1 -10\n+----------\nProgress: resolved 63, reused 2, downloaded 0, added 1, done\n\ndependencies:\n+ dsh-soul-md 0.12.5\n\nDone in 2.7s using pnpm v11.28.5\n"
       }
     },
     {
@@ -399,12 +399,12 @@
     },
     {
       "name": "dsh-live-compact",
-      "date": "2026-11-18",
+      "date": "2026-11-25",
       "dshVersion": "0.2.2-rc.3",
-      "latest": "1.1.12",
-      "readmeBytes": 25883,
+      "latest": "1.1.13",
+      "readmeBytes": 26386,
       "license": "MIT",
-      "publishTime": "2026-11-16T22:25:04.970Z",
+      "publishTime": "2026-11-25T02:35:14.742Z",
       "maintainers": [
         null
       ],
@@ -412,13 +412,13 @@
         "ok": true,
         "reason": null,
         "version": "1.1.12",
-        "seconds": 5,
-        "logTail": "✓ Lockfile passes supply-chain policies (verified 7s ago)\nProgress: resolved 1, reused 0, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1\n+\nProgress: resolved 5, reused 2, downloaded 0, added 0\nProgress: resolved 5, reused 2, downloaded 1, added 1, done\n\ndependencies:\n+ dsh-live-compact 1.1.12\n\nDone in 2.3s using pnpm v11.28.5\n"
+        "seconds": 9,
+        "logTail": "resolved 1, reused 0, downloaded 0, added 0\nProgress: resolved 10, reused 1, downloaded 0, added 0\nProgress: resolved 11, reused 1, downloaded 0, added 0\n[WARN] Issues with peer dependencies found. Run \"pnpm peers check\" to list them.\nPackages: +1 -10\n+----------\nProgress: resolved 62, reused 2, downloaded 0, added 1, done\n\ndependencies:\n+ dsh-live-compact 1.1.12\n\nDone in 5.2s using pnpm v11.28.5\n"
       }
     },
     {
       "name": "dsh-pet",
-      "date": "2026-11-18",
+      "date": "2026-11-25",
       "dshVersion": "0.2.2-rc.3",
       "latest": "0.4.9",
       "readmeBytes": 289,
@@ -431,8 +431,8 @@
         "ok": true,
         "reason": null,
         "version": "0.4.9",
-        "seconds": 69,
-        "logTail": " reused 10, downloaded 15, added 21\nProgress: resolved 29, reused 10, downloaded 15, added 22\nProgress: resolved 29, reused 10, downloaded 15, added 23\nProgress: resolved 29, reused 10, downloaded 16, added 23\nProgress: resolved 29, reused 10, downloaded 16, added 24\nProgress: resolved 29, reused 10, downloaded 16, added 24, done\n\ndependencies:\n+ dsh-pet 0.4.9\n\nDone in 1m 5.1s using pnpm v11.28.5\n"
+        "seconds": 19,
+        "logTail": "s: +21 -10\n+++++++++++++++++++++----------\nProgress: resolved 85, reused 20, downloaded 2, added 17\nProgress: resolved 85, reused 20, downloaded 2, added 19\nProgress: resolved 85, reused 20, downloaded 2, added 20\nProgress: resolved 85, reused 20, downloaded 2, added 21\nProgress: resolved 85, reused 20, downloaded 2, added 21, done\n\ndependencies:\n+ dsh-pet 0.4.9\n\nDone in 16.2s using pnpm v11.28.5\n"
       }
     },
     {
@@ -935,6 +935,25 @@
         "version": "0.2.3",
         "seconds": 134,
         "logTail": "esolved 40, reused 0, downloaded 0, added 0\nProgress: resolved 40, reused 0, downloaded 4, added 4\nProgress: resolved 40, reused 0, downloaded 5, added 4\nProgress: resolved 40, reused 0, downloaded 5, added 5\nProgress: resolved 40, reused 0, downloaded 6, added 5\nProgress: resolved 40, reused 0, downloaded 6, added 6, done\n\ndependencies:\n+ dsh-pdf-mineru 0.2.3\n\nDone in 2m 7.9s using pnpm v11.28.5\n"
+      }
+    },
+    {
+      "name": "dsh-mnemon",
+      "date": "2026-11-25",
+      "dshVersion": "0.2.2-rc.3",
+      "latest": "0.5.55",
+      "readmeBytes": 22198,
+      "license": "MIT",
+      "publishTime": "2026-11-24T18:36:07.776Z",
+      "maintainers": [
+        null
+      ],
+      "install": {
+        "ok": true,
+        "reason": null,
+        "version": "0.5.54",
+        "seconds": 22,
+        "logTail": "eused 2, downloaded 18, added 19\n[WARN] Tarball download average speed 0 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/dsh-mnemon-provider-honcho/-/dsh-mnemon-provider-honcho-0.5.6.tgz (GET)\nProgress: resolved 61, reused 2, downloaded 19, added 19\nProgress: resolved 61, reused 2, downloaded 19, added 20, done\n\ndependencies:\n+ dsh-mnemon 0.5.54\n\nDone in 19.1s using pnpm v11.28.5\n"
       }
     }
   ]
