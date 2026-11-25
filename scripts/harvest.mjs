@@ -9,7 +9,7 @@
  *
  * 输出：data/catalog.json（含采集时间与来源 URL，便于复核）
  */
-import { writeFile, mkdir } from 'node:fs/promises'
+import { writeFile, mkdir, readFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -151,6 +151,46 @@ const detailed = await mapLimit(top, CONCURRENCY, async (entry, index) => {
     return { ...entry, detailError: error.message }
   }
 })
+
+// 关注名单：已人工核验 / 已进索引的插件必须始终存在。
+// npm 搜索结果是浮动的（限流、排序变化、新包涌入），不能因为漂出结果集就让核验记录消失。
+const watchlist = new Set()
+try {
+  const curated = JSON.parse((await readFile(join(ROOT, 'data', 'curated.json'), 'utf8')).replace(/^\uFEFF/, ''))
+  for (const item of curated.items ?? []) if (item?.name) watchlist.add(item.name)
+} catch {}
+try {
+  const index = JSON.parse((await readFile(join(ROOT, 'market', 'index.json'), 'utf8')).replace(/^\uFEFF/, ''))
+  for (const entry of index.plugins ?? index.entries ?? []) if (entry?.name) watchlist.add(entry.name)
+} catch {}
+
+const present = new Set(detailed.map((p) => p.name))
+const missing = [...watchlist].filter((name) => !present.has(name))
+if (missing.length) {
+  console.log(`关注名单补齐 ${missing.length} 个：${missing.join(', ')}`)
+  const filled = await mapLimit(missing, CONCURRENCY, async (name) => {
+    try {
+      const weekly = await getJson(`https://api.npmjs.org/downloads/point/last-week/${encodeURIComponent(name).replace('%40', '@')}`, { timeout: 20000 }).catch(() => ({}))
+      const entry = await detail({
+        name,
+        weeklyDownloads: weekly?.downloads ?? 0,
+        monthlyDownloads: 0,
+        description: '',
+        keywords: ['dsh-plugin'],
+        watchlist: true,
+      })
+      return entry
+    } catch (error) {
+      console.warn(`关注名单抓取失败 ${name}: ${error.message}`)
+      return null
+    }
+  })
+  let added = 0
+  for (const item of filled) {
+    if (item && !present.has(item.name)) { detailed.push(item); present.add(item.name); added++ }
+  }
+  console.log(`关注名单实际补齐 ${added} 个`)
+}
 
 const bundles = detailed.filter((p) => p.dshBundle)
 
