@@ -9,6 +9,7 @@ on:
       - 'market/**'
       - 'scripts/**'
       - 'site/**'
+      - '.github/workflows/**'
   # harvest 用 GITHUB_TOKEN 提交，不会触发 push 事件；用 workflow_run 在它跑完后部署。
   workflow_run:
     workflows: ['harvest']
