@@ -827,8 +827,8 @@
       },
       "versions": [
         {
-          "version": "0.27.6",
-          "publishTimestamp": 1795610677,
+          "version": "0.29.0",
+          "publishTimestamp": 1795632498,
           "source": {
             "type": "npm"
           },
@@ -953,13 +953,13 @@
         ],
         "sortKeys": {
           "curation": 38,
-          "weeklyDownloads": 182102
+          "weeklyDownloads": 208093
         }
       },
       "versions": [
         {
-          "version": "0.5.118",
-          "publishTimestamp": 1795602173,
+          "version": "0.5.120",
+          "publishTimestamp": 1795639155,
           "source": {
             "type": "npm"
           },
@@ -1103,8 +1103,8 @@
       },
       "versions": [
         {
-          "version": "5.31.5",
-          "publishTimestamp": 1795604316,
+          "version": "5.31.8",
+          "publishTimestamp": 1795632168,
           "source": {
             "type": "npm"
           }
@@ -1244,8 +1244,8 @@
       },
       "versions": [
         {
-          "version": "1.25.0",
-          "publishTimestamp": 1795539830,
+          "version": "1.26.0",
+          "publishTimestamp": 1795612258,
           "source": {
             "type": "npm"
           }
@@ -1594,8 +1594,8 @@
       },
       "versions": [
         {
-          "version": "4.26.0-pre.76",
-          "publishTimestamp": 1795603845,
+          "version": "4.26.0-pre.77",
+          "publishTimestamp": 1795620277,
           "source": {
             "type": "npm"
           },
@@ -1913,13 +1913,13 @@
         ],
         "sortKeys": {
           "curation": 3,
-          "weeklyDownloads": 8380
+          "weeklyDownloads": 8060
         }
       },
       "versions": [
         {
-          "version": "0.18.25",
-          "publishTimestamp": 1795591697,
+          "version": "0.19.0",
+          "publishTimestamp": 1795616036,
           "source": {
             "type": "npm"
           }
@@ -2158,8 +2158,8 @@
       },
       "versions": [
         {
-          "version": "0.17.0",
-          "publishTimestamp": 1795609936,
+          "version": "0.17.2",
+          "publishTimestamp": 1795625401,
           "source": {
             "type": "npm"
           },
@@ -2289,47 +2289,6 @@
       }
     },
     {
-      "name": "@liustack/modsearch",
-      "metadata": {
-        "category": "search",
-        "keywords": [
-          "search",
-          "web-fetch",
-          "cli",
-          "llm",
-          "agent",
-          "agent-skill",
-          "antigravity",
-          "modsearch",
-          "dsh-plugin",
-          "deepseek-harness"
-        ],
-        "labels": [
-          "catalog-only",
-          "auto-category"
-        ],
-        "sortKeys": {
-          "weeklyDownloads": 20624
-        }
-      },
-      "versions": [
-        {
-          "version": "5.10.16",
-          "publishTimestamp": 1795552600,
-          "source": {
-            "type": "npm"
-          }
-        }
-      ],
-      "title": "Modsearch",
-      "description": "The strongest free web search plugin for coding agents. Plug-in web search, X search, and page fetch for models without native web access. Free out of the box: no signup, no API key (Firecrawl keyless, 1,000 free credits/month)",
-      "author": "liustack",
-      "homepage": "https://github.com/liustack/modsearch#readme",
-      "repository": {
-        "url": "https://github.com/liustack/modsearch.git"
-      }
-    },
-    {
       "name": "dsh-univer-office",
       "metadata": {
         "category": "media",
@@ -2401,6 +2360,47 @@
       }
     },
     {
+      "name": "@liustack/modsearch",
+      "metadata": {
+        "category": "search",
+        "keywords": [
+          "search",
+          "web-fetch",
+          "cli",
+          "llm",
+          "agent",
+          "agent-skill",
+          "antigravity",
+          "modsearch",
+          "dsh-plugin",
+          "deepseek-harness"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 19139
+        }
+      },
+      "versions": [
+        {
+          "version": "5.10.17",
+          "publishTimestamp": 1795632626,
+          "source": {
+            "type": "npm"
+          }
+        }
+      ],
+      "title": "Modsearch",
+      "description": "The strongest free web search plugin for coding agents. Plug-in web search, X search, and page fetch for models without native web access. Free out of the box: no signup, no API key (Firecrawl keyless, 1,000 free credits/month)",
+      "author": "liustack",
+      "homepage": "https://github.com/liustack/modsearch#readme",
+      "repository": {
+        "url": "https://github.com/liustack/modsearch.git"
+      }
+    },
+    {
       "name": "dsh-youtulh-workbench",
       "metadata": {
         "keywords": [
@@ -2417,8 +2417,8 @@
       },
       "versions": [
         {
-          "version": "0.13.13",
-          "publishTimestamp": 1795609050,
+          "version": "0.14.0",
+          "publishTimestamp": 1795628454,
           "source": {
             "type": "npm"
           },
@@ -2517,46 +2517,42 @@
       }
     },
     {
-      "name": "dsh-skill-mcp-market",
+      "name": "dsh-tokenbank",
       "metadata": {
-        "category": "models",
+        "category": "observability",
         "keywords": [
           "dsh",
           "deepseek-harness",
-          "dsh-bundle",
           "dsh-plugin",
-          "skill",
-          "skills",
-          "mcp",
-          "mcp-server",
-          "marketplace",
-          "skillsmp",
-          "browse.sh",
-          "clawhub"
+          "tokenbank"
         ],
         "labels": [
           "catalog-only",
           "auto-category"
         ],
         "sortKeys": {
-          "weeklyDownloads": 17479
+          "weeklyDownloads": 16993
         }
       },
       "versions": [
         {
-          "version": "0.5.173",
-          "publishTimestamp": 1795599287,
+          "version": "0.1.99",
+          "publishTimestamp": 1795617409,
           "source": {
             "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.3"
           }
         }
       ],
-      "title": "Skill mcp market",
-      "description": "DSH 技能市场与 MCP 连接器市场：浏览实时技能源，一键安装 SKILL.md 技能与 MCP 连接器，装完即刻可用、无需重启。SKILL & MCP marketplace for DeepSeek Harness — browse live sources, install skills and MCP connectors, effective immediately.",
-      "author": "kuailexiaozixin",
-      "homepage": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market#readme",
+      "title": "Tokenbank",
+      "description": "DSH 免费模型：一键注册 TokenBank 领免费 APIKey 送 $3 体验金（充值或托管 Key 再解锁 $2），免费 GLM 模型直接进模型列表；自带余额查询、API Key 密钥托管（临时额度转永久）、每日签到、充值入口（支付宝），获取免费模型无需自建中转。致敬 dsh-our-free-model。官网 https://bank.skillpie.cn",
+      "author": "skillpie",
+      "homepage": "https://github.com/skillpie/dsh-plugins#readme",
       "repository": {
-        "url": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market.git"
+        "url": "https://github.com/skillpie/dsh-plugins.git",
+        "directory": "dsh-tokenbank"
       }
     },
     {
@@ -2599,42 +2595,46 @@
       }
     },
     {
-      "name": "dsh-tokenbank",
+      "name": "dsh-skill-mcp-market",
       "metadata": {
-        "category": "observability",
+        "category": "models",
         "keywords": [
           "dsh",
           "deepseek-harness",
+          "dsh-bundle",
           "dsh-plugin",
-          "tokenbank"
+          "skill",
+          "skills",
+          "mcp",
+          "mcp-server",
+          "marketplace",
+          "skillsmp",
+          "browse.sh",
+          "clawhub"
         ],
         "labels": [
           "catalog-only",
           "auto-category"
         ],
         "sortKeys": {
-          "weeklyDownloads": 15818
+          "weeklyDownloads": 16040
         }
       },
       "versions": [
         {
-          "version": "0.1.96",
-          "publishTimestamp": 1795542049,
+          "version": "0.5.176",
+          "publishTimestamp": 1795645007,
           "source": {
             "type": "npm"
-          },
-          "engines": {
-            "dsh": ">=0.2.1-rc.3"
           }
         }
       ],
-      "title": "Tokenbank",
-      "description": "DSH 免费模型：一键注册 TokenBank 领免费 APIKey 送 $3 体验金（充值或托管 Key 再解锁 $2），免费 GLM 模型直接进模型列表；自带余额查询、API Key 密钥托管（临时额度转永久）、每日签到、充值入口（支付宝），获取免费模型无需自建中转。致敬 dsh-our-free-model。官网 https://bank.skillpie.cn",
-      "author": "skillpie",
-      "homepage": "https://github.com/skillpie/dsh-plugins#readme",
+      "title": "Skill mcp market",
+      "description": "DSH 技能市场与 MCP 连接器市场：浏览实时技能源，一键安装 SKILL.md 技能与 MCP 连接器，装完即刻可用、无需重启。SKILL & MCP marketplace for DeepSeek Harness — browse live sources, install skills and MCP connectors, effective immediately.",
+      "author": "kuailexiaozixin",
+      "homepage": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market#readme",
       "repository": {
-        "url": "https://github.com/skillpie/dsh-plugins.git",
-        "directory": "dsh-tokenbank"
+        "url": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market.git"
       }
     },
     {
@@ -2726,13 +2726,13 @@
           "auto-category"
         ],
         "sortKeys": {
-          "weeklyDownloads": 14984
+          "weeklyDownloads": 15224
         }
       },
       "versions": [
         {
-          "version": "0.4.12",
-          "publishTimestamp": 1795168369,
+          "version": "0.4.13",
+          "publishTimestamp": 1795635509,
           "source": {
             "type": "npm"
           },
@@ -3063,13 +3063,13 @@
           "auto-category"
         ],
         "sortKeys": {
-          "weeklyDownloads": 13110
+          "weeklyDownloads": 13015
         }
       },
       "versions": [
         {
-          "version": "0.22.2",
-          "publishTimestamp": 1795545820,
+          "version": "0.22.3",
+          "publishTimestamp": 1795630081,
           "source": {
             "type": "npm"
           }
@@ -3239,52 +3239,6 @@
       }
     },
     {
-      "name": "dsh-codex-subscription",
-      "metadata": {
-        "category": "observability",
-        "keywords": [
-          "dsh-plugin",
-          "deepseek",
-          "deepseek-harness",
-          "dsh",
-          "openai-codex",
-          "chatgpt-oauth",
-          "chatgpt",
-          "chatgpt-plus",
-          "subscription",
-          "quota",
-          "quota-reset",
-          "fast-mode"
-        ],
-        "labels": [
-          "catalog-only",
-          "auto-category"
-        ],
-        "sortKeys": {
-          "weeklyDownloads": 11397
-        }
-      },
-      "versions": [
-        {
-          "version": "3.2.30",
-          "publishTimestamp": 1795535839,
-          "source": {
-            "type": "npm"
-          },
-          "engines": {
-            "dsh": "0.1.7-rc.2 || 0.2.0-rc.1 || 0.2.0-rc.2 || 0.2.1-alpha.1 || 0.2.1-alpha.2 || 0.2.1-alpha.3 || 0.2.1-alpha.4 || 0.2.1-alpha.5 || 0.2.1-rc.1 || 0.2.1-rc.2 || 0.2.1-rc.3 || 0.2.1-rc.4 || 0.2.1-rc.5 || 0.2.2-alpha.2 || 0.2.2-alpha.3 || >=0.2.2-rc.1 <0.2.3-0 || >=0.2.3-alpha.2 <0.2.4-0"
-          }
-        }
-      ],
-      "title": "Codex subscription",
-      "description": "Use ChatGPT and Codex subscriptions in DeepSeek Harness with OAuth, quota, safe resets, web search, images and Fast mode, and control DSH from the ChatGPT mobile app (Beta)",
-      "author": "wsl043",
-      "homepage": "https://github.com/WSL043/dsh-codex-subscription",
-      "repository": {
-        "url": "https://github.com/WSL043/dsh-codex-subscription.git"
-      }
-    },
-    {
       "name": "@dsh-market/plugin",
       "metadata": {
         "category": "search",
@@ -3319,45 +3273,6 @@
       "repository": {
         "url": "https://github.com/2BingLing/dsh-market.git",
         "directory": "plugin/ui"
-      }
-    },
-    {
-      "name": "dsh-computer-use-win",
-      "metadata": {
-        "category": "devtools",
-        "keywords": [
-          "deepseek-harness",
-          "dsh",
-          "dsh-plugin",
-          "mcp",
-          "computer-use",
-          "windows",
-          "uia",
-          "desktop-automation"
-        ],
-        "labels": [
-          "catalog-only",
-          "auto-category"
-        ],
-        "sortKeys": {
-          "weeklyDownloads": 11210
-        }
-      },
-      "versions": [
-        {
-          "version": "0.6.3",
-          "publishTimestamp": 1795342812,
-          "source": {
-            "type": "npm"
-          }
-        }
-      ],
-      "title": "Computer use win",
-      "description": "Windows computer use for DeepSeek Harness: an MCP stdio server + PowerShell UIA backend, bridged into DSH via @deepseek-ai/dsh-mcp-client. Read/act on real Windows desktop apps (UI Automation tree, screenshots, typed input, OCR, window management).",
-      "author": "yutao_li",
-      "homepage": "https://github.com/Yu-tao-Li/dsh-computer-use-win#readme",
-      "repository": {
-        "url": "https://github.com/Yu-tao-Li/dsh-computer-use-win.git"
       }
     },
     {
@@ -3442,6 +3357,91 @@
       "homepage": "https://github.com/songoao25/dsh-bottom-info-bar",
       "repository": {
         "url": "https://github.com/songoao25/dsh-bottom-info-bar.git"
+      }
+    },
+    {
+      "name": "dsh-computer-use-win",
+      "metadata": {
+        "category": "devtools",
+        "keywords": [
+          "deepseek-harness",
+          "dsh",
+          "dsh-plugin",
+          "mcp",
+          "computer-use",
+          "windows",
+          "uia",
+          "desktop-automation"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 11042
+        }
+      },
+      "versions": [
+        {
+          "version": "0.6.4",
+          "publishTimestamp": 1795621430,
+          "source": {
+            "type": "npm"
+          }
+        }
+      ],
+      "title": "Computer use win",
+      "description": "Windows computer use for DeepSeek Harness: an MCP stdio server + PowerShell UIA backend, bridged into DSH via @deepseek-ai/dsh-mcp-client. Read/act on real Windows desktop apps (UI Automation tree, screenshots, typed input, OCR, window management).",
+      "author": "yutao_li",
+      "homepage": "https://github.com/Yu-tao-Li/dsh-computer-use-win#readme",
+      "repository": {
+        "url": "https://github.com/Yu-tao-Li/dsh-computer-use-win.git"
+      }
+    },
+    {
+      "name": "dsh-codex-subscription",
+      "metadata": {
+        "category": "observability",
+        "keywords": [
+          "dsh-plugin",
+          "deepseek",
+          "deepseek-harness",
+          "dsh",
+          "openai-codex",
+          "chatgpt-oauth",
+          "chatgpt",
+          "chatgpt-plus",
+          "subscription",
+          "quota",
+          "quota-reset",
+          "fast-mode"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 11032
+        }
+      },
+      "versions": [
+        {
+          "version": "3.2.31",
+          "publishTimestamp": 1795633762,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": "0.1.7-rc.2 || 0.2.0-rc.1 || 0.2.0-rc.2 || 0.2.1-alpha.1 || 0.2.1-alpha.2 || 0.2.1-alpha.3 || 0.2.1-alpha.4 || 0.2.1-alpha.5 || 0.2.1-rc.1 || 0.2.1-rc.2 || 0.2.1-rc.3 || 0.2.1-rc.4 || 0.2.1-rc.5 || 0.2.2-alpha.2 || 0.2.2-alpha.3 || >=0.2.2-rc.1 <0.2.3-0 || >=0.2.3-alpha.2 <0.2.4-0"
+          }
+        }
+      ],
+      "title": "Codex subscription",
+      "description": "Use ChatGPT and Codex subscriptions in DeepSeek Harness with OAuth, quota, safe resets, web search, images and Fast mode, and control DSH from the ChatGPT mobile app (Beta)",
+      "author": "wsl043",
+      "homepage": "https://github.com/WSL043/dsh-codex-subscription",
+      "repository": {
+        "url": "https://github.com/WSL043/dsh-codex-subscription.git"
       }
     },
     {
@@ -3627,8 +3627,8 @@
       },
       "versions": [
         {
-          "version": "0.7.9",
-          "publishTimestamp": 1794652802,
+          "version": "0.7.10",
+          "publishTimestamp": 1795635465,
           "source": {
             "type": "npm"
           },
@@ -3959,8 +3959,8 @@
       },
       "versions": [
         {
-          "version": "0.11.1",
-          "publishTimestamp": 1795588503,
+          "version": "0.13.0",
+          "publishTimestamp": 1795628511,
           "source": {
             "type": "npm"
           },
@@ -4160,8 +4160,8 @@
       },
       "versions": [
         {
-          "version": "0.12.25",
-          "publishTimestamp": 1795604770,
+          "version": "0.12.26",
+          "publishTimestamp": 1795611671,
           "source": {
             "type": "npm"
           }
@@ -4343,6 +4343,52 @@
       }
     },
     {
+      "name": "dsh-channel-feishu",
+      "metadata": {
+        "category": "collab",
+        "keywords": [
+          "dsh",
+          "deepseek",
+          "deepseek-harness",
+          "feishu",
+          "lark",
+          "飞书",
+          "channel",
+          "im",
+          "chatbot",
+          "bot",
+          "bridge",
+          "messaging"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 7984
+        }
+      },
+      "versions": [
+        {
+          "version": "0.9.46",
+          "publishTimestamp": 1795465452,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.3 <0.3.0"
+          }
+        }
+      ],
+      "title": "Channel feishu",
+      "description": "把 DSH（DeepSeek Harness）接到飞书：在飞书里直接和本机 Agent 对话，流式卡片回答、思考过程、交互问答卡、附件双向收发。Feishu/Lark (飞书) channel for DeepSeek Harness — one chat bound to one DSH session, streaming cards and attachments.",
+      "author": "poy-coder",
+      "homepage": "https://github.com/Poy-Coder/dsh-channel-feishu#readme",
+      "repository": {
+        "url": "https://github.com/Poy-Coder/dsh-channel-feishu.git"
+      }
+    },
+    {
       "name": "dsh-windows-parallel-mcp",
       "metadata": {
         "category": "devtools",
@@ -4413,8 +4459,8 @@
       },
       "versions": [
         {
-          "version": "2.4.6",
-          "publishTimestamp": 1795609065,
+          "version": "2.4.7",
+          "publishTimestamp": 1795618772,
           "source": {
             "type": "npm"
           },
@@ -4487,8 +4533,8 @@
       },
       "versions": [
         {
-          "version": "0.31.55",
-          "publishTimestamp": 1795610672,
+          "version": "0.31.56",
+          "publishTimestamp": 1795613688,
           "source": {
             "type": "npm"
           },
@@ -4576,8 +4622,8 @@
       },
       "versions": [
         {
-          "version": "0.8.16",
-          "publishTimestamp": 1795533981,
+          "version": "0.9.0",
+          "publishTimestamp": 1795632885,
           "source": {
             "type": "npm"
           }
@@ -4655,8 +4701,8 @@
       },
       "versions": [
         {
-          "version": "0.86.0",
-          "publishTimestamp": 1795545653,
+          "version": "0.88.0",
+          "publishTimestamp": 1795619416,
           "source": {
             "type": "npm"
           }
@@ -4887,8 +4933,8 @@
       },
       "versions": [
         {
-          "version": "0.1.43",
-          "publishTimestamp": 1795536386,
+          "version": "0.1.46",
+          "publishTimestamp": 1795627043,
           "source": {
             "type": "npm"
           }
@@ -5027,42 +5073,6 @@
       }
     },
     {
-      "name": "@ai-workbench/remote-agent",
-      "metadata": {
-        "category": "devtools",
-        "keywords": [
-          "dsh",
-          "dsh-plugin",
-          "deepseek-harness",
-          "acp",
-          "claude",
-          "codex"
-        ],
-        "labels": [
-          "catalog-only",
-          "auto-category"
-        ],
-        "sortKeys": {
-          "weeklyDownloads": 6874
-        }
-      },
-      "versions": [
-        {
-          "version": "0.8.31",
-          "publishTimestamp": 1794046510,
-          "source": {
-            "type": "npm"
-          },
-          "engines": {
-            "dsh": ">=0.2.0-rc.2 <0.3.0-0"
-          }
-        }
-      ],
-      "title": "Remote agent",
-      "description": "通过远程主机运行Claude与Codex会话。",
-      "author": "snstotz"
-    },
-    {
       "name": "@try-works/dsh-tool-mode",
       "metadata": {
         "category": "models",
@@ -5133,52 +5143,6 @@
       "homepage": "https://gitee.com/leiyi-works"
     },
     {
-      "name": "dsh-voice",
-      "metadata": {
-        "category": "appearance",
-        "keywords": [
-          "dsh",
-          "deepseek-harness",
-          "plugin",
-          "tts",
-          "stt",
-          "whisper",
-          "voice",
-          "dsh-plugin",
-          "deepseek",
-          "ai-agent",
-          "edge-tts",
-          "语音合成"
-        ],
-        "labels": [
-          "catalog-only",
-          "auto-category"
-        ],
-        "sortKeys": {
-          "weeklyDownloads": 6573
-        }
-      },
-      "versions": [
-        {
-          "version": "0.11.3",
-          "publishTimestamp": 1795542226,
-          "source": {
-            "type": "npm"
-          },
-          "engines": {
-            "dsh": ">=0.2.2-rc.3"
-          }
-        }
-      ],
-      "title": "Voice",
-      "description": "DeepSeek Harness 语音工作台插件（许愿式聊天优先 + 5 套主题工作台：原生清透 / 米白纸感 / Claude 暖书卷 / 8-Bit 像素 / 晴空薄荷）：零密钥 Edge TTS 场景化一键合成、自然语言选声、目标时长校准、HTML5 交互播放器、对话持久化记偏好、声音克隆、卡拉 OK 字幕、播客 BGM 自动闪避及多引擎音视频转写。欢迎提交 issues 和 PR。",
-      "author": "stardustlc",
-      "homepage": "https://github.com/STARDUSTLC666/dsh-voice#readme",
-      "repository": {
-        "url": "https://github.com/STARDUSTLC666/dsh-voice.git"
-      }
-    },
-    {
       "name": "dsh-cookie-cleaner",
       "metadata": {
         "category": "devtools",
@@ -5246,8 +5210,8 @@
       },
       "versions": [
         {
-          "version": "0.33.2",
-          "publishTimestamp": 1795609433,
+          "version": "0.33.3",
+          "publishTimestamp": 1795615033,
           "source": {
             "type": "npm"
           },
@@ -5292,8 +5256,8 @@
       },
       "versions": [
         {
-          "version": "0.12.4",
-          "publishTimestamp": 1795609415,
+          "version": "0.12.5",
+          "publishTimestamp": 1795615055,
           "source": {
             "type": "npm"
           },
@@ -5308,6 +5272,52 @@
       "homepage": "https://github.com/STARDUSTLC666/dsh-cite#readme",
       "repository": {
         "url": "https://github.com/STARDUSTLC666/dsh-cite.git"
+      }
+    },
+    {
+      "name": "dsh-voice",
+      "metadata": {
+        "category": "appearance",
+        "keywords": [
+          "dsh",
+          "deepseek-harness",
+          "plugin",
+          "tts",
+          "stt",
+          "whisper",
+          "voice",
+          "dsh-plugin",
+          "deepseek",
+          "ai-agent",
+          "edge-tts",
+          "语音合成"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 6270
+        }
+      },
+      "versions": [
+        {
+          "version": "0.11.4",
+          "publishTimestamp": 1795615017,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.3"
+          }
+        }
+      ],
+      "title": "Voice",
+      "description": "DeepSeek Harness 语音工作台插件（许愿式聊天优先 + 5 套主题工作台：原生清透 / 米白纸感 / Claude 暖书卷 / 8-Bit 像素 / 晴空薄荷）：零密钥 Edge TTS 场景化一键合成、自然语言选声、目标时长校准、HTML5 交互播放器、对话持久化记偏好、声音克隆、卡拉 OK 字幕、播客 BGM 自动闪避及多引擎音视频转写。欢迎提交 issues 和 PR。",
+      "author": "stardustlc",
+      "homepage": "https://github.com/STARDUSTLC666/dsh-voice#readme",
+      "repository": {
+        "url": "https://github.com/STARDUSTLC666/dsh-voice.git"
       }
     },
     {
@@ -5533,8 +5543,8 @@
       },
       "versions": [
         {
-          "version": "0.4.8",
-          "publishTimestamp": 1795609433,
+          "version": "0.4.10",
+          "publishTimestamp": 1795620898,
           "source": {
             "type": "npm"
           }
@@ -5776,6 +5786,35 @@
       }
     },
     {
+      "name": "@ai-workbench/remote-agent",
+      "metadata": {
+        "category": "devtools",
+        "keywords": [
+          "dsh-plugin"
+        ],
+        "labels": [
+          "catalog-only",
+          "auto-category"
+        ],
+        "sortKeys": {
+          "weeklyDownloads": 1232
+        }
+      },
+      "versions": [
+        {
+          "version": "0.8.31",
+          "publishTimestamp": 1794046510,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.0-rc.2 <0.3.0-0"
+          }
+        }
+      ],
+      "title": "Remote agent"
+    },
+    {
       "name": "@michengai/dsh-im-connect",
       "metadata": {
         "category": "collab",
@@ -5798,13 +5837,13 @@
         ],
         "sortKeys": {
           "curation": -2,
-          "weeklyDownloads": 9312
+          "weeklyDownloads": 9114
         }
       },
       "versions": [
         {
-          "version": "1.0.56",
-          "publishTimestamp": 1795587404,
+          "version": "1.0.57",
+          "publishTimestamp": 1795619184,
           "source": {
             "type": "npm"
           },
@@ -5892,13 +5931,13 @@
       },
       "versions": [
         {
-          "version": "0.10.12",
-          "publishTimestamp": 1794191628,
+          "version": "2.0.2",
+          "publishTimestamp": 1795651370,
           "source": {
             "type": "npm"
           },
           "engines": {
-            "dsh": ">=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0"
+            "dsh": ">=0.2.2-rc.1 <0.3.0-0"
           }
         }
       ],
@@ -6168,13 +6207,13 @@
         ],
         "sortKeys": {
           "curation": -10,
-          "weeklyDownloads": 19866
+          "weeklyDownloads": 20207
         }
       },
       "versions": [
         {
-          "version": "1.0.4",
-          "publishTimestamp": 1795542406,
+          "version": "1.0.5",
+          "publishTimestamp": 1795625261,
           "source": {
             "type": "npm"
           },
