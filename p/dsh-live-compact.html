@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>边做边压 · DSH 插件站</title>
+<meta name="description" content="把长工具输出就地压短，本机完成、压缩前先备份；默认上下文到 2 万 token 才动手。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="边做边压 · DSH 插件站">
+<meta property="og:description" content="把长工具输出就地压短，本机完成、压缩前先备份；默认上下文到 2 万 token 才动手。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="边做边压 · DSH 插件站">
+<meta name="twitter:description" content="把长工具输出就地压短，本机完成、压缩前先备份；默认上下文到 2 万 token 才动手。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-live-compact · 边做边压</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge warn">风险 中</span>
+    <span class="badge ok">🟢 纯本地</span>
+  </div>
+  <blockquote>一句话结论：目前看到最认真的&quot;上下文瘦身&quot;实现——本机压缩、切点前的原文不动、压缩前先备份、备份失败就放弃；还带了可复核的对照测评。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>一段对话做久了，日志、命令输出、工具结果越积越多，上下文快爆的人。</li>
+<li>关心&quot;压缩后会不会失忆&quot;，想知道有没有对照数据的人。</li>
+<li>用云端 API、在意费用与缓存命中率的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>每轮结束时检查，把<strong>能安全收短的长输出</strong>就地整理，<strong>在本机完成，不再请求模型</strong>。</li>
+<li>只替换选中的那一段，<strong>切点前面的内容保持原样</strong>；压缩前备份原文，备份失败就保留原内容。</li>
+<li>默认上下文到 2 万 token 才开始检查；接近窗口上限时，DSH 仍可调用模型做一次大摘要。</li>
+<li>README 给出对照测评：同一真实会话 15 道回忆题两边都 15/15；日志中段细节两次都是 3/3（原版一次 1/3）。</li>
+<li><code>SPINE_THUNDER</code> 实验性模型摘要模式，默认关闭，本机模型建议保持关闭。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>&quot;压缩&quot;不等于&quot;无损&quot;</strong>：它只动工具输出那类长内容，但一旦你依赖被压掉的中间细节，仍然查不到原文（虽然有备份）。</li>
+<li>备份会占磁盘，长会话下需要关注备份目录体积与清理策略。</li>
+<li>默认阈值 2 万 token 对短会话没意义；对小窗口模型可能偏晚。</li>
+<li>版本 1.1.x，README 的测评数据对应特定版本，升级后结论可能变。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong>官方压缩（<code>dsh-compaction-basic</code> 等）</strong>：由上下文接近上限时触发大摘要，简单但会丢细节。</li>
+<li><strong><code>dsh-context</code></strong>：只观察不压缩，适合先确认到底是谁吃了上下文。</li>
+<li><strong>手动新开会话 + AGENTS.md</strong>：零安装，最彻底，但丢历史。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-live-compact@1.1.12</code>（npm）· 许可证 MIT</li>
+<li>隔离 profile 安装成功（2026-11-18）· 周下载见站点卡片</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-live-compact" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/Haoming9527/dsh-live-compact" target="_blank" rel="noreferrer noopener">测评数据</a></li>
+<li>审核日期 2026-11-18 · 依据该版本 README 原文</li>
+<li>隐私：🟢 纯本地（压缩在本机完成，默认不请求模型）</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="dsh-mnemon.html"><code>dsh-mnemon</code></a> — 分层记忆与上下文编排</li><li><a href="dsh-prime-memory.html"><code>dsh-prime-memory</code></a> — 分层蒸馏记忆</li><li><a href="dsh-fish-memory.html"><code>dsh-fish-memory</code></a> — 会淡忘的长期记忆</li><li><a href="meow-memory.html"><code>meow-memory</code></a> — 七层 SQLite 记忆</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-live-compact.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-live-compact.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/Tranquillitatis-Lab/dsh-live-compact" target="_blank" rel="noreferrer noopener">Tranquillitatis-Lab/dsh-live-compact</a></dd><dt>安装 spec</dt><dd><code>dsh-live-compact@1.1.14</code></dd><dt>版本 / 更新</dt><dd>1.1.14 · 2026-11-26</dd><dt>核验版本</dt><dd>1.1.12（<b>当前已是 1.1.14，结论可能已过时</b>）</dd><dt>Star</dt><dd>375</dd><dt>周下载</dt><dd>2,166</dd><dt>许可证</dt><dd>未声明</dd><dt>DSH 版本要求</dt><dd><code>&gt;=0.2.0-rc.2 &lt;0.3.0</code>（声明值，未实测）</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 1.1.12（2026-11-25 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-live-compact" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/Tranquillitatis-Lab/dsh-live-compact" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://download.merkyorlynn.com/live-compact.html" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

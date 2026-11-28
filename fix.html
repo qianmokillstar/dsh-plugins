@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>装不上？先在这里查 · DSH 插件站</title>
+<meta name="description" content="按症状查 DSH 插件安装失败的原因与修法，每条都有实测证据。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="装不上？先在这里查 · DSH 插件站">
+<meta property="og:description" content="按症状查 DSH 插件安装失败的原因与修法，每条都有实测证据。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="装不上？先在这里查 · DSH 插件站">
+<meta name="twitter:description" content="按症状查 DSH 插件安装失败的原因与修法，每条都有实测证据。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page" style="border:0;background:none;box-shadow:none;padding:0;max-width:none">
+  <h1>装不上？先在这里查</h1>
+  <p>下面每一条都是本站<b>真装出问题后</b>记录下来的：症状 → 原因 → 修法 → 证据。输入你看到的关键词即可过滤。</p>
+  <div class="toolbar" style="position:static;border:1px solid var(--line);border-radius:12px;padding:12px;margin:16px 0">
+    <div class="controls">
+      <input id="fixq" type="search" placeholder="输入报错关键词，例如：IGNORED_BUILDS / tarball / 404 / 装了没反应" autocomplete="off">
+    </div>
+    <div class="chips" id="fixchips">
+      <button class="chip" data-query="装 A 插件，报错却指向 B（例如 dsh-purge-0.0.0-stage.tgz），之后装什么都失败">装 A 插件，报错却指向 B（例如 …</button><button class="chip" data-query="看到 + 插件名 版本号，但最后 ERR_PNPM_IGNORED_BUILDS，插件不生效">看到 + 插件名 版本号，但最后 E…</button><button class="chip" data-query="安装报 &quot;not in the npm registry&quot;，或者 404">安装报 &quot;not in the np…</button><button class="chip" data-query="用 github: 源安装，卡很久没有输出，最后超时">用 github: 源安装，卡很久没…</button><button class="chip" data-query="安装器报 incompatible with dsh，拒绝安装">安装器报 incompatible …</button><button class="chip" data-query="装完了，但界面里没有任何变化，也没有报错">装完了，但界面里没有任何变化，也没有…</button><button class="chip" data-query="突然什么插件都装不了，报 SyntaxError: Unexpected token">突然什么插件都装不了，报 Synta…</button><button class="chip" data-query="同一个插件装了两遍，行为异常或看到两个入口">同一个插件装了两遍，行为异常或看到两…</button>
+    </div>
+  </div>
+  <p class="count" id="fixcount"></p>
+  <div class="changelog" id="fixlist">
+    <section class="fixcase" data-keywords="装 a 插件，报错却指向 b（例如 dsh-purge-0.0.0-stage.tgz），之后装什么都失败 tarball unexpected end of tar 0.0.0-stage 坏包 lockfile 装什么都失败 err_pnpm_tarball_extract 某个损坏的占位包被写进该 profile 的 lockfile，之后每次 add 都会重试它；真正要装的那个其实没轮到。">
+      <h2>装 A 插件，报错却指向 B（例如 dsh-purge-0.0.0-stage.tgz），之后装什么都失败</h2>
+      <p style="margin:8px 0"><b>原因：</b>某个损坏的占位包被写进该 profile 的 lockfile，之后每次 add 都会重试它；真正要装的那个其实没轮到。</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol><li>先看报错里的 tarball 文件名，确认是哪个包坏了</li><li>在该 profile 里移除它：dsh plugin --profile &lt;prof&gt; remove &lt;坏包名&gt;</li><li>仍不行就删掉该 profile 的 node_modules 与 pnpm-lock.yaml 后重装</li><li>最省事：换一个干净 profile 重来</li></ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>本站实测：npm 上 dsh-purge@0.0.0-stage 是截断的 tarball，装了它之后 dsh-soul-md、dsh-fish-soul 全部因同一个坏包失败。</p>
+    </section><section class="fixcase" data-keywords="看到 + 插件名 版本号，但最后 err_pnpm_ignored_builds，插件不生效 ignored_builds ignored build scripts protobufjs pnpm approve-builds 半装 pnpm 11 默认不允许依赖执行构建脚本（安全策略）。包已经落地并写进 dependencies，但没进 dsh.profile.bundles，所以不会启动。本站记为「半装」。">
+      <h2>看到 + 插件名 版本号，但最后 ERR_PNPM_IGNORED_BUILDS，插件不生效</h2>
+      <p style="margin:8px 0"><b>原因：</b>pnpm 11 默认不允许依赖执行构建脚本（安全策略）。包已经落地并写进 dependencies，但没进 dsh.profile.bundles，所以不会启动。本站记为「半装」。</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol><li>在 profile 目录执行 pnpm approve-builds，逐个确认哪个依赖要跑脚本、判断可信后放行</li><li>然后重新 add 一次，让它进入 bundles</li><li>注意：package.json 的 pnpm 字段、pnpm-workspace.yaml 的 onlyBuiltDependencies、--config 传参，这三种配置写法我们实测都绕不过去</li></ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>本站实测：@michengai/dsh-im-connect、@tencent-connect/dsh-qqbot、dsh-session-superagent 三个都卡在这里。</p>
+    </section><section class="fixcase" data-keywords="安装报 &quot;not in the npm registry&quot;，或者 404 404 not in the npm registry no permission to fetch 不在 npm github: 装不上 这个包根本不在 npm 上，只发布在 github 仓库。">
+      <h2>安装报 &quot;not in the npm registry&quot;，或者 404</h2>
+      <p style="margin:8px 0"><b>原因：</b>这个包根本不在 npm 上，只发布在 GitHub 仓库。</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol><li>改用 GitHub 源：dsh plugin --profile &lt;prof&gt; add github:owner/repo</li><li>仓库地址去插件 README 的「安装」一节找，不要猜</li><li>克隆慢的时候会超时，见下一条</li></ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>本站实测：dsh-purge-community、dsh-purge-safe、dsh-liketavern、gal-view 都不在 npm。</p>
+    </section><section class="fixcase" data-keywords="用 github: 源安装，卡很久没有输出，最后超时 超时 timeout 卡住 没反应 克隆慢 recv failure dsh 会先克隆仓库，速度受网络与仓库体积影响。大仓库或网络差时会超时。">
+      <h2>用 github: 源安装，卡很久没有输出，最后超时</h2>
+      <p style="margin:8px 0"><b>原因：</b>DSH 会先克隆仓库，速度受网络与仓库体积影响。大仓库或网络差时会超时。</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol><li>换个时间重试，或先确认网络能正常访问 github.com</li><li>先确认作者有没有发布预编译包或 npm 版本</li><li>重新执行一次（已下载的部分通常会被复用）</li></ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>本站实测：dsh-liketavern 156 秒成功；dsh-tavern 超过 30 分钟超时；gal-view 两次都超过 15 分钟。</p>
+    </section><section class="fixcase" data-keywords="安装器报 incompatible with dsh，拒绝安装 incompatible engines allow-version 版本不兼容 与本机 dsh 不匹配 插件的 engines.dsh 与当前 dsh 版本不匹配，安装器主动拦截。">
+      <h2>安装器报 incompatible with dsh，拒绝安装</h2>
+      <p style="margin:8px 0"><b>原因：</b>插件的 engines.dsh 与当前 DSH 版本不匹配，安装器主动拦截。</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol><li>优先升级/降级插件版本，找一条匹配你 DSH 的版本线</li><li>不要轻易用 allow-version 强装——那等于自己承担崩溃与数据丢失</li><li>确认你装的是正确版本线的 dist-tag（有的插件按 DSH 主线分开发布）</li></ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>本站实测：billion-context-dsh@0.2.27 对 DSH 0.2.2-rc.3 被拒。</p>
+    </section><section class="fixcase" data-keywords="装完了，但界面里没有任何变化，也没有报错 装了没反应 没入口 静默 不生效 看不到 没有变化 常见三种：① 版本不满足，内核静默跳过该插件；② 包没进 profile bundles；③ 它依赖 webserver 之类的服务，在精简 profile 里 pending。">
+      <h2>装完了，但界面里没有任何变化，也没有报错</h2>
+      <p style="margin:8px 0"><b>原因：</b>常见三种：① 版本不满足，内核静默跳过该插件；② 包没进 profile bundles；③ 它依赖 webServer 之类的服务，在精简 profile 里 pending。</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol><li>跑 dsh --profile &lt;prof&gt; --dump-config，看这个插件有没有出现在组合里</li><li>在组合里但启动后 pending → 缺宿主服务（换到带 Web 的 profile）</li><li>不在组合里 → 重新 add，或检查是否处于「半装」</li><li>个别插件（如 dsh-bili-scroll）README 明确说版本不满足会被静默跳过，先核对版本</li></ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>本站启动核验实测：archive-manager 与 dream-skin 在最小 profile 里 pending，等待 webServer。</p>
+    </section><section class="fixcase" data-keywords="突然什么插件都装不了，报 syntaxerror: unexpected token bom syntaxerror unexpected token json profile 坏了 readprofilemanifest 手改过 profile 的 package.json，保存时带了 utf-8 bom，dsh 的 json 解析不接受 bom。">
+      <h2>突然什么插件都装不了，报 SyntaxError: Unexpected token</h2>
+      <p style="margin:8px 0"><b>原因：</b>手改过 profile 的 package.json，保存时带了 UTF-8 BOM，DSH 的 JSON 解析不接受 BOM。</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol><li>用编辑器把该文件另存为「UTF-8 无 BOM」</li><li>或用命令行去掉 BOM（node 一行即可）</li><li>改之前先备份该文件</li></ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>本站实测：PowerShell 的 Set-Content -Encoding UTF8 会写 BOM，导致整个 profile 无法安装任何插件。</p>
+    </section><section class="fixcase" data-keywords="同一个插件装了两遍，行为异常或看到两个入口 两个 重复 npm 和 github 并存 冲突 同一个包分别用 npm 名与 github: 源装过，两者并存冲突。">
+      <h2>同一个插件装了两遍，行为异常或看到两个入口</h2>
+      <p style="margin:8px 0"><b>原因：</b>同一个包分别用 npm 名与 github: 源装过，两者并存冲突。</p>
+      <p style="margin:8px 0"><b>怎么修：</b></p>
+      <ol><li>先 remove 其中一种装法，再重新装你需要的那个</li><li>统一只用一种来源（推荐 npm 已发布版）</li></ol>
+      <p style="font-size:13px;color:var(--ink-muted)"><b>证据：</b>本站实测：dsh-whale-widget 的 README 明确警告两种装法不要混用。</p>
+    </section>
+  </div>
+  <div class="notice">查不到？<a href="https://github.com/qianmokillstar/dsh-plugins/discussions/2" target="_blank" rel="noreferrer noopener">把你的报错发到讨论区</a>（带上插件名、DSH 版本、完整报错）。能复现的我们会复现后补进这张表。</div>
+  <p style="font-size:13px;color:var(--ink-muted)">相关：<a href="install.html">安装避坑指南</a> · <a href="failures.html">失败档案</a> · <a href="method.html">核验方法</a></p>
+</div>
+
+<script>
+(function () {
+  var q = document.getElementById('fixq');
+  var list = document.getElementById('fixlist');
+  var count = document.getElementById('fixcount');
+  if (!q || !list) return;
+  var cases = Array.prototype.slice.call(list.querySelectorAll('.fixcase'));
+  function apply() {
+    var words = q.value.toLowerCase().split(/[\s,]+/).filter(Boolean);
+    var shown = 0;
+    cases.forEach(function (el) {
+      var hay = el.getAttribute('data-keywords') + ' ' + el.textContent.toLowerCase();
+      var hit = words.every(function (word) { return hay.indexOf(word) >= 0; });
+      el.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    });
+    count.textContent = '匹配 ' + shown + ' / ' + cases.length + ' 条';
+  }
+  q.addEventListener('input', apply);
+  Array.prototype.slice.call(document.querySelectorAll('#fixchips .chip')).forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      q.value = chip.getAttribute('data-query') || '';
+      apply();
+    });
+  });
+  apply();
+})();
+</script>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

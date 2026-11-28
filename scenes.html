@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>场景施工图 · DSH 插件站</title>
+<meta name="description" content="按场景给出装哪些、按什么顺序、哪些可以跳过。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="场景施工图 · DSH 插件站">
+<meta property="og:description" content="按场景给出装哪些、按什么顺序、哪些可以跳过。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="场景施工图 · DSH 插件站">
+<meta name="twitter:description" content="按场景给出装哪些、按什么顺序、哪些可以跳过。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page" style="border:0;background:none;box-shadow:none;padding:0;max-width:none">
+  <h1>场景施工图</h1>
+  <p>这里不给"全部插件"，只给<b>按场景装哪几个、按什么顺序、哪些可以跳过、有什么坑</b>。每一条都对应本站有判断的插件；还没写判断的插件不会出现在这里。</p>
+  <p class="notice">当前覆盖 15 个场景，全部基于已审核插件的 README 与核验记录。顺序建议是判断，不是硬性依赖。</p>
+  <div class="scene" id="rp-memory">
+    <h2>养鱼①长期记忆：聊到第 50 轮还记得设定</h2>
+    <p class="lead">角色扮演最大的劝退点是失忆：聊久了模型忘了人物关系、世界观、你定过的规矩。先解决&quot;记得住&quot;，再谈&quot;聊得深&quot;。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-prime-memory.html"><code>dsh-prime-memory</code></a> —— 想要全自动就先试它：对话自动压成 L0→L3 四层，每次调用前召回注入。装完先跑三天，进记忆库抽查写进去的东西对不对。</li><li><a href="p/dsh-mnemon.html"><code>dsh-mnemon</code></a> —— 想要&quot;看得见&quot;就选它：工作记忆 / 项目档案 / 长期证据分层，每轮回复下有回合记忆栏，点进去能改。</li><li><a href="p/dsh-fish-memory.html"><code>dsh-fish-memory</code></a> —— 想要&quot;会淡忘&quot;就选它：带时间戳、按命中注入，久远设定会越记越淡——适合长线剧情而不是精密设定。</li><li><a href="p/meow-memory.html"><code>meow-memory</code></a> —— 要&quot;人格与偏好分开存&quot;就选它：七层 SQLite 记忆，soul/user 分层，代价是配置门槛最高。</li><li><a href="p/memory-eternal.html"><code>memory-eternal</code></a> —— 要&quot;多台机器共享&quot;就选它：本地 SQLite + 可选云同步，热切换不刷新；云同步即内容上云。</li><li><a href="p/dsh-plugin-memory.html"><code>dsh-plugin-memory</code></a> —— 要&quot;记忆能进 git、能搬走&quot;就选它：markdown + SOUL.md，启动时硬注入。</li><li><a href="p/dsh-memory-nebula.html"><code>dsh-memory-nebula</code></a> —— 装了几个记忆插件之后，用它看清楚各自记了什么：只读聚合、顺链检索。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>设定不多、只聊几轮 —— 直接在 AGENTS.md 里手写人设与世界观，零安装、完全可控</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>自动写入的记忆写错会被反复引用，越用越偏：必须定期抽查删改</li><li>蒸馏与召回通常要调模型，等于对话内容会经过模型服务</li><li>两个都装会重复注入，上下文更早爆</li></ul>
+  </div><div class="scene" id="rp-slim">
+    <h2>养鱼②上下文瘦身：聊到卡顿怎么救</h2>
+    <p class="lead">长对话会把工具输出、日志、命令结果越积越多，最后要么卡、要么贵、要么开始忘事。顺序很重要：先看清楚，再压缩，最后设上限。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-context.html"><code>dsh-context</code></a> —— 第一步只装它，看上下文里到底装了什么、哪一类占得最多。它只读不改，先诊断再动手。</li><li><a href="p/dsh-live-compact.html"><code>dsh-live-compact</code></a> —— 第二步压：本机把长工具输出就地收短，压缩前备份原文、备份失败就放弃；默认到 2 万 token 才动手。</li><li><a href="p/dsh-token-diet.html"><code>dsh-token-diet</code></a> —— 第三步兜底：给会话设 Token 预算，到 100% 在下一步请求前停下，避免一晚烧穿。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>短会话、或习惯&quot;一到上限就新开会话&quot;的人 —— 新开 + AGENTS.md 比任何压缩都干净</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>压缩不是无损：被压掉的中间细节虽然有备份，但不会再进上下文</li><li>备份会占磁盘，长会话要定期清理</li><li>预算到顶是真停任务，长任务可能卡在半路</li></ul>
+  </div><div class="scene" id="rp-persona">
+    <h2>养鱼③人设防崩：别让角色越聊越像客服</h2>
+    <p class="lead">人设崩通常不是模型变笨，而是设定没有稳定载体：被新消息冲淡、被记忆覆盖、被压缩带走。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-soul-md.html"><code>dsh-soul-md</code></a> —— 要&quot;可控&quot;就选它：把角色写成可切换的人设卡（会话级/工作区级），记忆存成 markdown 你自己能打开改。注意它不保证模型真的去更新人设。</li><li><a href="p/dsh-prime-memory.html"><code>dsh-prime-memory</code></a> —— 要&quot;自动&quot;就选它：用 L3 画像层自动蒸馏&quot;这个人是谁&quot;，但内容不可精确手改。</li><li><a href="p/Amakurai__dsh-liketavern.html"><code>dsh-liketavern</code></a> —— 要&quot;专业养鱼&quot;就选它：兼容 ST 角色卡与世界书，剧情状态按分支隔离、重试不串味；装法特殊（github: 源）且需 Node ≥24。</li><li><a href="p/dsh-fish-soul.html"><code>dsh-fish-soul</code></a> —— 要&quot;她活在 QQ/B站/抖音&quot;就选它：跨平台单角色人格 + 按人记忆；账号风险与隐私面最大，先想清楚再装。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>只做单次短对话 —— 开场把设定贴进上下文就够</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>两个都装会重复注入人设，上下文更早爆</li><li>人设文件被插件覆盖是最常见的崩法，改之前先备份</li><li>记忆与人设冲突时通常是记忆赢——需要定期校准</li></ul>
+  </div><div class="scene" id="rp-privacy">
+    <h2>养鱼④隐私排雷：私密聊天别流出去</h2>
+    <p class="lead">角色扮演的内容往往是最私密的。装插件前先问一句：它会把我说的东西发到哪里去？</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-context.html"><code>dsh-context</code></a> —— 先用它看清上下文里都有什么，再决定哪些插件值得信任（它本身只读本地）。</li><li><a href="p/cc-safety-net.html"><code>cc-safety-net</code></a> —— 加一道拦截：阻止 Agent 读 .env / SSH 私钥、执行破坏性命令。注意它不是沙箱。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>全部用本地模型 + 只装 🟢 插件 —— 风险最低，代价是模型能力</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>🔴 需云端的插件：内容会离开本机（本站已在每条核验里标出）</li><li>桌面自动化类（如 dsh-windows-mcp）会把截图当图片送进对话，屏幕上的一切都在画面里</li><li>视频类插件需要 cookies.txt 这类账号凭据，等于把登录态交出去</li><li>隐私分级是读 README 后的判断，没有抓包验证，别当审计结论</li></ul>
+  </div><div class="scene" id="rp-away">
+    <h2>养鱼⑤离开电脑：手机接着聊、有事提醒你</h2>
+    <p class="lead">躺床上想继续剧情、或者长任务跑着要离开座位——这两件事要分开解决：一个管&quot;能接着聊&quot;，一个管&quot;该回来时叫你&quot;。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-mobile-plugin.html"><code>dsh-mobile-plugin</code></a> —— 要接着聊就装它：手机 App 连回你自己电脑上的 DSH，审批与提问也能在手机上点。</li><li><a href="p/dsh-notify-me.html"><code>dsh-notify-me</code></a> —— 只要&quot;叫你回来&quot;就装它：审批/完成时弹通知、响铃；注意只有开了外部转发才会把内容推给第三方。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>只是短时间离开 —— 浏览器标签开着就行，不用装</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>手机插件默认走中转隧道，内容会经过第三方；高隐私用局域网直连</li><li>通知转发到 Discord/飞书 等渠道时，标题与摘要会出本机</li><li>两边都装要注意重复打扰</li></ul>
+  </div><div class="scene" id="rp-vibe">
+    <h2>养鱼⑥氛围与表达：让对话不像&quot;客服回复&quot;</h2>
+    <p class="lead">同一段剧情，纯文字和&quot;有表情、有卡片、有场景感&quot;的体验差很远。这一层不改剧情，只改呈现。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-meme.html"><code>dsh-meme</code></a> —— 加表情：输入框一键发图，AI 按气氛接梗；代价是图片吃上下文。</li><li><a href="p/dsh-pet.html"><code>dsh-pet</code></a> —— 加陪伴：一百多个透明动画跟随会话状态，可脱离浏览器住成桌面小窗；吃性能。</li><li><a href="p/dsh-dafeiyu.html"><code>dsh-dafeiyu</code></a> —— 要&quot;原生置顶窗&quot;选它：随 DSH 启停、显示任务状态与余额；需要 Python/PySide6 环境。</li><li><a href="p/dsh-genui.html"><code>dsh-genui</code></a> —— 加结构：把回复变成可点的计算器/表单/图表；与 deep-view 二选一，别都装。</li><li><a href="p/deep-view.html"><code>deep-view</code></a> —— 加结构：需要&quot;选 A 还是 B&quot;&quot;填个参数&quot;时，用可点卡片代替一大段文字。</li><li><a href="p/dsh-plugin-wallpaper-engine.html"><code>dsh-plugin-wallpaper-engine</code></a> —— 加场景：把壁纸引擎的 Scene/Web/视频做成对话背景，不花 token，但吃性能。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>只想要文字沉浸 —— 装饰层会分散注意力，也用不上</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>三类都增加上下文或性能开销，长会话要权衡</li><li>表情包与壁纸素材的版权要自己确认</li><li>装饰装多了排查问题会更难：出 bug 先关装饰层</li></ul>
+  </div><div class="scene" id="remote">
+    <h2>场景一 · 远程开发：让 Agent 直接在服务器上干活</h2>
+    <p class="lead">代码在服务器 / 云主机上，本地只想编辑和发指令。目标是让 Agent 在远端目录里读写、构建、跑测试，而不是本地生成再手动上传。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-remote.html"><code>dsh-remote</code></a> —— 先装它。远程文件树 + 高亮编辑 + 递归搜索 + 终端 + 只读 Git 差异，一个工作区绑一台主机。装完重启 DSH Web，设置里配 SSH 主机再建远程工作区。</li><li><a href="p/deepseek-harness-tui__dsh-tui.html"><code>@deepseek-harness-tui/dsh-tui</code></a> —— 只在&quot;想住在终端里&quot;时加装。它把会话搬到命令行，和 dsh-remote 不冲突，但两套界面偏好各自独立。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>已经有 VS Code Remote 且习惯在编辑器里跑命令 —— 装了反而多一套目录树</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>SSH 密码 / 私钥由插件保存并自动应答，这是最大风险面；多用户机器上不要用</li><li>Agent 拿到的是远端 shell 能力，先用非生产目录试</li><li>SSH 通断会同时影响编辑、搜索、终端</li></ul>
+  </div><div class="scene" id="cost">
+    <h2>场景二 · 成本监控：先知道钱花在哪</h2>
+    <p class="lead">同时用 API 和多份 Coding Plan / 订阅，想按会话、按模型、按日期看清消耗，并在超支前收到提醒。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-cost-meter.html"><code>dsh-cost-meter</code></a> —— 主力选择。会话级费用、模型排行、缓存命中率、套餐额度聚合、预算提醒都在里面；先只配你真正在用的那几家账号。</li><li><a href="p/dsh-whale-widget.html"><code>dsh-whale-widget</code></a> —— 只想看余额时的轻量替代：右下角挂一个小鲸鱼，不占主界面。不适合要做月度归因的人。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>只用单一订阅、且平台自带账单页面 —— 多装一个会重复采集</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>查订阅额度通常要各家 Cookie / API key / AK-SK，别为了&quot;看得全&quot;把所有账号都填进去</li><li>API 费用与 Plan 等值费用分开统计，数字准不准取决于你的配置，别直接拿去报销</li><li>历史记录会占本地存储，确认保留范围</li></ul>
+  </div><div class="scene" id="memory">
+    <h2>场景三 · 记忆管理：让下一次会话不用重新自我介绍</h2>
+    <p class="lead">长期在同一个项目上和 Agent 协作，受够了每次会话都从零开始；但也不想把所有内容塞进一个记忆库。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-mnemon.html"><code>dsh-mnemon</code></a> —— 结构最讲究的一个：工作记忆 / 项目档案 / 长期证据分层，按问题需要检索；默认本地存储，也能接第三方 Provider。第一周先用默认配置。</li><li><code>meow-memory / dsh-fish-memory</code> —— 工程化偏好选 meow-memory（七层 SQLite + 反思折叠）；只想记事实、要轻量选 dsh-fish-memory。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>项目里已经有 AGENTS.md 且规则不多 —— 先写好约定文件，不够再上记忆插件</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>自动写入的记忆一旦写错会被反复引用，定期抽查删除</li><li>接入第三方 Provider 意味着项目内容离开本机</li><li>配置项很多，第一天上手容易配出自己也看不懂的组合</li></ul>
+  </div><div class="scene" id="search">
+    <h2>场景四 · 联网搜索：没有官方 key 也要能搜</h2>
+    <p class="lead">内置 web_search 依赖 DeepSeek 官方 key；用第三方模型供应商时要么搜不了，要么照样扣官方账户的钱。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-free-search.html"><code>dsh-free-search</code></a> —— 注册多引擎搜索 provider 并自动回退；先只开默认的免费引擎，别开抓页面那 5 个。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>已经配好官方 key、且不介意按官方计费 —— 内置能力足够，不必多装一层</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>抓页面引擎（百度/360/搜狗/微信/头条）会把整段出口 IP 打标，默认关闭就别打开</li><li>免 key 用各家接口，商用前自行确认对方条款</li><li>免费引擎会限流改版，结果质量会波动</li></ul>
+  </div><div class="scene" id="desktop">
+    <h2>场景五 · 桌面自动化：操作没有 API 的软件</h2>
+    <p class="lead">内部系统、老客户端、只有界面没有接口的活，只能靠截屏 + 点按 + 输入。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-windows-mcp.html"><code>dsh-windows-mcp</code></a> —— 通过 DSH 自带 MCP 桥接入 Windows-MCP；默认关闭，按会话点亮胶囊才生效。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>任务只在浏览器里 —— 用浏览器类工具，权限面小得多</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>注册表读写、进程启停、键鼠输入在同一套授权下，重活先拿测试机试</li><li>Screenshot 会把屏幕上的一切作为图片送进对话</li><li>依赖 uvx 与上游 Windows-MCP 版本，上游变了工具清单会变</li></ul>
+  </div><div class="scene" id="compare">
+    <h2>场景六 · 多方案对比：一次拿到几个版本再挑</h2>
+    <p class="lead">同一个需求，想要 2–4 种实现并排看，而不是反复&quot;再来一版&quot;。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-agent-compare.html"><code>dsh-agent-compare</code></a> —— 并行跑 2–4 个版本，回答 / 文件 / 可运行网页并排比较，选定后写理由再继续主对话。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>需求本身很明确、只需要一次输出 —— 并行 2–4 路等于 2–4 倍成本</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>token 消耗成倍增加，配合费用统计插件用</li><li>多版内容都会进会话，长会话容易吃满上下文</li></ul>
+  </div><div class="scene" id="archive">
+    <h2>场景七 · 会话整理：列表越来越长之后</h2>
+    <p class="lead">会话上百条以后，侧栏翻不到想要的那一轮；暂时不做的项目舍不得删，又不想天天看到。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/michengai__dsh-archive-manager.html"><code>@michengai/dsh-archive-manager</code></a> —— 归档 / 恢复 / 收藏 + 正文全文检索，还能按闲置天数批量归档并撤回。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>会话不到 50 条、且不介意侧栏长 —— 内置列表够用</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>&quot;永久删除&quot;是真的永久，先拿不重要的会话试一次</li><li>批量归档会动很多会话，操作前看预览列表</li><li>会读取消息正文建索引</li></ul>
+  </div><div class="scene" id="media">
+    <h2>场景八 · 让模型&quot;看&quot;视频：分镜与可引用帧</h2>
+    <p class="lead">纯文本模型看不了视频；逐帧喂图又贵得离谱。要的是能引用某一格、还能再放大看几秒。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-video-storyboard.html"><code>dsh-video-storyboard</code></a> —— 把视频压成一张带时间戳与台词的宫格图，模型可引用&quot;第 5 格&quot;，再按需放大。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>只要两三帧 —— 手动截帧 + 图片工具更省事</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>要自备 ffmpeg、yt-dlp 与 cookies.txt（等于账号凭据）</li><li>宫格图会把画面内容送进对话</li><li>抓站点涉及平台条款，自用与再分发边界自己判断</li></ul>
+  </div><div class="scene" id="appearance">
+    <h2>场景九 · 视觉定制：把界面换成愿意天天看的</h2>
+    <p class="lead">长时间盯界面，配色与留白直接影响状态；团队展示还需要一点统一气质。</p>
+    <h3>装什么、按什么顺序</h3>
+    <ol><li><a href="p/dsh-dream-skin.html"><code>dsh-dream-skin</code></a> —— 8 套预设皮肤 + 壁纸 + 强调色，纯 token 实现，不注入、不改安装包，一键还原。</li></ol>
+    <h3>可以跳过</h3>
+    <ul><li>内置深浅色够用 —— 换肤只是审美，不是功能</li></ul>
+    <h3>权限与冲突注意</h3>
+    <ul><li>README 提到维护坐标从 GitHub 迁到 gitcode、暂停&quot;已验证&quot;背书，源码托管状态需自行确认</li><li>壁纸支持外部 URL，用不可信地址有隐私风险</li><li>迭代很快，版本号已到 11.x</li></ul>
+  </div>
+  <p>还想要别的场景？<a href="submit.html">提交需求</a>，说明你的工作流和卡点。</p>
+</div>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

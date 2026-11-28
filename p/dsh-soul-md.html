@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人设卡与文件记忆 · DSH 插件站</title>
+<meta name="description" content="会话级/工作区级可切换的人设卡，记忆存成 markdown 文件由模型读写；不保证模型真的去改。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="人设卡与文件记忆 · DSH 插件站">
+<meta property="og:description" content="会话级/工作区级可切换的人设卡，记忆存成 markdown 文件由模型读写；不保证模型真的去改。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="人设卡与文件记忆 · DSH 插件站">
+<meta name="twitter:description" content="会话级/工作区级可切换的人设卡，记忆存成 markdown 文件由模型读写；不保证模型真的去改。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-soul-md · 人设卡 + 文件记忆</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge warn">风险 中</span>
+    <span class="badge ok">🟢 纯本地</span>
+  </div>
+  <blockquote>一句话结论：把&quot;人设&quot;做成可切换的卡片（会话级/工作区级/默认），记忆存成 markdown 文件由模型自己读写——<strong>养鱼圈最对症的人设方案</strong>，但它不保证模型一定去改人设。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>同时养多个角色/多个项目，需要&quot;这个会话用这个人设&quot;的人。</li>
+<li>想要&quot;人设和记忆都能自己打开看、自己改&quot;的人（markdown 文件，不用信插件黑盒）。</li>
+<li>在意子代理污染：默认不向子代理注入人设与记忆。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li><strong>人设卡</strong>：插件页创建/编辑/设默认；新会话页或聊天标题栏可给单个会话换卡，也能隐藏选择器。</li>
+<li><strong>解析顺序</strong>：会话选择 → 工作区人设 → 默认卡 → 不启用，规则清晰。</li>
+<li><strong>文件记忆</strong>：<code>memory_read</code> / <code>memory_append</code> / <code>memory_rewrite</code> 读写记忆；<code>soul_read</code> / <code>soul_update</code> 读写人设卡。</li>
+<li><strong>分层记忆</strong>：常驻 <code>core.md</code> + 按主题读取的 <code>topics/*.md</code>，支持 <code>memory_search</code>、关键词召回、压缩后补偿，可分别关闭。</li>
+<li>每张卡可单独关记忆，不影响人设本身；子代理默认不注入。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>&quot;不保证自动发生&quot;</strong>：README 明说人设变化与记忆写入取决于模型是否真的调用工具——也就是说模型偷懒时，人设不会自己更新。</li>
+<li>切换工作区可能打开另一个空白会话，<strong>人设选择要重新确认</strong>，容易&quot;以为在用人设其实没有&quot;。</li>
+<li>人设卡是 markdown 文件，改错会直接影响对话风格；多卡片管理容易混淆。</li>
+<li>与记忆类插件（prime-memory / mnemon / meow）叠加会重复注入，上下文更早爆。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong>AGENTS.md 手写人设</strong>：零安装、最稳，适合单角色单项目。</li>
+<li><strong><code>dsh-prime-memory</code> L3 画像</strong>：自动蒸馏&quot;这个人是谁&quot;，但不可精确手改。</li>
+<li><strong><code>dsh-fish-soul</code></strong>：另一个 soul 方向实现（本轮未取到 README，未核实）。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-soul-md@0.12.5</code>（npm）· 隔离 profile 安装成功（2026-11-18）</li>
+<li>兼容：允许 DSH <code>0.2.0-rc.2</code> 起的宿主版本；Node ≥ 20.18</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-soul-md" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/Scorp1o117/dsh-soul-md" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-18 · 依据该版本 README 原文</li>
+<li>隐私：🟢 纯本地（人设与记忆都落在本机 markdown 文件；模型读写时不额外外发存档）</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="dsh-mnemon.html"><code>dsh-mnemon</code></a> — 分层记忆与上下文编排</li><li><a href="dsh-prime-memory.html"><code>dsh-prime-memory</code></a> — 分层蒸馏记忆</li><li><a href="dsh-live-compact.html"><code>dsh-live-compact</code></a> — 边做边压</li><li><a href="dsh-fish-memory.html"><code>dsh-fish-memory</code></a> — 会淡忘的长期记忆</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-soul-md.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-soul-md.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/scorp1o117/dsh-soul-md" target="_blank" rel="noreferrer noopener">scorp1o117/dsh-soul-md</a></dd><dt>安装 spec</dt><dd><code>dsh-soul-md@0.12.6</code></dd><dt>版本 / 更新</dt><dd>0.12.6 · 2026-11-26</dd><dt>核验版本</dt><dd>0.12.5（<b>当前已是 0.12.6，结论可能已过时</b>）</dd><dt>Star</dt><dd>未获取</dd><dt>周下载</dt><dd>4,216</dd><dt>许可证</dt><dd>未声明</dd><dt>DSH 版本要求</dt><dd><code>&gt;=0.2.0-rc.2 || &gt;=0.2.1-rc.1 || &gt;=0.2.2-rc.1</code>（声明值，未实测）</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 0.12.5（2026-11-25 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-soul-md" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/scorp1o117/dsh-soul-md" target="_blank" rel="noreferrer noopener">GitHub</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

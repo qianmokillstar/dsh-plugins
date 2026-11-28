@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>核验徽章 · DSH 插件站</title>
+<meta name="description" content="给插件作者的可嵌入核验徽章，一行 markdown 显示可安装性与版本状态。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="核验徽章 · DSH 插件站">
+<meta property="og:description" content="给插件作者的可嵌入核验徽章，一行 markdown 显示可安装性与版本状态。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="核验徽章 · DSH 插件站">
+<meta name="twitter:description" content="给插件作者的可嵌入核验徽章，一行 markdown 显示可安装性与版本状态。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page">
+  <h1>核验徽章（给插件作者用）</h1>
+  <p>如果你是这个插件的作者，可以把下面这一行贴进 README，它会显示本站的核验结论并链回完整记录。</p>
+  <p class="notice">徽章只是<b>可安装性</b>与<b>版本状态</b>，不是背书。本站是非官方第三方站点，与 DeepSeek / DSH 官方无关联；如果你不希望被收录，<a href="takedown.html">告诉我们</a>，<b>先下架再核实</b>。</p>
+
+  <h2>怎么用</h2>
+  <ol>
+    <li>在下面的表格里找到你的插件</li>
+    <li>复制「Markdown」那一列的代码</li>
+    <li>粘进 README 顶部，提交即可</li>
+  </ol>
+  <p>效果：<img src="https://qianmokillstar.github.io/dsh-plugins/badges/dsh-agent-compare.svg" alt="示例徽章" style="vertical-align:middle"></p>
+
+  <h2>三种状态的含义</h2>
+  <table class="verify-table">
+    <thead><tr><th>徽章</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge" style="background:#15803d;color:#fff">x.y.z 可装</span></td><td>该版本在隔离 profile 里装成功并进入组合</td></tr>
+      <tr><td><span class="badge" style="background:#b45309;color:#fff">a.b.c → d.e.f</span></td><td>核验的是旧版本，作者已发新版；结论可能过时</td></tr>
+      <tr><td><span class="badge" style="background:#b45309;color:#fff">半装 x.y.z</span></td><td>包落地但没进 bundles（常见原因：pnpm 拦截构建脚本）</td></tr>
+    </tbody>
+  </table>
+  <p>如果你更新了版本、希望我们重新核验，<a href="https://github.com/qianmokillstar/dsh-plugins/discussions/2" target="_blank" rel="noreferrer noopener">在讨论区说一声</a>即可，不需要付费。</p>
+
+  <h2>全部徽章（55 个）</h2>
+  <table class="verify-table">
+    <thead><tr><th>插件</th><th>状态</th><th>Markdown</th></tr></thead>
+    <tbody><tr>
+      <td><a href="p/dsh-agent-compare.html"><code>dsh-agent-compare</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">3.1.1 → 3.3.1</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-agent-compare.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-agent-compare.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-remote.html"><code>dsh-remote</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.2.0 → 1.5.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-remote.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-remote.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-cost-meter.html"><code>dsh-cost-meter</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.9.70 → 1.9.94</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-cost-meter.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-cost-meter.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-free-search.html"><code>dsh-free-search</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.9.53 → 0.9.90</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-free-search.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-free-search.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-mnemon.html"><code>dsh-mnemon</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.5.54 → 0.5.56</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-mnemon.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-mnemon.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-windows-mcp.html"><code>dsh-windows-mcp</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.2.11 → 0.2.13</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-windows-mcp.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-windows-mcp.html)</code></td>
+    </tr><tr>
+      <td><a href="p/michengai__dsh-archive-manager.html"><code>@michengai/dsh-archive-manager</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.3.6 → 1.5.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/michengai__dsh-archive-manager.svg)](https://qianmokillstar.github.io/dsh-plugins/p/michengai__dsh-archive-manager.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-video-storyboard.html"><code>dsh-video-storyboard</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.7.6 → 0.8.1</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-video-storyboard.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-video-storyboard.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-dream-skin.html"><code>dsh-dream-skin</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">11.16.0 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-dream-skin.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-dream-skin.html)</code></td>
+    </tr><tr>
+      <td><a href="p/deepseek-harness-tui__dsh-tui.html"><code>@deepseek-harness-tui/dsh-tui</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.20.1 → 0.20.2</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/deepseek-harness-tui__dsh-tui.svg)](https://qianmokillstar.github.io/dsh-plugins/p/deepseek-harness-tui__dsh-tui.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-context.html"><code>dsh-context</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.85.1 → 0.87.2</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-context.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-context.html)</code></td>
+    </tr><tr>
+      <td><a href="p/cc-safety-net.html"><code>cc-safety-net</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">2.8.3 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/cc-safety-net.svg)](https://qianmokillstar.github.io/dsh-plugins/p/cc-safety-net.html)</code></td>
+    </tr><tr>
+      <td><a href="p/deep-view.html"><code>deep-view</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">0.1.2 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/deep-view.svg)](https://qianmokillstar.github.io/dsh-plugins/p/deep-view.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-prime-memory.html"><code>dsh-prime-memory</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.26.60 → 0.29.5</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-prime-memory.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-prime-memory.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-live-compact.html"><code>dsh-live-compact</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.1.12 → 1.1.14</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-live-compact.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-live-compact.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-token-diet.html"><code>dsh-token-diet</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">0.1.0 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-token-diet.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-token-diet.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-mobile-plugin.html"><code>dsh-mobile-plugin</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.5.112 → 0.5.130</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-mobile-plugin.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-mobile-plugin.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-plugin-wallpaper-engine.html"><code>dsh-plugin-wallpaper-engine</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.4.2 → 1.4.3</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-plugin-wallpaper-engine.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-plugin-wallpaper-engine.html)</code></td>
+    </tr><tr>
+      <td><a href="p/michengai__dsh-skills-manager.html"><code>@michengai/dsh-skills-manager</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.4.11 → 1.5.5</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/michengai__dsh-skills-manager.svg)](https://qianmokillstar.github.io/dsh-plugins/p/michengai__dsh-skills-manager.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-connect-workbuddy.html"><code>dsh-connect-workbuddy</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">5.24.13 → 5.34.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-connect-workbuddy.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-connect-workbuddy.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-ops.html"><code>dsh-ops</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.5.5 → 0.5.7</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-ops.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-ops.html)</code></td>
+    </tr><tr>
+      <td><a href="p/suifei__dsh-ai-team.html"><code>@suifei/dsh-ai-team</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.4.119 → 0.4.145</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/suifei__dsh-ai-team.svg)](https://qianmokillstar.github.io/dsh-plugins/p/suifei__dsh-ai-team.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-notify-me.html"><code>dsh-notify-me</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.21.3 → 1.28.2</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-notify-me.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-notify-me.html)</code></td>
+    </tr><tr>
+      <td><a href="p/ds-harness-remote.html"><code>ds-harness-remote</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.6.5 → 0.6.8</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/ds-harness-remote.svg)](https://qianmokillstar.github.io/dsh-plugins/p/ds-harness-remote.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-fish-memory.html"><code>dsh-fish-memory</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.6.3 → 1.6.7</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-fish-memory.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-fish-memory.html)</code></td>
+    </tr><tr>
+      <td><a href="p/meow-memory.html"><code>meow-memory</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.33.0 → 0.33.3</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/meow-memory.svg)](https://qianmokillstar.github.io/dsh-plugins/p/meow-memory.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-meme.html"><code>dsh-meme</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.1.81 → 0.1.86</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-meme.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-meme.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-soul-md.html"><code>dsh-soul-md</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.12.5 → 0.12.6</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-soul-md.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-soul-md.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-pet.html"><code>dsh-pet</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">0.4.9 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-pet.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-pet.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-whale-widget.html"><code>dsh-whale-widget</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">0.4.2 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-whale-widget.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-whale-widget.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-folia.html"><code>dsh-folia</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">4.26.0-pre.64 → 1.2.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-folia.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-folia.html)</code></td>
+    </tr><tr>
+      <td><a href="p/Amakurai__dsh-liketavern.html"><code>dsh-liketavern</code></a></td>
+      <td><span class="badge" style="background:#2563eb;color:#fff">已核验</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/Amakurai__dsh-liketavern.svg)](https://qianmokillstar.github.io/dsh-plugins/p/Amakurai__dsh-liketavern.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-dafeiyu.html"><code>dsh-dafeiyu</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">0.1.23 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-dafeiyu.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-dafeiyu.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-genui.html"><code>dsh-genui</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.3.3 → 0.3.4</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-genui.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-genui.html)</code></td>
+    </tr><tr>
+      <td><a href="p/memory-eternal.html"><code>memory-eternal</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">0.49.11 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/memory-eternal.svg)](https://qianmokillstar.github.io/dsh-plugins/p/memory-eternal.html)</code></td>
+    </tr><tr>
+      <td><a href="p/openviking__dsh-memory-plugin.html"><code>@openviking/dsh-memory-plugin</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.5.38 → 0.5.44</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/openviking__dsh-memory-plugin.svg)](https://qianmokillstar.github.io/dsh-plugins/p/openviking__dsh-memory-plugin.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-plugin-memory.html"><code>dsh-plugin-memory</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.20.0 → 0.21.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-plugin-memory.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-plugin-memory.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-memory-nebula.html"><code>dsh-memory-nebula</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">1.11.68 → 1.11.76</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-memory-nebula.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-memory-nebula.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-fish-soul.html"><code>dsh-fish-soul</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.18.6 → 0.19.6</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-fish-soul.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-fish-soul.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-config-manager.html"><code>dsh-config-manager</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.10.0 → 0.12.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-config-manager.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-config-manager.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-onebot-qq.html"><code>dsh-onebot-qq</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.10.0 → 0.11.2</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-onebot-qq.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-onebot-qq.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-bili-scroll.html"><code>dsh-bili-scroll</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">2.5.2 → 2.5.3</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-bili-scroll.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-bili-scroll.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-music-panel.html"><code>dsh-music-panel</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.36.2 → 0.47.2</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-music-panel.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-music-panel.html)</code></td>
+    </tr><tr>
+      <td><a href="p/michengai__dsh-im-connect.html"><code>@michengai/dsh-im-connect</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">半装 1.0.43</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/michengai__dsh-im-connect.svg)](https://qianmokillstar.github.io/dsh-plugins/p/michengai__dsh-im-connect.html)</code></td>
+    </tr><tr>
+      <td><a href="p/tencent-connect__dsh-qqbot.html"><code>@tencent-connect/dsh-qqbot</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">半装 0.5.5</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/tencent-connect__dsh-qqbot.svg)](https://qianmokillstar.github.io/dsh-plugins/p/tencent-connect__dsh-qqbot.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-session-superagent.html"><code>dsh-session-superagent</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">半装 0.10.12</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-session-superagent.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-session-superagent.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-perm-gate.html"><code>dsh-perm-gate</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">5.5.4 → 5.10.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-perm-gate.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-perm-gate.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-loci.html"><code>dsh-loci</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">6.0.1 → 7.2.1</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-loci.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-loci.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-see-now.html"><code>dsh-see-now</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.2.4 → 0.2.9</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-see-now.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-see-now.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-brief-sidebar.html"><code>dsh-brief-sidebar</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.9.20 → 0.9.30</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-brief-sidebar.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-brief-sidebar.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-icon-library.html"><code>dsh-icon-library</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">0.20.0 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-icon-library.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-icon-library.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-ppt.html"><code>dsh-ppt</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.20.8 → 1.1.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-ppt.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-ppt.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-session-guard.html"><code>dsh-session-guard</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">4.2.10 → 4.5.0</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-session-guard.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-session-guard.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-pdf-mineru.html"><code>dsh-pdf-mineru</code></a></td>
+      <td><span class="badge" style="background:#b45309;color:#fff">0.2.3 → 0.2.4</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-pdf-mineru.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-pdf-mineru.html)</code></td>
+    </tr><tr>
+      <td><a href="p/dsh-tts-bridge.html"><code>dsh-tts-bridge</code></a></td>
+      <td><span class="badge" style="background:#15803d;color:#fff">1.3.4 可装</span></td>
+      <td><code class="snippet" style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-tts-bridge.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-tts-bridge.html)</code></td>
+    </tr></tbody>
+  </table>
+  <p style="font-size:13px;color:var(--ink-muted)">也可以直接引用 SVG（自己控制样式）：<code>https://qianmokillstar.github.io/dsh-plugins/badges/&lt;slug&gt;.svg</code></p>
+</div>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

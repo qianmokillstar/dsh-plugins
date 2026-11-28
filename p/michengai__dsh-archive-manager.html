@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>会话归档与检索 · DSH 插件站</title>
+<meta name="description" content="归档、恢复、收藏和永久删除会话，支持正文全文检索与快速预览，并能清理孤儿子代理。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="会话归档与检索 · DSH 插件站">
+<meta property="og:description" content="归档、恢复、收藏和永久删除会话，支持正文全文检索与快速预览，并能清理孤儿子代理。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="会话归档与检索 · DSH 插件站">
+<meta name="twitter:description" content="归档、恢复、收藏和永久删除会话，支持正文全文检索与快速预览，并能清理孤儿子代理。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>@michengai/dsh-archive-manager · 会话归档与检索</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge ok">风险 低</span>
+    <span class="badge ok">🟢 纯本地</span>
+  </div>
+  <blockquote>一句话结论：给会话列表做减法的实用件——归档、找回、搜正文、清残留；功能不炫，但装上之后&quot;会话列表越来越长&quot;这件事终于有解。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>会话数量已经上百、侧栏翻不到想要那一轮的人。</li>
+<li>想把&quot;暂时不做但舍不得删&quot;的会话收起来的人。</li>
+<li>需要按项目批量归档、或清理已删母会话留下的孤儿子代理的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>两个入口：设置 → 归档会话；或开启左侧导航图标，在主工作区展开居中大面板。</li>
+<li>归档与恢复：单条、整工作区一键、跨项目批量；恢复后直接打开。</li>
+<li>全文检索：标题 + 历史消息正文，支持按项目、收藏、日期范围组合筛选并切换排序。</li>
+<li>不恢复也能预览上下文，Markdown 排版与原文高亮可切换。</li>
+<li>收藏与&quot;只看收藏&quot;筛选；按闲置天数预览并批量归档不活跃会话，自动保护运行中/等待交互/已收藏的会话，且可撤回本次批量归档。</li>
+<li>侧栏右键菜单：收藏、归档、跨工作区移动、复制或打开工作区目录。</li>
+<li>孤儿子代理检测与清理；永久删除需二次确认。</li>
+<li>支持官方 8 门内置语言、深浅色主题、带路径前缀的反向代理部署。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>&quot;永久删除&quot;是真的永久</strong>：删的是会话与日志，不经过回收站；即使有二次确认，也建议先用不重要的会话试一次。</li>
+<li><strong>批量归档会动很多会话</strong>：虽然有撤回与保护运行中会话的机制，跨项目批量操作前建议先看预览列表。</li>
+<li>会读取消息正文建索引，属于对会话数据的深度访问；在意隐私的话确认它没有额外上传行为（README 未声明外传）。</li>
+<li>社区插件，非 DeepSeek 官方产品（README 明确说明）。</li>
+<li>版本 1.3.x，声明支持到 DSH 0.2.2-rc.3。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong>DSH 内置</strong>：会话列表本身支持删除与分组，够用但没有正文检索、批量归档、孤儿清理。</li>
+<li><strong><code>dsh-session-query</code> 相关工具</strong>（<code>dsh-tool-session-query</code>）：给模型的会话历史检索工具，面向 Agent 而非人工管理。</li>
+<li><strong><code>dsh-session-log-export</code></strong>：把会话导出成 ZIP / Markdown，适合归档留底而非整理。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>@michengai/dsh-archive-manager@1.3.6</code>（由 DSH 插件页/Discover 执行，本市场不代装）</li>
+<li>要求 DSH 0.2.x（<code>engines.dsh</code>：<code>&gt;=0.2.0-rc.1 &lt;0.3.0-0</code>）· 许可证 Apache-2.0</li>
+<li>周下载量 29,470（npm，2026-11-09 至 11-15）· 最近发布 2026-11-14</li>
+<li>来源：<a href="https://www.npmjs.com/package/@michengai/dsh-archive-manager" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/MichengAI/dsh-archive-manager" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-16 · 结论依据该版本 README 原文</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="dsh-agent-compare.html"><code>dsh-agent-compare</code></a> — 鲸挑细选 · 同需求多方案对比</li><li><a href="deep-view.html"><code>deep-view</code></a> — 对话内交互视图</li><li><a href="dsh-mobile-plugin.html"><code>dsh-mobile-plugin</code></a> — 手机接着聊</li><li><a href="michengai__dsh-skills-manager.html"><code>@michengai/dsh-skills-manager</code></a> — 技能统一管理</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/michengai__dsh-archive-manager.svg)](https://qianmokillstar.github.io/dsh-plugins/p/michengai__dsh-archive-manager.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/MichengAI/dsh-archive-manager" target="_blank" rel="noreferrer noopener">MichengAI/dsh-archive-manager</a></dd><dt>安装 spec</dt><dd><code>@michengai/dsh-archive-manager@1.5.0</code></dd><dt>版本 / 更新</dt><dd>1.5.0 · 2026-11-25</dd><dt>核验版本</dt><dd>1.3.6（<b>当前已是 1.5.0，结论可能已过时</b>）</dd><dt>Star</dt><dd>400</dd><dt>周下载</dt><dd>26,180</dd><dt>许可证</dt><dd>Apache-2.0</dd><dt>DSH 版本要求</dt><dd><code>&gt;=0.2.2-rc.1 &lt;0.3.0-0</code>（声明值，未实测）</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 1.3.6（2026-11-17 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/@michengai/dsh-archive-manager" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/MichengAI/dsh-archive-manager" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://github.com/MichengAI/dsh-archive-manager#readme" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

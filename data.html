@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数据接口 · DSH 插件站</title>
+<meta name="description" content="目录索引、核验记录 schema、核验徽章：公开可用，无需申请。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="数据接口 · DSH 插件站">
+<meta property="og:description" content="目录索引、核验记录 schema、核验徽章：公开可用，无需申请。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据接口 · DSH 插件站">
+<meta name="twitter:description" content="目录索引、核验记录 schema、核验徽章：公开可用，无需申请。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page">
+  <h1>数据接口</h1>
+  <p>本站的核验结果与目录都是公开数据，<b>不需要申请、没有 API key、没有频率限制</b>（静态文件，走 GitHub Pages CDN）。</p>
+  <p class="notice">唯一的要求：转载或再利用时保留来源与<b>核验日期 + 版本</b>，否则结论会随插件更新而失真。</p>
+
+  <h2>1. 目录索引（能直接挂进 DSH）</h2>
+  <p><code>https://qianmokillstar.github.io/dsh-plugins/index.json</code> —— DSH 市场索引 <code>format 1</code>，可以被 DSH 当成一个插件源直接添加。</p>
+  <p>DSH 的市场索引配置写在 profile 的 <code>cordis.patch.yml</code> 里（没有 <code>dsh plugin market add</code> 这种命令，<code>dsh plugin</code> 只转发给 pnpm）。在文件里加一段：</p>
+  <pre><code>- id: plugin-market
+  name: "@deepseek-ai/dsh-plugin-market"
+  config:
+    indexes:
+      - https://qianmokillstar.github.io/dsh-plugins/index.json</code></pre>
+  <p>保存后重启 DSH，插件市场面板里就能看到本站的条目（本站只放公开 npm 元数据与自写判断，格式为 <code>format 1</code>）。</p>
+
+  <h2>2. 核验记录（带信誉字段）</h2>
+  <p><code>https://qianmokillstar.github.io/dsh-plugins/verifications.json</code> · schema：<a href="verifications.schema.json"><code>verifications.schema.json</code></a></p>
+  <pre><code>{
+  "schema": "dsh-market-verification/1",
+  "count": 55,
+  "entries": [{
+    "name": "dsh-mnemon",
+    "reviewedVersion": "0.5.46",
+    "currentVersion": "0.5.48",
+    "stale": true,
+    "privacy": "local",
+    "risk": "medium",
+    "verificationDate": "2026-11-18",
+    "install": { "result": "installed", "version": "0.5.46" },
+    "judgment": { "fit": "...", "solves": "...", "risk": "...", "alternatives": "..." }
+  }]
+}</code></pre>
+  <p>关键枚举：<code>install.result</code> = <code>installed</code> / <code>partial</code>（包落地但没进 bundles）/ <code>failed</code> / <code>not-tested</code>；<code>privacy</code> = <code>local</code> / <code>cloud</code> / <code>unknown</code>。</p>
+  <p><b>请务必读 <code>stale</code></b>：为 <code>true</code> 表示作者已发新版本，本条结论可能过时。</p>
+
+  <h2>3. 核验徽章（SVG，任何人可引用）</h2>
+  <p><code>https://qianmokillstar.github.io/dsh-plugins/badges/&lt;插件slug&gt;.svg</code></p>
+  <pre><code>[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-mnemon.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-mnemon.html)</code></pre>
+  <p>三种状态：<b>绿色</b>=该版本装成功；<b>琥珀</b>=有新版本或半装；<b>红</b>=安装失败。<a href="badges.html">全部徽章与复制按钮</a></p>
+
+  <h2>4. 用这些数据做什么</h2>
+  <ul>
+    <li><b>插件作者</b>：把徽章贴进 README，读者一眼看到"装得起来"</li>
+    <li><b>目录类项目</b>：直接把 <code>verifications.json</code> 的 <code>risk</code> / <code>privacy</code> / <code>stale</code> 合进你的列表，比 star 更有信息量</li>
+    <li><b>工具作者</b>：做一个"装前体检"脚本，读 <code>stale</code> 与 <code>install.result</code> 决定要不要提醒用户</li>
+    <li><b>写作者</b>：引用时带上 <code>verificationDate</code> 与 <code>reviewedVersion</code>，这是本站结论唯一有效的边界</li>
+  </ul>
+
+  <h2>5. 本站不提供的</h2>
+  <ul>
+    <li>不提供插件代码分发（只指回 npm / 作者仓库）</li>
+    <li>不提供"安全认证"或"官方背书"——<b>非官方第三方站点，与 DeepSeek / DSH 官方无关联</b></li>
+    <li>不提供实时更新承诺：目录每日 08:17 自动采集一次，核验结论则按人工进度</li>
+  </ul>
+
+  <div class="notice">发现数据错误？<a href="https://github.com/qianmokillstar/dsh-plugins/discussions/2" target="_blank" rel="noreferrer noopener">去讨论区纠正</a>；作者要求下架见<a href="takedown.html">下架与投诉</a>。</div>
+</div>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

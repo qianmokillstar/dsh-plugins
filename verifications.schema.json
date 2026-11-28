@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qianmokillstar.github.io/dsh-plugins/verifications.schema.json",
+  "title": "DSH plugin verification records",
+  "type": "object",
+  "required": [
+    "schema",
+    "generatedAt",
+    "entries"
+  ],
+  "properties": {
+    "schema": {
+      "const": "dsh-market-verification/1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "site": {
+      "type": "string",
+      "format": "uri"
+    },
+    "disclaimer": {
+      "type": "string"
+    },
+    "dshVersion": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "install",
+          "judgment",
+          "links"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "license": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "weeklyDownloads": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "risk": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              null
+            ]
+          },
+          "privacy": {
+            "enum": [
+              "local",
+              "cloud",
+              "unknown"
+            ]
+          },
+          "privacyNote": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verificationDate": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "reviewedVersion": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "currentVersion": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "stale": {
+            "type": "boolean"
+          },
+          "dshVersion": {
+            "type": "string"
+          },
+          "install": {
+            "type": "object",
+            "required": [
+              "result"
+            ],
+            "properties": {
+              "result": {
+                "enum": [
+                  "installed",
+                  "partial",
+                  "failed",
+                  "not-tested"
+                ],
+                "description": "installed=装进隔离 profile 并进入组合；partial=包已落地但未进入 profile bundles（如 pnpm 拦截构建脚本）；failed=安装失败；not-tested=未测"
+              },
+              "version": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "activation": {
+            "enum": [
+              "loaded",
+              "no-error",
+              "pending",
+              "not-composed",
+              "unknown"
+            ]
+          },
+          "activationNote": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "judgment": {
+            "type": "object",
+            "properties": {
+              "fit": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "适合谁（首条要点）"
+              },
+              "solves": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "解决什么"
+              },
+              "risk": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "风险点"
+              },
+              "alternatives": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "替代品"
+              }
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {
+              "page": {
+                "type": "string",
+                "format": "uri"
+              },
+              "npm": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "repository": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "homepage": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

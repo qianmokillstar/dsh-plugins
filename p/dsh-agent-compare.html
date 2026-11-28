@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鲸挑细选 · 同需求多方案对比 · DSH 插件站</title>
+<meta name="description" content="把同一个需求交给 2–4 个版本并行做，在主对话里比较回答、文件和可运行网页，盲选或公开对比后再采纳。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="鲸挑细选 · 同需求多方案对比 · DSH 插件站">
+<meta property="og:description" content="把同一个需求交给 2–4 个版本并行做，在主对话里比较回答、文件和可运行网页，盲选或公开对比后再采纳。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鲸挑细选 · 同需求多方案对比 · DSH 插件站">
+<meta name="twitter:description" content="把同一个需求交给 2–4 个版本并行做，在主对话里比较回答、文件和可运行网页，盲选或公开对比后再采纳。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-agent-compare · 鲸挑细选 · 同需求多方案对比</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge ok">风险 低</span>
+    <span class="badge ok">🟢 纯本地</span>
+  </div>
+  <blockquote>一句话结论：想让 AI 给同一需求出几个不同方案、再自己挑一个落地的人，这是目前最顺手的&quot;赛马&quot;工具；代价是同一件事的 token 花 2–4 倍。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>做 UI / 落地页 / 小工具时，想一次拿到多种风格候选，而不是反复&quot;再来一版&quot;的人。</li>
+<li>团队评审：需要把 2–4 个实现并排摆出来，看过程、看文件、看可运行页面再决定的人。</li>
+<li>对&quot;盲选&quot;有兴趣，想避免自己先入为主偏爱某种风格的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>在主对话里把同一需求并行分给 2–4 个版本，比较<strong>回答</strong>、<strong>文件</strong>或<strong>可直接操作的网页</strong>。</li>
+<li>每版有独立的蓝色标签（A–D），盲选模式下选完才揭晓风格和模型，减少偏见。</li>
+<li>每个&quot;过程&quot;按钮展开该版的思考、工具调用和改动，最新三步实时滚动。</li>
+<li>选定后可以写明理由、保存结果，再接着在主对话里继续，不用重开一轮。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>成本翻倍</strong>：2–4 路并行意味着 2–4 份模型调用与工具执行；README 没有给出费用上限提示，建议自己在预算上留余量（可配合费用统计类插件）。</li>
+<li><strong>上下文膨胀</strong>：多版回答、文件和网页都会进会话，长会话里容易把上下文吃满，需要主动压缩或分会话。</li>
+<li><strong>版本节奏快</strong>：3.x 迭代频繁（3.1.0 合并了 2.1.0 与 3.0.0 的改进），跨版本行为有变化，升级前建议看更新说明。</li>
+<li>对比页面的&quot;可运行&quot;是本地渲染的真实页面，仍需自己确认没有执行来路不明的脚本。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong>官方能力</strong>：<code>subagent</code> 委派 + <code>workflow</code> 编排可以自己搭多路并行，但没有内置的并排比较界面。</li>
+<li><strong><code>deep-view</code> / <code>dsh-genui</code></strong>：把结果渲染成图表、表单等交互视图，适合展示而非&quot;选方案&quot;。</li>
+<li><strong>手工做法</strong>：同一提示词开多个会话，复制结果对比——零安装成本，但没有 A–D 标签和过程对照。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-agent-compare@3.1.1</code>（由 DSH 插件页/Discover 执行，本市场不代装）</li>
+<li>许可证 MIT · 周下载量 87,530（npm，2026-11-09 至 11-15）· 最近发布 2026-11-16</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-agent-compare" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/lijiaqi-AI-Product-Manager/dsh-agent-compare" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-16 · 结论依据该版本 README 原文</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="michengai__dsh-archive-manager.html"><code>@michengai/dsh-archive-manager</code></a> — 会话归档与检索</li><li><a href="deep-view.html"><code>deep-view</code></a> — 对话内交互视图</li><li><a href="dsh-mobile-plugin.html"><code>dsh-mobile-plugin</code></a> — 手机接着聊</li><li><a href="michengai__dsh-skills-manager.html"><code>@michengai/dsh-skills-manager</code></a> — 技能统一管理</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-agent-compare.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-agent-compare.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/lijiaqi-AI-Product-Manager/dsh-agent-compare" target="_blank" rel="noreferrer noopener">lijiaqi-AI-Product-Manager/dsh-agent-compare</a></dd><dt>安装 spec</dt><dd><code>dsh-agent-compare@3.3.1</code></dd><dt>版本 / 更新</dt><dd>3.3.1 · 2026-11-27</dd><dt>核验版本</dt><dd>3.1.1（<b>当前已是 3.3.1，结论可能已过时</b>）</dd><dt>Star</dt><dd>526</dd><dt>周下载</dt><dd>136,030</dd><dt>许可证</dt><dd>MIT</dd><dt>DSH 版本要求</dt><dd><code>&gt;=0.2.1-rc.3 &lt;0.3.0-0</code>（声明值，未实测）</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 3.1.1（2026-11-17 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-agent-compare" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/lijiaqi-AI-Product-Manager/dsh-agent-compare" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://github.com/lijiaqi-AI-Product-Manager/dsh-agent-compare#readme" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

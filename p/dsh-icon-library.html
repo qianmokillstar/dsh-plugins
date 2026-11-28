@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>项目级图标库 · DSH 插件站</title>
+<meta name="description" content="给图标建语义身份：对话里写 &lt;关闭&gt; 就能取到同一个图；数据存在项目根的 .icons.json 里，可 diff。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="项目级图标库 · DSH 插件站">
+<meta property="og:description" content="给图标建语义身份：对话里写 &lt;关闭&gt; 就能取到同一个图；数据存在项目根的 .icons.json 里，可 diff。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目级图标库 · DSH 插件站">
+<meta name="twitter:description" content="给图标建语义身份：对话里写 &lt;关闭&gt; 就能取到同一个图；数据存在项目根的 .icons.json 里，可 diff。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-icon-library · 项目级图标库</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge ok">风险 低</span>
+    <span class="badge ok">🟢 纯本地</span>
+  </div>
+  <blockquote>一句话结论：给&quot;图标&quot;建立语义身份——对话里写 <code>&lt;关闭&gt;</code>，人和 Agent 取到的是同一个图；数据存在项目根的 <code>.icons.json</code> 里，能 diff、能跟着仓库走。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>前端项目里 SVG 散落在各组件、名字各写各的人。</li>
+<li>经常和 Agent 一起改 UI，受够&quot;我说的图标&quot;和&quot;它用的图标&quot;不是一个。</li>
+<li>想让图标资产可读、可 diff、可复用的团队。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li><strong>语义指代</strong>：形状入库后获得名称、应用规则与稳定身份；<code>icon_list</code> / <code>icon_get</code> 按意取图，<code>icon_annotate</code> 回写使用经验。</li>
+<li><strong>单一来源</strong>：名称、规则、图形同存于 <code>.icons.json</code>，按内容去重、改名级联，业务代码不用 import。</li>
+<li><strong>多源入库</strong>：粘贴 SVG、从 Iconify / IconMCP 导入、扫描工作区把匿名形状收编命名、AI 生成。</li>
+<li><strong>全局同步</strong>：同一语义身份贯穿代码引用（<code>@asset</code> 拷贝、派生指针），图形改一次全部跟随。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>会写项目文件</strong>：<code>.icons.json</code> 是新增的工程文件，团队要接受它进仓库。</li>
+<li>扫描工作区会读你的代码结构（本地行为，但项目大时耗时）。</li>
+<li>从 Iconify / IconMCP 导入图标要联网，<strong>图标授权仍按来源判断</strong>（很多图标库有署名要求）。</li>
+<li>让 Agent 参与&quot;收编命名&quot;时，命名质量取决于提示，可能出现语义漂移。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong>手工维护 SVG 目录</strong>：零安装，但语义与去重全靠自觉。</li>
+<li><strong>Iconify 直接引用</strong>：简单，但图标与业务语义脱节。</li>
+<li><strong>设计系统自建</strong>：最规范，成本最高。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-icon-library@0.20.0</code>（npm）· 隔离 profile 安装成功（2026-11-18，9s）</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-icon-library" target="_blank" rel="noreferrer noopener">npm</a></li>
+<li>审核日期 2026-11-18 · 依据该版本 README 原文</li>
+<li>隐私：🟢 纯本地（图标与元数据在项目内；仅导入时报外网）</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="dsh-remote.html"><code>dsh-remote</code></a> — SSH 远程工作区</li><li><a href="deepseek-harness-tui__dsh-tui.html"><code>@deepseek-harness-tui/dsh-tui</code></a> — 终端界面</li><li><a href="dsh-ops.html"><code>dsh-ops</code></a> — 省 token 工具集</li><li><a href="ds-harness-remote.html"><code>ds-harness-remote</code></a> — 端到端远程接入</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-icon-library.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-icon-library.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/brickhu/dsh-plugins" target="_blank" rel="noreferrer noopener">brickhu/dsh-plugins</a></dd><dt>安装 spec</dt><dd><code>dsh-icon-library@0.20.0</code></dd><dt>版本 / 更新</dt><dd>0.20.0 · 2026-11-17</dd><dt>核验版本</dt><dd>0.20.0（与当前一致）</dd><dt>Star</dt><dd>未获取</dd><dt>周下载</dt><dd>339</dd><dt>许可证</dt><dd>未声明</dd><dt>DSH 版本要求</dt><dd><code>&gt;=0.2.1-rc.5 &lt;0.3.0</code>（声明值，未实测）</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 0.20.0（2026-11-18 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-icon-library" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/brickhu/dsh-plugins" target="_blank" rel="noreferrer noopener">GitHub</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

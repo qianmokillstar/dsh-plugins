@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>安装避坑指南 · DSH 插件站</title>
+<meta name="description" content="npm 与 GitHub 两种装法、坏包污染、版本不兼容与验证方式。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="安装避坑指南 · DSH 插件站">
+<meta property="og:description" content="npm 与 GitHub 两种装法、坏包污染、版本不兼容与验证方式。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装避坑指南 · DSH 插件站">
+<meta name="twitter:description" content="npm 与 GitHub 两种装法、坏包污染、版本不兼容与验证方式。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page">
+  <h1>安装避坑指南</h1>
+  <p>这些不是推测，是本站 2026-11-17/18 在隔离 profile 里真装 30+ 个插件踩出来的。</p>
+
+  <h2>一、先分清两种安装源</h2>
+  <table class="verify-table">
+    <thead><tr><th>来源</th><th>命令</th><th>什么时候用</th></tr></thead>
+    <tbody>
+      <tr><td>npm 包</td><td><code>dsh plugin --profile &lt;prof&gt; add 包名</code></td><td>包在 npm 上且有正常发布版本</td></tr>
+      <tr><td>GitHub 仓库</td><td><code>dsh plugin --profile &lt;prof&gt; add github:owner/repo</code></td><td>npm 上找不到（返回 404）、或 npm 版本是占位包</td></tr>
+    </tbody>
+  </table>
+  <p>实测：养鱼圈里 <code>dsh-purge-community</code>、<code>dsh-purge-safe</code>、<code>dsh-liketavern</code>、<code>gal-view</code> 都<strong>不在 npm</strong>，只能用 github: 装。装之前先在 npm 搜一下包名，搜不到就走 GitHub 源。</p>
+
+  <h2>二、最坑的一种失败：坏包污染整个 profile</h2>
+  <div class="notice">
+    现象：你明明在装 A 插件，报错却指向 B（例如 <code>dsh-purge-0.0.0-stage.tgz</code> 的 tarball 截断）。而且之后<strong>同一 profile 装什么都失败</strong>。
+  </div>
+  <p>原因：损坏的包被写进了该 profile 的 lockfile，之后每次 add 都会重试它。</p>
+  <ol>
+    <li>先确认是哪个包坏了（看报错里的 tarball 文件名）</li>
+    <li>在该 profile 里移除它：<code>dsh plugin --profile &lt;prof&gt; remove 坏包名</code></li>
+    <li>还不行就删掉该 profile 的 <code>node_modules</code> 与 <code>pnpm-lock.yaml</code> 后重装</li>
+    <li>最省事：换一个干净的 profile 重来</li>
+  </ol>
+
+  <h2>三、版本不兼容：别乱用 allow-version</h2>
+  <p>安装器会拦下与当前 DSH 版本不匹配的插件（例如 <code>billion-context-dsh@0.2.27</code> 对 <code>0.2.2-rc.3</code>）。它会提示你可以用 <code>allow-version</code> 强制安装——<strong>那等于自己承担崩溃与数据丢失风险</strong>，本站不建议，除非你清楚自己在做什么。</p>
+
+  <h2>四、GitHub 源装大仓库会超时（实测数据）</h2>
+  <p>用 <code>github:owner/repo</code> 安装时，DSH 会先克隆仓库，速度取决于网络与仓库体积：</p>
+  <table class="verify-table">
+    <thead><tr><th>插件</th><th>结果</th><th>耗时</th></tr></thead>
+    <tbody>
+      <tr><td><code>dsh-liketavern</code></td><td>成功 0.5.12</td><td>156 秒</td></tr>
+      <tr><td><code>dsh-purge</code>（mmparko）</td><td>成功 1.1.71</td><td>72.8 秒</td></tr>
+      <tr><td><code>dsh-tavern</code>（flizzywine）</td><td><b>超时未完成</b></td><td>&gt; 30 分钟</td></tr>
+      <tr><td><code>gal-view</code></td><td><b>超时未完成</b></td><td>&gt; 15 分钟</td></tr>
+    </tbody>
+  </table>
+  <p>遇到超时不要急着判断"插件坏了"：先确认是不是网络问题（换个时间、换代理），再决定是否继续。本站把这类记为"超时未完成"，不写成"装不上"。</p>
+
+  <h2>五、装上了但报失败：pnpm 拦截构建脚本</h2>
+  <div class="notice">现象：<code>+ 插件名 版本号</code> 明明出现了，但命令最后以 <code>ERR_PNPM_IGNORED_BUILDS</code> 失败退出，提示 <code>Ignored build scripts: protobufjs</code>。</div>
+  <p>这不是装不上，而是 <b>pnpm 11 默认不允许依赖执行构建脚本</b>（安全策略）。实测三个插件（<code>@michengai/dsh-im-connect</code>、<code>@tencent-connect/dsh-qqbot</code>、<code>dsh-session-superagent</code>）都因此报了同一个错，但包其实已经落地 <code>node_modules</code>、也写进了 profile 的 <code>dependencies</code>——只是<b>没进入 <code>dsh.profile.bundles</code></b>，所以不会生效。</p>
+  <p>本站把这种状态记为「<b>半装</b>」，不算通过、也不算失败。</p>
+  <h3>我们试过的三种办法（都失败，如实记录）</h3>
+  <ol>
+    <li><code>package.json</code> 里加 <code>pnpm.onlyBuiltDependencies</code> —— pnpm 11 直接警告该字段已废弃、被忽略</li>
+    <li>写进 <code>pnpm-workspace.yaml</code> 的 <code>onlyBuiltDependencies</code> —— <code>pnpm config get</code> 确实能读到 <code>["protobufjs"]</code>，但安装仍然报 <code>ERR_PNPM_IGNORED_BUILDS</code></li>
+    <li>加 <code>--config.onlyBuiltDependencies=protobufjs</code> 显式传参 —— 同样被拦</li>
+  </ol>
+  <p>结论：这个门只认**交互式**的 <code>pnpm approve-builds</code>（要人逐个确认），没法用配置脚本化绕过。所以本站这三个插件只能记「半装」，不写成成功。</p>
+  <p>你要用的话，在 profile 目录里跑 <code>pnpm approve-builds</code>，看清楚是哪个依赖要跑脚本、判断可信后再放行，然后重新 add 一次。</p>
+
+  <h3>另一个坑：手改 profile 的 package.json 别带 BOM</h3>
+  <p>实测：用 PowerShell 的 <code>Set-Content -Encoding UTF8</code> 写 <code>package.json</code> 会带 BOM，DSH 读取时直接 <code>SyntaxError: Unexpected token ''</code>，整个 profile 无法安装任何插件。用编辑器保存为「UTF-8 无 BOM」即可。</p>
+
+  <h2>六、怎么确认"真的装上了"</h2>
+  <ol>
+    <li><code>dsh --profile &lt;prof&gt; --dump-config</code> 里能看到该插件的条目 = 已进入组合</li>
+    <li>packages 在 <code>node_modules</code> 里但 dump-config 里没有 = 装了但没被组合（常见于独立 app 类插件）</li>
+    <li>启动后侧边栏/设置里没出现入口 = 它可能依赖 <code>webServer</code> 之类的服务，在精简 profile 里会 pending</li>
+  </ol>
+
+  <h2>七、测试插件请用独立 profile</h2>
+  <p>别在每天用的 profile 里试装来源不明的插件。养成习惯：</p>
+  <pre style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto"><code>dsh plugin --profile test-only add github:owner/repo</code></pre>
+  <p>试完整个 profile 删掉即可，不影响你日常的会话与配置。</p>
+
+  <h2>八、装完先做三件事</h2>
+  <ul>
+    <li>看它要哪些权限/凭据（README 里的"风险提示""免责声明"章节）</li>
+    <li>确认它是否会把内容发到第三方（本站每条核验都标了 🟢/🔴）</li>
+    <li>试用时先跑一个不重要的会话，别直接上主号/主档案</li>
+  </ul>
+</div>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>本地+云端第二大脑 · DSH 插件站</title>
+<meta name="description" content="本机 SQLite 记忆 + 可选云同步，支持热切换与断点续传；云同步即内容上云。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="本地+云端第二大脑 · DSH 插件站">
+<meta property="og:description" content="本机 SQLite 记忆 + 可选云同步，支持热切换与断点续传；云同步即内容上云。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本地+云端第二大脑 · DSH 插件站">
+<meta name="twitter:description" content="本机 SQLite 记忆 + 可选云同步，支持热切换与断点续传；云同步即内容上云。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>memory-eternal · 本地 + 云端第二大脑</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge warn">风险 中</span>
+    <span class="badge high">🔴 需云端</span>
+  </div>
+  <blockquote>一句话结论：本机 SQLite 记忆库照旧离线可用，登录云端后&quot;记忆跟着人走&quot;，换机器不用搬家；但<strong>云端是别人的服务</strong>，私密角色扮演内容要自己掂量。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>多台机器/多个客户端之间想共享记忆的人。</li>
+<li>想要&quot;本地优先、云端可选&quot;而不是纯云记忆的人。</li>
+<li>喜欢可审核（待审、回收站、星图）而不是黑盒记忆的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>本机记忆库离线可用；登录云端后同一套知识卡可在每台设备、每个 Agent 读取。</li>
+<li>云端按 owner 分目录，<strong>每个用户独立 SQLite</strong>（<code>cloud-vaults/{owner}/...</code>），物理隔离。</li>
+<li>本地库 ↔ 云端库<strong>热切换</strong>，知识卡/星图/待审/回收站一次性换源，不刷新页面。</li>
+<li>整库上传/下载：分片传输 + 断点续传 + 取消 + 重试 3 次，重复内容自动跳过。</li>
+<li>离线优先：云端不可达自动熔断回退本地，首屏最多等 3 秒。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>云端登录 = 内容上云</strong>：账号来自第三方（MengBot），隐私边界取决于对方服务条款；养鱼的私密剧情尤其要考虑。</li>
+<li>同步机制复杂（断点续传、热切换、熔断），出问题时排查成本高。</li>
+<li>版本 0.49.x 迭代极快，数据库结构可能变，升级前建议整库备份。</li>
+<li>与其它记忆插件混用会造成重复注入。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong><code>dsh-fish-memory</code></strong>：纯本地、会淡忘，轻。</li>
+<li><strong><code>dsh-mnemon</code></strong>：分层记忆，本地优先，可接第三方 Provider。</li>
+<li><strong><code>dsh-prime-memory</code></strong>：自动蒸馏，全自动但不可精确手改。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>memory-eternal@0.49.11</code>（npm）· 许可证 MIT · 隔离 profile 安装成功（2026-11-18，22s）</li>
+<li>来源：<a href="https://www.npmjs.com/package/memory-eternal" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/EternalNight996/memory-eternal" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-18 · 依据该版本 README 原文</li>
+<li>隐私：🔴 需云端（启用云同步后记忆上云；纯本机模式不涉及）</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="dsh-mnemon.html"><code>dsh-mnemon</code></a> — 分层记忆与上下文编排</li><li><a href="dsh-prime-memory.html"><code>dsh-prime-memory</code></a> — 分层蒸馏记忆</li><li><a href="dsh-live-compact.html"><code>dsh-live-compact</code></a> — 边做边压</li><li><a href="dsh-fish-memory.html"><code>dsh-fish-memory</code></a> — 会淡忘的长期记忆</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/memory-eternal.svg)](https://qianmokillstar.github.io/dsh-plugins/p/memory-eternal.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/EternalNight996/memory-eternal" target="_blank" rel="noreferrer noopener">EternalNight996/memory-eternal</a></dd><dt>安装 spec</dt><dd><code>memory-eternal@0.49.11</code></dd><dt>版本 / 更新</dt><dd>0.49.11 · 2026-11-27</dd><dt>核验版本</dt><dd>0.49.11（与当前一致）</dd><dt>Star</dt><dd>232</dd><dt>周下载</dt><dd>1,237</dd><dt>许可证</dt><dd>未声明</dd><dt>DSH 版本要求</dt><dd><code>&gt;=0.1.5-alpha.2 &lt;0.3.0-0</code>（声明值，未实测）</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 0.49.11（2026-11-18 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/memory-eternal" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/EternalNight996/memory-eternal" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://eternalnight996.github.io/memory-eternal/" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

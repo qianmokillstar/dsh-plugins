@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>省 token 工具集 · DSH 插件站</title>
+<meta name="description" content="用更紧凑、带行号的返回替换部分官方工具，省 token；代价是工具面被换掉。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="省 token 工具集 · DSH 插件站">
+<meta property="og:description" content="用更紧凑、带行号的返回替换部分官方工具，省 token；代价是工具面被换掉。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="省 token 工具集 · DSH 插件站">
+<meta name="twitter:description" content="用更紧凑、带行号的返回替换部分官方工具，省 token；代价是工具面被换掉。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-ops · 省 token 的工具集替换</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge warn">风险 中</span>
+    <span class="badge ok">🟢 纯本地</span>
+  </div>
+  <blockquote>一句话结论：它不是让你多几个功能，而是<strong>用更省 token 的工具面替换掉官方那套</strong>——返回更紧凑、带行号、错误更清楚；代价是你得接受&quot;工具被换掉&quot;。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>长任务多、上下文总被工具输出撑爆的人（养鱼长对话同样受益）。</li>
+<li>Windows 上想用 <code>ops_bash</code> 替代 pwsh、又不想完全放弃官方 Shell 的人。</li>
+<li>愿意折腾 PTC / Native 预设，追求&quot;每轮少花几千 token&quot;的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>提供 ops 系列工具，并<strong>隐藏部分官方工具</strong>，换来更紧凑的返回格式（带行号、错误回馈更好），减少报错循环与调用轮次。</li>
+<li>Bash 与宿主 Shell 可独立配置；Windows 下 <code>ops_bash</code> 可替代 pwsh，也可保留官方 Shell。</li>
+<li>第五个内置模式 <code>ops-ptc</code>：按根 <code>run_code</code> 程序形状给 <code>additionalContexts</code> 纠偏，不阻断、不改写程序。</li>
+<li>启用 DSH 预留的 <code>tools_addition</code> 动态工具加载：PDF、Word 读取、超多文件批量修改这类高级功能按需加载，<strong>不撑系统提示词</strong>。</li>
+<li>PTC SDK 目录含 18 个 API（15 个文件/文档工具 + 批处理、结果引用、加载器）。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>换掉工具面是有代价的</strong>：习惯官方工具输出格式的人会不适应；某些第三方插件若依赖被隐藏的官方工具，可能失效。</li>
+<li>它自称&quot;低侵入、广泛兼容&quot;，但工具面替换属于<strong>行为层改动</strong>，出问题时排查链更长。</li>
+<li>多套预设（Native / PTC / ops-ptc）容易配混，默认模式有按钮可设，但改错会影响新会话。</li>
+<li>版本 0.5.x，迭代快。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong>官方工具面不换</strong>：稳，但长任务 token 消耗高。</li>
+<li><strong><code>dsh-live-compact</code></strong>：不替换工具，直接压输出，思路不同但目标一致。</li>
+<li><strong><code>dsh-token-diet</code></strong>：只管预算，不改工具。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-ops@0.5.5</code>（npm）· 隔离 profile 安装成功（2026-11-18）· 周下载 71,115（npm）</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-ops" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/T-Auto/dsh-ops" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-18 · 依据该版本 README 原文</li>
+<li>隐私：🟢 纯本地（工具替换与动态加载均在本机）</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="dsh-remote.html"><code>dsh-remote</code></a> — SSH 远程工作区</li><li><a href="deepseek-harness-tui__dsh-tui.html"><code>@deepseek-harness-tui/dsh-tui</code></a> — 终端界面</li><li><a href="ds-harness-remote.html"><code>ds-harness-remote</code></a> — 端到端远程接入</li><li><a href="dsh-config-manager.html"><code>dsh-config-manager</code></a> — 配置备份与迁移</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-ops.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-ops.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/T-Auto/dsh-ops" target="_blank" rel="noreferrer noopener">T-Auto/dsh-ops</a></dd><dt>安装 spec</dt><dd><code>dsh-ops@0.5.7</code></dd><dt>版本 / 更新</dt><dd>0.5.7 · 2026-11-27</dd><dt>核验版本</dt><dd>0.5.5（<b>当前已是 0.5.7，结论可能已过时</b>）</dd><dt>Star</dt><dd>6,039</dd><dt>周下载</dt><dd>34,179</dd><dt>许可证</dt><dd>MIT</dd><dt>DSH 版本要求</dt><dd><code>&gt;=0.2.2-rc.1 &lt;0.2.3-0 || 0.2.3-alpha.2</code>（声明值，未实测）</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 0.5.5（2026-11-18 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-ops" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/T-Auto/dsh-ops" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://github.com/T-Auto/dsh-ops#readme" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

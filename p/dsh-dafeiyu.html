@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大肥鱼桌面伴侣 · DSH 插件站</title>
+<meta name="description" content="原生置顶小窗，随 DSH 启停，显示任务状态与余额；依赖 Python/PySide6，环境不对装不起来。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="大肥鱼桌面伴侣 · DSH 插件站">
+<meta property="og:description" content="原生置顶小窗，随 DSH 启停，显示任务状态与余额；依赖 Python/PySide6，环境不对装不起来。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大肥鱼桌面伴侣 · DSH 插件站">
+<meta name="twitter:description" content="原生置顶小窗，随 DSH 启停，显示任务状态与余额；依赖 Python/PySide6，环境不对装不起来。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-dafeiyu · 大肥鱼桌面伴侣</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge warn">风险 中</span>
+    <span class="badge ok">🟢 纯本地</span>
+  </div>
+  <blockquote>一句话结论：真正的<strong>原生置顶小窗</strong>（不是网页挂件），随 DSH 启动退出，用它看 Agent 在干嘛、余额还剩多少；代价是它依赖 Python/PySide6，环境不对就装不起来。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>想在编辑器/浏览器前也能看到 Agent 状态的人（思考、查找、修改、执行、完成）。</li>
+<li>喜欢摸头、戳身体、碰尾巴这类互动的人（养鱼党的&quot;陪伴感&quot;）。</li>
+<li>用桌面端 + WebUI 双端的人：两个客户端各用各自配置。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>透明、无边框、始终置顶的原生窗口，由插件启动、随 DSH 退出。</li>
+<li>显示真实任务状态与进度（项目/步骤/多任务/待办）。</li>
+<li>状态气泡与设置页显示 DeepSeek 余额，区分 API Key 与已登录账户。</li>
+<li>支持拖动、跨显示器、透明区域点击穿透、大小/气泡/声音/减少动态。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>原生依赖</strong>：Windows/Linux/macOS 共用包，但无随架构 Helper 时会回退 Python，需要 PySide6——少这一步就&quot;装了没窗口&quot;。</li>
+<li>离线安装必须下 <code>.tgz</code> 安装包，<strong>GitHub 自动生成的 Source code (zip) 不是安装包</strong>（README 专门强调，说明踩的人多）。</li>
+<li>角色素材来自 <code>PC2005-cloud/dsh-pet</code>，二创/分发注意授权。</li>
+<li>常驻置顶窗在低配机器上会持续占用资源。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong><code>dsh-pet</code></strong>：同为桌宠，动画更多、支持宠物包。</li>
+<li><strong><code>dsh-notify-me</code></strong>：只要&quot;状态提醒&quot;不要桌宠。</li>
+<li><strong><code>dsh-folia</code></strong>：壁纸 + 桌宠一体，更重。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-dafeiyu@0.1.23</code>（npm）· 隔离 profile 安装成功（2026-11-18，47s）</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-dafeiyu" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/QCYTSN/dsh-dafeiyu" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-18 · 依据该版本 README 原文</li>
+<li>隐私：🟢 纯本地（状态与余额在本机；余额取数只问 DeepSeek 账户）</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="dsh-dream-skin.html"><code>dsh-dream-skin</code></a> — 换肤与壁纸</li><li><a href="dsh-plugin-wallpaper-engine.html"><code>dsh-plugin-wallpaper-engine</code></a> — 壁纸引擎背景</li><li><a href="dsh-pet.html"><code>dsh-pet</code></a> — 桌面宠物</li><li><a href="dsh-folia.html"><code>dsh-folia</code></a> — 壁纸引擎 + 桌宠 + 开机动画</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-dafeiyu.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-dafeiyu.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/QCYTSN/dsh-dafeiyu" target="_blank" rel="noreferrer noopener">QCYTSN/dsh-dafeiyu</a></dd><dt>安装 spec</dt><dd><code>dsh-dafeiyu@0.1.23</code></dd><dt>版本 / 更新</dt><dd>0.1.23 · 2026-10-29</dd><dt>核验版本</dt><dd>0.1.23（与当前一致）</dd><dt>Star</dt><dd>635</dd><dt>周下载</dt><dd>6,916</dd><dt>许可证</dt><dd>SEE LICENSE IN ASSET_LICENSE.md</dd><dt>DSH 版本要求</dt><dd>未声明</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 0.1.23（2026-11-18 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-dafeiyu" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/QCYTSN/dsh-dafeiyu" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://github.com/QCYTSN/dsh-dafeiyu#readme" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

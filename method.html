@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>核验方法 · DSH 插件站</title>
+<meta name="description" content="四级核验怎么做、什么算通过、已知局限与可复现命令。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="核验方法 · DSH 插件站">
+<meta property="og:description" content="四级核验怎么做、什么算通过、已知局限与可复现命令。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="核验方法 · DSH 插件站">
+<meta name="twitter:description" content="四级核验怎么做、什么算通过、已知局限与可复现命令。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page">
+  <h1>核验方法</h1>
+  <p>这一页说明每条核验是怎么做出来的、什么算通过、什么不算——**你不需要相信我们，你可以照着复现**。</p>
+
+  <h2>四级核验，逐级加严</h2>
+  <table class="verify-table">
+    <thead><tr><th>级别</th><th>做了什么</th><th>能证明什么</th><th>不能证明什么</th></tr></thead>
+    <tbody>
+      <tr><td>① 文档核验</td><td>读 README 原文、npm registry 元数据、仓库声明</td><td>作者声称它做什么、许可证、版本、维护者</td><td>实际能不能装、能不能跑</td></tr>
+      <tr><td>② 安装实测</td><td>在<strong>隔离 profile</strong> 里真装一次，记录版本与耗时</td><td>包能解析、能装进 DSH 的插件体系</td><td>装上之后能不能用、有没有副作用</td></tr>
+      <tr><td>③ 启动核验</td><td>用最小 profile 启动一次，看是否报错、是否 pending</td><td>它能被组合、启动期不炸</td><td>功能是否正常、隐私行为</td></tr>
+      <tr><td>④ 运行实测</td><td>装完真跑一轮具体任务</td><td>这个功能在真实场景下可用</td><td><strong>本站目前尚未系统开展</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2>安装实测怎么做的</h2>
+  <pre style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto"><code># 1. 新建一个只用来测试的 profile（不碰日常 profile）
+dsh plugin --profile market-test add 插件名
+
+# 2. 确认它真的进了组合
+dsh --profile market-test --dump-config
+
+# 3. 最小启动一次，看有没有 pending / 报错
+dsh --profile market-test web --no-open --port 51999</code></pre>
+  <p>每条核验记录都写明：<strong>核验日期、DSH 版本、装到的具体版本、结果、失败原因（如果失败）</strong>。这些都在 <a href="verifications.json">verifications.json</a> 里可机器读取，字段定义见 <a href="verifications.schema.json">verifications.schema.json</a>（JSON Schema 2020-12）。</p>
+  <p><code>install.result</code> 有四种取值：<code>installed</code>（装进隔离 profile 并进入组合）、<code>partial</code>（包已落地但未进入 profile bundles，例如 pnpm 拦截构建脚本）、<code>failed</code>、<code>not-tested</code>。</p>
+
+  <h2>版本会过期，所以我们标出来</h2>
+  <p>插件更新很快：2026-11-19 的一次采集里就有 <b>48 个插件发了新版本</b>。所以每条核验记录两件事：<b>核验当时的版本</b>与<b>当前最新版本</b>。</p>
+  <ul>
+    <li>卡片出现「已更新 vX.XX」= 判断基于旧版本，可能已不适用</li>
+    <li>核验表有「版本状态」列：最新 / 已更新至 x / 未记录</li>
+    <li>机器可读字段：<code>reviewedVersion</code>、<code>currentVersion</code>、<code>stale</code></li>
+  </ul>
+  <p>看到「已更新」怎么办：按<a href="install.html">安装避坑</a>自己装一次，或到<a href="https://github.com/qianmokillstar/dsh-plugins/discussions/2">讨论区</a>说一声，我们会重新核验。</p>
+
+  <h2>什么算"通过"，什么不算</h2>
+  <ul>
+    <li>✅ 算：装成功、dump-config 里出现、启动不报错</li>
+    <li>❌ 不算：装成功就写"可用"；启动成功就写"没风险"；README 说得好就写"推荐"</li>
+    <li>⚠️ 特别注意：<strong>安装成功 ≠ 功能正确</strong>。站点上所有"已核实"只指可安装性</li>
+  </ul>
+
+  <h2>已知局限（请当成风险提示读）</h2>
+  <ul>
+    <li><strong>没有抓包验证</strong>：隐私分级（🟢/🔴）是读 README 与权限描述后的判断，不是网络层证据</li>
+    <li><strong>没有代码审计</strong>：风险分级不等于安全结论，高危插件只标注、不背书</li>
+    <li><strong>单一环境</strong>：只在本机 Windows + DSH 0.2.2-rc.3 上测，不覆盖其他平台与旧版本</li>
+    <li><strong>网络会影响结果</strong>：GitHub 源安装受网络影响，超时可能被误判成"装不上"（记录里会写耗时）</li>
+    <li><strong>只测一个版本</strong>：插件升级后结论可能失效，所以每条都标日期</li>
+  </ul>
+
+  <h2>我们踩过的坑（也是你该知道的）</h2>
+  <ul>
+    <li><strong>坏包污染</strong>：一个 tarball 截断的包写进 lockfile 后，同 profile 之后所有安装都会失败</li>
+    <li><strong>并发安装冲突</strong>：同一 profile 同时跑两个安装会互相破坏，必须串行</li>
+    <li><strong>看起来一样、其实没装</strong>：包在 node_modules 里但 dump-config 没有 = 装了没被组合</li>
+  </ul>
+  <p>处理方式写在 <a href="install.html">安装避坑指南</a> 里。</p>
+
+  <div class="notice">发现记录有误？<a href="https://github.com/qianmokillstar/dsh-plugins/discussions/2" target="_blank" rel="noreferrer noopener"><b>去 Discussions 纠错</b></a>，带上插件名、版本、现象。</div>
+</div>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

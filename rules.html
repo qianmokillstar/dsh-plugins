@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>收录规则与标准 · DSH 插件站</title>
+<meta name="description" content="收录门槛、判断标准、排序与收费说明。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="收录规则与标准 · DSH 插件站">
+<meta property="og:description" content="收录门槛、判断标准、排序与收费说明。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="收录规则与标准 · DSH 插件站">
+<meta name="twitter:description" content="收录门槛、判断标准、排序与收费说明。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page">
+  <h1>收录规则与标准</h1>
+  <p class="disclaimer-strip" style="margin-bottom:18px">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。</p>
+
+  <h2>收录门槛（三选一才算"已核实"）</h2>
+  <ul>
+    <li>npm 包的 <code>package.json</code> 声明了 <code>dsh.bundle.patch</code></li>
+    <li>仓库根 <code>package.json</code> 声明了 <code>dsh</code> 字段（bundle / client / profile）</li>
+    <li>仓库自带 <code>cordis.patch.yml</code></li>
+  </ul>
+  <p>只有 README 提到安装方式、拿不到包声明的，可以收录，但必须标「未核实」，不得标「已核实可安装」。</p>
+
+  <h2>判断标准</h2>
+  <p>每条人工判断必须回答四问，缺一不发布：</p>
+  <ul>
+    <li><b>适合谁</b>：人群与具体场景，不写"所有人"</li>
+    <li><b>解决什么</b>：写能力，能量化就量化</li>
+    <li><b>风险点</b>：至少一条真会出事的（凭据 / 隐私 / 成本 / 权限 / 外部依赖）</li>
+    <li><b>替代品</b>：至少两个，包含"什么都不装"</li>
+  </ul>
+
+  <h2>排序与收费</h2>
+  <p>推荐序由人工判断给出，不接受付费、不接受指定排名。当前站点<b>没有任何赞助、推广位或付费收录</b>。若未来出现商业合作，会在对应位置显著标注「赞助/推广」。</p>
+
+  <h2>引用与转载</h2>
+  <p>欢迎媒体、公众号、作者引用本站结论，但请守三条：</p>
+  <ul>
+    <li><b>带上日期与版本</b>：核验结论只对"某日某版本"成立，转述时请保留，否则会误导读者</li>
+    <li><b>不要断章取义</b>：只截"优点"、删掉风险点，等于篡改结论；请至少保留风险点或链回原文</li>
+    <li><b>注明来源</b>：写明"来自 DSH 插件站（非官方第三方）"并附页面链接</li>
+  </ul>
+  <p>整站转载请联系（<a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a>）；本站内容为独立评测，插件版权归各作者。</p>
+
+  <h2>为什么我们不按 star 排序</h2>
+  <p>因为在 DSH 生态里，star 与"能不能装"几乎不相关：</p>
+  <ul>
+    <li>实测抓取 <code>topic:dsh-plugin</code> 的前 400 个仓库，<b>164 个根本不是插件</b>（图床、视频下载、逆向工具挂了同一个 topic 蹭曝光）</li>
+    <li>star 最高的若干仓库里，有的是"给 Agent 用的技能包"，有的是"套壳客户端"，并不是可安装的 DSH 插件</li>
+    <li>下载量可以被搬运与镜像放大，也不能单独代表质量</li>
+  </ul>
+  <p>所以本站的做法是：<b>先验证它是不是插件、能不能装，再看判断</b>；star 与下载量只作为参考列在卡片上，不参与主排序。</p>
+
+  <h2>不收录</h2>
+  <ul>
+    <li>要求关闭沙箱 / 审批 / 权限模型才能用的</li>
+    <li>收集用户数据但不说明用途与存储位置的</li>
+    <li>只有壳、功能与描述不符的</li>
+    <li>冒用官方名义但无官方关系的（社区项目会单独标注）</li>
+  </ul>
+
+  <h2>命名与视觉</h2>
+  <p>站名「DSH 插件站」为描述性名称，页面固定标注「非官方 · 第三方」；站点 Logo 为本站自绘，不使用官方标识，也不与官方标识并列呈现，避免造成关联误认。</p>
+</div>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

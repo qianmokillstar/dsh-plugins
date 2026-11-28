@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>风险公告 · DSH 插件站</title>
+<meta name="description" content="装不上、装坏了、不建议直接装的 DSH 插件，附证据。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="风险公告 · DSH 插件站">
+<meta property="og:description" content="装不上、装坏了、不建议直接装的 DSH 插件，附证据。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="风险公告 · DSH 插件站">
+<meta name="twitter:description" content="装不上、装坏了、不建议直接装的 DSH 插件，附证据。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page">
+  <h1>风险公告</h1>
+  <p>这里列的是<b>装不上、装坏了、或者不建议直接装</b>的插件。负面信息同样要留痕——对读者比"又多一个能装的"更有用。</p>
+  <p class="notice">依据：依据：README 原文、npm registry 元数据、以及 2026-11-18 在隔离 profile 的真实安装结果（DSH 0.2.2-rc.3）。。发现新问题欢迎 <a href="https://github.com/qianmokillstar/dsh-plugins/issues/new" target="_blank" rel="noreferrer noopener">提 Issue</a>。</p>
+  <div class="changelog">
+    <section>
+      <h2><code>dsh-purge</code></h2>
+      <p style="margin:6px 0"><span class="badge high">npm 包损坏</span> <span class="badge warn">仅 GitHub 可装</span> <span class="badge warn">已暂停维护</span> <span class="badge warn">镜像仓库</span> <span class="badge high">破甲/越狱类</span></p>
+      <p>npm 上的 dsh-purge 是 0.0.0-stage 占位包，tarball 截断，装不上；且它会写进 profile 的 lockfile，导致之后所有安装都在重试这个坏包。</p>
+      <p style="font-size:13px"><b>证据：</b>pnpm 报 Unexpected end of TAR archive at offset 2560；随后 dsh-soul-md / dsh-fish-soul 均因同一 tarball 失败。改用 github:mmparko/dsh-purge 可装成功 1.1.71（72.8s）。</p>
+      <p style="font-size:13px"><b>注意：</b>README 自述为网络安全红队/破甲（jailbreak）工具，并写明“暂停更新、暂不收 issue/PR”。当前仓库是上游镜像，上游即将删库。</p>
+      <p style="font-size:13px"><a href="https://github.com/mmparko/dsh-purge" target="_blank" rel="noreferrer noopener">仓库</a></p>
+    </section><section>
+      <h2><code>dsh-purge-community</code></h2>
+      <p style="margin:6px 0"><span class="badge warn">仅 GitHub 可装</span> <span class="badge high">破甲/越狱类</span></p>
+      <p>不在 npm，只能用 github:kingcharleslzy-ai/dsh-purge 安装（实测成功 1.7.20，126s）。</p>
+      <p style="font-size:13px"><b>证据：</b>pnpm 报 not in the npm registry；GitHub 源安装成功。</p>
+      <p style="font-size:13px"><b>注意：</b>同为破甲类工具，使用涉及模型服务条款与账号风险，本站不做推荐。</p>
+      <p style="font-size:13px"><a href="https://github.com/kingcharleslzy-ai/dsh-purge" target="_blank" rel="noreferrer noopener">仓库</a></p>
+    </section><section>
+      <h2><code>dsh-purge-safe</code></h2>
+      <p style="margin:6px 0"><span class="badge warn">仅 GitHub 可装</span> <span class="badge warn">未核实</span></p>
+      <p>不在 npm，README 未取到，安装与用途均未核实。</p>
+      <p style="font-size:13px"><b>证据：</b>pnpm 报 not in the npm registry。</p>
+      <p style="font-size:13px"><b>注意：</b>未核验条目，不建议直接装。</p>
+      <p style="font-size:13px"><a href="https://github.com/CallMeGuLab/dsh-purge-safe" target="_blank" rel="noreferrer noopener">仓库</a></p>
+    </section><section>
+      <h2><code>gal-view</code></h2>
+      <p style="margin:6px 0"><span class="badge warn">仅 GitHub 可装</span> <span class="badge warn">克隆超时未完成</span></p>
+      <p>不在 npm，只能从 GitHub 装；两次尝试克隆均超过 15 分钟未完成，本轮未取得安装结论。</p>
+      <p style="font-size:13px"><b>证据：</b>第一次并发安装超时中止；第二次串行单独执行，超过 15 分钟仍未返回。</p>
+      <p style="font-size:13px"><b>注意：</b>未完成核验的条目不写“可用”或“不可用”，只记录现象。</p>
+      <p style="font-size:13px"><a href="https://github.com/Ayase34/gal-view" target="_blank" rel="noreferrer noopener">仓库</a></p>
+    </section><section>
+      <h2><code>billion-context-dsh</code></h2>
+      <p style="margin:6px 0"><span class="badge warn">版本不兼容</span></p>
+      <p>版本与本机 DSH 不兼容，安装器直接拒绝：billion-context-dsh@0.2.27 要求的 DSH 版本与 0.2.2-rc.3 不符。</p>
+      <p style="font-size:13px"><b>证据：</b>dsh plugin add 报 incompatible with dsh 0.2.2-rc.3，并提示需显式版本豁免才能强装。</p>
+      <p style="font-size:13px"><b>注意：</b>可以加 allow-version 豁免强装，但那等于自己承担崩溃与数据丢失风险，本站不建议。</p>
+      <p style="font-size:13px"><a href="https://github.com/Tyan66666/billion-context-dsh" target="_blank" rel="noreferrer noopener">仓库</a></p>
+    </section><section>
+      <h2><code>dsh-tavern</code></h2>
+      <p style="margin:6px 0"><span class="badge warn">仅 GitHub 可装</span> <span class="badge warn">克隆超时未完成</span></p>
+      <p>不在 npm，只能从 GitHub 装；克隆超过 30 分钟未完成，本轮核验停在“超时未完成”，未做安装结论。</p>
+      <p style="font-size:13px"><b>证据：</b>dsh plugin --profile market-test add github:flizzywine/dsh-tavern 超过 30 分钟仍未返回，已中止。</p>
+      <p style="font-size:13px"><b>注意：</b>酒馆类前端通常体积大、依赖多，网络差时容易超时。建议在网络好时重试，或先看作者是否有预编译发布包。</p>
+      <p style="font-size:13px"><a href="https://github.com/flizzywine/dsh-tavern" target="_blank" rel="noreferrer noopener">仓库</a></p>
+    </section>
+  </div>
+  <h2>类问题：坏包会污染整个 profile</h2>
+  <p>实测发现，一个 tarball 损坏的包（如 npm 上的 <code>dsh-purge@0.0.0-stage</code>）被写进 profile 的 lockfile 后，<b>之后同一 profile 里的所有安装都会重试这个坏包而失败</b>。表现为：明明装的是别的插件，报错却指向那个坏包。</p>
+  <p>处理方式：换一个干净的 profile，或删除该 profile 的 <code>node_modules</code> 与 lockfile 后重装。本站后续会在每条核验记录里标注是否遇到这类连带失败。</p>
+</div>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

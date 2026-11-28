@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>生成式界面 · DSH 插件站</title>
+<meta name="description" content="把回复变成可点的计算器/表单/图表，结果回流到对话；与 deep-view 同赛道。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="生成式界面 · DSH 插件站">
+<meta property="og:description" content="把回复变成可点的计算器/表单/图表，结果回流到对话；与 deep-view 同赛道。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="生成式界面 · DSH 插件站">
+<meta name="twitter:description" content="把回复变成可点的计算器/表单/图表，结果回流到对话；与 deep-view 同赛道。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="../index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="../rules.html">收录规则</a></p>
+<div class="nav"><a href="../rp.html"><b>养鱼速查</b></a><a href="../index.html">插件目录</a><a href="../scenes.html">场景施工图</a><a href="../verifications.html">核验记录</a><a href="../weekly.html">周报</a><a href="../install.html">安装避坑</a><a href="../fix.html">装不上?</a><a href="../risks.html">风险公告</a><a href="../failures.html">失败档案</a><a href="../submit.html">提交插件</a><a href="../rules.html">规则与声明</a></div></header>
+<div class="page-nav" style="margin-bottom:16px"><a href="../index.html">← 返回目录</a></div>
+<article class="review">
+  <h1>dsh-genui · 把回复变成可点的界面</h1>
+  <div class="badges" style="margin:10px 0 18px">
+    <span class="badge ok">已核实</span>
+    <span class="badge accent">人工短评</span>
+    <span class="badge warn">风险 中</span>
+    <span class="badge ok">🟢 纯本地</span>
+  </div>
+  <blockquote>一句话结论：让模型把&quot;一大段文字&quot;变成计算器、表单、图表，你点完填完，结果直接回到对话里；和 <code>deep-view</code> 同赛道，风格不同。</blockquote>
+<h2>适合谁</h2>
+<ul>
+<li>经常需要&quot;算一下&quot;&quot;填个表&quot;&quot;看个趋势&quot;，不想在脑内跑逻辑的人。</li>
+<li>养鱼时想让模型给出&quot;剧情分支选项 + 数值状态&quot;的人（比纯文字沉浸感强）。</li>
+<li>想要&quot;点了就生效&quot;而不是&quot;复制粘贴再发一条&quot;的人。</li>
+</ul>
+<h2>解决什么</h2>
+<ul>
+<li>把回复渲染成真实界面：可按键的计算器、可填的表单、带坐标轴的图表。</li>
+<li>点击/填写的结果回流到对话，模型接着往下走。</li>
+<li>一条命令安装，不改 DSH 源码。</li>
+</ul>
+<h2>风险点</h2>
+<ul>
+<li><strong>渲染的是模型生成的界面</strong>：复杂/恶意指令可能产出奇怪控件，点之前看一眼来源。</li>
+<li>与 <code>deep-view</code> 功能重叠，两个都装会出现两套视图能力，排查混乱。</li>
+<li>版本 0.3.x，组件覆盖面还会变。</li>
+<li>图表/表单本身占上下文，长会话里别滥用。</li>
+</ul>
+<h2>替代品</h2>
+<ul>
+<li><strong><code>deep-view</code></strong>：同类实现，组件偏 slider/choice/confirm，安装方式不同（要改 patch）。</li>
+<li><strong>Markdown 表格</strong>：零安装，够用就别加。</li>
+<li><strong>官方表单类插件</strong>：看你实际场景。</li>
+</ul>
+<h2>事实</h2>
+<ul>
+<li>安装 spec：<code>dsh-genui@0.3.3</code>（npm）· 隔离 profile 安装成功（2026-11-18，14s）· 周下载 13,700</li>
+<li>来源：<a href="https://www.npmjs.com/package/dsh-genui" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/lhuans/dsh-genui" target="_blank" rel="noreferrer noopener">仓库</a></li>
+<li>审核日期 2026-11-18 · 依据该版本 README 原文</li>
+<li>隐私：🟢 纯本地（界面在本地渲染；模型调用走你自己的连接）</li>
+</ul>
+  <h2>同类插件（同分类已核验）</h2><ul><li><a href="dsh-agent-compare.html"><code>dsh-agent-compare</code></a> — 鲸挑细选 · 同需求多方案对比</li><li><a href="michengai__dsh-archive-manager.html"><code>@michengai/dsh-archive-manager</code></a> — 会话归档与检索</li><li><a href="deep-view.html"><code>deep-view</code></a> — 对话内交互视图</li><li><a href="dsh-mobile-plugin.html"><code>dsh-mobile-plugin</code></a> — 手机接着聊</li></ul>
+  <h2>作者想引用这页？</h2>
+  <p>把下面这一行贴进 README，会显示本站的核验结论并链回这里（<a href="../badges.html">全部徽章</a>）：</p>
+  <p><code style="font-size:11px;word-break:break-all">[![DSH 核验](https://qianmokillstar.github.io/dsh-plugins/badges/dsh-genui.svg)](https://qianmokillstar.github.io/dsh-plugins/p/dsh-genui.html)</code></p>
+  <p style="font-size:13px;color:var(--ink-muted)">徽章只表示可安装性与版本状态，不是背书；不希望被收录可<a href="../takedown.html">联系我们下架</a>。</p>
+  <h2>事实卡</h2>
+  <dl class="facts"><dt>包名 / 仓库</dt><dd><a href="https://github.com/lhuans/dsh-genui" target="_blank" rel="noreferrer noopener">lhuans/dsh-genui</a></dd><dt>安装 spec</dt><dd><code>dsh-genui@0.3.4</code></dd><dt>版本 / 更新</dt><dd>0.3.4 · 2026-11-20</dd><dt>核验版本</dt><dd>0.3.3（<b>当前已是 0.3.4，结论可能已过时</b>）</dd><dt>Star</dt><dd>未获取</dd><dt>周下载</dt><dd>10,692</dd><dt>许可证</dt><dd>MIT</dd><dt>DSH 版本要求</dt><dd>未声明</dd><dt>核实状态</dt><dd>已核实：npm 包声明了 dsh.bundle.patch</dd><dt>安装实测</dt><dd>已装成功 0.3.3（2026-11-18 · DSH 0.2.2-rc.3）</dd><dt>链接</dt><dd><a href="https://www.npmjs.com/package/dsh-genui" target="_blank" rel="noreferrer noopener">npm</a> · <a href="https://github.com/lhuans/dsh-genui" target="_blank" rel="noreferrer noopener">GitHub</a> · <a href="https://lhuans.github.io/dsh-genui/" target="_blank" rel="noreferrer noopener">主页</a></dd></dl>
+</article>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="../rules.html">收录规则</a> · <a href="../method.html">核验方法</a> · <a href="../badges.html">核验徽章</a> · <a href="../data.html">数据接口</a> · <a href="../install.html">安装避坑</a> · <a href="../risks.html">风险公告</a> · <a href="../changelog.html">更新日志</a> · <a href="../takedown.html">下架与投诉</a> · <a href="../disclaimer.html">评测免责</a> · <a href="../privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

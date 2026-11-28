@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>核验记录 · DSH 插件站</title>
+<meta name="description" content="带日期与 DSH 版本的公开核验记录。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DSH 插件站（非官方·第三方）">
+<meta property="og:title" content="核验记录 · DSH 插件站">
+<meta property="og:description" content="带日期与 DSH 版本的公开核验记录。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="核验记录 · DSH 插件站">
+<meta name="twitter:description" content="带日期与 DSH 版本的公开核验记录。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><svg viewBox="0 0 40 40" role="img" aria-label="DSH 插件站"><rect x="2.5" y="2.5" width="35" height="35" rx="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 14h9.5a6 6 0 0 1 0 12H13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="28.5" cy="13.5" r="2.2" fill="currentColor"/></svg><h1 class="title"><a href="index.html" style="color:inherit">DSH 插件站</a><span class="tag-unofficial">非官方 · 第三方</span></h1></div>
+<p class="subtitle">非官方 DSH <b>养鱼 / 陪伴向</b>插件核验站：防失忆、防出戏、防隐私泄露。只收录人工真机跑过、能说清坑的插件。</p>
+<p class="disclaimer-strip">本站为第三方非官方站点，与 DeepSeek / DeepSeek Harness 官方<b>无关联、无授权、无背书</b>；插件版权归各自作者，收录不代表官方推荐。<a href="rules.html">收录规则</a></p>
+<div class="nav"><a href="rp.html"><b>养鱼速查</b></a><a href="index.html">插件目录</a><a href="scenes.html">场景施工图</a><a href="verifications.html">核验记录</a><a href="weekly.html">周报</a><a href="install.html">安装避坑</a><a href="fix.html">装不上?</a><a href="risks.html">风险公告</a><a href="failures.html">失败档案</a><a href="submit.html">提交插件</a><a href="rules.html">规则与声明</a></div></header>
+<div class="page">
+  <h1>核验记录</h1>
+  <p>每条记录写清：核验日期、DSH 版本、依据、结论。<b>能复现的才写进来</b>。</p>
+  <p class="notice">当前 55 条记录中，<b>52 条已完成安装实测</b>（真装进隔离 profile，记录版本与日期），<b>10 条有启动核验结论</b>（已加载 1 / 待激活 2 / 组合无报错 6 / 不参与组合 1）。安装成功不代表运行无问题，启动核验也不代表功能正确。具体怎么测的见 <a href="method.html">核验方法</a>。</p>
+  <table class="verify-table">
+    <thead><tr><th>插件</th><th>隐私</th><th>版本状态</th><th>安装</th><th>启动核验</th><th>核验日期</th><th>DSH 版本</th><th>结论</th><th>风险</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><a href="p/dsh-mobile-plugin.html"><code>dsh-mobile-plugin</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.5.130</td>
+        <td>已装 0.5.112</td>
+        <td>未验证</td>
+        <td>2026-11-25</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-remote.html"><code>dsh-remote</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 1.5.0</td>
+        <td>已装 1.2.0</td>
+        <td>已组合 · 未见报错</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；已组合，启动期未见报错</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-agent-compare.html"><code>dsh-agent-compare</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 3.3.1</td>
+        <td>已装 3.1.1</td>
+        <td>已组合 · 未见报错</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；已组合，启动期未见报错</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/dsh-windows-mcp.html"><code>dsh-windows-mcp</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.2.13</td>
+        <td>已装 0.2.11</td>
+        <td>已组合 · 未见报错</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；已组合，启动期未见报错（MCP 子进程未触发）</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/dsh-context.html"><code>dsh-context</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.87.2</td>
+        <td>已装 0.85.1</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/dsh-prime-memory.html"><code>dsh-prime-memory</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.29.5</td>
+        <td>已装 0.26.60</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-pet.html"><code>dsh-pet</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>最新</td>
+        <td>已装 0.4.9</td>
+        <td>未验证</td>
+        <td>2026-11-25</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/cc-safety-net.html"><code>cc-safety-net</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>最新</td>
+        <td>已装 2.8.3</td>
+        <td>未验证</td>
+        <td>2026-11-25</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/dsh-cost-meter.html"><code>dsh-cost-meter</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 1.9.94</td>
+        <td>已装 1.9.70</td>
+        <td>已加载（日志证实）</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；日志证实加载并完成历史回填</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-free-search.html"><code>dsh-free-search</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.9.90</td>
+        <td>已装 0.9.53</td>
+        <td>已组合 · 未见报错</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；已组合，启动期未见报错</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/ds-harness-remote.html"><code>ds-harness-remote</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.6.8</td>
+        <td>已装 0.6.5</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/dsh-mnemon.html"><code>dsh-mnemon</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.5.56</td>
+        <td>已装 0.5.54</td>
+        <td>已组合 · 未见报错</td>
+        <td>2026-11-25</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；已组合，启动期未见报错</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-perm-gate.html"><code>dsh-perm-gate</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 5.10.0</td>
+        <td>已装 5.5.4</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-connect-workbuddy.html"><code>dsh-connect-workbuddy</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 5.34.0</td>
+        <td>已装 5.24.13</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/dsh-ops.html"><code>dsh-ops</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.5.7</td>
+        <td>已装 0.5.5</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-whale-widget.html"><code>dsh-whale-widget</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>最新</td>
+        <td>已装 0.4.2</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/michengai__dsh-archive-manager.html"><code>@michengai/dsh-archive-manager</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 1.5.0</td>
+        <td>已装 1.3.6</td>
+        <td>待激活（缺 webServer）</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；等待 webServer / workspaceRegistry</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/dsh-session-guard.html"><code>dsh-session-guard</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 4.5.0</td>
+        <td>已装 4.2.10</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/deep-view.html"><code>deep-view</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>最新</td>
+        <td>已装 0.1.2</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-plugin-wallpaper-engine.html"><code>dsh-plugin-wallpaper-engine</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 1.4.3</td>
+        <td>已装 1.4.2</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/michengai__dsh-skills-manager.html"><code>@michengai/dsh-skills-manager</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 1.5.5</td>
+        <td>已装 1.4.11</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-brief-sidebar.html"><code>dsh-brief-sidebar</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.9.30</td>
+        <td>已装 0.9.20</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/dsh-ppt.html"><code>dsh-ppt</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 1.1.0</td>
+        <td>已装 0.20.8</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/deepseek-harness-tui__dsh-tui.html"><code>@deepseek-harness-tui/dsh-tui</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.20.2</td>
+        <td>已装 0.20.1</td>
+        <td>独立 app · 未参与组合</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；独立 app 入口，不参与 profile 组合</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/dsh-pdf-mineru.html"><code>dsh-pdf-mineru</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.2.4</td>
+        <td>已装 0.2.3</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-genui.html"><code>dsh-genui</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.3.4</td>
+        <td>已装 0.3.3</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-meme.html"><code>dsh-meme</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.1.86</td>
+        <td>已装 0.1.81</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/michengai__dsh-im-connect.html"><code>@michengai/dsh-im-connect</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 1.0.57</td>
+        <td>半装 1.0.43</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>包已落地但未组合：pnpm 11 拦截依赖构建脚本（protobufjs@7.6.6），命令以失败退出；包已落地 node_modules 并写入 dependencies，但未进入 profile bundles</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/openviking__dsh-memory-plugin.html"><code>@openviking/dsh-memory-plugin</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.5.44</td>
+        <td>已装 0.5.38</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/dsh-notify-me.html"><code>dsh-notify-me</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 1.28.2</td>
+        <td>已装 1.21.3</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-fish-memory.html"><code>dsh-fish-memory</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 1.6.7</td>
+        <td>已装 1.6.3</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-plugin-memory.html"><code>dsh-plugin-memory</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.21.0</td>
+        <td>已装 0.20.0</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-see-now.html"><code>dsh-see-now</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.2.9</td>
+        <td>已装 0.2.4</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/tencent-connect__dsh-qqbot.html"><code>@tencent-connect/dsh-qqbot</code></a></td>
+        <td>🔴 需云端</td>
+        <td>最新</td>
+        <td>半装 0.5.5</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>包已落地但未组合：pnpm 11 拦截依赖构建脚本（protobufjs@7.6.6），命令以失败退出；包已落地 node_modules 并写入 dependencies，但未进入 profile bundles</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/dsh-fish-soul.html"><code>dsh-fish-soul</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.19.6</td>
+        <td>已装 0.18.6</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/dsh-dafeiyu.html"><code>dsh-dafeiyu</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>最新</td>
+        <td>已装 0.1.23</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-video-storyboard.html"><code>dsh-video-storyboard</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.8.1</td>
+        <td>已装 0.7.6</td>
+        <td>已组合 · 未见报错</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；已组合，启动期未见报错</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-bili-scroll.html"><code>dsh-bili-scroll</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 2.5.3</td>
+        <td>已装 2.5.2</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/dsh-music-panel.html"><code>dsh-music-panel</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.47.2</td>
+        <td>已装 0.36.2</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-onebot-qq.html"><code>dsh-onebot-qq</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.11.2</td>
+        <td>已装 0.10.0</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>高</td>
+      </tr><tr>
+        <td><a href="p/dsh-config-manager.html"><code>dsh-config-manager</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.12.0</td>
+        <td>已装 0.10.0</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/meow-memory.html"><code>meow-memory</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.33.3</td>
+        <td>已装 0.33.0</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-soul-md.html"><code>dsh-soul-md</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.12.6</td>
+        <td>已装 0.12.5</td>
+        <td>未验证</td>
+        <td>2026-11-25</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-token-diet.html"><code>dsh-token-diet</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>最新</td>
+        <td>已装 0.1.0</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/dsh-dream-skin.html"><code>dsh-dream-skin</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>最新</td>
+        <td>已装 11.16.0</td>
+        <td>待激活（缺 webServer）</td>
+        <td>2026-11-17</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile；等待 webServer</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/suifei__dsh-ai-team.html"><code>@suifei/dsh-ai-team</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 0.4.145</td>
+        <td>已装 0.4.119</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-folia.html"><code>dsh-folia</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 1.2.0</td>
+        <td>已装 4.26.0-pre.64</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-session-superagent.html"><code>dsh-session-superagent</code></a></td>
+        <td>🔴 需云端</td>
+        <td>已更新至 2.0.2</td>
+        <td>半装 0.10.12</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>包已落地但未组合：pnpm 11 拦截依赖构建脚本（protobufjs@7.6.6），命令以失败退出；包已落地 node_modules 并写入 dependencies，但未进入 profile bundles</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-live-compact.html"><code>dsh-live-compact</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 1.1.14</td>
+        <td>已装 1.1.12</td>
+        <td>未验证</td>
+        <td>2026-11-25</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-loci.html"><code>dsh-loci</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 7.2.1</td>
+        <td>已装 6.0.1</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-tts-bridge.html"><code>dsh-tts-bridge</code></a></td>
+        <td>🔴 需云端</td>
+        <td>最新</td>
+        <td>已装 1.3.4</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/memory-eternal.html"><code>memory-eternal</code></a></td>
+        <td>🔴 需云端</td>
+        <td>最新</td>
+        <td>已装 0.49.11</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-memory-nebula.html"><code>dsh-memory-nebula</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 1.11.76</td>
+        <td>已装 1.11.68</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr><tr>
+        <td><a href="p/dsh-icon-library.html"><code>dsh-icon-library</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>最新</td>
+        <td>已装 0.20.0</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>低</td>
+      </tr><tr>
+        <td><a href="p/Amakurai__dsh-liketavern.html"><code>dsh-liketavern</code></a></td>
+        <td>🟢 纯本地</td>
+        <td>已更新至 0.5.13</td>
+        <td>已装 0.5.12</td>
+        <td>未验证</td>
+        <td>2026-11-18</td>
+        <td>0.2.2-rc.3</td>
+        <td>已装入隔离 profile</td>
+        <td>中</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>启动核验说明（2026-11-17 · DSH 0.2.2-rc.3）</h2>
+  <p>在一个最小 profile（<code>market-test（测试后已删除，释放 428.9 MB）</code>）里启动 <code>dsh --profile=market-test web --no-open --port 51999</code>，结果：进程启动后未监听端口；127 秒后终止。</p>
+  <ul><li>dsh-cost-meter 正常加载并按 JSONL 回填 5 天 / 20 个会话</li><li>2 个条目 pending：archive-manager 等待 webServer + workspaceRegistry，dream-skin 等待 webServer</li><li>该 profile 缺少 web 宿主 bundle（@deepseek-ai/dsh-web-app），因此 web 端口未起来</li><li>npm 上 @deepseek-ai/dsh-web-app 的 latest 为 0.0.1-rc.1 占位版本，与本机 0.2.2-rc.3 不兼容</li><li>尝试安装匹配版本 0.2.2-rc.3 时依赖树膨胀到 428.9 MB 且网络停滞，已中止</li></ul>
+  <h2>下一批要补的</h2>
+  <ul>
+    <li>运行实测：装上之后再启动一次，确认没有启动报错（当前只做安装）</li>
+    <li>失败记录同样收录（装不上的原因比"能装"更有价值）</li>
+    <li>卸载 / 回滚是否干净</li>
+  </ul>
+  <div class="notice">发现哪条判断不准、哪个插件装不上？<a href="https://github.com/qianmokillstar/dsh-plugins/discussions/2" target="_blank" rel="noreferrer noopener"><b>去 Discussions 纠错</b></a>（带上插件名、版本、DSH 版本、现象）。作者认为记录有误也可以直接说——先改记录再讨论。</div>
+</div>
+<footer class="site">
+  <div><b>非官方声明</b>：本站为第三方非官方 DSH 插件索引与评测站，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。站名、Logo 均为本站自有，不使用也不并列官方标识。插件名称、描述、许可证等版权归各作者所有；收录不代表官方推荐，判断为独立主观评价。</div>
+  <div><b>收费披露</b>：本站目前没有任何赞助、推广位或付费收录，排序不接受付费。若未来出现任何商业合作，会在对应位置显著标注「赞助/推广」，并保持对未付费插件相同的收录与判断标准。</div>
+  <div>本站核验基准环境：DSH 0.2.2-rc.3 · 数据生成于 2026-11-28。核验结论均标注日期，不构成安装或安全担保；隐私分级为读 README 后的初次判断，未做抓包验证。</div>
+  <div class="foot-links"><a href="rules.html">收录规则</a> · <a href="method.html">核验方法</a> · <a href="badges.html">核验徽章</a> · <a href="data.html">数据接口</a> · <a href="install.html">安装避坑</a> · <a href="risks.html">风险公告</a> · <a href="changelog.html">更新日志</a> · <a href="takedown.html">下架与投诉</a> · <a href="disclaimer.html">评测免责</a> · <a href="privacy.html">隐私与数据</a> · <a href="https://github.com/qianmokillstar/dsh-plugins/discussions" target="_blank" rel="noreferrer noopener">讨论区</a></div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

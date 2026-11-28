@@ -1,0 +1,1824 @@
+{
+  "schema": "dsh-market-verification/1",
+  "generatedAt": "2026-11-28T01:27:01.471Z",
+  "site": "https://qianmokillstar.github.io/dsh-plugins/",
+  "disclaimer": "非官方第三方站点，与 DeepSeek / DeepSeek Harness 官方无关联、无授权、无背书。安装成功不代表运行正确，核验结论只对标注日期与版本成立。",
+  "dshVersion": "0.2.2-rc.3",
+  "count": 55,
+  "entries": [
+    {
+      "name": "dsh-mobile-plugin",
+      "version": "0.5.130",
+      "title": "手机接着聊",
+      "license": "MIT",
+      "weeklyDownloads": 258251,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-25",
+      "reviewedVersion": "0.5.112",
+      "currentVersion": "0.5.130",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.5.112"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想离开电脑桌还能接着聊同一个会话的人（养鱼党最典型：晚上躺床上继续剧情）。",
+        "solves": "手机端 App 通过中转隧道或局域网配对连进你自己电脑上的 DSH；电脑不需要公网 IP、不用开端口。",
+        "risk": "走中转隧道时，你的会话内容会经过第三方中转服务；要求最高隐私就用局域网直连，别用公网隧道。",
+        "alternatives": "只用电脑 + 远程桌面：零新装，但体验笨重。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-mobile-plugin.html",
+        "npm": "https://www.npmjs.com/package/dsh-mobile-plugin",
+        "repository": "https://github.com/WNLUO/dsh-mobile-plugin",
+        "homepage": "https://github.com/WNLUO/dsh-mobile-plugin#readme"
+      }
+    },
+    {
+      "name": "dsh-remote",
+      "version": "1.5.0",
+      "title": "SSH 远程工作区",
+      "license": "MIT",
+      "weeklyDownloads": 143907,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "1.2.0",
+      "currentVersion": "1.5.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.2.0"
+      },
+      "activation": "no-error",
+      "activationNote": "已组合，启动期未见报错",
+      "judgment": {
+        "fit": "代码跑在远程服务器 / 跳板机 / 云主机，本地只负责编辑和发指令的人。",
+        "solves": "每个工作区绑定一台主机和一个目录，多个远程工作区可独立并行。",
+        "risk": "凭据集中：SSH 密码 / 私钥由插件保存并在需要时自动应答。这是便利的来源，也是最大风险面——请确认保存位置与备份策略，不要在多用户机器上使用。",
+        "alternatives": "DSH 内置 SSH 能力（`dsh-ssh` 相关 bundle）：适合脚本化、少量文件读写，没有工作区与 IDE 布局。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-remote.html",
+        "npm": "https://www.npmjs.com/package/dsh-remote",
+        "repository": "https://github.com/flymysql/dsh-remote",
+        "homepage": "https://flymysql.github.io/dsh-remote/"
+      }
+    },
+    {
+      "name": "dsh-agent-compare",
+      "version": "3.3.1",
+      "title": "鲸挑细选 · 同需求多方案对比",
+      "license": "MIT",
+      "weeklyDownloads": 136030,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "3.1.1",
+      "currentVersion": "3.3.1",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "3.1.1"
+      },
+      "activation": "no-error",
+      "activationNote": "已组合，启动期未见报错",
+      "judgment": {
+        "fit": "做 UI / 落地页 / 小工具时，想一次拿到多种风格候选，而不是反复\"再来一版\"的人。",
+        "solves": "在主对话里把同一需求并行分给 2–4 个版本，比较回答、文件或可直接操作的网页。",
+        "risk": "成本翻倍：2–4 路并行意味着 2–4 份模型调用与工具执行；README 没有给出费用上限提示，建议自己在预算上留余量（可配合费用统计类插件）。",
+        "alternatives": "官方能力：`subagent` 委派 + `workflow` 编排可以自己搭多路并行，但没有内置的并排比较界面。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-agent-compare.html",
+        "npm": "https://www.npmjs.com/package/dsh-agent-compare",
+        "repository": "https://github.com/lijiaqi-AI-Product-Manager/dsh-agent-compare",
+        "homepage": "https://github.com/lijiaqi-AI-Product-Manager/dsh-agent-compare#readme"
+      }
+    },
+    {
+      "name": "dsh-windows-mcp",
+      "version": "0.2.13",
+      "title": "Windows 桌面自动化",
+      "license": "MIT",
+      "weeklyDownloads": 122222,
+      "risk": "high",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "0.2.11",
+      "currentVersion": "0.2.13",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.2.11"
+      },
+      "activation": "no-error",
+      "activationNote": "已组合，启动期未见报错（MCP 子进程未触发）",
+      "judgment": {
+        "fit": "需要 Agent 操作没有 API 的老软件、内部系统、桌面客户端的人。",
+        "solves": "通过 DSH 自带的 MCP 客户端桥接入 Windows-MCP（`uvx windows-mcp@0.8.8 serve`），插件自身只是 carrier bundle，不重复打包协议客户端。",
+        "risk": "权限极高：注册表读写、进程启停、键盘输入、剪贴板读写都在同一套授权下。默认关闭是对的，但\"默认授权\"设置一旦打开，新会话会直接继承。",
+        "alternatives": "官方 `dsh-computer-use` 生态（`dsh-cua`、`dsh-experimental-computer-use-*`）：走 DSH 自己的 computer-use seam，接口更原生，但目前多为实验件。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-windows-mcp.html",
+        "npm": "https://www.npmjs.com/package/dsh-windows-mcp",
+        "repository": "https://github.com/helloHub1212/dsh-windows-mcp",
+        "homepage": "https://github.com/helloHub1212/dsh-windows-mcp#readme"
+      }
+    },
+    {
+      "name": "dsh-context",
+      "version": "0.87.2",
+      "title": "上下文洞察面板",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 108745,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.85.1",
+      "currentVersion": "0.87.2",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.85.1"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "聊久了发现模型开始忘事、答非所问，想确认是不是上下文爆了的人。",
+        "solves": "上下文洞察页面：一级侧边栏面板，含 7 天 Token/成本 KPI、活动热力图、上下文组成环形图，以及可跳到任一会话的卡片。",
+        "risk": "只读，不解决爆上下文：它告诉你\"装了什么\"，不会自动瘦身；要瘦身得配压缩/清理类插件。",
+        "alternatives": "`/context` 之外什么都不装：只想偶尔看，官方已有基础用量显示。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-context.html",
+        "npm": "https://www.npmjs.com/package/dsh-context",
+        "repository": "https://github.com/bowenliang123/dsh-context",
+        "homepage": "https://github.com/bowenliang123/dsh-context"
+      }
+    },
+    {
+      "name": "dsh-prime-memory",
+      "version": "0.29.5",
+      "title": "分层蒸馏记忆",
+      "license": "MIT",
+      "weeklyDownloads": 77683,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.26.60",
+      "currentVersion": "0.29.5",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.26.60"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "长期跑同一个角色/世界观，希望模型在第 50 轮还记得设定的人。",
+        "solves": "四层管线：对话自动捕获（L0）→ 抽取原子记忆（L1）→ 整合成场景块（L2）→ 蒸馏出画像/方法论（L3）。",
+        "risk": "自动写入 + 自动注入：一条错误记忆会被后续多轮反复引用，越用越偏；必须定期进记忆库抽查、删改。",
+        "alternatives": "`dsh-mnemon`：同样是分层记忆，侧重\"可见的回合记忆栏\"与插件化来源/策略。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-prime-memory.html",
+        "npm": "https://www.npmjs.com/package/dsh-prime-memory",
+        "repository": "https://github.com/drscrewdriver/dsh-prime-memory",
+        "homepage": "https://github.com/drscrewdriver/dsh-prime-memory#readme"
+      }
+    },
+    {
+      "name": "dsh-pet",
+      "version": "0.4.9",
+      "title": "桌面宠物",
+      "license": "MIT",
+      "weeklyDownloads": 53463,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-25",
+      "reviewedVersion": "0.4.9",
+      "currentVersion": "0.4.9",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.4.9"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想让 DSH 有点\"活着\"的感觉：待机呼吸、打瞌睡、玩魔方、拖拽甩抛。",
+        "solves": "一百余个透明动画无缝衔接：待机、随机动作、左右转向、屏幕漫游、点击 Q 弹、拖拽甩抛、右键点播。",
+        "risk": "性能：一百多个透明动画 + 桌面置顶窗，低配机器上会明显吃 GPU/CPU，笔记本续航变差。",
+        "alternatives": "`dsh-dafeiyu`：另一种桌宠实现（蓝色大肥鱼），更轻。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-pet.html",
+        "npm": "https://www.npmjs.com/package/dsh-pet",
+        "repository": "https://github.com/pc2005-cloud/dsh-pet",
+        "homepage": "https://github.com/PC2005-cloud/dsh-pet#readme"
+      }
+    },
+    {
+      "name": "cc-safety-net",
+      "version": "2.8.3",
+      "title": "危险命令拦截",
+      "license": "MIT",
+      "weeklyDownloads": 48504,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-25",
+      "reviewedVersion": "2.8.3",
+      "currentVersion": "2.8.3",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "2.8.3"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "让 Agent 长时间自己跑、担心它一条 `rm -rf` 或 `chmod` 把环境搞坏的人。",
+        "solves": "在工具调用执行前解析命令做了什么，命中破坏性操作或敏感文件访问就拦下。",
+        "risk": "它不是沙箱：不隔离进程、不设文件权限、不监控网络出口。被绕过的路径（解释器、脚本内联、动态拼接）它不保证覆盖。",
+        "alternatives": "官方沙箱 / 权限预设：真正隔离进程与文件的是 DSH 的沙箱能力，这是底线，不能省。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/cc-safety-net.html",
+        "npm": "https://www.npmjs.com/package/cc-safety-net",
+        "repository": "https://github.com/kenryu42/cc-safety-net",
+        "homepage": "https://ccsafetynet.com"
+      }
+    },
+    {
+      "name": "dsh-cost-meter",
+      "version": "1.9.94",
+      "title": "会话费用与额度统计",
+      "license": "MIT",
+      "weeklyDownloads": 44003,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "1.9.70",
+      "currentVersion": "1.9.94",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.9.70"
+      },
+      "activation": "loaded",
+      "activationNote": "日志证实加载并完成历史回填",
+      "judgment": {
+        "fit": "同时用 API 和多份 Coding Plan / 订阅，想知道\"这个月钱花在哪\"的人。",
+        "solves": "输入区、标题栏、每轮回复显示费用；展开可看单价、Token、输入内容和工具结果，父子代理费用分开归属。",
+        "risk": "凭据覆盖广：要查订阅额度，往往需要各家账号的 Cookie、API key 或 AK/SK。这是敏感信息，建议只配你真正在用的那几家，别为了\"看得全\"把所有账号都填进去。",
+        "alternatives": "`dsh-whale-widget`：右下角余额小鲸鱼，看余额/今日消耗/峰谷，轻量得多，但没有会话级明细与导出。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-cost-meter.html",
+        "npm": "https://www.npmjs.com/package/dsh-cost-meter",
+        "repository": "https://github.com/Han-1413141/dsh-cost-meter",
+        "homepage": "https://github.com/Han-1413141/dsh-cost-meter#readme"
+      }
+    },
+    {
+      "name": "dsh-free-search",
+      "version": "0.9.90",
+      "title": "免 Key 多引擎搜索",
+      "license": "MIT",
+      "weeklyDownloads": 42035,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "0.9.53",
+      "currentVersion": "0.9.90",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.9.53"
+      },
+      "activation": "no-error",
+      "activationNote": "已组合，启动期未见报错",
+      "judgment": {
+        "fit": "用第三方模型供应商、没有 DeepSeek 官方 key，导致内置搜索不可用的人。",
+        "solves": "注册一个多引擎搜索 provider 进 `ctx.web`，内置 `web_search` 自动选用。",
+        "risk": "抓页面引擎有代价：`baidu-html`、`so360`、`sogou`、`wechat`、`toutiao` 这类是把搜索页抓下来解析，验证码/反爬会按 `bot-wall` 归类并让整个家族冷却 10 分钟，整段出口 IP 都会被打标。它们默认关闭，建议保持关闭。",
+        "alternatives": "官方 `dsh-web-search-deepseek` / `dsh-web-deepseek-api`：DeepSeek 官方搜索与抓取，稳定、计费清晰，需要官方 key。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-free-search.html",
+        "npm": "https://www.npmjs.com/package/dsh-free-search",
+        "repository": "https://github.com/DDDMUC/dsh-free-search",
+        "homepage": "https://github.com/DDDMUC/dsh-free-search#readme"
+      }
+    },
+    {
+      "name": "ds-harness-remote",
+      "version": "0.6.8",
+      "title": "端到端远程接入",
+      "license": "MIT",
+      "weeklyDownloads": 40611,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.6.5",
+      "currentVersion": "0.6.8",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.6.5"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "电脑在公司/家里开着，想用手机或另一台机器接着用同一套工作区的人。",
+        "solves": "Harness 继续跑在你的工作机上（工作区、工具、权限控制都保留），Remote 给授权设备开另一个窗口。",
+        "risk": "授权设备 = 你的第二把钥匙：能读会话、发消息、传文件；设备丢失或被借用，等于工作机被别人看。",
+        "alternatives": "`dsh-mobile-plugin`：偏向手机看会话、批权限，工具面没这么深。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/ds-harness-remote.html",
+        "npm": "https://www.npmjs.com/package/ds-harness-remote",
+        "repository": "https://github.com/liguobao/ds-harness-remote",
+        "homepage": "https://github.com/liguobao/ds-harness-remote#readme"
+      }
+    },
+    {
+      "name": "dsh-mnemon",
+      "version": "0.5.56",
+      "title": "分层记忆与上下文编排",
+      "license": "MIT",
+      "weeklyDownloads": 40408,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-25",
+      "reviewedVersion": "0.5.54",
+      "currentVersion": "0.5.56",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.5.54"
+      },
+      "activation": "no-error",
+      "activationNote": "已组合，启动期未见报错",
+      "judgment": {
+        "fit": "长期在同一个项目上跟 Agent 协作，受够了\"每次会话都从零开始\"的人。",
+        "solves": "分层召回：偏好与工作中事实常驻上下文；项目档案与长期证据只在需要时检索，避免每轮被淹没或漏掉关键信息。",
+        "risk": "记忆污染：自动写入的记忆一旦写错，会被后续多轮反复引用；建议定期打开记忆系统抽查、删掉过时条目。",
+        "alternatives": "`dsh-context`：更偏\"上下文供给\"的基础设施，下载量更高，记忆分层不如 mnemon 细。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-mnemon.html",
+        "npm": "https://www.npmjs.com/package/dsh-mnemon",
+        "repository": "https://github.com/omdsh-dev/dsh-mnemon",
+        "homepage": "https://github.com/omdsh-dev/dsh-mnemon#readme"
+      }
+    },
+    {
+      "name": "dsh-perm-gate",
+      "version": "5.10.0",
+      "title": "权限门（fail-closed）",
+      "license": "MIT",
+      "weeklyDownloads": 38277,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "5.5.4",
+      "currentVersion": "5.10.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "5.5.4"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "让 Agent 长时间自己跑、担心它碰 SSH 私钥 / `.env` / 云凭据的人。",
+        "solves": "固定优先级链裁决每个工具调用：P0 硬拒（凭据/受保护路径/危险 shell）→ P1 会话放行（精确 grant，带 TTL 与 maxUses）→ P2 静态规则链（黑名单优先）→ P3 可选 LLM 分类器（默认关）→ P4 官方审批。",
+        "risk": "版本线复杂：README 里写\"版本 2.4.1\"，而 npm 上最新是 5.5.4；两条线按 DSH 主线/legacy 分支分别维护，装之前确认你拿到的是哪条。",
+        "alternatives": "`cc-safety-net`：更轻的命令拦截，没有 P0-P4 体系。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-perm-gate.html",
+        "npm": "https://www.npmjs.com/package/dsh-perm-gate",
+        "repository": "https://github.com/drscrewdriver/dsh-perm-gate",
+        "homepage": "https://github.com/drscrewdriver/dsh-perm-gate#readme"
+      }
+    },
+    {
+      "name": "dsh-connect-workbuddy",
+      "version": "5.34.0",
+      "title": "接入 WorkBuddy 模型",
+      "license": "MIT",
+      "weeklyDownloads": 36535,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "5.24.13",
+      "currentVersion": "5.34.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "5.24.13"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "本机已经登录 WorkBuddy、想直接在 DSH 里用它的模型的人。",
+        "solves": "把本机登录的 WorkBuddy（国内版 + 国际版，两个并行供应商）接到 DSH 的模型选择器。",
+        "risk": "上游已限制非官方客户端（README 原文）：接口随时可能失效，账号存在被风控的风险。",
+        "alternatives": "官方 API key：最稳、最合法，成本按官方计费。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-connect-workbuddy.html",
+        "npm": "https://www.npmjs.com/package/dsh-connect-workbuddy",
+        "repository": "https://github.com/dingminhua/dsh-connect-workbuddy",
+        "homepage": "https://github.com/dingminhua/dsh-connect-workbuddy#readme"
+      }
+    },
+    {
+      "name": "dsh-ops",
+      "version": "0.5.7",
+      "title": "省 token 工具集",
+      "license": "MIT",
+      "weeklyDownloads": 34179,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.5.5",
+      "currentVersion": "0.5.7",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.5.5"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "长任务多、上下文总被工具输出撑爆的人（养鱼长对话同样受益）。",
+        "solves": "提供 ops 系列工具，并隐藏部分官方工具，换来更紧凑的返回格式（带行号、错误回馈更好），减少报错循环与调用轮次。",
+        "risk": "换掉工具面是有代价的：习惯官方工具输出格式的人会不适应；某些第三方插件若依赖被隐藏的官方工具，可能失效。",
+        "alternatives": "官方工具面不换：稳，但长任务 token 消耗高。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-ops.html",
+        "npm": "https://www.npmjs.com/package/dsh-ops",
+        "repository": "https://github.com/T-Auto/dsh-ops",
+        "homepage": "https://github.com/T-Auto/dsh-ops#readme"
+      }
+    },
+    {
+      "name": "dsh-whale-widget",
+      "version": "0.4.2",
+      "title": "小鲸鱼记账挂件",
+      "license": "MIT",
+      "weeklyDownloads": 33627,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.4.2",
+      "currentVersion": "0.4.2",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.4.2"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "只想看余额和\"今天花了多少\"，不想装一整套计费面板的人。",
+        "solves": "常驻自启：余额（60 秒自动刷新，点击可手动刷）、今日已用、每轮对话消耗。",
+        "risk": "它记的是\"DeepSeek 账户口径\"：只看该 key 的余额变化，不含其它厂商；多供应商混用时数字会偏。",
+        "alternatives": "`dsh-cost-meter`：会话级明细、模型排行、套餐额度，重但全。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-whale-widget.html",
+        "npm": "https://www.npmjs.com/package/dsh-whale-widget",
+        "repository": "https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget",
+        "homepage": "https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget#readme"
+      }
+    },
+    {
+      "name": "@michengai/dsh-archive-manager",
+      "version": "1.5.0",
+      "title": "会话归档与检索",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 26180,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "1.3.6",
+      "currentVersion": "1.5.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.3.6"
+      },
+      "activation": "pending",
+      "activationNote": "等待 webServer / workspaceRegistry",
+      "judgment": {
+        "fit": "会话数量已经上百、侧栏翻不到想要那一轮的人。",
+        "solves": "两个入口：设置 → 归档会话；或开启左侧导航图标，在主工作区展开居中大面板。",
+        "risk": "\"永久删除\"是真的永久：删的是会话与日志，不经过回收站；即使有二次确认，也建议先用不重要的会话试一次。",
+        "alternatives": "DSH 内置：会话列表本身支持删除与分组，够用但没有正文检索、批量归档、孤儿清理。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/michengai__dsh-archive-manager.html",
+        "npm": "https://www.npmjs.com/package/@michengai/dsh-archive-manager",
+        "repository": "https://github.com/MichengAI/dsh-archive-manager",
+        "homepage": "https://github.com/MichengAI/dsh-archive-manager#readme"
+      }
+    },
+    {
+      "name": "dsh-session-guard",
+      "version": "4.5.0",
+      "title": "高峰时段闸门",
+      "license": "MIT",
+      "weeklyDownloads": 24776,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "4.2.10",
+      "currentVersion": "4.5.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "4.2.10"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "在意峰谷价格、希望高峰期自动停手的人。",
+        "solves": "高峰自动暂停 + 周末模式（按官方峰谷时段判定）。",
+        "risk": "README 默认语言是俄语（多语言里有中文，但要手动切）。",
+        "alternatives": "`dsh-token-diet`：按预算停，不按时段。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-session-guard.html",
+        "npm": "https://www.npmjs.com/package/dsh-session-guard",
+        "repository": "https://github.com/drscrewdriver/dsh-session-guard",
+        "homepage": "https://github.com/drscrewdriver/dsh-session-guard"
+      }
+    },
+    {
+      "name": "deep-view",
+      "version": "0.1.2",
+      "title": "对话内交互视图",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 24677,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.1.2",
+      "currentVersion": "0.1.2",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.1.2"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "经常需要模型输出对比表、参数可调的计算器、一页小表单的人。",
+        "solves": "`show_view` 工具：图表（bar/hbar/line/area/donut）、指标、表格、进度、callout、来源、沙箱 HTML。",
+        "risk": "安装方式不是常规 add：README 给的是往 `cordis.patch.yml` 插一条 `insert`，与\"装 npm 包\"不是一回事，容易装完看不到效果。",
+        "alternatives": "`dsh-genui`：同属\"生成式 UI\"方向，组件更偏表单/仪表盘。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/deep-view.html",
+        "npm": "https://www.npmjs.com/package/deep-view",
+        "repository": "https://github.com/fei2411/deep-view",
+        "homepage": "https://github.com/Fei2411/deep-view#readme"
+      }
+    },
+    {
+      "name": "dsh-plugin-wallpaper-engine",
+      "version": "1.4.3",
+      "title": "壁纸引擎背景",
+      "license": "MIT",
+      "weeklyDownloads": 24007,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "1.4.2",
+      "currentVersion": "1.4.3",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.4.2"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想让角色扮演界面有\"场景感\"的人（雨夜、咖啡馆、星空）。",
+        "solves": "把本机 Wallpaper Engine 的 Scene / Web / 视频壁纸带进 DSH 对话界面。",
+        "risk": "显示层插件也有性能代价：Scene/Web 壁纸是实时渲染，低配机器或长时间开会有明显 GPU/CPU 占用。",
+        "alternatives": "`dsh-dream-skin`：8 套预设皮肤 + 壁纸 + 强调色，纯 token 实现、更轻。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-plugin-wallpaper-engine.html",
+        "npm": "https://www.npmjs.com/package/dsh-plugin-wallpaper-engine",
+        "repository": "https://github.com/elysia395/dsh-wallpaper-engine",
+        "homepage": "https://github.com/elysia395/dsh-wallpaper-engine#readme"
+      }
+    },
+    {
+      "name": "@michengai/dsh-skills-manager",
+      "version": "1.5.5",
+      "title": "技能统一管理",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 23644,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "1.4.11",
+      "currentVersion": "1.5.5",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.4.11"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "同时用多个 Agent 工具，技能文件散在不同目录、自己都记不清装了什么的人。",
+        "solves": "四视图集中管理：全局技能 / 项目技能 / 发现 / 回收站，支持搜索、状态筛选、来源折叠。",
+        "risk": "会写入本机技能目录（新建/导入/归类），改错会影响 Agent 行为；好在有回收站，但恢复前提是你没清空它。",
+        "alternatives": "手动维护 `~/.dsh/skills` 目录：零安装、完全可控，但跨工具就断了。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/michengai__dsh-skills-manager.html",
+        "npm": "https://www.npmjs.com/package/@michengai/dsh-skills-manager",
+        "repository": "https://github.com/MichengAI/dsh-skills-manager",
+        "homepage": "https://github.com/MichengAI/dsh-skills-manager#readme"
+      }
+    },
+    {
+      "name": "dsh-brief-sidebar",
+      "version": "0.9.30",
+      "title": "会话简报侧栏",
+      "license": "MIT",
+      "weeklyDownloads": 20975,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.9.20",
+      "currentVersion": "0.9.30",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.9.20"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "长任务里想一眼看到 todo 三态与进度、以及本轮写了哪些文件的人。",
+        "solves": "简报由两张列表构成：todo 列表（`todos` 投影的进展看板，三态 + 进度摘要）与产物列表（`dshSummaryDeliverables` 投影，回合内实时展示写入/修改的文件，codeplan 规划产物用「规划」pill 标注）。",
+        "risk": "依赖宿主插件：它是 `dsh-better-sidebar` 的消费方；没有 better-sidebar 激活时，本插件按设计 inert（console 干净、不拖死别人），但也就没有「概要」tab。",
+        "alternatives": "官方 composer 上方 todo：零安装，就在输入框上面。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-brief-sidebar.html",
+        "npm": "https://www.npmjs.com/package/dsh-brief-sidebar",
+        "repository": "https://github.com/drscrewdriver/dsh-brief-sidebar",
+        "homepage": "https://github.com/drscrewdriver/dsh-brief-sidebar#readme"
+      }
+    },
+    {
+      "name": "dsh-ppt",
+      "version": "1.1.0",
+      "title": "演示文稿生成",
+      "license": "MIT",
+      "weeklyDownloads": 18310,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.20.8",
+      "currentVersion": "1.1.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.20.8"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "经常要做汇报材料、又不想从零排版的人。",
+        "solves": "给材料（一句话或文档）自动匹配 24 套主题（麦肯锡、BCG 翡翠、经济学人、FT、红杉、Stripe、Apple 空间白等）+ 6 套母版骨架 + 20 套行业场景蓝图。",
+        "risk": "体量与复杂度：主题/版式/工具面（第 10 个工具 `ppt_import`）都很大，第一次用需要读 REFERENCE 文档。",
+        "alternatives": "官方 Office 工具（`dsh-tool-office`）：读/转/算，不负责排版出稿。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-ppt.html",
+        "npm": "https://www.npmjs.com/package/dsh-ppt",
+        "repository": "https://github.com/stardustlc666/dsh-ppt",
+        "homepage": "https://github.com/STARDUSTLC666/dsh-ppt#readme"
+      }
+    },
+    {
+      "name": "@deepseek-harness-tui/dsh-tui",
+      "version": "0.20.2",
+      "title": "终端界面",
+      "license": "MIT",
+      "weeklyDownloads": 15602,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "0.20.1",
+      "currentVersion": "0.20.2",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.20.1"
+      },
+      "activation": "not-composed",
+      "activationNote": "独立 app 入口，不参与 profile 组合",
+      "judgment": {
+        "fit": "长期在 tmux / SSH 终端里工作，不愿意为了一次对话切浏览器的人。",
+        "solves": "终端内交互式 UI：流式 Markdown、工具卡片、`/` 与 `@` 补全、`#L12-14` 行范围引用、历史搜索，中英双语界面。",
+        "risk": "公开测试期：README 自己标注 public beta，0.20.x 的接口与交互仍在变；遇到问题先看版本更新说明。",
+        "alternatives": "官方 `dsh` CLI + `dsh-headless` bundle：一次性任务或脚本化调用的官方路径，没有交互式 UI。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/deepseek-harness-tui__dsh-tui.html",
+        "npm": "https://www.npmjs.com/package/@deepseek-harness-tui/dsh-tui",
+        "repository": "https://github.com/ccch1mneyyy/dsh-TUI",
+        "homepage": "https://github.com/ccch1mneyyy/dsh-TUI#readme"
+      }
+    },
+    {
+      "name": "dsh-pdf-mineru",
+      "version": "0.2.4",
+      "title": "MinerU 解析 PDF",
+      "license": "MIT",
+      "weeklyDownloads": 11706,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.2.3",
+      "currentVersion": "0.2.4",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.2.3"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "要读论文、财报、说明书这类复杂 PDF 的人。",
+        "solves": "支持三种后端：MinerU 官方云（v4）、自部署 4.x（V1 API）、3.x 旧版任务 API。",
+        "risk": "隐私分叉：用官方云 = 文档上传到第三方；要完全本地就得自建 MinerU（额外运维成本）。",
+        "alternatives": "官方 `dsh-tool-office`：能转/读文档，但没有 MinerU 这种公式与版式还原。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-pdf-mineru.html",
+        "npm": "https://www.npmjs.com/package/dsh-pdf-mineru",
+        "repository": "https://github.com/yurzi/dsh-pdf-mineru",
+        "homepage": "https://github.com/Yurzi/dsh-pdf-mineru#readme"
+      }
+    },
+    {
+      "name": "dsh-genui",
+      "version": "0.3.4",
+      "title": "生成式界面",
+      "license": "MIT",
+      "weeklyDownloads": 10692,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.3.3",
+      "currentVersion": "0.3.4",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.3.3"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "经常需要\"算一下\"\"填个表\"\"看个趋势\"，不想在脑内跑逻辑的人。",
+        "solves": "把回复渲染成真实界面：可按键的计算器、可填的表单、带坐标轴的图表。",
+        "risk": "渲染的是模型生成的界面：复杂/恶意指令可能产出奇怪控件，点之前看一眼来源。",
+        "alternatives": "`deep-view`：同类实现，组件偏 slider/choice/confirm，安装方式不同（要改 patch）。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-genui.html",
+        "npm": "https://www.npmjs.com/package/dsh-genui",
+        "repository": "https://github.com/lhuans/dsh-genui",
+        "homepage": "https://lhuans.github.io/dsh-genui/"
+      }
+    },
+    {
+      "name": "dsh-meme",
+      "version": "0.1.86",
+      "title": "表情包",
+      "license": "MIT",
+      "weeklyDownloads": 9700,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.1.81",
+      "currentVersion": "0.1.86",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.1.81"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "角色扮演时想让对话更像真人聊天（有表情、有梗）的人。",
+        "solves": "输入框一键发图；AI 按当前聊天气氛接梗。",
+        "risk": "图库来自网络/第三方包：内容来源与版权需自行确认，装进来的是外部资源。",
+        "alternatives": "手动传图：零安装，最可控。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-meme.html",
+        "npm": "https://www.npmjs.com/package/dsh-meme",
+        "repository": "https://github.com/yyh-001/dsh-meme",
+        "homepage": "https://yyh-001.github.io/dsh-meme/"
+      }
+    },
+    {
+      "name": "@michengai/dsh-im-connect",
+      "version": "1.0.57",
+      "title": "一家接多家 IM",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 9388,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "1.0.43",
+      "currentVersion": "1.0.57",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "partial",
+        "version": "1.0.43"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想让 DSH 同时挂在多个 IM 上、不用一家装一个插件的人。",
+        "solves": "统一接入十几家 IM（微信、飞书、企微、钉钉、QQ、Telegram、WhatsApp、Slack、Discord、Matrix 等）。",
+        "risk": "安装会被 pnpm 拦截：依赖 `protobufjs` 的构建脚本被 pnpm 11 拒绝执行，命令以 `ERR_PNPM_IGNORED_BUILDS` 失败退出。本站实测状态是\"半装\"——包在 `node_modules` 里、写进了 dependencies，但没进入 profile bundles，不会生效。需要 `pnpm approve-builds` 或白名单处理后重装。",
+        "alternatives": "`dsh-onebot-qq`：只接 QQ，走标准 OneBot 11，更聚焦。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/michengai__dsh-im-connect.html",
+        "npm": "https://www.npmjs.com/package/@michengai/dsh-im-connect",
+        "repository": "https://github.com/michengai/dsh-im-connect",
+        "homepage": "https://github.com/MichengAI/dsh-im-connect#readme"
+      }
+    },
+    {
+      "name": "@openviking/dsh-memory-plugin",
+      "version": "0.5.44",
+      "title": "OpenViking 记忆接入",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 9304,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.5.38",
+      "currentVersion": "0.5.44",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.5.38"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "已经在用 OpenViking（或愿意自建）的人。",
+        "solves": "接 OpenViking 的自动召回与会话捕获。",
+        "risk": "前置条件重：没有 OpenViking 服务器 = 装了没用。README 明说需要带 `viking://~` 支持的服务端。",
+        "alternatives": "`dsh-mnemon`：本地优先、分层记忆，不需要外部服务。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/openviking__dsh-memory-plugin.html",
+        "npm": "https://www.npmjs.com/package/@openviking/dsh-memory-plugin",
+        "repository": "https://github.com/volcengine/openviking",
+        "homepage": "https://github.com/volcengine/OpenViking#readme"
+      }
+    },
+    {
+      "name": "dsh-notify-me",
+      "version": "1.28.2",
+      "title": "离开页面也提醒",
+      "license": "MIT",
+      "weeklyDownloads": 8976,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "1.21.3",
+      "currentVersion": "1.28.2",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.21.3"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "长任务跑着、人不敢离开页面的人。",
+        "solves": "需要你操作时：审批、方案确认、提问，用通知 + 提示音 + 标题标记提醒。",
+        "risk": "转发 = 内容出本机：推到 Discord/飞书/Bark 等渠道时，通知里通常带会话摘要或标题，私密角色扮演内容会顺手泄露。高隐私场景请只用本地通知。",
+        "alternatives": "只用浏览器/系统通知：零配置，但没有外部推送。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-notify-me.html",
+        "npm": "https://www.npmjs.com/package/dsh-notify-me",
+        "repository": "https://github.com/chromoany/dsh-notify-me",
+        "homepage": "https://github.com/chromoany/dsh-notify-me#readme"
+      }
+    },
+    {
+      "name": "dsh-fish-memory",
+      "version": "1.6.7",
+      "title": "会淡忘的长期记忆",
+      "license": "SEE LICENSE IN LICENSE",
+      "weeklyDownloads": 7894,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "1.6.3",
+      "currentVersion": "1.6.7",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.6.3"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "长线角色扮演：想让角色记得上周的剧情，但不想每轮都把整本设定塞进上下文。",
+        "solves": "会淡忘：每条记忆有鲜活度，半衰期默认 30 天，不删除、只是越来越难被想起。",
+        "risk": "检索靠关键词与词表，同义改写、外语内容、代号式设定容易命不中；重要设定仍建议写进 AGENTS.md 兜底。",
+        "alternatives": "`meow-memory`：七层记忆 + Dream consolidation，工程化更重。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-fish-memory.html",
+        "npm": "https://www.npmjs.com/package/dsh-fish-memory",
+        "repository": "https://github.com/Yuuyuko-uu/dsh-fish-memory",
+        "homepage": "https://github.com/Yuuyuko-uu/dsh-fish-memory#readme"
+      }
+    },
+    {
+      "name": "dsh-plugin-memory",
+      "version": "0.21.0",
+      "title": "markdown+git 可迁移记忆",
+      "license": "MIT",
+      "weeklyDownloads": 7860,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.20.0",
+      "currentVersion": "0.21.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.20.0"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想要\"记忆能自己打开看、能进 git、能搬走\"的人。",
+        "solves": "跨会话、可迁移的持久记忆：纯 markdown + git（LLM Wiki 模式）。",
+        "risk": "版本事故要记住：README 自述早期 0.19.x 调用了 `ctx.agents.roots()`，而 DSH rc.2 起换成 `list()`，抛错发生在 agent 注册监听器里，表现是\"开启插件后无法新建会话\"。必须升到 0.19.2+ 并完全重启 DSH。本站实测装的是 0.20.0，无此问题。",
+        "alternatives": "`dsh-soul-md`：人设卡 + 文件记忆，更偏\"多角色切换\"。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-plugin-memory.html",
+        "npm": "https://www.npmjs.com/package/dsh-plugin-memory",
+        "repository": "https://github.com/littleblacktong/dsh-plugin-memory",
+        "homepage": "https://github.com/LittleBlackTong/dsh-plugin-memory#readme"
+      }
+    },
+    {
+      "name": "dsh-see-now",
+      "version": "0.2.9",
+      "title": "实时看见屏幕",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 7814,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.2.4",
+      "currentVersion": "0.2.9",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.2.4"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想让 AI 边看你操作边指导（写代码、剪视频、调软件）的人。",
+        "solves": "每帧先打 0–255 的\"变化分\"（HSV 三通道加权差，64×36 网格，约 0.2ms）。",
+        "risk": "隐私面最大的一类：屏幕上有密码管理器、私聊窗口、客户资料，都会被\"看见\"；即使只传变化帧，也仍然进模型。",
+        "alternatives": "`dsh-video-storyboard`：把视频压成可引用宫格图，不是实时陪看。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-see-now.html",
+        "npm": "https://www.npmjs.com/package/dsh-see-now",
+        "repository": "https://github.com/SAOS-3624/dsh-see-now",
+        "homepage": "https://github.com/SAOS-3624/dsh-see-now#readme"
+      }
+    },
+    {
+      "name": "@tencent-connect/dsh-qqbot",
+      "version": "0.5.5",
+      "title": "官方 QQ Bot 通道",
+      "license": "MIT",
+      "weeklyDownloads": 7640,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.5.5",
+      "currentVersion": "0.5.5",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "partial",
+        "version": "0.5.5"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想要\"合规优先\"的人：不愿意用 OneBot 这类非官方客户端方案。",
+        "solves": "通过腾讯 QQ Bot 开放平台接入 QQ 私聊与群聊。",
+        "risk": "前置条件：需要先在 QQ 开放平台注册机器人并审核，不是装完就能用。",
+        "alternatives": "`dsh-onebot-qq`：绕开审核但要自己跑协议端，账号风险更高。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/tencent-connect__dsh-qqbot.html",
+        "npm": "https://www.npmjs.com/package/@tencent-connect/dsh-qqbot",
+        "repository": "https://github.com/tencent-connect/dsh-qqbot",
+        "homepage": "https://github.com/tencent-connect/dsh-qqbot#readme"
+      }
+    },
+    {
+      "name": "dsh-fish-soul",
+      "version": "0.19.6",
+      "title": "跨平台单角色人格",
+      "license": "MIT",
+      "weeklyDownloads": 7474,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.18.6",
+      "currentVersion": "0.19.6",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.18.6"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想让角色不只活在 DSH 窗口里，还能在 QQ 群/私聊、B站私信里继续的人。",
+        "solves": "人格：7 个内置模板、可视化编辑、导入/导出 SillyTavern 角色卡（PNG/JSON）、世界书、作息、心情语气、聊久了会慢慢演化（要多次跨天证据才生效）。",
+        "risk": "账号风险最高的一类：QQ 用 OneBot 正向 WS、B站扫码登录、抖音浏览器登录，都是\"用你的账号做非官方客户端行为\"，封号风险自担。",
+        "alternatives": "`dsh-liketavern`：只在 DSH 里做专业角色扮演，不碰外部账号。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-fish-soul.html",
+        "npm": "https://www.npmjs.com/package/dsh-fish-soul",
+        "repository": "https://github.com/britneycode/dsh-fish-soul",
+        "homepage": "https://github.com/Britneycode/dsh-fish-soul#readme"
+      }
+    },
+    {
+      "name": "dsh-dafeiyu",
+      "version": "0.1.23",
+      "title": "大肥鱼桌面伴侣",
+      "license": "SEE LICENSE IN ASSET_LICENSE.md",
+      "weeklyDownloads": 6916,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.1.23",
+      "currentVersion": "0.1.23",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.1.23"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想在编辑器/浏览器前也能看到 Agent 状态的人（思考、查找、修改、执行、完成）。",
+        "solves": "透明、无边框、始终置顶的原生窗口，由插件启动、随 DSH 退出。",
+        "risk": "原生依赖：Windows/Linux/macOS 共用包，但无随架构 Helper 时会回退 Python，需要 PySide6——少这一步就\"装了没窗口\"。",
+        "alternatives": "`dsh-pet`：同为桌宠，动画更多、支持宠物包。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-dafeiyu.html",
+        "npm": "https://www.npmjs.com/package/dsh-dafeiyu",
+        "repository": "https://github.com/QCYTSN/dsh-dafeiyu",
+        "homepage": "https://github.com/QCYTSN/dsh-dafeiyu#readme"
+      }
+    },
+    {
+      "name": "dsh-video-storyboard",
+      "version": "0.8.1",
+      "title": "视频分镜与可引用帧",
+      "license": "Apache-2.0",
+      "weeklyDownloads": 6749,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "0.7.6",
+      "currentVersion": "0.8.1",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.7.6"
+      },
+      "activation": "no-error",
+      "activationNote": "已组合，启动期未见报错",
+      "judgment": {
+        "fit": "需要让模型看视频、写分镜、总结讲解、做素材笔记的人。",
+        "solves": "输入一个视频，输出一张可寻址宫格图：每格烧编号、对应时间段、挂那段时间的台词，底部还有与画面同时间轴的音频包络。",
+        "risk": "三个外部依赖：ffmpeg、yt-dlp、ASR 缺一个就跑不顺；README 直言\"用户反馈里一半以上不是 bug，是没配 ASR 或装完 ffmpeg 没重启 DSH\"。",
+        "alternatives": "人工截帧 + `read_image`：零依赖，适合只要两三帧的轻量场景。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-video-storyboard.html",
+        "npm": "https://www.npmjs.com/package/dsh-video-storyboard",
+        "repository": "https://github.com/SAOS-3624/dsh-video-storyboard",
+        "homepage": "https://github.com/SAOS-3624/dsh-video-storyboard#readme"
+      }
+    },
+    {
+      "name": "dsh-bili-scroll",
+      "version": "2.5.3",
+      "title": "每天刷一轮 B 站",
+      "license": "MIT",
+      "weeklyDownloads": 6502,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "2.5.2",
+      "currentVersion": "2.5.3",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "2.5.2"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想每天被动收到\"值得看的 B 站视频\"，而不是自己刷的人。",
+        "solves": "按关键词（留空用内置组）搜近几天视频，逐条读字幕原文再判断（不看摘要）；没字幕的演示类视频会抽故事板帧看画面。",
+        "risk": "磁盘：不装本地转写约 84 MB；装了约 1 GB（Whisper 模型 538 MB，可换小模型）。",
+        "alternatives": "手动刷 + 自己总结：零风险。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-bili-scroll.html",
+        "npm": "https://www.npmjs.com/package/dsh-bili-scroll",
+        "repository": "https://github.com/c1overzz/dsh-bili-scroll",
+        "homepage": "https://github.com/c1overzz/dsh-bili-scroll#readme"
+      }
+    },
+    {
+      "name": "dsh-music-panel",
+      "version": "0.47.2",
+      "title": "内嵌音乐播放器",
+      "license": null,
+      "weeklyDownloads": 5648,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.36.2",
+      "currentVersion": "0.47.2",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.36.2"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "养鱼/写作时想放背景音乐，又不想切窗口的人。",
+        "solves": "本地曲库 + 多在线源（网易云、QQ 音乐、酷狗、波点、汽水）+ Navidrome/Subsonic。",
+        "risk": "许可证是 AGPL-3.0-only：比 MIT 严格得多，商用/二次分发前必须确认义务（本站标了\"许可证需确认\"）。",
+        "alternatives": "系统播放器：零安装、零风险。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-music-panel.html",
+        "npm": "https://www.npmjs.com/package/dsh-music-panel",
+        "repository": "https://github.com/aliboder/dsh-music-panel",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-onebot-qq",
+      "version": "0.11.2",
+      "title": "QQ 通道（OneBot 11）",
+      "license": null,
+      "weeklyDownloads": 5044,
+      "risk": "high",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.10.0",
+      "currentVersion": "0.11.2",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.10.0"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想让 DSH 的 Agent 直接在 QQ（私聊/群）里回话的人。",
+        "solves": "OneBot 11 通道：反向 WS 服务器 / 正向 WS 客户端（自动重连）。",
+        "risk": "账号风险：走 OneBot 协议端，本质是非官方客户端行为；风控与封号风险自担。",
+        "alternatives": "`dsh-fish-soul`：在通道之上再包一层人格与按人记忆（更重、风险更高）。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-onebot-qq.html",
+        "npm": "https://www.npmjs.com/package/dsh-onebot-qq",
+        "repository": "https://github.com/mario841859784/dsh-onebot",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-config-manager",
+      "version": "0.12.0",
+      "title": "配置备份与迁移",
+      "license": null,
+      "weeklyDownloads": 4929,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.10.0",
+      "currentVersion": "0.12.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.10.0"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "准备换电脑、重装系统的人（这是最实用的场景）。",
+        "solves": "一键备份 / 恢复 / 导出 / 导入完整 DSH 配置（设置、模型与 Provider、已装插件及配置、MCP Servers、Skills、Agent Presets、Workspace/AGENTS.md）。",
+        "risk": "含密钥的备份 = 最高敏感文件：一旦启用\"导出密钥\"，这个包就是你的账号通行证；必须加密、必须自己保管，别放公开仓库。",
+        "alternatives": "手动备份 `$DSH_HOME`：最原始但完全可控。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-config-manager.html",
+        "npm": "https://www.npmjs.com/package/dsh-config-manager",
+        "repository": "https://github.com/xiajiajun516/dsh-config-manager",
+        "homepage": null
+      }
+    },
+    {
+      "name": "meow-memory",
+      "version": "0.33.3",
+      "title": "七层 SQLite 记忆",
+      "license": null,
+      "weeklyDownloads": 4457,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.33.0",
+      "currentVersion": "0.33.3",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.33.0"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想要\"角色人格(soul)\"与\"用户偏好(user)\"分开存的人（养鱼尤其吃这个）。",
+        "solves": "七层记忆：soul / user / project / fact / lesson / topic / rules，每层一张 SQLite 表。",
+        "risk": "配置门槛高：七层 + 锚定 + 信任门 + Dream 时段，新手第一次用容易只看到\"没反应\"。",
+        "alternatives": "`dsh-fish-memory`：更轻、会淡忘，命中即注入。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/meow-memory.html",
+        "npm": "https://www.npmjs.com/package/meow-memory",
+        "repository": "https://github.com/Phant0Meow/dsh-meow-memory",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-soul-md",
+      "version": "0.12.6",
+      "title": "人设卡与文件记忆",
+      "license": null,
+      "weeklyDownloads": 4216,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-25",
+      "reviewedVersion": "0.12.5",
+      "currentVersion": "0.12.6",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.12.5"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "同时养多个角色/多个项目，需要\"这个会话用这个人设\"的人。",
+        "solves": "人设卡：插件页创建/编辑/设默认；新会话页或聊天标题栏可给单个会话换卡，也能隐藏选择器。",
+        "risk": "\"不保证自动发生\"：README 明说人设变化与记忆写入取决于模型是否真的调用工具——也就是说模型偷懒时，人设不会自己更新。",
+        "alternatives": "AGENTS.md 手写人设：零安装、最稳，适合单角色单项目。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-soul-md.html",
+        "npm": "https://www.npmjs.com/package/dsh-soul-md",
+        "repository": "https://github.com/scorp1o117/dsh-soul-md",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-token-diet",
+      "version": "0.1.0",
+      "title": "Token 账本与预算",
+      "license": null,
+      "weeklyDownloads": 3622,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.1.0",
+      "currentVersion": "0.1.0",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.1.0"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "长会话、长任务容易一晚上烧掉预算，需要硬性止损的人。",
+        "solves": "Token 统计页：汇总本机所有会话、子智能体与自动化任务，给出总 Token、估算成本、缓存命中率、日均成本、按天趋势、按模型/工作区明细。",
+        "risk": "预算是估算：价格来自第三方目录 models.dev + 汇率联网，报价过期或映射不准时，红线位置会漂移。",
+        "alternatives": "`dsh-cost-meter`：更偏历史归因、套餐额度聚合，预算提醒没那么硬。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-token-diet.html",
+        "npm": "https://www.npmjs.com/package/dsh-token-diet",
+        "repository": "https://github.com/ybh618618/dsh-token-diet",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-dream-skin",
+      "version": "11.16.0",
+      "title": "换肤与壁纸",
+      "license": null,
+      "weeklyDownloads": 3363,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-17",
+      "reviewedVersion": "11.16.0",
+      "currentVersion": "11.16.0",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "11.16.0"
+      },
+      "activation": "pending",
+      "activationNote": "等待 webServer",
+      "judgment": {
+        "fit": "长时间盯界面、对配色和留白敏感的人。",
+        "solves": "8 套原创预设皮肤（Mirage 幻梦系列），浅色/深色兼顾，每套自带弥散光背景，戴上即用。",
+        "risk": "维护坐标变过：README 自己说明 GitHub 账号被封后迁到 gitcode，并暂停\"已验证/收录\"徽章声明。这意味着源码托管与背书状态需要你自己确认，本市场不以旧徽章为依据。",
+        "alternatives": "`dsh-claude-style`：Claude Code 风格的视觉与交互重制，风格取向完全不同。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-dream-skin.html",
+        "npm": "https://www.npmjs.com/package/dsh-dream-skin",
+        "repository": null,
+        "homepage": null
+      }
+    },
+    {
+      "name": "@suifei/dsh-ai-team",
+      "version": "0.4.145",
+      "title": "文渊阁 AI 团队",
+      "license": null,
+      "weeklyDownloads": 3275,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.4.119",
+      "currentVersion": "0.4.145",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.4.119"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想把一个完整任务（做个小产品、写份报告、改一套代码）交出去，自己只定方向与拍板的人。",
+        "solves": "三栏工作台：左 Project 与成员，中主对话/看板/态势，右 Thread。",
+        "risk": "复杂度高：装进专用 `ai-team` profile，工作台概念多（Project / Task / Thread / 人才 / 技能），第一次用容易迷路。",
+        "alternatives": "官方 subagent / workflow：轻量，没有工作台与验收角色，适合小任务。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/suifei__dsh-ai-team.html",
+        "npm": "https://www.npmjs.com/package/@suifei/dsh-ai-team",
+        "repository": "https://github.com/suifei/dsh-ai-team",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-folia",
+      "version": "1.2.0",
+      "title": "壁纸引擎 + 桌宠 + 开机动画",
+      "license": null,
+      "weeklyDownloads": 2879,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "4.26.0-pre.64",
+      "currentVersion": "1.2.0",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "4.26.0-pre.64"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想要\"整个界面像游戏/沉浸式空间\"的人：壁纸 + 桌宠 + 开机动画一套齐。",
+        "solves": "本机 WE 壁纸实时渲染：支持 Scene、Web、Video 三种类型。",
+        "risk": "包名有两个：README 徽章指向 `dsh-plugin-folia`，而实际安装名是 `dsh-folia`；装错包名会\"装了没反应\"，这是最容易踩的坑。",
+        "alternatives": "`dsh-plugin-wallpaper-engine`：只做壁纸，轻一些。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-folia.html",
+        "npm": "https://www.npmjs.com/package/dsh-folia",
+        "repository": "https://github.com/lehua-art/dsh-folia",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-session-superagent",
+      "version": "2.0.2",
+      "title": "仓库事件唤醒会话",
+      "license": null,
+      "weeklyDownloads": 2184,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.10.12",
+      "currentVersion": "2.0.2",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "partial",
+        "version": "0.10.12"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "希望\"有 issue/PR 就自动处理\"而不是自己轮询的人。",
+        "solves": "监听 GitHub 仓库变化（issue、PR 等），满足条件时唤醒指定会话。",
+        "risk": "安装被 pnpm 拦截：与 IM 类插件同一问题（`protobufjs` 构建脚本），本站实测为\"半装\"——包落地、写进 dependencies，但未进 bundles，不生效。需要 `pnpm approve-builds` 处理。",
+        "alternatives": "`dsh-hooks-*` / Claude Code hooks 桥：事件钩子更通用。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-session-superagent.html",
+        "npm": "https://www.npmjs.com/package/dsh-session-superagent",
+        "repository": "https://github.com/mycf711/dsh-session-superagent",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-live-compact",
+      "version": "1.1.14",
+      "title": "边做边压",
+      "license": null,
+      "weeklyDownloads": 2166,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-25",
+      "reviewedVersion": "1.1.12",
+      "currentVersion": "1.1.14",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.1.12"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "一段对话做久了，日志、命令输出、工具结果越积越多，上下文快爆的人。",
+        "solves": "每轮结束时检查，把能安全收短的长输出就地整理，在本机完成，不再请求模型。",
+        "risk": "\"压缩\"不等于\"无损\"：它只动工具输出那类长内容，但一旦你依赖被压掉的中间细节，仍然查不到原文（虽然有备份）。",
+        "alternatives": "官方压缩（`dsh-compaction-basic` 等）：由上下文接近上限时触发大摘要，简单但会丢细节。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-live-compact.html",
+        "npm": "https://www.npmjs.com/package/dsh-live-compact",
+        "repository": "https://github.com/Tranquillitatis-Lab/dsh-live-compact",
+        "homepage": "https://download.merkyorlynn.com/live-compact.html"
+      }
+    },
+    {
+      "name": "dsh-loci",
+      "version": "7.2.1",
+      "title": "记忆宫殿（只放索引）",
+      "license": null,
+      "weeklyDownloads": 1743,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "6.0.1",
+      "currentVersion": "7.2.1",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "6.0.1"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "被记忆插件\"固定税\"折磨过的人：每次请求都多几 KB 系统提示，长期很贵。",
+        "solves": "索引与内容分离：系统提示只放一行一条的索引（作者实测约 1.3k tokens，稳定）。",
+        "risk": "作者在 README 里点名对比了其它插件（mnemon\"系统提示 +4.8KB、16 个工具\"、ledger-memory 无界增长、某些插件静默截断召回）。这些是作者自述，我们未逐一复验，看你自己的场景。",
+        "alternatives": "`dsh-mnemon`：分层记忆 + 回合记忆栏，可见性强但固定税更高。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-loci.html",
+        "npm": "https://www.npmjs.com/package/dsh-loci",
+        "repository": "https://github.com/awenforever/dsh-loci",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-tts-bridge",
+      "version": "1.3.4",
+      "title": "朗读桥",
+      "license": null,
+      "weeklyDownloads": 1401,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "1.3.4",
+      "currentVersion": "1.3.4",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.3.4"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "想让角色\"出声\"、但不想再接第三方 TTS 服务的人。",
+        "solves": "两部分配合：DSH 插件盯会话、把\"说完一整轮\"的话排进队列；Chrome/Edge 扩展取队列、发给 DeepSeek 网页、点它的「朗读」按钮。",
+        "risk": "依赖浏览器扩展与常开页面：缺一个都不出声；页面关掉就没声音了。",
+        "alternatives": "`dsh-fish-soul`：自带 TTS（可接 OpenAI 兼容 / MiniMax / 豆包），不依赖网页端。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-tts-bridge.html",
+        "npm": "https://www.npmjs.com/package/dsh-tts-bridge",
+        "repository": "https://github.com/Yuuyuko-uu/dsh-tts-bridge",
+        "homepage": null
+      }
+    },
+    {
+      "name": "memory-eternal",
+      "version": "0.49.11",
+      "title": "本地+云端第二大脑",
+      "license": null,
+      "weeklyDownloads": 1237,
+      "risk": "medium",
+      "privacy": "cloud",
+      "privacyNote": "会把内容发送到第三方服务",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.49.11",
+      "currentVersion": "0.49.11",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.49.11"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "多台机器/多个客户端之间想共享记忆的人。",
+        "solves": "本机记忆库离线可用；登录云端后同一套知识卡可在每台设备、每个 Agent 读取。",
+        "risk": "云端登录 = 内容上云：账号来自第三方（MengBot），隐私边界取决于对方服务条款；养鱼的私密剧情尤其要考虑。",
+        "alternatives": "`dsh-fish-memory`：纯本地、会淡忘，轻。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/memory-eternal.html",
+        "npm": "https://www.npmjs.com/package/memory-eternal",
+        "repository": "https://github.com/EternalNight996/memory-eternal",
+        "homepage": "https://eternalnight996.github.io/memory-eternal/"
+      }
+    },
+    {
+      "name": "dsh-memory-nebula",
+      "version": "1.11.76",
+      "title": "记忆星图（只读聚合）",
+      "license": null,
+      "weeklyDownloads": 1166,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "1.11.68",
+      "currentVersion": "1.11.76",
+      "stale": true,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "1.11.68"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "装了两三个记忆插件、想知道它们各自记了什么的人（养鱼党常踩的坑）。",
+        "solves": "左侧栏一个图标 → 打开整片星云（可缩放、可筛选、可搜索）。",
+        "risk": "它会让 AI 读到更多记忆：跨项目、跨插件的联想检索意味着更多上下文进入会话，也可能把你在 A 项目说的话带进 B 项目——角色扮演场景下要谨慎。",
+        "alternatives": "`dsh-context`：看上下文组成，不看记忆内容。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-memory-nebula.html",
+        "npm": "https://www.npmjs.com/package/dsh-memory-nebula",
+        "repository": "https://github.com/hanhan9999999999999999999/dsh-memory-nebula",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-icon-library",
+      "version": "0.20.0",
+      "title": "项目级图标库",
+      "license": null,
+      "weeklyDownloads": 339,
+      "risk": "low",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "reviewedVersion": "0.20.0",
+      "currentVersion": "0.20.0",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.20.0"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "前端项目里 SVG 散落在各组件、名字各写各的人。",
+        "solves": "语义指代：形状入库后获得名称、应用规则与稳定身份；`icon_list` / `icon_get` 按意取图，`icon_annotate` 回写使用经验。",
+        "risk": "会写项目文件：`.icons.json` 是新增的工程文件，团队要接受它进仓库。",
+        "alternatives": "手工维护 SVG 目录：零安装，但语义与去重全靠自觉。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/dsh-icon-library.html",
+        "npm": "https://www.npmjs.com/package/dsh-icon-library",
+        "repository": "https://github.com/brickhu/dsh-plugins",
+        "homepage": null
+      }
+    },
+    {
+      "name": "dsh-liketavern",
+      "version": "0.5.13",
+      "title": "SillyTavern 兼容剧情引擎",
+      "license": "MIT",
+      "weeklyDownloads": null,
+      "risk": "medium",
+      "privacy": "local",
+      "privacyNote": "数据留在本机或你自己的服务器",
+      "verificationDate": "2026-11-18",
+      "currentVersion": "0.5.13",
+      "stale": false,
+      "dshVersion": "0.2.2-rc.3",
+      "install": {
+        "result": "installed",
+        "version": "0.5.12"
+      },
+      "activation": "unknown",
+      "activationNote": null,
+      "judgment": {
+        "fit": "已经在 SillyTavern 里积累了角色卡、世界书、预设，想搬到 DSH 继续用的人。",
+        "solves": "ST 生态兼容：V1/V2/V3 角色卡（PNG/JSON）导入导出、多开场白、内嵌世界书、ST 提示词预设；EJS 模板 + QuickJS 快照恢复；酒馆助手子集与原生 MVU 状态栏。",
+        "risk": "装法特殊：不在 npm，必须 `github:Amakurai/dsh-liketavern` 装（实测 156 秒才装完，克隆慢时容易误判失败）。",
+        "alternatives": "`dsh-soul-md`：轻量人设卡 + 文件记忆，够用就别上这套。"
+      },
+      "links": {
+        "page": "https://qianmokillstar.github.io/dsh-plugins/p/Amakurai__dsh-liketavern.html",
+        "npm": "https://www.npmjs.com/package/dsh-liketavern",
+        "repository": "https://github.com/Amakurai/dsh-liketavern",
+        "homepage": null
+      }
+    }
+  ]
+}
